@@ -1,9 +1,9 @@
 from hypersurface import *
 import sympy as sp
-d = 3
+d = 4
 Z = [sp.symbols('z_'+str(i+1)) for i in range(d)]
-f = sum([k**3 for k in Z])
-HS = Hypersurface(Z, f, d, 10)
+f = sum([k**4 for k in Z])
+HS = Hypersurface(Z, f, d, 1)
 #print(len(K3.points))
 #print(K3.dimensions)
 HS.list_patches()

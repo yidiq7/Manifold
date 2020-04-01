@@ -2,6 +2,7 @@ import numpy as np
 import sympy as sp
 from manifold import *
 from patches import *
+
 # In manifold and type
 class Hypersurface(Manifold):
 
@@ -66,7 +67,15 @@ class Hypersurface(Manifold):
             line = [zpair[0][i]+(a*zpair[1][i]) for i in range(self.dimensions)]
             function_eval = self.function.subs([(self.coordinates[i], line[i])
                                                   for i in range(self.dimensions)])
-            a_solved = sp.solvers.solve(sp.Eq(function_eval),a)
+            #print(sp.expand(function_eval))
+            #function_lambda = sp.lambdify(a, function_eval, ["scipy", "numpy"])
+            #a_solved = fsolve(function_lambda, 1)
+            a_solved = sp.polys.polytools.nroots(function_eval)
+            a_rational = sp.solvers.solve(sp.Eq(sp.nsimplify(function_eval, rational=True)),a)
+            print("poly", a_solved)
+            print("rational", a_rational)
+            # print("Solution for a_lambda:", a_poly)
+            # a_solved = sp.solvers.solve(sp.Eq(sp.expand(function_eval)),a)
             for pram_a in a_solved:
                 points.append([zpair[0][i]+(pram_a*zpair[1][i])
                                for i in range(self.dimensions)])
