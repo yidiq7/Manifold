@@ -15,6 +15,7 @@ class Hypersurface(Manifold):
         self.points = self.__solve_points()
         self.patches = []
         self.__autopatch()
+        self.holo_volume_form = self.__get_holvolform() 
     #def HolVolForm(F, Z, j)
 
 
@@ -22,12 +23,15 @@ class Hypersurface(Manifold):
         #self.patches = [None]*n_patches
         self.patches = []
 
-    def set_patch(self, points_on_patch):
+    def set_patch(self, points_on_patch, norm_coordinate):
         #patch.append(point)
-        for points in points_on_patch:
-            new_patch = Patches(self.coordinates, self.function, self.dimensions, points)
-            self.patches.append(new_patch)
-
+        #for points in points_on_patch:
+        #    new_patch = Patches(self.coordinates, self.function, self.dimensions, points)
+        #    self.patches.append(new_patch)
+        new_patch = Patches(self.coordinates, self.function, self.dimensions,
+                            points_on_patch, norm_coordinate)
+        self.patches.append(new_patch)
+        
     def list_patches(self):
         print("Number of Patches:", len(self.patches))
         i = 1
@@ -44,11 +48,13 @@ class Hypersurface(Manifold):
         print("All points on this hypersurface:")
         print(self.points)
 
-    def eval_holvolform(self):
-        holvolform = []
-        for i in range(len(self.patches)):
-            holvolform.append(self.patches[i].eval_holvolform())
-        return holvolform
+    # def eval_holvolform(self):
+    #     holvolform = []
+    #     for i in range(len(self.patches)):
+    #         holvolform.append(self.patches[i].eval_holvolform())
+    #     return holvolform 
+
+
     # Private:
 
     def __generate_random_pair(self):
@@ -71,9 +77,7 @@ class Hypersurface(Manifold):
             #function_lambda = sp.lambdify(a, function_eval, ["scipy", "numpy"])
             #a_solved = fsolve(function_lambda, 1)
             a_solved = sp.polys.polytools.nroots(function_eval)
-            a_rational = sp.solvers.solve(sp.Eq(sp.nsimplify(function_eval, rational=True)),a)
-            print("poly", a_solved)
-            print("rational", a_rational)
+            #a_rational = sp.solvers.solve(sp.Eq(sp.nsimplify(function_eval, rational=True)),a)
             # print("Solution for a_lambda:", a_poly)
             # a_solved = sp.solvers.solve(sp.Eq(sp.expand(function_eval)),a)
             for pram_a in a_solved:
@@ -81,21 +85,39 @@ class Hypersurface(Manifold):
                                for i in range(self.dimensions)])
         return(points)
 
+    # def __autopatch(self):
+    #    self.reset_patchwork()
+    #    #self.reset_patchwork(self.dimensions)
+    #    #for i in range(self.dimensions):
+    #    #     self.patches[i] = []
+    #     points_on_patch = [[] for i in range(self.dimensions)]
+    #     for point in self.points:
+    #         norms = np.absolute(point)
+    #         for i in range(self.dimensions):
+    #             if norms[i] == max(norms):
+    #                 point_normalized = self.normalize_point(point, i)
+    #                 points_on_patch[i].append(point_normalized) 
+    #     self.set_patch(points_on_patch)
+    #                #self.set_patch(point, self.patches[i])
+    #                 # remake patch here
+
+
     def __autopatch(self):
         self.reset_patchwork()
-       #self.reset_patchwork(self.dimensions)
-       #for i in range(self.dimensions):
-       #     self.patches[i] = []
-        points_on_patch = [[] for i in range(self.dimensions)]
-        for point in self.points:
-            norms = np.absolute(point)
-            for i in range(self.dimensions):
+        for i in range(self.dimensions):
+            points_on_patch = []
+            for point in self.points:
+                norms = np.absolute(point)
                 if norms[i] == max(norms):
                     point_normalized = self.normalize_point(point, i)
-                    points_on_patch[i].append(point_normalized) 
-        self.set_patch(points_on_patch)
-                    #self.set_patch(point, self.patches[i])
-                    # remake patch here
+                    points_on_patch.append(point_normalized)
+            self.set_patch(points_on_patch, i)
+
+    def __get_holvolform(self):
+        holvolform = []
+        for i in range(len(self.patches)):
+            holvolform.append(self.patches[i].holo_volume_form)
+        return holvolform
     #Add class section
     #self. expr = sympy
     #def pt set
