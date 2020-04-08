@@ -48,6 +48,13 @@ class Hypersurface(Manifold):
         print("All points on this hypersurface:")
         print(self.points)
 
+    def eval(self, expr_name):
+        expr_evaluated = []
+        for patch in self.patches:
+            expr_evaluated.append(patch.eval(expr_name))
+        expr_evaluated = np.array(expr_evaluated)
+        return expr_evaluated 
+
     # def eval_holvolform(self):
     #     holvolform = []
     #     for i in range(len(self.patches)):
@@ -122,3 +129,4 @@ class Hypersurface(Manifold):
     #self. expr = sympy
     #def pt set
     #contains derivatives etc
+

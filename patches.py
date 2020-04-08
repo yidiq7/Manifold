@@ -1,4 +1,5 @@
 import sympy as sp
+import numpy as np
 class Patches():
 
     def __init__(self, coordinates, function, dimensions, points, norm_coordinate):
@@ -13,6 +14,22 @@ class Patches():
     def print_all_points(self):
         print("All points on this patch:")
         print(self.points)
+
+    def eval(self, expr_name):
+        expr_array = np.array(getattr(self, expr_name))
+        #print(expr_array)
+        expr_array_evaluated = []
+        for point in self.points:
+            expr_evaluated = []
+            for expr in np.nditer(expr_array, flags=['refs_ok']):
+                #print(expr)
+                expr = expr.item(0)
+                expr = expr.subs([(self.coordinates[i], point[i])
+                                   for i in range(self.dimensions)])
+                expr_evaluated.append(expr)
+            expr_array_evaluated.append(expr_evaluated)
+        expr_array_evaluated = np.array(expr_array_evaluated)
+        return expr_evaluated
 
     def __get_holvolform(self):
         holvolform = []
