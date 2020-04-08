@@ -26,10 +26,10 @@ class Patches():
                 expr = expr.item(0)
                 expr = expr.subs([(self.coordinates[i], point[i])
                                    for i in range(self.dimensions)])
-                expr_evaluated.append(expr)
+                expr_evaluated.append(sp.simplify(expr))
             expr_array_evaluated.append(expr_evaluated)
         expr_array_evaluated = np.array(expr_array_evaluated)
-        return expr_evaluated
+        return expr_array_evaluated
 
     def __get_holvolform(self):
         holvolform = []
