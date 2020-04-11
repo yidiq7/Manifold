@@ -15,7 +15,8 @@ class Hypersurface(Manifold):
         self.points = self.__solve_points()
         self.patches = []
         self.__autopatch()
-        self.holo_volume_form = self.__get_holvolform() 
+        self.holo_volume_form = self.__get_holvolform()
+        self.transition_function = self.__get_transition_function()
     #def HolVolForm(F, Z, j)
 
 
@@ -39,10 +40,13 @@ class Hypersurface(Manifold):
             print("Points in patch", i, ":", len(patch.points))
             i = i + 1
 
-    def normalize_point(self, point, coordinate):
-        for i in range(len(point)):
-            point[i] = sp.simplify(point[i] / point[coordinate])
-        return point
+    def normalize_point(self, point, norm_coordinate):
+        point_normalized = []
+        for coordinate in point:
+            norm_coefficient = point[norm_coordinate]
+            coordinate_normalized = sp.simplify(coordinate / norm_coefficient)
+            point_normalized.append(coordinate_normalized)
+        return point_normalized
 
     def print_all_points(self):
         print("All points on this hypersurface:")
@@ -53,13 +57,8 @@ class Hypersurface(Manifold):
         for patch in self.patches:
             expr_evaluated.append(patch.eval(expr_name))
         expr_evaluated = np.array(expr_evaluated)
-        return expr_evaluated 
+        return expr_evaluated
 
-    # def eval_holvolform(self):
-    #     holvolform = []
-    #     for i in range(len(self.patches)):
-    #         holvolform.append(self.patches[i].eval_holvolform())
-    #     return holvolform 
 
 
     # Private:
@@ -69,7 +68,7 @@ class Hypersurface(Manifold):
         for i in range(self.n_points):
             zv = []
             for j in range(2):
-                zv.append([complex(c[0],c[1]) for c in np.random.normal(0.0,1.0,(self.dimensions,2))])
+                zv.append([complex(c[0],c[1]) for c in np.random.normal(0.0, 1.0, (self.dimensions, 2))])
             z_random_pair.append(zv)
         return(z_random_pair)
 
@@ -79,7 +78,7 @@ class Hypersurface(Manifold):
             a = sp.symbols('a')
             line = [zpair[0][i]+(a*zpair[1][i]) for i in range(self.dimensions)]
             function_eval = self.function.subs([(self.coordinates[i], line[i])
-                                                  for i in range(self.dimensions)])
+                                                for i in range(self.dimensions)])
             #print(sp.expand(function_eval))
             #function_lambda = sp.lambdify(a, function_eval, ["scipy", "numpy"])
             #a_solved = fsolve(function_lambda, 1)
@@ -90,7 +89,7 @@ class Hypersurface(Manifold):
             for pram_a in a_solved:
                 points.append([zpair[0][i]+(pram_a*zpair[1][i])
                                for i in range(self.dimensions)])
-        return(points)
+        return points
 
     # def __autopatch(self):
     #    self.reset_patchwork()
@@ -118,7 +117,11 @@ class Hypersurface(Manifold):
                 if norms[i] == max(norms):
                     point_normalized = self.normalize_point(point, i)
                     points_on_patch.append(point_normalized)
+            print("point ")
             self.set_patch(points_on_patch, i)
+
+    def __get_transition_function(self):
+        return None
 
     def __get_holvolform(self):
         holvolform = []

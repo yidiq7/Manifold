@@ -9,6 +9,7 @@ class Patches():
         self.points = points
         self.norm_coordinate = norm_coordinate
         self.n_points = len(self.points)
+        self.patches = []
         self.holo_volume_form = self.__get_holvolform()
 
     def print_all_points(self):
@@ -53,3 +54,6 @@ class Patches():
 
    # def eval_omegaomegabar():
 
+# Evalution bug
+# Sub class of patches
+# How to define sub patches?
