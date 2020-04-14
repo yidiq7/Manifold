@@ -54,12 +54,40 @@ class Hypersurface(Manifold):
         print("All points on this hypersurface:")
         print(self.points)
 
+    def get_grad(self):
+        grad = []
+        if self.patches == []:
+            for i in range(len(self.coordinates)):
+                if i == self.norm_coordinate:
+                    continue
+                grad_i = self.function.diff(self.coordinates[i])
+                grad.append(grad_i)
+        else:
+            for i in range(len(self.patches)):
+                grad.append(self.patches[i].grad)
+        return grad
+
+    def get_holvolform(self):
+        holvolform = []
+        if self.patches == []:
+            for grad_i in self.grad:
+                holvolform_i = 1 / grad_i
+                holvolform.append(holvolform_i)
+        else:
+            for i in range(len(self.patches)):
+                holvolform.append(self.patches[i].holo_volume_form)
+        return holvolform
+
     def eval(self, expr, point):
         expr_array = np.array(expr)
         expr_array_evaluated = []
         for expr_i in np.nditer(expr_array, flags=['refs_ok']):
-            expr_evaluated = expr_i.item(0).subs([(self.coordinates[i], point[i])
-                                                   for i in range(self.dimensions)])
+            # In case you want to integrate a constant
+            try:
+                expr_evaluated = expr_i.item(0).subs([(self.coordinates[i], point[i])
+                                                      for i in range(self.dimensions)])
+            except AttributeError:
+                expr_evaluated = expr
             expr_array_evaluated.append(sp.simplify(expr_evaluated))
         return expr_array_evaluated
 
@@ -81,6 +109,25 @@ class Hypersurface(Manifold):
                 expr_array_evaluated.append(patch.eval_all(expr_name))
         return expr_array_evaluated
 
+    def integrate(self, expr):
+        summation = 0
+        if self.patches == []:
+            for point in self.points:
+                expr_evaluated = self.eval(expr, point)
+                # self.eval() will return a list.
+                # Here we suppose there is only one element in that list
+                # In other words, the expression being integrated is not a list itself
+                summation += expr_evaluated[0]
+        else:
+            for patch in self.patches:
+                summation += patch.integrate(expr) * patch.n_points
+        # In case you want to try with few points and n_points might be zero on some
+        # patch.
+        try:
+            integration = summation / self.n_points
+        except ZeroDivisionError:
+            integration = 0
+        return integration
 
     # Private:
 
@@ -138,30 +185,3 @@ class Hypersurface(Manifold):
             for i in range(self.dimensions-1):
                 patch.set_patch(points_on_patch[i], patch.norm_coordinate)
             patch.initialize_basic_properties()
-
-    def __get_transition_function(self):
-        return None
-
-    def get_grad(self):
-        grad = []
-        if self.patches == []:
-            for i in range(len(self.coordinates)):
-                if i == self.norm_coordinate:
-                    continue
-                grad_i = self.function.diff(self.coordinates[i])
-                grad.append(grad_i)
-        else:
-            for i in range(len(self.patches)):
-                grad.append(self.patches[i].grad)
-        return grad
-
-    def get_holvolform(self):
-        holvolform = []
-        if self.patches == []:
-            for grad_i in self.grad:
-                holvolform_i = 1 / grad_i
-                holvolform.append(holvolform_i)
-        else:
-            for i in range(len(self.patches)):
-                holvolform.append(self.patches[i].holo_volume_form)
-        return holvolform
