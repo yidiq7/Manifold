@@ -1,30 +1,38 @@
 import numpy as np
 import sympy as sp
 from manifold import *
-from patches import *
+#from patches import *
 
-# In manifold and type
 class Hypersurface(Manifold):
 
-    def __init__(self, coordinates, function, dimensions, n_points):
+    def __init__(self, coordinates, function, dimensions, n_pairs=0, points=None, norm_coordinate=None):
         super().__init__(dimensions) # Add one more variable for dimension
         self.function = function
         self.coordinates = coordinates
-        self.n_points = n_points
-        self.points = self.__solve_points()
+        self.norm_coordinate = norm_coordinate
         self.patches = []
-        self.__autopatch()
+        if points is None:
+            self.points = self.__solve_points(n_pairs)
+            self.__autopatch()
+        else:
+            self.points = points
+        self.n_points = len(self.points)
+        self.initialize_basic_properties()
+    
+    def initialize_basic_properties(self):
+        # This function is necessary because those variables need to be updated on
+        # the projective patches after subpatches are created. Then this function will
+        # be reinvoked.
         self.grad = self.get_grad()
         self.holo_volume_form = self.get_holvolform()
-        self.transition_function = self.__get_transition_function()
-
+        #self.transition_function = self.__get_transition_function()
 
     def reset_patchwork(self):
         self.patches = []
 
-    def set_patch(self, points_on_patch, norm_coordinate=None):
-        new_patch = Patches(self.coordinates, self.function, self.dimensions,
-                            points_on_patch, norm_coordinate)
+    def set_patch(self, points_on_patch, norm_coord=None):
+        new_patch = Hypersurface(self.coordinates, self.function, self.dimensions,
+                                 points=points_on_patch, norm_coordinate=norm_coord)
         self.patches.append(new_patch)
 
     def list_patches(self):
@@ -46,28 +54,48 @@ class Hypersurface(Manifold):
         print("All points on this hypersurface:")
         print(self.points)
 
-    def eval(self, expr_name):
-        expr_evaluated = []
-        for patch in self.patches:
-            expr_evaluated.append(patch.eval(expr_name))
-        expr_evaluated = np.array(expr_evaluated)
-        return expr_evaluated
+    def eval(self, expr, point):
+        expr_array = np.array(expr)
+        expr_array_evaluated = []
+        for expr_i in np.nditer(expr_array, flags=['refs_ok']):
+            expr_evaluated = expr_i.item(0).subs([(self.coordinates[i], point[i])
+                                                   for i in range(self.dimensions)])
+            expr_array_evaluated.append(sp.simplify(expr_evaluated))
+        return expr_array_evaluated
+
+
+    def eval_all(self, expr_name):
+        expr_array = np.array(getattr(self, expr_name))
+        expr_array_evaluated = []
+        if self.patches == []:
+            for point in self.points:
+                expr_evaluated = []
+                for expr in np.nditer(expr_array, flags=['refs_ok']):
+                    expr = expr.item(0)
+                    expr = expr.subs([(self.coordinates[i], point[i])
+                                       for i in range(self.dimensions)])
+                    expr_evaluated.append(sp.simplify(expr))
+                expr_array_evaluated.append(expr_evaluated)
+        else:
+            for patch in self.patches:
+                expr_array_evaluated.append(patch.eval_all(expr_name))
+        return expr_array_evaluated
 
 
     # Private:
 
-    def __generate_random_pair(self):
+    def __generate_random_pair(self, n_pairs):
         z_random_pair = []
-        for i in range(self.n_points):
+        for i in range(n_pairs):
             zv = []
             for j in range(2):
                 zv.append([complex(c[0],c[1]) for c in np.random.normal(0.0, 1.0, (self.dimensions, 2))])
             z_random_pair.append(zv)
         return z_random_pair
 
-    def __solve_points(self):
+    def __solve_points(self, n_pairs):
         points = []
-        zpairs = self.__generate_random_pair()
+        zpairs = self.__generate_random_pair(n_pairs)
         for zpair in zpairs:
             a = sp.symbols('a')
             line = [zpair[0][i]+(a*zpair[1][i]) for i in range(self.dimensions)]
@@ -86,17 +114,30 @@ class Hypersurface(Manifold):
 
     def __autopatch(self):
         self.reset_patchwork()
-        for i in range(self.dimensions):
-            points_on_patch = []
-            for point in self.points:
-                norms = np.absolute(point)
+        # projective patches
+        points_on_patch = [[] for i in range(self.dimensions)]
+        for point in self.points:
+            norms = np.absolute(point)
+            for i in range(self.dimensions):
                 if norms[i] == max(norms):
                     point_normalized = self.normalize_point(point, i)
-                    points_on_patch.append(point_normalized)
-            self.set_patch(points_on_patch, i)
-
-        #for patch in self.patches:
-        #    patch.set_patch()
+                    points_on_patch[i].append(point_normalized)
+                    continue
+        for i in range(self.dimensions):
+            self.set_patch(points_on_patch[i], i)
+        # Subpatches on each patch
+        for patch in self.patches:
+            points_on_patch = [[] for i in range(self.dimensions-1)]
+            for point in patch.points:
+                grad = patch.eval(patch.grad, point)
+                grad_norm = np.absolute(grad)
+                for i in range(self.dimensions-1):
+                    if grad_norm[i] == max(grad_norm):
+                        points_on_patch[i].append(point)
+                        continue
+            for i in range(self.dimensions-1):
+                patch.set_patch(points_on_patch[i], patch.norm_coordinate)
+            patch.initialize_basic_properties()
 
     def __get_transition_function(self):
         return None
@@ -105,11 +146,8 @@ class Hypersurface(Manifold):
         grad = []
         if self.patches == []:
             for i in range(len(self.coordinates)):
-                try:
-                    if i == self.norm_coordinate:
-                        continue
-                except AttributeError: # Ignore if self.norm_coodinate does not exist
-                    pass
+                if i == self.norm_coordinate:
+                    continue
                 grad_i = self.function.diff(self.coordinates[i])
                 grad.append(grad_i)
         else:
@@ -120,13 +158,8 @@ class Hypersurface(Manifold):
     def get_holvolform(self):
         holvolform = []
         if self.patches == []:
-            for i in range(len(self.coordinates)):
-                try:
-                    if i == self.norm_coordinate:
-                        continue
-                except AttributeError: # Ignore if self.norm_coodinate does not exist
-                    pass
-                holvolform_i = 1/self.grad[i]
+            for grad_i in self.grad:
+                holvolform_i = 1 / grad_i
                 holvolform.append(holvolform_i)
         else:
             for i in range(len(self.patches)):
