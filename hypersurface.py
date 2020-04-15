@@ -8,7 +8,8 @@ class Hypersurface(Manifold):
     def __init__(self, coordinates, function, dimensions, n_pairs=0, points=None, norm_coordinate=None):
         super().__init__(dimensions) # Add one more variable for dimension
         self.function = function
-        self.coordinates = coordinates
+        self.coordinates = np.array(coordinates)
+        self.conj_coords = sp.conjugate(self.coordinates)
         self.norm_coordinate = norm_coordinate
         self.patches = []
         if points is None:
@@ -17,6 +18,7 @@ class Hypersurface(Manifold):
         else:
             self.points = points
         self.n_points = len(self.points)
+        self.sections,self.num_sec = self.__sections()
         self.initialize_basic_properties()
     
     def initialize_basic_properties(self):
@@ -185,3 +187,26 @@ class Hypersurface(Manifold):
             for i in range(self.dimensions-1):
                 patch.set_patch(points_on_patch[i], patch.norm_coordinate)
             patch.initialize_basic_properties()
+
+
+    def __sections(self):
+        t = sp.symbols('t')
+        GenSec = sp.prod(1/(1-(t*zz)) for zz in self.coordinates)
+        poly = sp.series(GenSec,t,n=self.dimensions+1).coeff(t**(self.dimensions))
+        sections = []
+        while poly!=0:
+            sections.append(sp.LT(poly))
+            poly = poly - sp.LT(poly)
+        return (np.array(sections),len(sections))
+
+    def KahlerPotential(self):
+        ns = self.num_sec
+        H = sp.MatrixSymbol('H',ns,ns)
+        zbar_H_z = np.matmul(sp.conjugate(self.sections),np.matmul(H,self.sections))
+        return sp.log(zbar_H_z)
+
+    def KahlerMetric(self):
+        pot = self.KahlerPotential()
+        #need to figure out how to do diff wrt zbar
+        #expression for metric
+        #diff(pot,zbar_i,z_j)
