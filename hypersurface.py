@@ -221,6 +221,7 @@ class Hypersurface(Manifold):
         return sections, n_sections
 
     def kahler_potential(self, h_matrix=None):
+        #need to generalize this for when we start implementing networks
         if self.patches == []:
             ns = self.n_sections
             if h_matrix is None:
@@ -240,10 +241,18 @@ class Hypersurface(Manifold):
     def kahler_metric(self, h_matrix=None):
         pot = self.kahler_potential(h_matrix)
         #sp.diff(pot, )
-        #need to figure out how to do diff wrt zbar
-        #expression for metric
-        #diff(pot,zbar_i,z_j)
+        metric = []
+        n = self.dimensions
+        #i holomorphc, j anti-hol
+        for i in range(n):
+        	a_holo_der = [diff_conjugate(pot,self.coordinates[j]) for j in range(n)]
+        	metric.append([ah.diff(self.coordinates[i]) for ah in a_holo_der])
+        metric = np.array(metric)
+        vol_element = np.linalg.det(metric)
+        return metric, vol_element
 
+#Can we just define conjugation in this way?
+#Have a function inside the class self.conjugate?
 def diff_conjugate(expr, coordinate):
     coord_bar = sp.symbols('coord_bar')
     expr_diff = expr.subs(sp.conjugate(coordinate), coord_bar).diff(coord_bar)
