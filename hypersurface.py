@@ -73,7 +73,8 @@ class Hypersurface(Manifold):
 
 
     def eval_all(self, expr_name):
-        expr_array = np.array(getattr(self, expr_name))
+        #expr_array = np.array(getattr(self, expr_name))
+        expr_array = np.array(expr_name)
         expr_array_evaluated = []
         if self.patches == []:
             for point in self.points:
