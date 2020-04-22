@@ -5,11 +5,12 @@ from manifold import *
 
 class Hypersurface(Manifold):
 
-    def __init__(self, coordinates, function, dimensions, n_pairs=0, points=None, norm_coordinate=None):
+    def __init__(self, coordinates, function,
+                 dimensions, n_pairs=0, points=None, norm_coordinate=None):
         super().__init__(dimensions) # Add one more variable for dimension
         self.function = function
         self.coordinates = np.array(coordinates)
-        self.conj_coords = sp.conjugate(self.coordinates)
+        #self.conjugate_coordiantes = .conjugate(self.coordinates)
         self.norm_coordinate = norm_coordinate
         self.patches = []
         if points is None:
@@ -26,7 +27,8 @@ class Hypersurface(Manifold):
         # be reinvoked.
         self.grad = self.get_grad()
         self.holo_volume_form = self.get_holvolform()
-        self.sections, self.num_sec = self.get_sections()
+        self.omega_omegabar = self.get_omega_omegabar()
+        self.sections, self.n_sections = self.get_sections()
         #self.transition_function = self.__get_transition_function()
 
     def reset_patchwork(self):
@@ -55,30 +57,6 @@ class Hypersurface(Manifold):
     def print_all_points(self):
         print("All points on this hypersurface:")
         print(self.points)
-
-    def get_grad(self):
-        grad = []
-        if self.patches == []:
-            for i in range(len(self.coordinates)):
-                if i == self.norm_coordinate:
-                    continue
-                grad_i = self.function.diff(self.coordinates[i])
-                grad.append(grad_i)
-        else:
-            for i in range(len(self.patches)):
-                grad.append(self.patches[i].grad)
-        return grad
-
-    def get_holvolform(self):
-        holvolform = []
-        if self.patches == []:
-            for grad_i in self.grad:
-                holvolform_i = 1 / grad_i
-                holvolform.append(holvolform_i)
-        else:
-            for i in range(len(self.patches)):
-                holvolform.append(self.patches[i].holo_volume_form)
-        return holvolform
 
     def eval(self, expr, point):
         expr_array = np.array(expr)
@@ -130,6 +108,8 @@ class Hypersurface(Manifold):
         except ZeroDivisionError:
             integration = 0
         return integration
+
+#    def conjugate(self, expr):
 
     # Private:
 
@@ -188,25 +168,83 @@ class Hypersurface(Manifold):
                 patch.set_patch(points_on_patch[i], patch.norm_coordinate)
             patch.initialize_basic_properties()
 
+    def get_grad(self):
+        grad = []
+        if self.patches == []:
+            for i in range(len(self.coordinates)):
+                if i == self.norm_coordinate:
+                    continue
+                grad_i = self.function.diff(self.coordinates[i])
+                grad.append(grad_i)
+        else:
+            for i in range(len(self.patches)):
+                grad.append(self.patches[i].grad)
+        return grad
+
+    def get_holvolform(self):
+        holvolform = []
+        if self.patches == []:
+            for grad_i in self.grad:
+                holvolform_i = 1 / grad_i
+                holvolform.append(holvolform_i)
+        else:
+            for i in range(len(self.patches)):
+                holvolform.append(self.patches[i].holo_volume_form)
+        return holvolform
+
+    def get_omega_omegabar(self):
+        omega_omegabar = []
+        if self.patches == []:
+            for holvolform_i in self.holo_volume_form:
+                omega_omegabar_i = holvolform_i * sp.conjugate(holvolform_i)
+                omega_omegabar.append(omega_omegabar_i)
+        else:
+            for i in range(len(self.patches)):
+                omega_omegabar.append(self.patches[i].omega_omegabar)
+        return omega_omegabar
 
     def get_sections(self):
-        t = sp.symbols('t')
-        GenSec = sp.prod(1/(1-(t*zz)) for zz in self.coordinates)
-        poly = sp.series(GenSec,t,n=self.dimensions+1).coeff(t**(self.dimensions))
         sections = []
-        while poly!=0:
-            sections.append(sp.LT(poly))
-            poly = poly - sp.LT(poly)
-        return (np.array(sections),len(sections))
+        if self.patches == []:
+            t = sp.symbols('t')
+            GenSec = sp.prod(1/(1-(t*zz)) for zz in self.coordinates)
+            poly = sp.series(GenSec,t,n=self.dimensions+1).coeff(t**(self.dimensions))
+            while poly!=0:
+                sections.append(sp.LT(poly))
+                poly = poly - sp.LT(poly)
+        else:
+            for i in range(len(self.patches)):
+                sections.append(self.patches[i].sections)
+        n_sections = len(sections)
+        sections = np.array(sections)
+        return sections, n_sections
 
-    def get_kahler_potential(self):
-        ns = self.num_sec
-        H = sp.MatrixSymbol('H',ns,ns)
-        zbar_H_z = np.matmul(sp.conjugate(self.sections),np.matmul(H,self.sections))
-        return sp.log(zbar_H_z)
+    def kahler_potential(self, h_matrix=None):
+        if self.patches == []:
+            ns = self.n_sections
+            if h_matrix is None:
+                h_matrix = sp.MatrixSymbol('H',ns,ns)
+            zbar_H_z = np.matmul(sp.conjugate(self.sections),
+                                 sp.simplify(np.matmul(h_matrix, self.sections)))
+            #for expr in np.nditer(zbar_H_z, flags=['refs_ok']):
+            #kahler_potential = sp.log(zbar_H_z)
+            kahler_potential = sp.log(zbar_H_z)
+        else:
+            kahler_potential = []
+            for i in range(len(self.patches)):
+                kahler_potential.append(self.patches[i].kahler_potential)
+                
+        return kahler_potential
 
-    def get_kahler_metric(self):
-        pot = self.KahlerPotential()
+    def kahler_metric(self, h_matrix=None):
+        pot = self.kahler_potential(h_matrix)
+        #sp.diff(pot, )
         #need to figure out how to do diff wrt zbar
         #expression for metric
         #diff(pot,zbar_i,z_j)
+
+def diff_conjugate(expr, coordinate):
+    coord_bar = sp.symbols('coord_bar')
+    expr_diff = expr.subs(sp.conjugate(coordinate), coord_bar).diff(coord_bar)
+    expr_diff = expr_diff.subs(coord_bar, sp.conjugate(coordinate))
+    return expr_diff
