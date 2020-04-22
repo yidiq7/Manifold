@@ -18,7 +18,6 @@ class Hypersurface(Manifold):
         else:
             self.points = points
         self.n_points = len(self.points)
-        self.sections,self.num_sec = self.__sections()
         self.initialize_basic_properties()
     
     def initialize_basic_properties(self):
@@ -27,6 +26,7 @@ class Hypersurface(Manifold):
         # be reinvoked.
         self.grad = self.get_grad()
         self.holo_volume_form = self.get_holvolform()
+        self.sections, self.num_sec = self.get_sections()
         #self.transition_function = self.__get_transition_function()
 
     def reset_patchwork(self):
@@ -189,7 +189,7 @@ class Hypersurface(Manifold):
             patch.initialize_basic_properties()
 
 
-    def __sections(self):
+    def get_sections(self):
         t = sp.symbols('t')
         GenSec = sp.prod(1/(1-(t*zz)) for zz in self.coordinates)
         poly = sp.series(GenSec,t,n=self.dimensions+1).coeff(t**(self.dimensions))
@@ -199,13 +199,13 @@ class Hypersurface(Manifold):
             poly = poly - sp.LT(poly)
         return (np.array(sections),len(sections))
 
-    def KahlerPotential(self):
+    def get_kahler_potential(self):
         ns = self.num_sec
         H = sp.MatrixSymbol('H',ns,ns)
         zbar_H_z = np.matmul(sp.conjugate(self.sections),np.matmul(H,self.sections))
         return sp.log(zbar_H_z)
 
-    def KahlerMetric(self):
+    def get_kahler_metric(self):
         pot = self.KahlerPotential()
         #need to figure out how to do diff wrt zbar
         #expression for metric
