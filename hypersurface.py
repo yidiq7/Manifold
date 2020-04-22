@@ -29,6 +29,7 @@ class Hypersurface(Manifold):
         self.holo_volume_form = self.get_holvolform()
         self.omega_omegabar = self.get_omega_omegabar()
         self.sections, self.n_sections = self.get_sections()
+        self.FS_Metric, self.w3_FS = self.__get_FS()
         #self.transition_function = self.__get_transition_function()
 
     def reset_patchwork(self):
@@ -169,6 +170,10 @@ class Hypersurface(Manifold):
                 patch.set_patch(points_on_patch[i], patch.norm_coordinate)
             patch.initialize_basic_properties()
 
+    def __fet_FS(self):
+    	self.kahler_metric(np.indentity(self.n_sections))
+
+
     def get_grad(self):
         grad = []
         if self.patches == []:
@@ -250,6 +255,8 @@ class Hypersurface(Manifold):
         metric = np.array(metric)
         vol_element = np.linalg.det(metric)
         return metric, vol_element
+
+    
 
 #Can we just define conjugation in this way?
 #Have a function inside the class self.conjugate?
