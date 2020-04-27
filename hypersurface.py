@@ -112,7 +112,6 @@ class Hypersurface(Manifold):
             integration = 0
         return integration
 
-#    def conjugate(self, expr):
 
     # Private:
 
@@ -243,7 +242,6 @@ class Hypersurface(Manifold):
     def kahler_metric(self, h_matrix=None):
         if self.patches == []:
             pot = self.kahler_potential(h_matrix)
-            #sp.diff(pot, )
             metric = []
         #i holomorphc, j anti-hol
             for i in range(self.dimensions):
@@ -256,7 +254,7 @@ class Hypersurface(Manifold):
                         else:
                             a_holo_der = []
                             a_holo_der.append(diff_conjugate(pot,self.coordinates[j]))
-                    metric.append([ah.diff(self.coordinates[i]) for ah in a_holo_der])
+                    metric.append([diff(ah, self.coordinates[i]) for ah in a_holo_der])
             metric = sp.Matrix(metric)
         else:
             metric = []
@@ -274,6 +272,14 @@ def diff_conjugate(expr, coordinate):
     expr_diff = expr.subs(sp.conjugate(coordinate), coord_bar).diff(coord_bar)
     expr_diff = expr_diff.subs(coord_bar, sp.conjugate(coordinate))
     return expr_diff
+
+def diff(expr, coordinate):
+    coord_bar = sp.symbols('coord_bar')
+    expr_diff = expr.subs(sp.conjugate(coordinate), coord_bar).diff(coordinate)
+    expr_diff = expr_diff.subs(coord_bar, sp.conjugate(coordinate))
+    return expr_diff
+
+    
 
 #The integration of volume form should not depend on h
 #So change h nd calculate the topology integration 
