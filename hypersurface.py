@@ -10,8 +10,8 @@ class Hypersurface(Manifold):
         super().__init__(dimensions) # Add one more variable for dimension
         self.function = function
         self.coordinates = np.array(coordinates)
-        #self.conjugate_coordiantes = .conjugate(self.coordinates)
         self.norm_coordinate = norm_coordinate
+        # The symbolic coordiante is self.coordiante[self.norm_coordiante]
         self.patches = []
         if points is None:
             self.points = self.__solve_points(n_pairs)
@@ -19,6 +19,7 @@ class Hypersurface(Manifold):
         else:
             self.points = points
         self.n_points = len(self.points)
+        self.n_patches = len(self.patches)
         self.initialize_basic_properties()
     
     def initialize_basic_properties(self):
@@ -29,7 +30,7 @@ class Hypersurface(Manifold):
         self.holo_volume_form = self.get_holvolform()
         self.omega_omegabar = self.get_omega_omegabar()
         self.sections, self.n_sections = self.get_sections()
-        self.FS_Metric, self.w3_FS = self.__get_FS()
+        self.FS_Metric = self.get_FS()
         #self.transition_function = self.__get_transition_function()
 
     def reset_patchwork(self):
@@ -153,6 +154,7 @@ class Hypersurface(Manifold):
                 if norms[i] == max(norms):
                     point_normalized = self.normalize_point(point, i)
                     points_on_patch[i].append(point_normalized)
+                
                     continue
         for i in range(self.dimensions):
             self.set_patch(points_on_patch[i], i)
@@ -170,9 +172,9 @@ class Hypersurface(Manifold):
                 patch.set_patch(points_on_patch[i], patch.norm_coordinate)
             patch.initialize_basic_properties()
 
-    def __fet_FS(self):
-    	self.kahler_metric(np.indentity(self.n_sections))
-
+    def get_FS(self):
+        FS_metric = self.kahler_metric(np.identity(self.n_sections))
+        return FS_metric
 
     def get_grad(self):
         grad = []
@@ -183,8 +185,8 @@ class Hypersurface(Manifold):
                 grad_i = self.function.diff(self.coordinates[i])
                 grad.append(grad_i)
         else:
-            for i in range(len(self.patches)):
-                grad.append(self.patches[i].grad)
+            for patch in self.patches:
+                grad.append(patch.grad)
         return grad
 
     def get_holvolform(self):
@@ -194,8 +196,8 @@ class Hypersurface(Manifold):
                 holvolform_i = 1 / grad_i
                 holvolform.append(holvolform_i)
         else:
-            for i in range(len(self.patches)):
-                holvolform.append(self.patches[i].holo_volume_form)
+            for patch in self.patches:
+                holvolform.append(patch.holo_volume_form)
         return holvolform
 
     def get_omega_omegabar(self):
@@ -205,56 +207,63 @@ class Hypersurface(Manifold):
                 omega_omegabar_i = holvolform_i * sp.conjugate(holvolform_i)
                 omega_omegabar.append(omega_omegabar_i)
         else:
-            for i in range(len(self.patches)):
-                omega_omegabar.append(self.patches[i].omega_omegabar)
+            for patch in self.patches:
+                omega_omegabar.append(patch.omega_omegabar)
         return omega_omegabar
 
     def get_sections(self):
         sections = []
-        if self.patches == []:
-            t = sp.symbols('t')
-            GenSec = sp.prod(1/(1-(t*zz)) for zz in self.coordinates)
-            poly = sp.series(GenSec,t,n=self.dimensions+1).coeff(t**(self.dimensions))
-            while poly!=0:
-                sections.append(sp.LT(poly))
-                poly = poly - sp.LT(poly)
-        else:
-            for i in range(len(self.patches)):
-                sections.append(self.patches[i].sections)
+        t = sp.symbols('t')
+        GenSec = sp.prod(1/(1-(t*zz)) for zz in self.coordinates)
+        poly = sp.series(GenSec,t,n=self.dimensions+1).coeff(t**(self.dimensions))
+        while poly!=0:
+            sections.append(sp.LT(poly))
+            poly = poly - sp.LT(poly)
         n_sections = len(sections)
         sections = np.array(sections)
         return sections, n_sections
-
+    # just one potential
     def kahler_potential(self, h_matrix=None):
         #need to generalize this for when we start implementing networks
+        # Kahler potential only exists locally
         if self.patches == []:
             ns = self.n_sections
             if h_matrix is None:
                 h_matrix = sp.MatrixSymbol('H',ns,ns)
             zbar_H_z = np.matmul(sp.conjugate(self.sections),
                                  sp.simplify(np.matmul(h_matrix, self.sections)))
-            #for expr in np.nditer(zbar_H_z, flags=['refs_ok']):
-            #kahler_potential = sp.log(zbar_H_z)
+            zbar_H_z = zbar_H_z.subs(self.coordinates[self.norm_coordinate], 1)
             kahler_potential = sp.log(zbar_H_z)
         else:
             kahler_potential = []
-            for i in range(len(self.patches)):
-                kahler_potential.append(self.patches[i].kahler_potential)
-                
+            for patch in self.patches:
+                kahler_potential.append(patch.kahler_potential(h_matrix))
         return kahler_potential
 
     def kahler_metric(self, h_matrix=None):
-        pot = self.kahler_potential(h_matrix)
-        #sp.diff(pot, )
-        metric = []
-        n = self.dimensions
+        if self.patches == []:
+            pot = self.kahler_potential(h_matrix)
+            #sp.diff(pot, )
+            metric = []
         #i holomorphc, j anti-hol
-        for i in range(n):
-        	a_holo_der = [diff_conjugate(pot,self.coordinates[j]) for j in range(n)]
-        	metric.append([ah.diff(self.coordinates[i]) for ah in a_holo_der])
-        metric = np.array(metric)
-        vol_element = np.linalg.det(metric)
-        return metric, vol_element
+            for i in range(self.dimensions):
+                if i == self.norm_coordinate:
+                    continue
+                else:
+                    for j in range(self.dimensions):
+                        if j == self.norm_coordinate:
+                            continue
+                        else:
+                            a_holo_der = []
+                            a_holo_der.append(diff_conjugate(pot,self.coordinates[j]))
+                    metric.append([ah.diff(self.coordinates[i]) for ah in a_holo_der])
+            metric = sp.Matrix(metric)
+        else:
+            metric = []
+            for patch in self.patches:
+                metric.append(patch.kahler_metric(h_matrix))
+        # vol_element = metric.det() # Total vol_element
+        return metric
 
     
 
@@ -265,3 +274,6 @@ def diff_conjugate(expr, coordinate):
     expr_diff = expr.subs(sp.conjugate(coordinate), coord_bar).diff(coord_bar)
     expr_diff = expr_diff.subs(coord_bar, sp.conjugate(coordinate))
     return expr_diff
+
+#The integration of volume form should not depend on h
+#So change h nd calculate the topology integration 
