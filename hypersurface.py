@@ -172,7 +172,7 @@ class Hypersurface(Manifold):
             patch.initialize_basic_properties()
 
     def get_FS(self):
-        FS_metric = self.kahler_metric(np.identity(self.n_sections))
+        FS_metric = self.kahler_metric(np.identity(self.n_sections, dtype = int))
         return FS_metric
 
     def get_grad(self):
@@ -224,42 +224,32 @@ class Hypersurface(Manifold):
     # just one potential
     def kahler_potential(self, h_matrix=None):
         #need to generalize this for when we start implementing networks
-        # Kahler potential only exists locally
-        if self.patches == []:
-            ns = self.n_sections
-            if h_matrix is None:
-                h_matrix = sp.MatrixSymbol('H',ns,ns)
-            zbar_H_z = np.matmul(sp.conjugate(self.sections),
-                                 sp.simplify(np.matmul(h_matrix, self.sections)))
+        ns = self.n_sections
+        if h_matrix is None:
+            h_matrix = sp.MatrixSymbol('H',ns,ns)
+        zbar_H_z = np.matmul(sp.conjugate(self.sections),
+                             sp.simplify(np.matmul(h_matrix, self.sections)))
+        if self.norm_coordinate is not None:
             zbar_H_z = zbar_H_z.subs(self.coordinates[self.norm_coordinate], 1)
-            kahler_potential = sp.log(zbar_H_z)
-        else:
-            kahler_potential = []
-            for patch in self.patches:
-                kahler_potential.append(patch.kahler_potential(h_matrix))
+        kahler_potential = sp.log(zbar_H_z)
         return kahler_potential
 
     def kahler_metric(self, h_matrix=None):
-        if self.patches == []:
-            pot = self.kahler_potential(h_matrix)
-            metric = []
+        pot = self.kahler_potential(h_matrix)
+        metric = []
         #i holomorphc, j anti-hol
-            for i in range(self.dimensions):
-                if i == self.norm_coordinate:
-                    continue
-                else:
-                    for j in range(self.dimensions):
-                        if j == self.norm_coordinate:
-                            continue
-                        else:
-                            a_holo_der = []
-                            a_holo_der.append(diff_conjugate(pot,self.coordinates[j]))
-                    metric.append([diff(ah, self.coordinates[i]) for ah in a_holo_der])
-            metric = sp.Matrix(metric)
-        else:
-            metric = []
-            for patch in self.patches:
-                metric.append(patch.kahler_metric(h_matrix))
+        for i in range(self.dimensions):
+            if i == self.norm_coordinate:
+                continue
+            else:
+                a_holo_der = []
+                for j in range(self.dimensions):
+                    if j == self.norm_coordinate:
+                        continue
+                    else:
+                        a_holo_der.append(diff_conjugate(pot,self.coordinates[j]))
+                metric.append([diff(ah, self.coordinates[i]) for ah in a_holo_der])
+        metric = sp.Matrix(metric)
         # vol_element = metric.det() # Total vol_element
         return metric
 
