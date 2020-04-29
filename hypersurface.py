@@ -6,12 +6,20 @@ from manifold import *
 class Hypersurface(Manifold):
 
     def __init__(self, coordinates, function,
-                 dimensions, n_pairs=0, points=None, norm_coordinate=None):
+                 dimensions, n_pairs=0, points=None, norm_coordinate=None,
+                 max_grad_coordinate=None):
         super().__init__(dimensions) # Add one more variable for dimension
         self.function = function
         self.coordinates = np.array(coordinates)
         self.norm_coordinate = norm_coordinate
         # The symbolic coordiante is self.coordiante[self.norm_coordiante]
+        self.max_grad_coordinate = max_grad_coordinate
+        # Range 0 to n-2, this works only on subpatches where max grad is calculated
+        # Symbolically self.affin_coordinate[self.max_grad_coordinate]
+        if norm_coordinate is not None:
+            self.affine_coordinates = np.delete(self.coordinates, norm_coordinate)
+        else:
+            self.affine_coordinates = self.coordinates
         self.patches = []
         if points is None:
             self.points = self.__solve_points(n_pairs)
@@ -36,9 +44,10 @@ class Hypersurface(Manifold):
     def reset_patchwork(self):
         self.patches = []
 
-    def set_patch(self, points_on_patch, norm_coord=None):
+    def set_patch(self, points_on_patch, norm_coord=None, max_grad_coord=None):
         new_patch = Hypersurface(self.coordinates, self.function, self.dimensions,
-                                 points=points_on_patch, norm_coordinate=norm_coord)
+                                 points=points_on_patch, norm_coordinate=norm_coord,
+                                 max_grad_coordinate=max_grad_coord)
         self.patches.append(new_patch)
 
     def list_patches(self):
@@ -168,7 +177,8 @@ class Hypersurface(Manifold):
                         points_on_patch[i].append(point)
                         continue
             for i in range(self.dimensions-1):
-                patch.set_patch(points_on_patch[i], patch.norm_coordinate)
+                patch.set_patch(points_on_patch[i], patch.norm_coordinate,
+                                max_grad_coord=i)
             patch.initialize_basic_properties()
 
     def get_FS(self):
@@ -228,7 +238,7 @@ class Hypersurface(Manifold):
         if h_matrix is None:
             h_matrix = sp.MatrixSymbol('H',ns,ns)
         zbar_H_z = np.matmul(sp.conjugate(self.sections),
-                             sp.simplify(np.matmul(h_matrix, self.sections)))
+                             np.matmul(h_matrix, self.sections))
         if self.norm_coordinate is not None:
             zbar_H_z = zbar_H_z.subs(self.coordinates[self.norm_coordinate], 1)
         kahler_potential = sp.log(zbar_H_z)
@@ -253,8 +263,23 @@ class Hypersurface(Manifold):
         # vol_element = metric.det() # Total vol_element
         return metric
 
-    
+    def get_restriction(self, ignored_coord=None):
+        if ignored_coord is None:
+            ignored_coord = self.max_grad_coordinate
+        ignored_coordinate = self.affine_coordinates[ignored_coord]
+        local_coordinates = sp.Matrix(self.affine_coordinates).subs(ignored_coordinate,                                                                   self.function)
+        affine_coordinates = sp.Matrix(self.affine_coordinates)
+        restriction = local_coordinates.jacobian(affine_coordinates).inv()
+        restriction.col_del(ignored_coord)
+        return restriction
+        # Todo: Add try except in this function 
 
+    def get_FS_volume_form(self, h_matrix=None):
+        kahler_metric = self.kahler_metric(h_matrix)
+        restriction = self.get_restriction()
+        FS_volume_form = restriction.T.conjugate() * kahler_metric * restriction
+        FS_volume_form = FS_volume_form.det()
+        return FS_volume_form
 #Can we just define conjugation in this way?
 #Have a function inside the class self.conjugate?
 def diff_conjugate(expr, coordinate):
