@@ -37,7 +37,7 @@ class Hypersurface(Manifold):
         self.grad = self.get_grad()
         self.holo_volume_form = self.get_holvolform()
         self.omega_omegabar = self.get_omega_omegabar()
-        self.sections, self.n_sections = self.get_sections()
+        #self.sections, self.n_sections = self.get_sections(self.dimensions)
         self.FS_Metric = self.get_FS()
         #self.transition_function = self.__get_transition_function()
 
@@ -115,11 +115,11 @@ class Hypersurface(Manifold):
                 summation += patch.integrate(expr) * patch.n_points
         # In case you want to try with few points and n_points might be zero on some
         # patch.
-        try:
-            integration = summation / self.n_points
-        except ZeroDivisionError:
-            integration = 0
-        return integration
+        #try:
+        #    integration = summation / self.n_points
+        #except ZeroDivisionError:
+        #    integration = 0
+        return summation
 
 
     # Private:
@@ -182,7 +182,7 @@ class Hypersurface(Manifold):
             patch.initialize_basic_properties()
 
     def get_FS(self):
-        FS_metric = self.kahler_metric(np.identity(self.n_sections, dtype = int))
+        FS_metric = self.kahler_metric(np.identity(self.dimensions, dtype=int), k=1)
         return FS_metric
 
     def get_grad(self):
@@ -220,11 +220,11 @@ class Hypersurface(Manifold):
                 omega_omegabar.append(patch.omega_omegabar)
         return omega_omegabar
 
-    def get_sections(self):
+    def get_sections(self, k):
         sections = []
         t = sp.symbols('t')
         GenSec = sp.prod(1/(1-(t*zz)) for zz in self.coordinates)
-        poly = sp.series(GenSec,t,n=self.dimensions+1).coeff(t**(self.dimensions))
+        poly = sp.series(GenSec, t, n=self.dimensions+1).coeff(t**k)
         while poly!=0:
             sections.append(sp.LT(poly))
             poly = poly - sp.LT(poly)
@@ -232,35 +232,28 @@ class Hypersurface(Manifold):
         sections = np.array(sections)
         return sections, n_sections
     # just one potential
-    def kahler_potential(self, h_matrix=None):
+    def kahler_potential(self, h_matrix=None, k=1):
         #need to generalize this for when we start implementing networks
-        ns = self.n_sections
+        sections, n_sec = self.get_sections(k)
         if h_matrix is None:
-            h_matrix = sp.MatrixSymbol('H',ns,ns)
-        zbar_H_z = np.matmul(sp.conjugate(self.sections),
-                             np.matmul(h_matrix, self.sections))
+            h_matrix = sp.MatrixSymbol('H', n_sec, n_sec)
+        zbar_H_z = np.matmul(sp.conjugate(sections),
+                             np.matmul(h_matrix, sections))
         if self.norm_coordinate is not None:
             zbar_H_z = zbar_H_z.subs(self.coordinates[self.norm_coordinate], 1)
         kahler_potential = sp.log(zbar_H_z)
         return kahler_potential
 
-    def kahler_metric(self, h_matrix=None):
-        pot = self.kahler_potential(h_matrix)
+    def kahler_metric(self, h_matrix=None, k=1):
+        pot = self.kahler_potential(h_matrix, k)
         metric = []
         #i holomorphc, j anti-hol
-        for i in range(self.dimensions):
-            if i == self.norm_coordinate:
-                continue
-            else:
-                a_holo_der = []
-                for j in range(self.dimensions):
-                    if j == self.norm_coordinate:
-                        continue
-                    else:
-                        a_holo_der.append(diff_conjugate(pot,self.coordinates[j]))
-                metric.append([diff(ah, self.coordinates[i]) for ah in a_holo_der])
+        for coord_i in self.affine_coordinates:
+            a_holo_der = []
+            for coord_j in self.affine_coordinates:
+                a_holo_der.append(diff_conjugate(pot, coord_j))
+            metric.append([diff(ah, coord_i) for ah in a_holo_der])
         metric = sp.Matrix(metric)
-        # vol_element = metric.det() # Total vol_element
         return metric
 
     def get_restriction(self, ignored_coord=None):
