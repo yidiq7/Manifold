@@ -1,30 +1,28 @@
 from hypersurface import *
 import sympy as sp
 from pprint import pprint
-d = 4
-Z = [sp.symbols('z_'+str(i+1)) for i in range(d)]
-f = sum([k**4 for k in Z])
-HS = Hypersurface(Z, f, d, 2)
-#print(len(K3.points))
-#print(K3.dimensions)
-HS.list_patches()
-HS.patches[0].list_patches()
-HS.patches[1].list_patches()
-HS.patches[2].list_patches()
-HS.patches[3].list_patches()
-#HS.print_all_points()
-print(' ')
-#HS.patches[0].print_all_points()
-#HS.patches[1].print_all_points()
-#HS.patches[2].print_all_points()
-#HS.patches[3].print_all_points()
+import time
 
-#print('Holomorphic volume form on all patches')
-pprint(HS.holo_volume_form)
-pprint(HS.integrate(1))
-#print('Holomorphic volume form on patch 1:')
-#print(HS.patches[0].holo_volume_form)
-#pprint("Evaluate holo_volume_form:")
-#pprint(HS.eval_all("holo_volume_form"))
-#print("Evaluate holo_volume_form on patch 0:")
-#print(HS.patches[3].eval("holo_volume_form"))
+start_time = time.time()
+z0, z1, z2, z3 = sp.symbols('z0, z1, z2, z3')
+Z = [z0,z1,z2,z3]
+f = z0**4 + z1**4 + z2**4 + z3**4
+HS = Hypersurface(Z, f, 200)
+mid_time = time.time()
+print("mid_time", mid_time - start_time)
+k = 4
+sections, ns = HS.get_sections(k)
+H = np.identity(ns, dtype=int)
+#pprint(HS.patches[0].patches[0].points)
+
+integral = 0
+for patch in HS.patches:
+    for subpatch in patch.patches:
+        sub_integral = subpatch.integrate_lmd(subpatch.get_FS_volume_form(H, k))
+        print(sub_integral)
+        integral += sub_integral
+print(integral)
+elapsed_time = time.time() - mid_time
+print("time:", elapsed_time)
+
+

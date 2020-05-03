@@ -6,11 +6,12 @@ from manifold import *
 class Hypersurface(Manifold):
 
     def __init__(self, coordinates, function,
-                 dimensions, n_pairs=0, points=None, norm_coordinate=None,
+                 n_pairs=0, points=None, norm_coordinate=None,
                  max_grad_coordinate=None):
-        super().__init__(dimensions) # Add one more variable for dimension
+        #super().__init__(dimensions) # Add one more variable for dimension
         self.function = function
         self.coordinates = np.array(coordinates)
+        self.dimensions = len(self.coordinates)
         self.norm_coordinate = norm_coordinate
         # The symbolic coordiante is self.coordiante[self.norm_coordiante]
         self.max_grad_coordinate = max_grad_coordinate
@@ -35,7 +36,7 @@ class Hypersurface(Manifold):
         # the projective patches after subpatches are created. Then this function will
         # be reinvoked.
         self.grad = self.get_grad()
-        self.holo_volume_form = self.get_holvolform()
+        self.hol_n_form = self.get_hol_n_form()
         self.omega_omegabar = self.get_omega_omegabar()
         #self.sections, self.n_sections = self.get_sections(self.dimensions)
         self.FS_Metric = self.get_FS()
@@ -45,7 +46,7 @@ class Hypersurface(Manifold):
         self.patches = []
 
     def set_patch(self, points_on_patch, norm_coord=None, max_grad_coord=None):
-        new_patch = Hypersurface(self.coordinates, self.function, self.dimensions,
+        new_patch = Hypersurface(self.coordinates, self.function, 
                                  points=points_on_patch, norm_coordinate=norm_coord,
                                  max_grad_coordinate=max_grad_coord)
         self.patches.append(new_patch)
@@ -61,7 +62,7 @@ class Hypersurface(Manifold):
         point_normalized = []
         for coordinate in point:
             norm_coefficient = point[norm_coordinate]
-            coordinate_normalized = sp.simplify(coordinate / norm_coefficient)
+            coordinate_normalized = coordinate / norm_coefficient
             point_normalized.append(coordinate_normalized)
         return point_normalized
 
@@ -75,8 +76,7 @@ class Hypersurface(Manifold):
         for expr_i in np.nditer(expr_array, flags=['refs_ok']):
             # In case you want to integrate a constant
             try:
-                expr_evaluated = expr_i.item(0).subs([(self.coordinates[i], point[i])
-                                                      for i in range(self.dimensions)])
+                expr_evaluated = expr_i.item(0).subs([(self.coordinates[i], point[i]) for i in range(self.dimensions)])
             except AttributeError:
                 expr_evaluated = expr
             expr_array_evaluated.append(sp.simplify(expr_evaluated))
@@ -93,7 +93,7 @@ class Hypersurface(Manifold):
                 for expr in np.nditer(expr_array, flags=['refs_ok']):
                     expr = expr.item(0)
                     expr = expr.subs([(self.coordinates[i], point[i])
-                                       for i in range(self.dimensions)])
+                                      for i in range(self.dimensions)])
                     expr_evaluated.append(sp.simplify(expr))
                 expr_array_evaluated.append(expr_evaluated)
         else:
@@ -112,7 +112,7 @@ class Hypersurface(Manifold):
                 summation += expr_evaluated[0]
         else:
             for patch in self.patches:
-                summation += patch.integrate(expr) * patch.n_points
+                summation += patch.integrate(expr)
         # In case you want to try with few points and n_points might be zero on some
         # patch.
         #try:
@@ -121,6 +121,16 @@ class Hypersurface(Manifold):
         #    integration = 0
         return summation
 
+    def integrate_lmd(self, expr):
+        summation = 0
+        points = np.array(self.points)
+        points_t = points.transpose()
+        if self.patches == []:
+            f = sp.lambdify(self.coordinates, expr, "numpy")
+            #for point in self.points:
+            summation = np.sum(f(*(points_t[i] for i in range(len(points_t)))))
+            #    summation += f(*(point[i] for i in range(len(point))))
+        return summation
 
     # Private:
 
@@ -141,14 +151,13 @@ class Hypersurface(Manifold):
             line = [zpair[0][i]+(a*zpair[1][i]) for i in range(self.dimensions)]
             function_eval = self.function.subs([(self.coordinates[i], line[i])
                                                 for i in range(self.dimensions)])
-            #function_lambda = sp.lambdify(a, function_eval, ["scipy", "numpy"])
-            #a_solved = fsolve(function_lambda, 1)
+            # This solver uses mpmath package, which should be pretty accurate
             a_solved = sp.polys.polytools.nroots(function_eval)
             #a_rational = sp.solvers.solve(sp.Eq(sp.nsimplify(function_eval, rational=True)),a)
             # print("Solution for a_lambda:", a_poly)
             # a_solved = sp.solvers.solve(sp.Eq(sp.expand(function_eval)),a)
             for pram_a in a_solved:
-                points.append([zpair[0][i]+(pram_a*zpair[1][i])
+                points.append([zpair[0][i] + complex(pram_a) * zpair[1][i]
                                for i in range(self.dimensions)])
         return points
 
@@ -162,7 +171,6 @@ class Hypersurface(Manifold):
                 if norms[i] == max(norms):
                     point_normalized = self.normalize_point(point, i)
                     points_on_patch[i].append(point_normalized)
-                
                     continue
         for i in range(self.dimensions):
             self.set_patch(points_on_patch[i], i)
@@ -179,6 +187,7 @@ class Hypersurface(Manifold):
             for i in range(self.dimensions-1):
                 patch.set_patch(points_on_patch[i], patch.norm_coordinate,
                                 max_grad_coord=i)
+            # Reinitialize the affine patches after generating subpatches
             patch.initialize_basic_properties()
 
     def get_FS(self):
@@ -188,33 +197,29 @@ class Hypersurface(Manifold):
     def get_grad(self):
         grad = []
         if self.patches == []:
-            for i in range(len(self.coordinates)):
-                if i == self.norm_coordinate:
-                    continue
-                grad_i = self.function.diff(self.coordinates[i])
+            for coord in self.affine_coordinates:
+                grad_i = self.function.diff(coord)
                 grad.append(grad_i)
         else:
             for patch in self.patches:
                 grad.append(patch.grad)
         return grad
 
-    def get_holvolform(self):
-        holvolform = []
-        if self.patches == []:
-            for grad_i in self.grad:
-                holvolform_i = 1 / grad_i
-                holvolform.append(holvolform_i)
+    def get_hol_n_form(self):
+        hol_n_form = []
+        if self.patches == [] and self.max_grad_coordinate is not None:
+        # The later condition is neccessary due to the initialization
+            hol_n_form = self.grad[self.max_grad_coordinate]
         else:
             for patch in self.patches:
-                holvolform.append(patch.holo_volume_form)
-        return holvolform
+                hol_n_form.append(patch.hol_n_form)
+        return hol_n_form
 
     def get_omega_omegabar(self):
         omega_omegabar = []
-        if self.patches == []:
-            for holvolform_i in self.holo_volume_form:
-                omega_omegabar_i = holvolform_i * sp.conjugate(holvolform_i)
-                omega_omegabar.append(omega_omegabar_i)
+        if self.patches == [] and self.max_grad_coordinate is not None:
+            hol_n_form = self.hol_n_form
+            omega_omegabar = hol_n_form * sp.conjugate(hol_n_form)
         else:
             for patch in self.patches:
                 omega_omegabar.append(patch.omega_omegabar)
@@ -267,8 +272,8 @@ class Hypersurface(Manifold):
         return restriction
         # Todo: Add try except in this function 
 
-    def get_FS_volume_form(self, h_matrix=None):
-        kahler_metric = self.kahler_metric(h_matrix)
+    def get_FS_volume_form(self, h_matrix=None, k=1):
+        kahler_metric = self.kahler_metric(h_matrix, k)
         restriction = self.get_restriction()
         FS_volume_form = restriction.T.conjugate() * kahler_metric * restriction
         FS_volume_form = FS_volume_form.det()
