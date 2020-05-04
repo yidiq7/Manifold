@@ -103,26 +103,6 @@ class Hypersurface(Manifold):
 
     def integrate(self, expr):
         summation = 0
-        if self.patches == []:
-            for point in self.points:
-                expr_evaluated = self.eval(expr, point)
-                # self.eval() will return a list.
-                # Here we suppose there is only one element in that list
-                # In other words, the expression being integrated is not a list itself
-                summation += expr_evaluated[0]
-        else:
-            for patch in self.patches:
-                summation += patch.integrate(expr)
-        # In case you want to try with few points and n_points might be zero on some
-        # patch.
-        #try:
-        #    integration = summation / self.n_points
-        #except ZeroDivisionError:
-        #    integration = 0
-        return summation
-
-    def integrate_lmd(self, expr):
-        summation = 0
         points = np.array(self.points)
         points_t = points.transpose()
         if self.patches == []:
@@ -130,6 +110,9 @@ class Hypersurface(Manifold):
             #for point in self.points:
             summation = np.sum(f(*(points_t[i] for i in range(len(points_t)))))
             #    summation += f(*(point[i] for i in range(len(point))))
+        else:
+            for patch in self.patches:
+                summation += patch.integrate(expr)
         return summation
 
     # Private:
