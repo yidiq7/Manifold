@@ -1,6 +1,7 @@
 import numpy as np
 import sympy as sp
 from manifold import *
+import time
 #from patches import *
 
 class Hypersurface(Manifold):
@@ -76,10 +77,11 @@ class Hypersurface(Manifold):
         for expr_i in np.nditer(expr_array, flags=['refs_ok']):
             # In case you want to integrate a constant
             try:
-                expr_evaluated = expr_i.item(0).subs([(self.coordinates[i], point[i]) for i in range(self.dimensions)])
+                f = sp.lambdify(self.coordinates, expr_i.item(0))
+                expr_evaluated = f(*(point[i] for i in range(len(point))))
             except AttributeError:
                 expr_evaluated = expr
-            expr_array_evaluated.append(sp.simplify(expr_evaluated))
+            expr_array_evaluated.append(expr_evaluated)
         return expr_array_evaluated
 
 
