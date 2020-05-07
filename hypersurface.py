@@ -109,9 +109,12 @@ class Hypersurface(Manifold):
         points_t = points.transpose()
         if self.patches == []:
             f = sp.lambdify(self.coordinates, expr, "numpy")
-            #for point in self.points:
-            summation = np.sum(f(*(points_t[i] for i in range(len(points_t)))))
+            for point in self.points:
+            #summation = np.sum(f(*(points_t[i] for i in range(len(points_t)))))
             #    summation += f(*(point[i] for i in range(len(point))))
+                 value = f(*(point[i] for i in range(len(point))))
+                 if value < 100 and value > -100:
+                     summation += value
         else:
             for patch in self.patches:
                 summation += patch.integrate(expr)
@@ -129,6 +132,7 @@ class Hypersurface(Manifold):
         return z_random_pair
 
     def __solve_points(self, n_pairs):
+        #start_time = time.time()
         points = []
         zpairs = self.__generate_random_pair(n_pairs)
         for zpair in zpairs:
@@ -144,11 +148,14 @@ class Hypersurface(Manifold):
             for pram_a in a_solved:
                 points.append([zpair[0][i] + complex(pram_a) * zpair[1][i]
                                for i in range(self.dimensions)])
+        #end_time = time.time()-start_time
+        #print("solve points:", end_time)
         return points
 
     def __autopatch(self):
         self.reset_patchwork()
         # projective patches
+        #start_time = time.time()
         points_on_patch = [[] for i in range(self.dimensions)]
         for point in self.points:
             norms = np.absolute(point)
@@ -157,6 +164,9 @@ class Hypersurface(Manifold):
                     point_normalized = self.normalize_point(point, i)
                     points_on_patch[i].append(point_normalized)
                     continue
+        #end_time = time.time() -  start_time
+        #print("patchwork 1", end_time)
+        #start_time2 = time.time()
         for i in range(self.dimensions):
             self.set_patch(points_on_patch[i], i)
         # Subpatches on each patch
@@ -174,7 +184,8 @@ class Hypersurface(Manifold):
                                 max_grad_coord=i)
             # Reinitialize the affine patches after generating subpatches
             patch.initialize_basic_properties()
-
+        #end_time2 = time.time() - start_time2
+        #print("patchwork 2", end_time2)
     def get_FS(self):
         FS_metric = self.kahler_metric(np.identity(self.dimensions, dtype=int), k=1)
         return FS_metric
@@ -214,7 +225,7 @@ class Hypersurface(Manifold):
         sections = []
         t = sp.symbols('t')
         GenSec = sp.prod(1/(1-(t*zz)) for zz in self.coordinates)
-        poly = sp.series(GenSec, t, n=self.dimensions+1).coeff(t**k)
+        poly = sp.series(GenSec, t, n=k+1).coeff(t**k)
         while poly!=0:
             sections.append(sp.LT(poly))
             poly = poly - sp.LT(poly)
