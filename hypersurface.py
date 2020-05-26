@@ -1,6 +1,8 @@
 import numpy as np
 import sympy as sp
 from manifold import *
+from mpmath import *
+from multiprocessing import Pool
 import time
 #from patches import *
 
@@ -72,17 +74,9 @@ class Hypersurface(Manifold):
         print(self.points)
 
     def eval(self, expr, point):
-        expr_array = np.array(expr)
-        expr_array_evaluated = []
-        for expr_i in np.nditer(expr_array, flags=['refs_ok']):
-            # In case you want to integrate a constant
-            try:
-                f = sp.lambdify(self.coordinates, expr_i.item(0))
-                expr_evaluated = f(*(point[i] for i in range(len(point))))
-            except AttributeError:
-                expr_evaluated = expr
-            expr_array_evaluated.append(expr_evaluated)
-        return expr_array_evaluated
+        f = sp.lambdify(self.coordinates, expr)
+        expr_evaluated = f(*point)
+        return expr_evaluated
 
 
     def eval_all(self, expr_name):
@@ -110,11 +104,12 @@ class Hypersurface(Manifold):
         if self.patches == []:
             f = sp.lambdify(self.coordinates, expr, "numpy")
             for point in self.points:
-            #summation = np.sum(f(*(points_t[i] for i in range(len(points_t)))))
-            #    summation += f(*(point[i] for i in range(len(point))))
-                 value = f(*(point[i] for i in range(len(point))))
-                 if value < 100 and value > -100:
-                     summation += value
+                 value = f(*point)
+                 summation += value
+                 #if np.absolute(value) < 100 and np.absolute(value) > -100:
+                 #    summation += value
+                 #else:
+                 #    print("Possible division of a small number:", value)
         else:
             for patch in self.patches:
                 summation += patch.integrate(expr)
@@ -131,31 +126,39 @@ class Hypersurface(Manifold):
             z_random_pair.append(zv)
         return z_random_pair
 
+    @staticmethod
+    def solve_poly(zpair, coeff):
+        # For each zpair there are d solutions, where d is the dimensions
+        points_d = []
+        c_solved = polyroots(coeff) 
+        for pram_c in c_solved:
+            points_d.append([pram_c * a + b for (a, b) in zip(zpair[0], zpair[1])]) 
+        return points_d
+    
     def __solve_points(self, n_pairs):
-        #start_time = time.time()
         points = []
         zpairs = self.__generate_random_pair(n_pairs)
-        for zpair in zpairs:
-            a = sp.symbols('a')
-            line = [zpair[0][i]+(a*zpair[1][i]) for i in range(self.dimensions)]
-            function_eval = self.function.subs([(self.coordinates[i], line[i])
-                                                for i in range(self.dimensions)])
-            # This solver uses mpmath package, which should be pretty accurate
-            a_solved = sp.polys.polytools.nroots(function_eval)
-            #a_rational = sp.solvers.solve(sp.Eq(sp.nsimplify(function_eval, rational=True)),a)
-            # print("Solution for a_lambda:", a_poly)
-            # a_solved = sp.solvers.solve(sp.Eq(sp.expand(function_eval)),a)
-            for pram_a in a_solved:
-                points.append([zpair[0][i] + complex(pram_a) * zpair[1][i]
-                               for i in range(self.dimensions)])
-        #end_time = time.time()-start_time
-        #print("solve points:", end_time)
+        coeff_a = [sp.symbols('a'+str(i)) for i in range(self.dimensions)]
+        coeff_b = [sp.symbols('b'+str(i)) for i in range(self.dimensions)]
+        c = sp.symbols('c')
+        coeff_zip = zip(coeff_a, coeff_b)
+        line = [c*a+b for (a, b) in coeff_zip]
+        function_eval = self.function.subs([(self.coordinates[i], line[i])
+                                            for i in range(self.dimensions)])
+        poly = sp.Poly(function_eval, c)
+        coeff_poly = poly.coeffs()
+        get_coeff = sp.lambdify([coeff_a, coeff_b], coeff_poly)
+        # Multiprocessing. Then append the points to the same list in the main process
+        with Pool() as pool:
+            for points_d in pool.starmap(Hypersurface.solve_poly,
+                                         zip(zpairs, [get_coeff(zpair[0], zpair[1])
+                                                      for zpair in zpairs])):
+                points.extend(points_d)
         return points
 
     def __autopatch(self):
         self.reset_patchwork()
         # projective patches
-        #start_time = time.time()
         points_on_patch = [[] for i in range(self.dimensions)]
         for point in self.points:
             norms = np.absolute(point)
@@ -164,16 +167,14 @@ class Hypersurface(Manifold):
                     point_normalized = self.normalize_point(point, i)
                     points_on_patch[i].append(point_normalized)
                     continue
-        #end_time = time.time() -  start_time
-        #print("patchwork 1", end_time)
-        #start_time2 = time.time()
         for i in range(self.dimensions):
             self.set_patch(points_on_patch[i], i)
         # Subpatches on each patch
         for patch in self.patches:
             points_on_patch = [[] for i in range(self.dimensions-1)]
+            grad_eval = sp.lambdify(self.coordinates, patch.grad)
             for point in patch.points:
-                grad = patch.eval(patch.grad, point)
+                grad = grad_eval(*point)
                 grad_norm = np.absolute(grad)
                 for i in range(self.dimensions-1):
                     if grad_norm[i] == max(grad_norm):
@@ -184,8 +185,7 @@ class Hypersurface(Manifold):
                                 max_grad_coord=i)
             # Reinitialize the affine patches after generating subpatches
             patch.initialize_basic_properties()
-        #end_time2 = time.time() - start_time2
-        #print("patchwork 2", end_time2)
+
     def get_FS(self):
         FS_metric = self.kahler_metric(np.identity(self.dimensions, dtype=int), k=1)
         return FS_metric
