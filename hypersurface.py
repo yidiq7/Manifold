@@ -4,6 +4,7 @@ from manifold import *
 from mpmath import *
 from multiprocessing import Pool
 import time
+from loky import get_reusable_executor
 #from patches import *
 
 class Hypersurface(Manifold):
@@ -97,23 +98,33 @@ class Hypersurface(Manifold):
                 expr_array_evaluated.append(patch.eval_all(expr_name))
         return expr_array_evaluated
 
-    def integrate(self, expr):
+    def summarize(self, lambda_expr):
         summation = 0
         points = np.array(self.points)
-        points_t = points.transpose()
         if self.patches == []:
-            f = sp.lambdify(self.coordinates, expr, "numpy")
-            for point in self.points:
-                 value = f(*point)
-                 summation += value
+            time0 = time.time()
+            f = sp.lambdify([self.coordinates], lambda_expr(self), "numpy")
+            with get_reusable_executor() as executor:
+                summation = sum(list(executor.map(f, self.points)))
+                #print(value)
+                #for value in executor.map(f, self.points):
+                #    summation += value
+            #for point in self.points:
+            #     value = f(point)
+            #     summation += value
                  #if np.absolute(value) < 100 and np.absolute(value) > -100:
                  #    summation += value
                  #else:
                  #    print("Possible division of a small number:", value)
         else:
             for patch in self.patches:
-                summation += patch.integrate(expr)
+                summation += patch.summarize(lambda_expr)
         return summation
+
+    def integrate(self, lambda_expr):
+        summation = self.summarize(lambda_expr)
+        integration = complex(summation / self.n_points)
+        return integration
 
     # Private:
 
