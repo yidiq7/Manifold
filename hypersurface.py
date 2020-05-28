@@ -43,7 +43,7 @@ class Hypersurface(Manifold):
         self.hol_n_form = self.get_hol_n_form()
         self.omega_omegabar = self.get_omega_omegabar()
         #self.sections, self.n_sections = self.get_sections(self.dimensions)
-        self.FS_Metric = self.get_FS()
+        #self.FS_Metric = self.get_FS()
         #self.transition_function = self.__get_transition_function()
 
     def reset_patchwork(self):
@@ -121,9 +121,22 @@ class Hypersurface(Manifold):
                 summation += patch.summarize(lambda_expr)
         return summation
 
-    def integrate(self, lambda_expr):
-        summation = self.summarize(lambda_expr)
-        integration = complex(summation / self.n_points)
+    def integrate(self, f, holomorphic=False):
+        # f is a lambda function given by the user
+        # holomorphic=True means integrating over Omega_Omegabar
+        if holomorphic == True:
+            # m is the mass formular
+            m = lambda x: x.omega_omegabar / x.get_FS_volume_form(k=1)
+            # Define a new f with an extra argument user_f and immediatly pass f as
+            # the default value, so that f can be updated as f(x) * m(x)
+            f = lambda x, user_f=f: user_f(x) * m(x)
+            norm_factor = 1 / self.summarize(m)
+        else:
+            norm_factor = 1 / self.n_points
+
+        summation = self.summarize(f)
+        integration = complex(summation * norm_factor)
+        #print(integration)
         return integration
 
     # Private:
@@ -243,12 +256,18 @@ class Hypersurface(Manifold):
         n_sections = len(sections)
         sections = np.array(sections)
         return sections, n_sections
-    # just one potential
+
     def kahler_potential(self, h_matrix=None, k=1):
-        #need to generalize this for when we start implementing networks
         sections, n_sec = self.get_sections(k)
         if h_matrix is None:
-            h_matrix = sp.MatrixSymbol('H', n_sec, n_sec)
+            h_matrix = np.identity(n_sec)
+        # Check if h_matrix is a string
+        elif isinstance(h_matrix, str):
+            if h_matrix == "identity":
+                h_matrix = np.identity(n_sec)
+            elif h_matrix == "symbolic":
+                h_matrix = sp.MatrixSymbol('H', n_sec, n_sec)
+        
         zbar_H_z = np.matmul(sp.conjugate(sections),
                              np.matmul(h_matrix, sections))
         if self.norm_coordinate is not None:
