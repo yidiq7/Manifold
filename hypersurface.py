@@ -103,16 +103,8 @@ class Hypersurface(Manifold):
         summation = 0
         points = np.array(self.points)
         if self.patches == []:
-            #time0 = time.time()
             f = sp.lambdify([self.coordinates], lambda_expr(self), "numpy")
-            #with get_reusable_executor() as executor:
-            #    summation = sum(list(executor.map(f, self.points)))
-                #print(value)
-                #for value in executor.map(f, self.points):
-                #    summation += value
             for point in self.points:
-                 #summation += lambda_expr(self).subs([(self.coordinates[i], point[i])
-                 #                                     for i in range(self.dimensions)])
                  value = f(point)
                  summation += value
                  #if np.absolute(value) < 5 and np.absolute(value) > -5:
@@ -122,8 +114,6 @@ class Hypersurface(Manifold):
         else:
             with get_reusable_executor() as executor:
                 summation = sum(list(executor.map(lambda x: x.sum_on_patch(lambda_expr), self.patches)))
-            #for patch in self.patches:
-            #    summation += patch.sum_on_patch(lambda_expr)
         return summation
 
     def integrate(self, f, holomorphic=False):
@@ -140,9 +130,7 @@ class Hypersurface(Manifold):
             norm_factor = 1 / self.n_points
 
         summation = self.sum_on_patch(f)
-        #integration = complex(summation * norm_factor)
         integration = summation * norm_factor
-        #print(integration)
         return integration
 
     # Private:
@@ -162,7 +150,8 @@ class Hypersurface(Manifold):
         points_d = []
         c_solved = polyroots(coeff) 
         for pram_c in c_solved:
-            points_d.append([pram_c * a + b for (a, b) in zip(zpair[0], zpair[1])]) 
+            points_d.append([complex(pram_c * a + b)
+                             for (a, b) in zip(zpair[0], zpair[1])])
         return points_d
     
     def __solve_points(self, n_pairs):
@@ -310,8 +299,7 @@ class Hypersurface(Manifold):
         FS_volume_form = restriction.T.conjugate() * kahler_metric * restriction
         FS_volume_form = FS_volume_form.det()
         return FS_volume_form
-#Can we just define conjugation in this way?
-#Have a function inside the class self.conjugate?
+
 def diff_conjugate(expr, coordinate):
     coord_bar = sp.symbols('coord_bar')
     expr_diff = expr.subs(sp.conjugate(coordinate), coord_bar).diff(coord_bar)
@@ -324,7 +312,4 @@ def diff(expr, coordinate):
     expr_diff = expr_diff.subs(coord_bar, sp.conjugate(coordinate))
     return expr_diff
 
-    
 
-#The integration of volume form should not depend on h
-#So change h nd calculate the topology integration 
