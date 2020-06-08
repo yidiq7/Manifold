@@ -5,6 +5,7 @@ from mpmath import *
 from multiprocessing import Pool
 import time
 from loky import get_reusable_executor
+from sympy.utilities.lambdify import lambdastr
 #from patches import *
 
 class Hypersurface(Manifold):
@@ -98,27 +99,31 @@ class Hypersurface(Manifold):
                 expr_array_evaluated.append(patch.eval_all(expr_name))
         return expr_array_evaluated
 
-    def summarize(self, lambda_expr):
+    def sum_on_patch(self, lambda_expr):
         summation = 0
         points = np.array(self.points)
         if self.patches == []:
-            time0 = time.time()
+            #time0 = time.time()
             f = sp.lambdify([self.coordinates], lambda_expr(self), "numpy")
-            with get_reusable_executor() as executor:
-                summation = sum(list(executor.map(f, self.points)))
+            #with get_reusable_executor() as executor:
+            #    summation = sum(list(executor.map(f, self.points)))
                 #print(value)
                 #for value in executor.map(f, self.points):
                 #    summation += value
-            #for point in self.points:
-            #     value = f(point)
-            #     summation += value
-                 #if np.absolute(value) < 100 and np.absolute(value) > -100:
+            for point in self.points:
+                 #summation += lambda_expr(self).subs([(self.coordinates[i], point[i])
+                 #                                     for i in range(self.dimensions)])
+                 value = f(point)
+                 summation += value
+                 #if np.absolute(value) < 5 and np.absolute(value) > -5:
                  #    summation += value
                  #else:
                  #    print("Possible division of a small number:", value)
         else:
-            for patch in self.patches:
-                summation += patch.summarize(lambda_expr)
+            with get_reusable_executor() as executor:
+                summation = sum(list(executor.map(lambda x: x.sum_on_patch(lambda_expr), self.patches)))
+            #for patch in self.patches:
+            #    summation += patch.sum_on_patch(lambda_expr)
         return summation
 
     def integrate(self, f, holomorphic=False):
@@ -130,12 +135,13 @@ class Hypersurface(Manifold):
             # Define a new f with an extra argument user_f and immediatly pass f as
             # the default value, so that f can be updated as f(x) * m(x)
             f = lambda x, user_f=f: user_f(x) * m(x)
-            norm_factor = 1 / self.summarize(m)
+            norm_factor = 1 / self.sum_on_patch(m)
         else:
             norm_factor = 1 / self.n_points
 
-        summation = self.summarize(f)
-        integration = complex(summation * norm_factor)
+        summation = self.sum_on_patch(f)
+        #integration = complex(summation * norm_factor)
+        integration = summation * norm_factor
         #print(integration)
         return integration
 
