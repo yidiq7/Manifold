@@ -27,6 +27,7 @@ class Hypersurface(Manifold):
         else:
             self.affine_coordinates = self.coordinates
         self.patches = []
+        self.indices = []
         if points is None:
             self.points = self.__solve_points(n_pairs)
             self.__autopatch()
@@ -198,6 +199,7 @@ class Hypersurface(Manifold):
                 for i in range(self.dimensions-1):
                     if grad_norm[i] == max(grad_norm):
                         points_on_patch[i].append(point)
+                        patch.indices.append(i)
                         continue
             for i in range(self.dimensions-1):
                 patch.set_patch(points_on_patch[i], patch.norm_coordinate,
@@ -270,16 +272,18 @@ class Hypersurface(Manifold):
         kahler_potential = sp.log(zbar_H_z)
         return kahler_potential
 
-    def kahler_metric(self, h_matrix=None, k=1):
-        pot = self.kahler_potential(h_matrix, k)
-        metric = []
-        #i holomorphc, j anti-hol
-        for coord_i in self.affine_coordinates:
-            a_holo_der = []
-            for coord_j in self.affine_coordinates:
-                a_holo_der.append(diff_conjugate(pot, coord_j))
-            metric.append([diff(ah, coord_i) for ah in a_holo_der])
-        metric = sp.Matrix(metric)
+    def kahler_metric(self, h_matrix=None, k=1, point=None):
+        if point is None:
+            pot = self.kahler_potential(h_matrix, k)
+            metric = []
+            #i holomorphc, j anti-hol
+            for coord_i in self.affine_coordinates:
+                a_holo_der = []
+                for coord_j in self.affine_coordinates:
+                    a_holo_der.append(diff_conjugate(pot, coord_j))
+                metric.append([diff(ah, coord_i) for ah in a_holo_der])
+            metric = sp.Matrix(metric)
+
         return metric
 
     def get_restriction(self, ignored_coord=None):
