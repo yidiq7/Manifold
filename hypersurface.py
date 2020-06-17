@@ -226,7 +226,7 @@ class Hypersurface(Manifold):
         hol_n_form = []
         if self.patches == [] and self.max_grad_coordinate is not None:
         # The later condition is neccessary due to the initialization
-            hol_n_form = self.grad[self.max_grad_coordinate]
+            hol_n_form = 1 / self.grad[self.max_grad_coordinate]
         else:
             for patch in self.patches:
                 hol_n_form.append(patch.hol_n_form)
