@@ -3,6 +3,16 @@
 ## [Unreleased]
 - Since the eval() function will slow down the code, we may change the get_ fuctions from returning a sympy expression to a lambdified function given some specific arguments. More details in the "changed" section in 0.1.0
 
+## [0.2.0] - 2020-06-21
+### Added
+- A few pure numerical methods started with num\_
+
+- A new method set\_k() to assgin the parameter k. The numerical methods need to be defined after k is given and before any potential loops to avoid unnecessary redefinition. So those methods will be defined when set\_k() is invoked.
+
+- A new lambdify argument for the get\_symbolic methods. If lambdify=True, they will return a lamdified function from the original expressions.
+
+### Changed
+- Update the notebook eta\_on\_rational\_curve with new numerical methods.
 
 ## [0.1.4] - 2020-06-20
 ### Changed

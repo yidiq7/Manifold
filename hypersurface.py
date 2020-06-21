@@ -5,7 +5,6 @@ from mpmath import *
 from multiprocessing import Pool
 import time
 from loky import get_reusable_executor
-from sympy.utilities.lambdify import lambdastr
 #from patches import *
 
 class Hypersurface(Manifold):
@@ -43,7 +42,7 @@ class Hypersurface(Manifold):
         # be reinvoked.
         self.grad = self.get_grad()
         self.hol_n_form = self.get_hol_n_form()
-        self.omega_omegabar = self.get_omega_omegabar()
+        #self.omega_omegabar = self.get_omega_omegabar()
         #self.sections, self.n_sections = self.get_sections(self.dimensions)
         #self.FS_Metric = self.get_FS()
         #self.transition_function = self.__get_transition_function()
@@ -122,7 +121,7 @@ class Hypersurface(Manifold):
         # holomorphic=True means integrating over Omega_Omegabar
         if holomorphic == True:
             # m is the mass formular
-            m = lambda x: x.omega_omegabar / x.get_FS_volume_form(k=1)
+            m = lambda x: x.get_omega_omegabar() / x.get_FS_volume_form(k=1)
             # Define a new f with an extra argument user_f and immediatly pass f as
             # the default value, so that f can be updated as f(x) * m(x)
             f = lambda x, user_f=f: user_f(x) * m(x)
@@ -192,7 +191,7 @@ class Hypersurface(Manifold):
         # Subpatches on each patch
         for patch in self.patches:
             points_on_patch = [[] for i in range(self.dimensions-1)]
-            grad_eval = sp.lambdify(self.coordinates, patch.grad)
+            grad_eval = sp.lambdify(self.coordinates, patch.grad, 'numpy')
             for point in patch.points:
                 grad = grad_eval(*point)
                 grad_norm = np.absolute(grad)
@@ -232,7 +231,7 @@ class Hypersurface(Manifold):
                 hol_n_form.append(patch.hol_n_form)
         return hol_n_form
 
-    def get_omega_omegabar(self):
+    def get_omega_omegabar(self, lambdify=False):
         omega_omegabar = []
         if self.patches == [] and self.max_grad_coordinate is not None:
             hol_n_form = self.hol_n_form
@@ -240,6 +239,8 @@ class Hypersurface(Manifold):
         else:
             for patch in self.patches:
                 omega_omegabar.append(patch.omega_omegabar)
+        if lambdify is True:
+            omega_omegabar = sp.lambdify(self.coordinates, omega_omegabar,'numpy')
         return omega_omegabar
 
     def get_sections(self, k):
@@ -285,7 +286,7 @@ class Hypersurface(Manifold):
 
         return metric
 
-    def get_restriction(self, ignored_coord=None, symbolic=True):
+    def get_restriction(self, ignored_coord=None, lambdify=False):
         if ignored_coord is None:
             ignored_coord = self.max_grad_coordinate
         ignored_coordinate = self.affine_coordinates[ignored_coord]
@@ -294,8 +295,8 @@ class Hypersurface(Manifold):
         restriction = local_coordinates.jacobian(affine_coordinates).inv()
         restriction.col_del(ignored_coord)
         # Return a function is symbolic is flase
-        if symbolic is not True:
-            restriction = sp.lambdify(self.coordinates, restriction)
+        if lambdify is True:
+            restriction = sp.lambdify(self.coordinates, restriction, 'numpy')
         return restriction
 
     def get_FS_volume_form(self, h_matrix=None, k=1):
@@ -305,25 +306,50 @@ class Hypersurface(Manifold):
         FS_volume_form = FS_volume_form.det()
         return FS_volume_form
 
-
     # Numerical Methods:
+
     def set_k(self, k):
         sections, ns = self.get_sections(k)
-        sections_func = sp.lambdify(self.coordinates, sections)
+        sections_func = sp.lambdify(self.coordinates, sections, 'numpy')
         for patch in self.patches:
-            #patch.k = k
+            # patch.k = k
             for subpatch in patch.patches:
-                #subpatch.k = k
+                # subpatch.k = k
                 subpatch.sections = sections_func
                 jacobian = sp.Matrix(sections).jacobian(subpatch.affine_coordinates)
                 subpatch.sections_jacobian = sp.lambdify(subpatch.coordinates,
-                                                         jacobian)
-                subpatch.restriction = subpatch.get_restriction(symbolic=False)
+                                                         jacobian,'numpy')
+                subpatch.restriction = subpatch.get_restriction(lambdify=True)
+                subpatch.omega_omegabar = subpatch.get_omega_omegabar(lambdify=True)
 
-    def numerical_metric(self, h_matrix, point):
-        sections = self.sections(*point) 
-        jacobian = self.sections_jacobian(*point)
-         
+    def num_kahler_metric(self, h_matrix, point):
+        s = self.sections(*point)
+        J = self.sections_jacobian(*point).T
+        if isinstance(h_matrix, str) and h_matrix == 'identity':
+            h_matrix = np.identity(len(s))
+        H_Jdag = np.matmul(h_matrix, np.conj(J).T)
+        A = np.matmul(J, H_Jdag)
+        # Get the right half of B then reshape to transpose,
+        # since b.T is still b if b is a 1d vector
+        b = np.matmul(s, H_Jdag).reshape(-1, 1)
+        B = np.matmul(np.conj(b), b.T)
+        alpha = np.matmul(s, np.matmul(h_matrix, np.conj(s)))
+        G = A / alpha - B / alpha**2
+        return G
+
+    def num_FS_volume_form(self, h_matrix, point):
+        kahler_metric = self.num_kahler_metric(h_matrix, point)
+        r = self.restriction(*point)
+        FS_volume_form = np.matmul(np.conj(r).T, np.matmul(kahler_metric, r))
+        FS_volume_form = np.matrix(FS_volume_form, dtype=complex)
+        FS_volume_form = np.linalg.det(FS_volume_form).real
+        return FS_volume_form
+
+    def num_eta(self, h_matrix, point):
+        FS_volume_form = self.num_FS_volume_form(h_matrix, point)
+        Omega_Omegabar = self.omega_omegabar(*point)
+        eta = FS_volume_form / Omega_Omegabar
+        return eta
 
 def diff_conjugate(expr, coordinate):
     coord_bar = sp.symbols('coord_bar')
