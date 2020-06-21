@@ -1,7 +1,6 @@
 # Changelog
 
 ## [Unreleased]
-- Since the eval() function will slow down the code, we may change the get_ fuctions from returning a sympy expression to a lambdified function given some specific arguments. More details in the "changed" section in 0.1.0
 
 ## [0.2.0] - 2020-06-21
 ### Added
