@@ -3,6 +3,11 @@
 ## [Unreleased]
 - Since the eval() function will slow down the code, we may change the get_ fuctions from returning a sympy expression to a lambdified function given some specific arguments. More details in the "changed" section in 0.1.0
 
+
+## [0.1.4] - 2020-06-20
+### Changed
+- In kahler_potential, zbar\_H\_z is changed to z\_H\_zbar
+
 ## [0.1.3] - 2020-06-18
 ### Fixed
 - The expression of the holomophic n form Omega, which should be 1/grad.

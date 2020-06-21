@@ -265,11 +265,10 @@ class Hypersurface(Manifold):
             elif h_matrix == "symbolic":
                 h_matrix = sp.MatrixSymbol('H', n_sec, n_sec)
         
-        zbar_H_z = np.matmul(sp.conjugate(sections),
-                             np.matmul(h_matrix, sections))
+        z_H_zbar = np.matmul(sections, np.matmul(h_matrix, sp.conjugate(sections)))
         if self.norm_coordinate is not None:
-            zbar_H_z = zbar_H_z.subs(self.coordinates[self.norm_coordinate], 1)
-        kahler_potential = sp.log(zbar_H_z)
+            z_H_zbar = z_H_zbar.subs(self.coordinates[self.norm_coordinate], 1)
+        kahler_potential = sp.log(z_H_zbar)
         return kahler_potential
 
     def kahler_metric(self, h_matrix=None, k=1, point=None):
@@ -286,16 +285,18 @@ class Hypersurface(Manifold):
 
         return metric
 
-    def get_restriction(self, ignored_coord=None):
+    def get_restriction(self, ignored_coord=None, symbolic=True):
         if ignored_coord is None:
             ignored_coord = self.max_grad_coordinate
         ignored_coordinate = self.affine_coordinates[ignored_coord]
-        local_coordinates = sp.Matrix(self.affine_coordinates).subs(ignored_coordinate,                                                                   self.function)
+        local_coordinates = sp.Matrix(self.affine_coordinates).subs(ignored_coordinate, self.function)
         affine_coordinates = sp.Matrix(self.affine_coordinates)
         restriction = local_coordinates.jacobian(affine_coordinates).inv()
         restriction.col_del(ignored_coord)
+        # Return a function is symbolic is flase
+        if symbolic is not True:
+            restriction = sp.lambdify(self.coordinates, restriction)
         return restriction
-        # Todo: Add try except in this function 
 
     def get_FS_volume_form(self, h_matrix=None, k=1):
         kahler_metric = self.kahler_metric(h_matrix, k)
@@ -303,6 +304,26 @@ class Hypersurface(Manifold):
         FS_volume_form = restriction.T.conjugate() * kahler_metric * restriction
         FS_volume_form = FS_volume_form.det()
         return FS_volume_form
+
+
+    # Numerical Methods:
+    def set_k(self, k):
+        sections, ns = self.get_sections(k)
+        sections_func = sp.lambdify(self.coordinates, sections)
+        for patch in self.patches:
+            #patch.k = k
+            for subpatch in patch.patches:
+                #subpatch.k = k
+                subpatch.sections = sections_func
+                jacobian = sp.Matrix(sections).jacobian(subpatch.affine_coordinates)
+                subpatch.sections_jacobian = sp.lambdify(subpatch.coordinates,
+                                                         jacobian)
+                subpatch.restriction = subpatch.get_restriction(symbolic=False)
+
+    def numerical_metric(self, h_matrix, point):
+        sections = self.sections(*point) 
+        jacobian = self.sections_jacobian(*point)
+         
 
 def diff_conjugate(expr, coordinate):
     coord_bar = sp.symbols('coord_bar')
