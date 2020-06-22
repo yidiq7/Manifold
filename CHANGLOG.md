@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [0.2.1] - 2020-06-21
+### Changed
+- Method integrate() now supports the integration of numerical functions with argument numerical=True. The input will be a function with two arguments: patch and point. The format will be like lambda patch, point: patch.num_eta('identity', point). 
+
+- Holomorphic is True by defualt in method integrate().
+
+- Lambdified numerical methods now take an array as input instead of mulitple arguments
+
 ## [0.2.0] - 2020-06-21
 ### Added
 - A few pure numerical methods started with num\_

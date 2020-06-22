@@ -99,37 +99,75 @@ class Hypersurface(Manifold):
                 expr_array_evaluated.append(patch.eval_all(expr_name))
         return expr_array_evaluated
 
-    def sum_on_patch(self, lambda_expr):
+    def sum_on_patch(self, f, numerical):
         summation = 0
         points = np.array(self.points)
         if self.patches == []:
-            f = sp.lambdify([self.coordinates], lambda_expr(self), "numpy")
-            for point in self.points:
-                 value = f(point)
-                 summation += value
-                 #if np.absolute(value) < 5 and np.absolute(value) > -5:
-                 #    summation += value
-                 #else:
-                 #    print("Possible division of a small number:", value)
+            if numerical is True:
+                # Currying if numerical is true
+                def f_patch(patch):
+                    def f_point(point):
+                        return f(patch, point) 
+                    return  f_point
+                func = f_patch(self)
+                with get_reusable_executor() as executor:
+                    summation = sum(list(executor.map(func, self.points)))
+            else:
+                func = sp.lambdify([self.coordinates], f(self), "numpy")
+                for point in self.points:
+                    value = func(point)
+                    summation += value
+                #if np.absolute(value) < 5 and np.absolute(value) > -5:
+                #    summation += value
+                #else:
+                #    print("Possible division of a small number:", value)
         else:
-            with get_reusable_executor() as executor:
-                summation = sum(list(executor.map(lambda x: x.sum_on_patch(lambda_expr), self.patches)))
+            if numerical is True:
+                for patch in self.patches:
+                    summation += patch.sum_on_patch(f, numerical)
+            else: 
+                with get_reusable_executor() as executor:
+                    summation = sum(list(executor.map( 
+                                lambda x: x.sum_on_patch(f, numerical), self.patches)))
         return summation
 
-    def integrate(self, f, holomorphic=False):
+    def integrate(self, f, holomorphic=True, numerical=False):
         # f is a lambda function given by the user
         # holomorphic=True means integrating over Omega_Omegabar
-        if holomorphic == True:
-            # m is the mass formular
-            m = lambda x: x.get_omega_omegabar() / x.get_FS_volume_form(k=1)
+        if numerical is True:
+
+            # m is the mass formula
+            def m(patch, point):
+                mass = patch.get_omega_omegabar(lambdify=True)(point) / \
+                       patch.get_FS_volume_form(k=1, lambdify=True)(point)
+                return mass
+
+            def weighted_f(patch, point):
+                weighted_f = f(patch, point) * m(patch, point) 
+                return weighted_f
+        else:
+            def m(patch):
+                mass = patch.get_omega_omegabar() / \
+                       patch.get_FS_volume_form(k=1)
+                return mass
+
+            def weighted_f(patch):
+                weighted_f = f(patch) * m(patch)
+                return weighted_f
+            #m = lambda patch: patch.get_omega_omegabar(lambdify=True) / \
+            #    patch.get_FS_volume_form(k=1, lambdify=True)
+        if holomorphic is True:
             # Define a new f with an extra argument user_f and immediatly pass f as
             # the default value, so that f can be updated as f(x) * m(x)
-            f = lambda x, user_f=f: user_f(x) * m(x)
-            norm_factor = 1 / self.sum_on_patch(m)
+            #f = lambda patch, user_f=f: user_f(patch) * m(patch)
+            #m = lambda patch: patch.get_omega_omegabar() / \
+            #    patch.get_FS_volume_form(k=1)
+            summation = self.sum_on_patch(weighted_f, numerical)
+            norm_factor = 1 / self.sum_on_patch(m, numerical)
         else:
+            summation = self.sum_on_patch(f, numerical)
             norm_factor = 1 / self.n_points
 
-        summation = self.sum_on_patch(f)
         integration = summation * norm_factor
         return integration
 
@@ -240,10 +278,10 @@ class Hypersurface(Manifold):
             for patch in self.patches:
                 omega_omegabar.append(patch.omega_omegabar)
         if lambdify is True:
-            omega_omegabar = sp.lambdify(self.coordinates, omega_omegabar,'numpy')
+            omega_omegabar = sp.lambdify([self.coordinates], omega_omegabar,'numpy')
         return omega_omegabar
 
-    def get_sections(self, k):
+    def get_sections(self, k, lambdify=False):
         sections = []
         t = sp.symbols('t')
         GenSec = sp.prod(1/(1-(t*zz)) for zz in self.coordinates)
@@ -253,6 +291,8 @@ class Hypersurface(Manifold):
             poly = poly - sp.LT(poly)
         n_sections = len(sections)
         sections = np.array(sections)
+        if lambdify is True:
+            sections = sp.lambdify([self.coordinates], sections, 'numpy')
         return sections, n_sections
 
     def kahler_potential(self, h_matrix=None, k=1):
@@ -296,35 +336,37 @@ class Hypersurface(Manifold):
         restriction.col_del(ignored_coord)
         # Return a function is symbolic is flase
         if lambdify is True:
-            restriction = sp.lambdify(self.coordinates, restriction, 'numpy')
+            restriction = sp.lambdify([self.coordinates], restriction, 'numpy')
         return restriction
 
-    def get_FS_volume_form(self, h_matrix=None, k=1):
+    def get_FS_volume_form(self, h_matrix=None, k=1, lambdify=False):
         kahler_metric = self.kahler_metric(h_matrix, k)
         restriction = self.get_restriction()
         FS_volume_form = restriction.T.conjugate() * kahler_metric * restriction
         FS_volume_form = FS_volume_form.det()
+        if lambdify is True:
+            FS_volume_form = sp.lambdify([self.coordinates], FS_volume_form, 'numpy')
         return FS_volume_form
 
     # Numerical Methods:
 
     def set_k(self, k):
-        sections, ns = self.get_sections(k)
-        sections_func = sp.lambdify(self.coordinates, sections, 'numpy')
+        sections, ns = self.get_sections(k, lambdify=False)
+        sections_func, ns = self.get_sections(k, lambdify=True)
         for patch in self.patches:
             # patch.k = k
             for subpatch in patch.patches:
                 # subpatch.k = k
                 subpatch.sections = sections_func
                 jacobian = sp.Matrix(sections).jacobian(subpatch.affine_coordinates)
-                subpatch.sections_jacobian = sp.lambdify(subpatch.coordinates,
+                subpatch.sections_jacobian = sp.lambdify([subpatch.coordinates],
                                                          jacobian,'numpy')
                 subpatch.restriction = subpatch.get_restriction(lambdify=True)
                 subpatch.omega_omegabar = subpatch.get_omega_omegabar(lambdify=True)
 
     def num_kahler_metric(self, h_matrix, point):
-        s = self.sections(*point)
-        J = self.sections_jacobian(*point).T
+        s = self.sections(point)
+        J = self.sections_jacobian(point).T
         if isinstance(h_matrix, str) and h_matrix == 'identity':
             h_matrix = np.identity(len(s))
         H_Jdag = np.matmul(h_matrix, np.conj(J).T)
@@ -339,7 +381,7 @@ class Hypersurface(Manifold):
 
     def num_FS_volume_form(self, h_matrix, point):
         kahler_metric = self.num_kahler_metric(h_matrix, point)
-        r = self.restriction(*point)
+        r = self.restriction(point)
         FS_volume_form = np.matmul(np.conj(r).T, np.matmul(kahler_metric, r))
         FS_volume_form = np.matrix(FS_volume_form, dtype=complex)
         FS_volume_form = np.linalg.det(FS_volume_form).real
@@ -347,7 +389,7 @@ class Hypersurface(Manifold):
 
     def num_eta(self, h_matrix, point):
         FS_volume_form = self.num_FS_volume_form(h_matrix, point)
-        Omega_Omegabar = self.omega_omegabar(*point)
+        Omega_Omegabar = self.omega_omegabar(point)
         eta = FS_volume_form / Omega_Omegabar
         return eta
 
