@@ -1,10 +1,20 @@
 # Changelog
 
 ## [Unreleased]
+- Add an attribute hypersurface.k after set\_() is invoked. Then the default value for argument k in the symbolic functions can be changed to self.k
+
+## [0.2.2] - 2020-06-22
+### Added
+- Attribute n\_sections after set\_k() is invoked.
+
+- Comparison between "symbolic" and numeric integration in the aspect of speed and accuracy. See notebook Numerical\_benchmark.
+
+### Removed
+- Multiprocessing for "symbolic" integration. Since the set\_k() will change the definition of the instance, loky cannot pickle the patches after it is invoked. But you should only use it as a demonstration or cross check anyway, since now we have a faster numerical version for the integration. 
 
 ## [0.2.1] - 2020-06-21
 ### Changed
-- Method integrate() now supports the integration of numerical functions with argument numerical=True. The input will be a function with two arguments: patch and point. The format will be like lambda patch, point: patch.num_eta('identity', point). 
+- Method integrate() now supports the integration of numerical functions with argument numerical=True. The input will be a function with two arguments: patch and point. The format will be like lambda patch, point: patch.num\_eta('identity', point). 
 
 - Holomorphic is True by defualt in method integrate().
 
@@ -23,7 +33,7 @@
 
 ## [0.1.4] - 2020-06-20
 ### Changed
-- In kahler_potential, zbar\_H\_z is changed to z\_H\_zbar
+- In kahler\_potential, zbar\_H\_z is changed to z\_H\_zbar
 
 ## [0.1.3] - 2020-06-18
 ### Fixed
@@ -38,7 +48,7 @@
 
 ## [0.1.1] - 2020-05-27
 ### Added
-- Mass formula in the integrate method. If the option holomorphic == True, the method will use omega_omegabar as the measure and the mass formula will be applied automatically
+- Mass formula in the integrate method. If the option holomorphic is True, the method will use omega\_omegabar as the measure and the mass formula will be applied automatically
 
 - h\_matrix now takes options "identity" and "symbolic". If h\_matrix is omitted in the Kahler metric, etc, it will be set to identity.
 - Multiprocessing support for the integrate method. Since neither the standard library (using pickle) nor the pathos (using dill) can pickle lambda functions, a new library: loky is needed here. Loky uses cloudpickle, which is much slower when dealing with large lists. So the integration will actually be even slower when k is small, but it can save a lot of time with larger k (tested for k = 4)  
@@ -49,10 +59,10 @@
 
 ## [0.1.0] - 2020-05-25
 ### Added
-- Multiprocessing support in solve_points() function
-- A static method solve_poly() was separated to get multiprocessing working in a class
+- Multiprocessing support in solve\_points() function
+- A static method solve\_poly() was separated to get multiprocessing working in a class
 
 ### Changed
-- The solve_points() function was rewritten. The function now plugs c*a+b into the hypersurface and expresses it as a polynomial of c. Then the coeffients will be lambdified as a function of the zpairs a and b. After which, the numerical results will be calculated and sent to mpmath.polyroots to get the roots. In this way, the symbolic and numerical calculation can be seperated completely and the code will run faster.
+- The solve\_points() function was rewritten. The function now plugs c*a+b into the hypersurface and expresses it as a polynomial of c. Then the coeffients will be lambdified as a function of the zpairs a and b. After which, the numerical results will be calculated and sent to mpmath.polyroots to get the roots. In this way, the symbolic and numerical calculation can be seperated completely and the code will run faster.
 
 - When creating the subpatches in autopatch(), eval() function was replaced since it wraps the lambdify and evalution together. Therefore, the lambdify function will be looped multiple times and slow down the code dramatically.

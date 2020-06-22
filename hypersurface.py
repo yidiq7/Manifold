@@ -4,8 +4,7 @@ from manifold import *
 from mpmath import *
 from multiprocessing import Pool
 import time
-from loky import get_reusable_executor
-#from patches import *
+#from loky import get_reusable_executor
 
 class Hypersurface(Manifold):
 
@@ -110,8 +109,9 @@ class Hypersurface(Manifold):
                         return f(patch, point) 
                     return  f_point
                 func = f_patch(self)
-                with get_reusable_executor() as executor:
-                    summation = sum(list(executor.map(func, self.points)))
+                for point in self.points:
+                    value = func(point)
+                    summation += value
             else:
                 func = sp.lambdify([self.coordinates], f(self), "numpy")
                 for point in self.points:
@@ -122,40 +122,37 @@ class Hypersurface(Manifold):
                 #else:
                 #    print("Possible division of a small number:", value)
         else:
-            if numerical is True:
-                for patch in self.patches:
-                    summation += patch.sum_on_patch(f, numerical)
-            else: 
-                with get_reusable_executor() as executor:
-                    summation = sum(list(executor.map( 
-                                lambda x: x.sum_on_patch(f, numerical), self.patches)))
+            for patch in self.patches:
+                summation += patch.sum_on_patch(f,numerical)
+
+            # if numerical is True:
+            #    for patch in self.patches:
+            #        summation += patch.sum_on_patch(f, numerical)
+            # else: 
+            #     with get_reusable_executor() as executor:
+            #     summation = sum(list(executor.map(lambda x: x.sum_on_patch(f, numerical), self.patches)))
+
         return summation
 
     def integrate(self, f, holomorphic=True, numerical=False):
-        # f is a lambda function given by the user
+        # f should be a lambda expression given by the user
         # holomorphic=True means integrating over Omega_Omegabar
         if numerical is True:
 
             # m is the mass formula
             def m(patch, point):
-                mass = patch.get_omega_omegabar(lambdify=True)(point) / \
-                       patch.get_FS_volume_form(k=1, lambdify=True)(point)
+                mass = patch.omega_omegabar(point) / \
+                       patch.FS_volume_form(point)
                 return mass
 
             def weighted_f(patch, point):
                 weighted_f = f(patch, point) * m(patch, point) 
                 return weighted_f
         else:
-            def m(patch):
-                mass = patch.get_omega_omegabar() / \
-                       patch.get_FS_volume_form(k=1)
-                return mass
+            m = lambda patch: patch.get_omega_omegabar() / \
+                              patch.get_FS_volume_form(k=1)
+            weighted_f = lambda patch: f(patch) * m(patch)
 
-            def weighted_f(patch):
-                weighted_f = f(patch) * m(patch)
-                return weighted_f
-            #m = lambda patch: patch.get_omega_omegabar(lambdify=True) / \
-            #    patch.get_FS_volume_form(k=1, lambdify=True)
         if holomorphic is True:
             # Define a new f with an extra argument user_f and immediatly pass f as
             # the default value, so that f can be updated as f(x) * m(x)
@@ -353,6 +350,7 @@ class Hypersurface(Manifold):
     def set_k(self, k):
         sections, ns = self.get_sections(k, lambdify=False)
         sections_func, ns = self.get_sections(k, lambdify=True)
+        self.n_sections = ns
         for patch in self.patches:
             # patch.k = k
             for subpatch in patch.patches:
@@ -363,6 +361,7 @@ class Hypersurface(Manifold):
                                                          jacobian,'numpy')
                 subpatch.restriction = subpatch.get_restriction(lambdify=True)
                 subpatch.omega_omegabar = subpatch.get_omega_omegabar(lambdify=True)
+                subpatch.FS_volume_form = subpatch.get_FS_volume_form(k=1, lambdify=True)
 
     def num_kahler_metric(self, h_matrix, point):
         s = self.sections(point)
