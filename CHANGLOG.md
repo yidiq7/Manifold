@@ -10,7 +10,10 @@
 - Comparison between "symbolic" and numeric integration in the aspect of speed and accuracy. See notebook Numerical\_benchmark.
 
 ### Removed
-- Multiprocessing for "symbolic" integration. Since the set\_k() will change the definition of the instance, loky cannot pickle the patches after it is invoked. But you should only use it as a demonstration or cross check anyway, since now we have a faster numerical version for the integration. 
+- Multiprocessing for "symbolic" integration. Since the set\_k() will change the definition of the instance, loky cannot pickle the patches after set\_k() is invoked. But you should only use it as a demonstration or cross check anyway, since now we have a faster numerical version for the integration. Pathos does not have this problem but you have to make the pool non-daemonic when used in a recursive function. See the following link:
+https://stackoverflow.com/questions/6974695/python-process-pool-non-daemonic/8963618#8963618
+https://github.com/uqfoundation/pathos/issues/169
+This was not implemented because it is not necessary anymore. 
 
 ## [0.2.1] - 2020-06-21
 ### Changed
