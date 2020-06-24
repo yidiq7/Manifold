@@ -113,10 +113,11 @@ class Hypersurface(Manifold):
                     value = func(point)
                     summation += value
             else:
-                func = sp.lambdify([self.coordinates], f(self), "numpy")
+                func = sp.lambdify([self.coordinates], f(self), "numpy") 
                 for point in self.points:
                     value = func(point)
                     summation += value
+
                 #if np.absolute(value) < 5 and np.absolute(value) > -5:
                 #    summation += value
                 #else:
@@ -142,7 +143,7 @@ class Hypersurface(Manifold):
             # m is the mass formula
             def m(patch, point):
                 mass = patch.omega_omegabar(point) / \
-                       patch.FS_volume_form(point)
+                       patch.num_FS_volume_form('identity', point, k=1)
                 return mass
 
             def weighted_f(patch, point):
@@ -361,11 +362,16 @@ class Hypersurface(Manifold):
                                                          jacobian,'numpy')
                 subpatch.restriction = subpatch.get_restriction(lambdify=True)
                 subpatch.omega_omegabar = subpatch.get_omega_omegabar(lambdify=True)
-                subpatch.FS_volume_form = subpatch.get_FS_volume_form(k=1, lambdify=True)
 
-    def num_kahler_metric(self, h_matrix, point):
-        s = self.sections(point)
-        J = self.sections_jacobian(point).T
+    def num_kahler_metric(self, h_matrix, point, k=-1):
+        if k == 1:
+            # k = 1 will be used in the mass formula during the integration
+            s = point
+            # Delete the correspoding row
+            J = np.delete(np.identity(len(s)), self.norm_coordinate, 0)
+        else:
+            s = self.sections(point)
+            J = self.sections_jacobian(point).T
         if isinstance(h_matrix, str) and h_matrix == 'identity':
             h_matrix = np.identity(len(s))
         H_Jdag = np.matmul(h_matrix, np.conj(J).T)
@@ -378,8 +384,8 @@ class Hypersurface(Manifold):
         G = A / alpha - B / alpha**2
         return G
 
-    def num_FS_volume_form(self, h_matrix, point):
-        kahler_metric = self.num_kahler_metric(h_matrix, point)
+    def num_FS_volume_form(self, h_matrix, point, k=-1):
+        kahler_metric = self.num_kahler_metric(h_matrix, point, k)
         r = self.restriction(point)
         FS_volume_form = np.matmul(np.conj(r).T, np.matmul(kahler_metric, r))
         FS_volume_form = np.matrix(FS_volume_form, dtype=complex)
