@@ -109,14 +109,13 @@ class Hypersurface(Manifold):
                         return f(patch, point) 
                     return  f_point
                 func = f_patch(self)
-                for point in self.points:
-                    value = func(point)
-                    summation += value
+
             else:
                 func = sp.lambdify([self.coordinates], f(self), "numpy") 
-                for point in self.points:
-                    value = func(point)
-                    summation += value
+
+            for point in self.points:
+                value = func(point)
+                summation += value
 
                 #if np.absolute(value) < 5 and np.absolute(value) > -5:
                 #    summation += value
