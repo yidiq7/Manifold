@@ -3,6 +3,10 @@
 ## [Unreleased]
 - Add an attribute hypersurface.k after set\_() is invoked. Then the default value for argument k in the symbolic functions can be changed to self.k
 
+## [0.2.4] - 2020-07-11
+### Added
+- A new option 'FS' for kahler potential and metric, which corresponding to log(sum(Z)^k)
+
 ## [0.2.3] - 2020-06-23
 ### Changed
 - Optimized the mass formula. Added a new argument k for num\_FS\_volume\_form. The default k=-1 means k will be decided by set\_k() method. k = 1 is used in the integrate() method. The user should not worry about the option.

@@ -275,7 +275,8 @@ class Hypersurface(Manifold):
             for patch in self.patches:
                 omega_omegabar.append(patch.omega_omegabar)
         if lambdify is True:
-            omega_omegabar = sp.lambdify([self.coordinates], omega_omegabar,'numpy')
+            OObar_func = sp.lambdify([self.coordinates], omega_omegabar,'numpy')
+            omega_omegabar = lambda point: OObar_func(point).real
         return omega_omegabar
 
     def get_sections(self, k, lambdify=False):
@@ -302,7 +303,8 @@ class Hypersurface(Manifold):
                 h_matrix = np.identity(n_sec)
             elif h_matrix == "symbolic":
                 h_matrix = sp.MatrixSymbol('H', n_sec, n_sec)
-        
+            elif h_matrix == "FS":
+                h_matrix = np.diag(sp.Poly(sp.expand(sum(self.coordinates)**k)).coeffs())
         z_H_zbar = np.matmul(sections, np.matmul(h_matrix, sp.conjugate(sections)))
         if self.norm_coordinate is not None:
             z_H_zbar = z_H_zbar.subs(self.coordinates[self.norm_coordinate], 1)
@@ -342,7 +344,8 @@ class Hypersurface(Manifold):
         FS_volume_form = restriction.T.conjugate() * kahler_metric * restriction
         FS_volume_form = FS_volume_form.det()
         if lambdify is True:
-            FS_volume_form = sp.lambdify([self.coordinates], FS_volume_form, 'numpy')
+            FS_func = sp.lambdify([self.coordinates], FS_volume_form, 'numpy')
+            FS_volume_form = lambda point: FS_func(point).real
         return FS_volume_form
 
     # Numerical Methods:
@@ -361,6 +364,7 @@ class Hypersurface(Manifold):
                                                          jacobian,'numpy')
                 subpatch.restriction = subpatch.get_restriction(lambdify=True)
                 subpatch.omega_omegabar = subpatch.get_omega_omegabar(lambdify=True)
+                subpatch.h_FS = np.diag(sp.Poly(sp.expand(sum(self.coordinates)**k)).coeffs())
 
     def num_kahler_metric(self, h_matrix, point, k=-1):
         if k == 1:
@@ -371,8 +375,12 @@ class Hypersurface(Manifold):
         else:
             s = self.sections(point)
             J = self.sections_jacobian(point).T
-        if isinstance(h_matrix, str) and h_matrix == 'identity':
-            h_matrix = np.identity(len(s))
+        if isinstance(h_matrix, str):
+            if h_matrix == 'identity':
+                h_matrix = np.identity(len(s))
+            elif h_matrix == 'FS':
+                h_matrix = np.array(self.h_FS, dtype=int)
+
         H_Jdag = np.matmul(h_matrix, np.conj(J).T)
         A = np.matmul(J, H_Jdag)
         # Get the right half of B then reshape to transpose,
@@ -381,6 +389,11 @@ class Hypersurface(Manifold):
         B = np.matmul(np.conj(b), b.T)
         alpha = np.matmul(s, np.matmul(h_matrix, np.conj(s)))
         G = A / alpha - B / alpha**2
+        #if alpha < 0.001:
+        #    print('A: ', np.amax(A))
+        #    print('B: ', np.amax(B))
+        #    print('alpha: ', alpha)
+        #print(alpha)
         return G
 
     def num_FS_volume_form(self, h_matrix, point, k=-1):
