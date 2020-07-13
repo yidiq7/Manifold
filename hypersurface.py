@@ -28,6 +28,7 @@ class Hypersurface(Manifold):
         self.indices = []
         if points is None:
             self.points = self.__solve_points(n_pairs)
+            #self.points = self.__generate_CPN(n_pairs)
             self.__autopatch()
         else:
             self.points = points
@@ -178,6 +179,12 @@ class Hypersurface(Manifold):
                 zv.append([complex(c[0],c[1]) for c in np.random.normal(0.0, 1.0, (self.dimensions, 2))])
             z_random_pair.append(zv)
         return z_random_pair
+
+    def __generate_CPN(self, n_points):
+        z_random = []
+        for i in range(n_points):
+            z_random.append([complex(c[0],c[1]) for c in np.random.normal(0.0, 1.0, (self.dimensions, 2))])
+        return z_random
 
     @staticmethod
     def solve_poly(zpair, coeff):
@@ -341,7 +348,7 @@ class Hypersurface(Manifold):
     def get_FS_volume_form(self, h_matrix=None, k=1, lambdify=False):
         kahler_metric = self.kahler_metric(h_matrix, k)
         restriction = self.get_restriction()
-        FS_volume_form = restriction.T.conjugate() * kahler_metric * restriction
+        FS_volume_form = restriction.T * kahler_metric * restriction.conjugate()
         FS_volume_form = FS_volume_form.det()
         if lambdify is True:
             FS_func = sp.lambdify([self.coordinates], FS_volume_form, 'numpy')
@@ -399,7 +406,8 @@ class Hypersurface(Manifold):
     def num_FS_volume_form(self, h_matrix, point, k=-1):
         kahler_metric = self.num_kahler_metric(h_matrix, point, k)
         r = self.restriction(point)
-        FS_volume_form = np.matmul(np.conj(r).T, np.matmul(kahler_metric, r))
+        FS_volume_form = np.matmul(r.T, np.matmul(kahler_metric, np.conj(r)))
+        #FS_volume_form = np.matmul(np.conj(r).T, np.matmul(kahler_metric, r))
         FS_volume_form = np.matrix(FS_volume_form, dtype=complex)
         FS_volume_form = np.linalg.det(FS_volume_form).real
         return FS_volume_form

@@ -3,6 +3,10 @@
 ## [Unreleased]
 - Add an attribute hypersurface.k after set\_() is invoked. Then the default value for argument k in the symbolic functions can be changed to self.k
 
+## [0.2.5] - 2020-07-12
+### Fixed
+- In method num\_FS\_volume\_form, it should be r.T \* kahler\_metric \* np.conj(r), instead of np.conj(r).T on the left, since it is z\_H\_zbar in the kahler potential. Same bug is fixed in method get\_FS\_volume\_form()
+
 ## [0.2.4] - 2020-07-11
 ### Added
 - A new option 'FS' for kahler potential and metric, which corresponding to log(sum(Z)^k)
