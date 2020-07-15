@@ -409,7 +409,7 @@ class Hypersurface(Manifold):
         FS_volume_form = np.matmul(r.T, np.matmul(kahler_metric, np.conj(r)))
         FS_volume_form = np.matrix(FS_volume_form, dtype=complex)
         FS_volume_form = np.linalg.det(FS_volume_form).real
-        FS_volume_form = np.linalg.det(kahler_metric).real
+        #FS_volume_form = np.linalg.det(kahler_metric).real
         return FS_volume_form
 
     def num_eta(self, h_matrix, point):
