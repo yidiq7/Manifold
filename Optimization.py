@@ -17,7 +17,7 @@ f = z0**5 + z1**5 + z2**5 + z3**5 + z4**5 + 5*psi*z0*z1*z2*z3*z4
 HS = Hypersurface(Z, f, n_points)
 HS.set_k(k)
 
-factor = HS.integrate(lambda patch, point, h_matrix='identity': 
+factor = HS.integrate(lambda patch, point, h_matrix='FS': 
                             patch.num_eta(h_matrix, point), 
                             holomorphic=True, numerical=True)
 def get_h_matrix(HS, k):
@@ -131,6 +131,13 @@ def integration(param):
 
 
 g0 = np.zeros(number_of_real_parameters(h_complex))
+coeffs = sp.Poly(sp.expand((z0 + z1 + z2 + z3 + z4)**k), Z).coeffs()
+for i in range(len(h_complex)):
+    if h_complex[i] is False:
+        # Found the corresponding element in h_sym 
+        for j in range(len(h_sym)):
+            if h_sym[j][j] == i + 2:
+                g0[i] = math.log(coeffs[j]) 
 h = param_to_matrix(g0)
 
 res = minimize(integration, g0, method='L-BFGS-B', options={'ftol': 1e-06, 'maxiter':200})
