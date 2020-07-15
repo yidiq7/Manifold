@@ -154,4 +154,6 @@ delta_sigma = math.sqrt(HS.integrate(lambda patch, point, h_matrix=h_minimal:
 
 print('psi =', psi ,', k =', k, ', n_points =', n_points)
 print('param =', res.x)
+print('fun =', res.fun)
+print('jac =', res.jac)
 print('sigma =', sigma, 'delta_sigma =', delta_sigma)
