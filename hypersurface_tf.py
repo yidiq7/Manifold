@@ -143,7 +143,7 @@ class Hypersurface(Manifold):
         # f should be a lambda expression given by the user
         # holomorphic=True means integrating over Omega_Omegabar
         if tensor is True:
-            m = lambda patch: patch.num_Omega_Omegabar_tf() / \
+            m = lambda patch: patch.Omega_Omegabar_tf / \
                               patch.num_FS_volume_form_tf('identity', k=1)
             weighted_f = lambda patch: f(patch) * m(patch)
 
@@ -176,7 +176,7 @@ class Hypersurface(Manifold):
             norm_factor = 1 / self.n_points
 
         integration = summation * norm_factor
-        return integration
+        return integration.numpy()
 
     # Private:
 
@@ -382,24 +382,14 @@ class Hypersurface(Manifold):
                 subpatch.restriction = subpatch.get_restriction(lambdify=True)
                 subpatch.omega_omegabar = subpatch.get_omega_omegabar(lambdify=True)
                 subpatch.h_FS = np.diag(sp.Poly(sp.expand(sum(self.coordinates)**k)).coeffs())
+                
+                # Tensors
+                subpatch.s_tf, subpatch.J_tf = subpatch.num_s_J_tf() 
+                subpatch.s_tf_1, subpatch.J_tf_1 = subpatch.num_s_J_tf(k=1) 
+                subpatch.Omega_Omegabar_tf = subpatch.num_Omega_Omegabar_tf()
+                subpatch.r_tf = subpatch.num_restriction_tf()
 
-    def num_Omega_Omegabar_tf(self):
-        Omega_Omegabar = []
-        for point in self.points:
-            Omega_Omegabar.append(self.omega_omegabar(point))
-        Omega_Omegabar = tf.convert_to_tensor(Omega_Omegabar)
-        return Omega_Omegabar
-
-    def num_kahler_metric_tf(self, h_matrix, k=-1):
-        if isinstance(h_matrix, str):
-            if h_matrix == 'identity':
-                if k == 1:
-                    h_matrix = np.identity(self.dimensions, dtype=complex)
-                else:
-                    h_matrix = np.identity(self.n_sections, dtype=complex)
-            elif h_matrix == 'FS':
-                #h_matrix = np.array(self.h_FS, dtype=int)
-                h_matrix = np.array(self.h_FS, dtype=complex)
+    def num_s_J_tf(self, k=-1):
 
         s_vec = []
         J_vec = []
@@ -418,32 +408,57 @@ class Hypersurface(Manifold):
 
             s_vec.append(s)
             J_vec.append(J)
-            s_tf = tf.convert_to_tensor(s_vec)
-            J_tf = tf.convert_to_tensor(J_vec)
-            h_tf = tf.convert_to_tensor(h_matrix)
-            
+
+        s_tf = tf.convert_to_tensor(s_vec)
+        J_tf = tf.convert_to_tensor(J_vec)
+
+        return s_tf, J_tf
+
+    def num_Omega_Omegabar_tf(self):
+        Omega_Omegabar = []
+        for point in self.points:
+            Omega_Omegabar.append(self.omega_omegabar(point))
+        Omega_Omegabar = tf.convert_to_tensor(Omega_Omegabar)
+        return Omega_Omegabar
+
+    def num_restriction_tf(self):
+        r = []
+        for point in self.points:
+            r.append(self.restriction(point).T)
+        r_tf = tf.convert_to_tensor(r)  
+        return r_tf
+
+    def num_kahler_metric_tf(self, h_matrix, k=-1):
+        if isinstance(h_matrix, str):
+            if h_matrix == 'identity':
+                if k == 1:
+                    h_matrix = np.identity(self.dimensions, dtype=complex)
+                else:
+                    h_matrix = np.identity(self.n_sections, dtype=complex)
+            elif h_matrix == 'FS':
+                #h_matrix = np.array(self.h_FS, dtype=int)
+                h_matrix = np.array(self.h_FS, dtype=complex)
+
+        h_tf = tf.convert_to_tensor(h_matrix)
+
+        if k == 1:
+            s_tf = self.s_tf_1
+            J_tf = self.J_tf_1
+        else:
+            s_tf = self.s_tf
+            J_tf = self.J_tf    
+
         H_Jdag = tf.matmul(h_tf, J_tf, adjoint_b=True)
-        A = tf.matmul(J, H_Jdag)
-        # Get the right half of B then reshape to transpose,
-        # since b.T is still b if b is a 1d vector
-        b = tf.matmul(s, H_Jdag)
+        A = tf.matmul(J_tf, H_Jdag)
+        b = tf.matmul(s_tf, H_Jdag)
         B = tf.matmul(b, b, adjoint_a=True)
-        alpha = tf.matmul(s, tf.matmul(h_matrix, s, adjoint_b=True))
-        #G = tf.subtract(tf.divide(A, alpha), tf.divide(B, tf.square(alpha)))
+        alpha = tf.matmul(s_tf, tf.matmul(h_matrix, s_tf, adjoint_b=True))
         G = A / alpha - B / alpha**2
-        #if alpha < 0.001:
-        #    print('A: ', np.amax(A))
-        #    print('B: ', np.amax(B))
-        #    print('alpha: ', alpha)
-        #print(alpha)
         return G
 
     def num_FS_volume_form_tf(self, h_matrix, k=-1):
         kahler_metric = self.num_kahler_metric_tf(h_matrix, k)
-        r = []
-        for point in self.points:
-            r.append(self.restriction(point).T)
-        r_tf = tf.convert_to_tensor(r)    
+        r_tf = self.r_tf
         FS_volume_form = tf.matmul(r_tf, tf.matmul(kahler_metric, r_tf, adjoint_b=True))
         FS_volume_form = tf.linalg.det(FS_volume_form)
         FS_volume_form = tf.math.real(FS_volume_form)
@@ -451,7 +466,7 @@ class Hypersurface(Manifold):
 
     def num_eta_tf(self, h_matrix):
         FS_volume_form = self.num_FS_volume_form_tf(h_matrix)
-        Omega_Omegabar = self.num_Omega_Omegabar_tf()
+        Omega_Omegabar = self.Omega_Omegabar_tf
         eta = FS_volume_form / Omega_Omegabar
         return eta
 

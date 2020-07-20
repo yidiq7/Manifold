@@ -3,6 +3,12 @@
 ## [Unreleased]
 - Add an attribute hypersurface.k after set\_() is invoked. Then the default value for argument k in the symbolic functions can be changed to self.k
 
+## [0.3.0] - 2020-07-20
+### Added
+- New file hypersurface\_tf.py and new optimization routine Optimization3-tensorflow.ipynb
+- New \_tf functions which use tensorflow tensors to store the data, which speeds up the calculations.
+- Option 'tensor' for method integrate(), tensor should be set as True if \_tf functions are being integrated
+
 ## [0.2.5] - 2020-07-12
 ### Fixed
 - In method num\_FS\_volume\_form, it should be r.T \* kahler\_metric \* np.conj(r), instead of np.conj(r).T on the left, since it is z\_H\_zbar in the kahler potential. Same bug is fixed in method get\_FS\_volume\_form()
