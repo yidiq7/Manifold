@@ -4,8 +4,7 @@ from manifold import *
 from mpmath import *
 from multiprocessing import Pool
 import time
-from loky import get_reusable_executor
-#from patches import *
+#from loky import get_reusable_executor
 
 class Hypersurface(Manifold):
 
@@ -26,8 +25,10 @@ class Hypersurface(Manifold):
         else:
             self.affine_coordinates = self.coordinates
         self.patches = []
+        self.indices = []
         if points is None:
             self.points = self.__solve_points(n_pairs)
+            #self.points = self.__generate_CPN(n_pairs)
             self.__autopatch()
         else:
             self.points = points
@@ -41,7 +42,7 @@ class Hypersurface(Manifold):
         # be reinvoked.
         self.grad = self.get_grad()
         self.hol_n_form = self.get_hol_n_form()
-        self.omega_omegabar = self.get_omega_omegabar()
+        #self.omega_omegabar = self.get_omega_omegabar()
         #self.sections, self.n_sections = self.get_sections(self.dimensions)
         #self.FS_Metric = self.get_FS()
         #self.transition_function = self.__get_transition_function()
@@ -98,45 +99,74 @@ class Hypersurface(Manifold):
                 expr_array_evaluated.append(patch.eval_all(expr_name))
         return expr_array_evaluated
 
-    def summarize(self, lambda_expr):
+    def sum_on_patch(self, f, numerical):
         summation = 0
         points = np.array(self.points)
         if self.patches == []:
-            time0 = time.time()
-            f = sp.lambdify([self.coordinates], lambda_expr(self), "numpy")
-            with get_reusable_executor() as executor:
-                summation = sum(list(executor.map(f, self.points)))
-                #print(value)
-                #for value in executor.map(f, self.points):
+            if numerical is True:
+                # Currying if numerical is true
+                def f_patch(patch):
+                    def f_point(point):
+                        return f(patch, point) 
+                    return  f_point
+                func = f_patch(self)
+
+            else:
+                func = sp.lambdify([self.coordinates], f(self), "numpy") 
+
+            for point in self.points:
+                value = func(point)
+                summation += value
+
+                #if np.absolute(value) < 5 and np.absolute(value) > -5:
                 #    summation += value
-            #for point in self.points:
-            #     value = f(point)
-            #     summation += value
-                 #if np.absolute(value) < 100 and np.absolute(value) > -100:
-                 #    summation += value
-                 #else:
-                 #    print("Possible division of a small number:", value)
+                #else:
+                #    print("Possible division of a small number:", value)
         else:
             for patch in self.patches:
-                summation += patch.summarize(lambda_expr)
+                summation += patch.sum_on_patch(f,numerical)
+
+            # if numerical is True:
+            #    for patch in self.patches:
+            #        summation += patch.sum_on_patch(f, numerical)
+            # else: 
+            #     with get_reusable_executor() as executor:
+            #     summation = sum(list(executor.map(lambda x: x.sum_on_patch(f, numerical), self.patches)))
+
         return summation
 
-    def integrate(self, f, holomorphic=False):
-        # f is a lambda function given by the user
+    def integrate(self, f, holomorphic=True, numerical=False):
+        # f should be a lambda expression given by the user
         # holomorphic=True means integrating over Omega_Omegabar
-        if holomorphic == True:
-            # m is the mass formular
-            m = lambda x: x.omega_omegabar / x.get_FS_volume_form(k=1)
+        if numerical is True:
+
+            # m is the mass formula
+            def m(patch, point):
+                mass = patch.omega_omegabar(point) / \
+                       patch.num_FS_volume_form('identity', point, k=1)
+                return mass
+
+            def weighted_f(patch, point):
+                weighted_f = f(patch, point) * m(patch, point) 
+                return weighted_f
+        else:
+            m = lambda patch: patch.get_omega_omegabar() / \
+                              patch.get_FS_volume_form(k=1)
+            weighted_f = lambda patch: f(patch) * m(patch)
+
+        if holomorphic is True:
             # Define a new f with an extra argument user_f and immediatly pass f as
             # the default value, so that f can be updated as f(x) * m(x)
-            f = lambda x, user_f=f: user_f(x) * m(x)
-            norm_factor = 1 / self.summarize(m)
+            #f = lambda patch, user_f=f: user_f(patch) * m(patch)
+            #m = lambda patch: patch.get_omega_omegabar() / \
+            #    patch.get_FS_volume_form(k=1)
+            summation = self.sum_on_patch(weighted_f, numerical)
+            norm_factor = 1 / self.sum_on_patch(m, numerical)
         else:
+            summation = self.sum_on_patch(f, numerical)
             norm_factor = 1 / self.n_points
 
-        summation = self.summarize(f)
-        integration = complex(summation * norm_factor)
-        #print(integration)
+        integration = summation * norm_factor
         return integration
 
     # Private:
@@ -150,13 +180,20 @@ class Hypersurface(Manifold):
             z_random_pair.append(zv)
         return z_random_pair
 
+    def __generate_CPN(self, n_points):
+        z_random = []
+        for i in range(n_points):
+            z_random.append([complex(c[0],c[1]) for c in np.random.normal(0.0, 1.0, (self.dimensions, 2))])
+        return z_random
+
     @staticmethod
     def solve_poly(zpair, coeff):
         # For each zpair there are d solutions, where d is the dimensions
         points_d = []
         c_solved = polyroots(coeff) 
         for pram_c in c_solved:
-            points_d.append([pram_c * a + b for (a, b) in zip(zpair[0], zpair[1])]) 
+            points_d.append([complex(pram_c * a + b)
+                             for (a, b) in zip(zpair[0], zpair[1])])
         return points_d
     
     def __solve_points(self, n_pairs):
@@ -196,13 +233,14 @@ class Hypersurface(Manifold):
         # Subpatches on each patch
         for patch in self.patches:
             points_on_patch = [[] for i in range(self.dimensions-1)]
-            grad_eval = sp.lambdify(self.coordinates, patch.grad)
+            grad_eval = sp.lambdify(self.coordinates, patch.grad, 'numpy')
             for point in patch.points:
                 grad = grad_eval(*point)
                 grad_norm = np.absolute(grad)
                 for i in range(self.dimensions-1):
                     if grad_norm[i] == max(grad_norm):
                         points_on_patch[i].append(point)
+                        patch.indices.append(i)
                         continue
             for i in range(self.dimensions-1):
                 patch.set_patch(points_on_patch[i], patch.norm_coordinate,
@@ -229,13 +267,13 @@ class Hypersurface(Manifold):
         hol_n_form = []
         if self.patches == [] and self.max_grad_coordinate is not None:
         # The later condition is neccessary due to the initialization
-            hol_n_form = self.grad[self.max_grad_coordinate]
+            hol_n_form = 1 / self.grad[self.max_grad_coordinate]
         else:
             for patch in self.patches:
                 hol_n_form.append(patch.hol_n_form)
         return hol_n_form
 
-    def get_omega_omegabar(self):
+    def get_omega_omegabar(self, lambdify=False):
         omega_omegabar = []
         if self.patches == [] and self.max_grad_coordinate is not None:
             hol_n_form = self.hol_n_form
@@ -243,9 +281,12 @@ class Hypersurface(Manifold):
         else:
             for patch in self.patches:
                 omega_omegabar.append(patch.omega_omegabar)
+        if lambdify is True:
+            OObar_func = sp.lambdify([self.coordinates], omega_omegabar,'numpy')
+            omega_omegabar = lambda point: OObar_func(point).real
         return omega_omegabar
 
-    def get_sections(self, k):
+    def get_sections(self, k, lambdify=False):
         sections = []
         t = sp.symbols('t')
         GenSec = sp.prod(1/(1-(t*zz)) for zz in self.coordinates)
@@ -255,6 +296,8 @@ class Hypersurface(Manifold):
             poly = poly - sp.LT(poly)
         n_sections = len(sections)
         sections = np.array(sections)
+        if lambdify is True:
+            sections = sp.lambdify([self.coordinates], sections, 'numpy')
         return sections, n_sections
 
     def kahler_potential(self, h_matrix=None, k=1):
@@ -267,45 +310,114 @@ class Hypersurface(Manifold):
                 h_matrix = np.identity(n_sec)
             elif h_matrix == "symbolic":
                 h_matrix = sp.MatrixSymbol('H', n_sec, n_sec)
-        
-        zbar_H_z = np.matmul(sp.conjugate(sections),
-                             np.matmul(h_matrix, sections))
+            elif h_matrix == "FS":
+                h_matrix = np.diag(sp.Poly(sp.expand(sum(self.coordinates)**k)).coeffs())
+        z_H_zbar = np.matmul(sections, np.matmul(h_matrix, sp.conjugate(sections)))
         if self.norm_coordinate is not None:
-            zbar_H_z = zbar_H_z.subs(self.coordinates[self.norm_coordinate], 1)
-        kahler_potential = sp.log(zbar_H_z)
+            z_H_zbar = z_H_zbar.subs(self.coordinates[self.norm_coordinate], 1)
+        kahler_potential = sp.log(z_H_zbar)
         return kahler_potential
 
-    def kahler_metric(self, h_matrix=None, k=1):
-        pot = self.kahler_potential(h_matrix, k)
-        metric = []
-        #i holomorphc, j anti-hol
-        for coord_i in self.affine_coordinates:
-            a_holo_der = []
-            for coord_j in self.affine_coordinates:
-                a_holo_der.append(diff_conjugate(pot, coord_j))
-            metric.append([diff(ah, coord_i) for ah in a_holo_der])
-        metric = sp.Matrix(metric)
+    def kahler_metric(self, h_matrix=None, k=1, point=None):
+        if point is None:
+            pot = self.kahler_potential(h_matrix, k)
+            metric = []
+            #i holomorphc, j anti-hol
+            for coord_i in self.affine_coordinates:
+                a_holo_der = []
+                for coord_j in self.affine_coordinates:
+                    a_holo_der.append(diff_conjugate(pot, coord_j))
+                metric.append([diff(ah, coord_i) for ah in a_holo_der])
+            metric = sp.Matrix(metric)
+
         return metric
 
-    def get_restriction(self, ignored_coord=None):
+    def get_restriction(self, ignored_coord=None, lambdify=False):
         if ignored_coord is None:
             ignored_coord = self.max_grad_coordinate
         ignored_coordinate = self.affine_coordinates[ignored_coord]
-        local_coordinates = sp.Matrix(self.affine_coordinates).subs(ignored_coordinate,                                                                   self.function)
+        local_coordinates = sp.Matrix(self.affine_coordinates).subs(ignored_coordinate, self.function)
         affine_coordinates = sp.Matrix(self.affine_coordinates)
         restriction = local_coordinates.jacobian(affine_coordinates).inv()
         restriction.col_del(ignored_coord)
+        # Return a function is symbolic is flase
+        if lambdify is True:
+            restriction = sp.lambdify([self.coordinates], restriction, 'numpy')
         return restriction
-        # Todo: Add try except in this function 
 
-    def get_FS_volume_form(self, h_matrix=None, k=1):
+    def get_FS_volume_form(self, h_matrix=None, k=1, lambdify=False):
         kahler_metric = self.kahler_metric(h_matrix, k)
         restriction = self.get_restriction()
-        FS_volume_form = restriction.T.conjugate() * kahler_metric * restriction
+        FS_volume_form = restriction.T * kahler_metric * restriction.conjugate()
         FS_volume_form = FS_volume_form.det()
+        if lambdify is True:
+            FS_func = sp.lambdify([self.coordinates], FS_volume_form, 'numpy')
+            FS_volume_form = lambda point: FS_func(point).real
         return FS_volume_form
-#Can we just define conjugation in this way?
-#Have a function inside the class self.conjugate?
+
+    # Numerical Methods:
+
+    def set_k(self, k):
+        sections, ns = self.get_sections(k, lambdify=False)
+        sections_func, ns = self.get_sections(k, lambdify=True)
+        self.n_sections = ns
+        for patch in self.patches:
+            # patch.k = k
+            for subpatch in patch.patches:
+                # subpatch.k = k
+                subpatch.sections = sections_func
+                jacobian = sp.Matrix(sections).jacobian(subpatch.affine_coordinates)
+                subpatch.sections_jacobian = sp.lambdify([subpatch.coordinates],
+                                                         jacobian,'numpy')
+                subpatch.restriction = subpatch.get_restriction(lambdify=True)
+                subpatch.omega_omegabar = subpatch.get_omega_omegabar(lambdify=True)
+                subpatch.h_FS = np.diag(sp.Poly(sp.expand(sum(self.coordinates)**k)).coeffs())
+
+    def num_kahler_metric(self, h_matrix, point, k=-1):
+        if k == 1:
+            # k = 1 will be used in the mass formula during the integration
+            s = point
+            # Delete the correspoding row
+            J = np.delete(np.identity(len(s)), self.norm_coordinate, 0)
+        else:
+            s = self.sections(point)
+            J = self.sections_jacobian(point).T
+        if isinstance(h_matrix, str):
+            if h_matrix == 'identity':
+                h_matrix = np.identity(len(s))
+            elif h_matrix == 'FS':
+                h_matrix = np.array(self.h_FS, dtype=int)
+
+        H_Jdag = np.matmul(h_matrix, np.conj(J).T)
+        A = np.matmul(J, H_Jdag)
+        # Get the right half of B then reshape to transpose,
+        # since b.T is still b if b is a 1d vector
+        b = np.matmul(s, H_Jdag).reshape(-1, 1)
+        B = np.matmul(np.conj(b), b.T)
+        alpha = np.matmul(s, np.matmul(h_matrix, np.conj(s)))
+        G = A / alpha - B / alpha**2
+        #if alpha < 0.001:
+        #    print('A: ', np.amax(A))
+        #    print('B: ', np.amax(B))
+        #    print('alpha: ', alpha)
+        #print(alpha)
+        return G
+
+    def num_FS_volume_form(self, h_matrix, point, k=-1):
+        kahler_metric = self.num_kahler_metric(h_matrix, point, k)
+        r = self.restriction(point)
+        FS_volume_form = np.matmul(r.T, np.matmul(kahler_metric, np.conj(r)))
+        FS_volume_form = np.matrix(FS_volume_form, dtype=complex)
+        FS_volume_form = np.linalg.det(FS_volume_form).real
+        #FS_volume_form = np.linalg.det(kahler_metric).real
+        return FS_volume_form
+
+    def num_eta(self, h_matrix, point):
+        FS_volume_form = self.num_FS_volume_form(h_matrix, point)
+        Omega_Omegabar = self.omega_omegabar(point)
+        eta = FS_volume_form / Omega_Omegabar
+        return eta
+
 def diff_conjugate(expr, coordinate):
     coord_bar = sp.symbols('coord_bar')
     expr_diff = expr.subs(sp.conjugate(coordinate), coord_bar).diff(coord_bar)
@@ -318,7 +430,4 @@ def diff(expr, coordinate):
     expr_diff = expr_diff.subs(coord_bar, sp.conjugate(coordinate))
     return expr_diff
 
-    
 
-#The integration of volume form should not depend on h
-#So change h nd calculate the topology integration 
