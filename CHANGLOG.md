@@ -3,6 +3,13 @@
 ## [Unreleased]
 - Add an attribute hypersurface.k after set\_() is invoked. Then the default value for argument k in the symbolic functions can be changed to self.k
 
+## [0.3.1] - 2020-07-21
+### Added
+- Attribute HS.k = k, set in method set\_k()
+
+### Changed
+- Separated the generation of h matrix in file generate\_h.py
+- Simplified Optimization notebook and script
 ## [0.3.0] - 2020-07-20
 ### Added
 - New file hypersurface\_tf.py and new optimization routine Optimization3-tensorflow.ipynb

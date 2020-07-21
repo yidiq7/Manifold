@@ -367,6 +367,7 @@ class Hypersurface(Manifold):
     # Numerical Methods:
 
     def set_k(self, k):
+        self.k = k
         sections, ns = self.get_sections(k, lambdify=False)
         sections_func, ns = self.get_sections(k, lambdify=True)
         self.n_sections = ns
