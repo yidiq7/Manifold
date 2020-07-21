@@ -6,6 +6,7 @@ import sympy as sp
 def get_sym_info(HS):
     # Get the power of the coordinates
     k = HS.k
+    Z = HS.coordinates
     sec, ns = HS.get_sections(k)
     dim = HS.dimensions
     h_diag = []
@@ -55,7 +56,7 @@ def get_sym_info(HS):
             else:
                 h_type.append(i!=j)
 
-    h_sym = {'sym': h_params, 'complex': h_tpye}
+    h_sym = {'sym': h_params, 'complex': h_type}
     return h_sym
 
 
@@ -68,14 +69,14 @@ def param_to_matrix(param, h_sym):
     i_cpx = len(h_sym['complex'])
     for i in range(len(h_sym['complex'])):
          if not h_sym['complex'][i]:
-            x = exp(param[i])
+            x = math.exp(param[i])
             for m in range(len(h_sym['sym'])):
                 if h_sym['sym'][m][m] == i+2:
                     h_matrix[m][m] = x
                     #print(h_matrix[m][m])
     for i in range(len(h_sym['complex'])):
         if h_sym['complex'][i]:
-            x = exp(complex(-(param[i] - 1)**2, param[i_cpx]))
+            x = math.exp(complex(-(param[i] - 1)**2, param[i_cpx]))
             for m in range(len(h_sym['sym'])):
                 for n in range(m, len(h_sym['sym'])):
                     if h_sym['sym'][m][n] == i+2:
@@ -88,8 +89,9 @@ def param_to_matrix(param, h_sym):
     return h_matrix
 
 def initial_FS_param(HS, h_sym):
+    Z = HS.coordinates
     param = np.zeros(number_of_real_parameters(h_sym))
-    coeffs = sp.Poly(sp.expand((sum(HS.coordiantes))**HS.k), HS.coordinates).coeffs()
+    coeffs = sp.Poly(sp.expand((sum(Z))**HS.k)).coeffs()
     for i in range(len(h_sym['complex'])):
         if h_sym['complex'][i] is False:
             # Found the corresponding element in h_sym 
