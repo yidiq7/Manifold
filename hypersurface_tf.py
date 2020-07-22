@@ -455,6 +455,8 @@ class Hypersurface(Manifold):
         B = tf.matmul(b, b, adjoint_a=True)
         alpha = tf.matmul(s_tf, tf.matmul(h_matrix, s_tf, adjoint_b=True))
         G = A / alpha - B / alpha**2
+        if tf.reduce_min(tf.abs(alpha)) < 0.001:
+            print('alpha: ', tf.reduce_min(alpha))
         return G
 
     def num_FS_volume_form_tf(self, h_matrix, k=-1):
