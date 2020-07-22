@@ -69,19 +69,20 @@ def param_to_matrix(param, h_sym):
     i_cpx = len(h_sym['complex'])
     for i in range(len(h_sym['complex'])):
          if not h_sym['complex'][i]:
-            x = math.exp(param[i])
+            x = np.exp(param[i])
             for m in range(len(h_sym['sym'])):
                 if h_sym['sym'][m][m] == i+2:
                     h_matrix[m][m] = x
                     #print(h_matrix[m][m])
     for i in range(len(h_sym['complex'])):
         if h_sym['complex'][i]:
-            x = math.exp(complex(-(param[i] - 1)**2, param[i_cpx]))
+            x = param[i]*np.exp(complex(0, param[i_cpx]))
             for m in range(len(h_sym['sym'])):
                 for n in range(m, len(h_sym['sym'])):
                     if h_sym['sym'][m][n] == i+2:
                         # these should all be related by symmetry - check?
-                        xn = x * sqrt(h_matrix[m][m]*h_matrix[n][n])
+                        xn = x * math.sqrt(h_matrix[m][m].real * h_matrix[n][n].real)
+                        # Use .real to turn off the warnings
                         h_matrix[m][n] = xn
                         h_matrix[n][m] = np.conj(xn)
 
