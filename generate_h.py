@@ -2,6 +2,7 @@ import itertools
 import math
 import numpy as np
 import sympy as sp
+import matplotlib.pyplot as plt
 
 def get_sym_info(HS):
     # Get the power of the coordinates
@@ -100,3 +101,11 @@ def initial_FS_param(HS, h_sym):
                 if h_sym['sym'][j][j] == i + 2:
                     param[i] = math.log(coeffs[j])
     return param
+
+def plot_eta_hist(HS, h, factor):
+    eta = []
+    for patch in HS.patches:
+        for subpatch in patch.patches:
+            eta = np.concatenate((eta, (subpatch.num_eta_tf(h)/factor).numpy()))
+    plt.hist(eta, bins=10)
+    plt.show()
