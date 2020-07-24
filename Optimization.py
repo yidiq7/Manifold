@@ -51,8 +51,12 @@ sigma = HS.integrate(lambda patch: tf.abs(patch.num_eta_tf(h_minimal)/factor - 1
 
 delta_sigma = math.sqrt(HS.integrate(lambda patch: (tf.abs(patch.num_eta_tf(h_minimal)/factor - 1) - sigma)**2, tensor=True) / HS.n_points)
 
-print('psi =', psi ,', k =', k, ', n_points =', n_points, ', seed =', seed)
-print('init =', g0)
-print('param =', res.x)
+print('[results]')
+print('psi =', psi)
+print('k =', k)
+print('n_points =', n_points)
+print('seed =', seed)
+print('init =', np.array2string(g0, separator=', '))
+print('param =', np.array2string(res.x, separator=', '))
 print('sigma =', sigma)
 print('delta_sigma =', delta_sigma)
