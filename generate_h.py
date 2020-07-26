@@ -3,6 +3,7 @@ import math
 import numpy as np
 import sympy as sp
 import matplotlib.pyplot as plt
+from hypersurface_tf import *
 
 def get_sym_info(HS):
     # Get the power of the coordinates
@@ -100,6 +101,27 @@ def initial_FS_param(HS, h_sym):
             for j in range(len(h_sym['sym'])):
                 if h_sym['sym'][j][j] == i + 2:
                     param[i] = math.log(coeffs[j])
+    return param
+
+def initial_param_from_lowerk(HS, h_sym, param_low):
+    Z = HS.coordinates
+    f = HS.function
+    k = int(HS.k/2)
+    HS_low = Hypersurface(Z, f, 100)
+    HS_low.set_k(k)
+    h_sym_low = get_sym_info(HS_low)
+    h = np.diag(np.diag(param_to_matrix(param_low, h_sym_low)))
+    poly = sp.Poly(sp.expand(sum(np.matmul(HS_low.get_sections(k)[0], h))**2)).coeffs()
+    coeffs = np.unique(np.array(poly, dtype=np.float).round(decimals=7))
+    param = np.zeros(number_of_real_parameters(h_sym))
+    j = 0
+    i_old = 1
+    for i in np.diag(h_sym['sym']).astype(np.int):
+        if i > i_old:
+            j += 1
+            param[i-2] = math.log(coeffs[j])
+            i_old = i
+            
     return param
 
 def plot_eta_hist(HS, h, factor):

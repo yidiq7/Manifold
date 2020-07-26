@@ -3,6 +3,10 @@
 ## [Unreleased]
 - Add an attribute hypersurface.k after set\_() is invoked. Then the default value for argument k in the symbolic functions can be changed to self.k
 
+## [0.3.2] - 2020-07-25
+### Added
+- Method initial\_param\_from\_lowerk(HS, h\_sym, param\_low) in generate\_h.py. This basically take the optimized results from a lower k/2 case and and assign the new param so that the k polynomials is approximately the square of the k/2 poly
+
 ## [0.3.1] - 2020-07-21
 ### Added
 - Attribute HS.k = k, set in method set\_k()
