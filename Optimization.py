@@ -8,6 +8,7 @@ import math
 import sys
 import os
 
+# Turn off CUDA warnings
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 psi = float(sys.argv[1])
@@ -29,6 +30,7 @@ h_sym = get_sym_info(HS)
 
 def integration(param): 
     h = param_to_matrix(param, h_sym)
+    h = np.array(h, dtype=np.complex64)
     #h = np.matmul(g, np.conj(g.transpose()))
     
     integration = HS.integrate(lambda patch: tf.abs(patch.num_eta_tf(h)/factor - 1), tensor=True)
@@ -41,10 +43,17 @@ def integration(param):
     #    print("Not positive definite")
     return integration
 
-g0 = initial_FS_param(HS, h_sym)
-
-res = minimize(integration, g0, method='L-BFGS-B', options={'ftol': 1e-06, 'maxiter':200})
-h_minimal = param_to_matrix(res.x, h_sym)
+if k == 6:
+    param_low = [-0.15500609, -0.07394204]
+    g0 = initial_param_from_lowerk(HS, h_sym, param_low)
+elif k == 8:
+    param_low = [ 0.34423553,  2.3821983 ,  1.4792214 ,  1.9047399 ,  2.55592224, -0.0207536 ]
+    g0 = initial_param_from_lowerk(HS, h_sym, param_low)
+else:
+    g0 = initial_FS_param(HS, h_sym)
+#res = minimize(integration, g0, method='L-BFGS-B', options={'ftol': 1e-06, 'maxiter':200})
+res = minimize(integration, g0, method='L-BFGS-B', options={'ftol':1e-04, 'maxiter':200, 'eps':1e-05})
+h_minimal = np.array(param_to_matrix(res.x, h_sym), dtype=np.complex64)
 
 
 sigma = HS.integrate(lambda patch: tf.abs(patch.num_eta_tf(h_minimal)/factor - 1), tensor=True)
