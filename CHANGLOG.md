@@ -1,7 +1,11 @@
 # Changelog
 
 ## [Unreleased]
-- Add an attribute hypersurface.k after set\_() is invoked. Then the default value for argument k in the symbolic functions can be changed to self.k
+
+## [0.3.3] - 2020-07-27
+### Changed
+- Changed the tensors from complex64 to complex128
+- Wrap the \_tf functions with tf.functions. This will enbale the graph computation.
 
 ## [0.3.2] - 2020-07-25
 ### Added
