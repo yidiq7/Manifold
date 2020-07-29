@@ -176,8 +176,8 @@ class Hypersurface(Manifold):
             norm_factor = 1 / self.n_points
 
         integration = summation * norm_factor
-        if tensor is True:
-            integration = integration.numpy()
+        #if tensor is True:
+        #    integration = integration.numpy()
         return integration
 
     # Private:
@@ -392,7 +392,7 @@ class Hypersurface(Manifold):
                 subpatch.Omega_Omegabar_tf = subpatch.num_Omega_Omegabar_tf()
                 subpatch.r_tf = subpatch.num_restriction_tf()
 
-    @tf.function
+    #@tf.function
     def num_s_J_tf(self, k=-1):
 
         s_vec = []
@@ -417,7 +417,7 @@ class Hypersurface(Manifold):
         #J_tf = tf.convert_to_tensor(np.array(J_vec), dtype=np.complex128)
         return s_tf, J_tf
 
-    @tf.function
+    #@tf.function
     def num_Omega_Omegabar_tf(self):
         Omega_Omegabar = []
         for point in self.points:
@@ -427,7 +427,7 @@ class Hypersurface(Manifold):
         #Omega_Omegabar = tf.convert_to_tensor(Omega_Omegabar)
         return Omega_Omegabar
 
-    @tf.function
+    #@tf.function
     def num_restriction_tf(self):
         r = []
         for point in self.points:
