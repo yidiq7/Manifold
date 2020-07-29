@@ -1,7 +1,9 @@
 # Changelog
 
 ## [Unreleased]
-
+## [0.3.4] - 2020-07-29
+### Changed
+- Deleted @tf.functions for num\_s\_J\_t(), num\_Omega\_Omegabar\_tf(), etc, to speed up set\_k() function
 ## [0.3.3] - 2020-07-27
 ### Changed
 - Changed the tensors from complex64 to complex128
