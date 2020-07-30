@@ -10,6 +10,7 @@ from mpl_toolkits.mplot3d import Axes3D
 import tensorflow as tf
 import os
 import sys
+import pickle
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
@@ -77,3 +78,5 @@ test_delta_sigma = math.sqrt(HS_test.integrate(lambda patch: (tf.abs(patch.num_e
 print('delta sigma train:', train_delta_sigma)
 print('delta sigma test:', test_delta_sigma)
 
+outfile = 'out.{0}.{1}.{2}.{3}.{4}'.format(k, n_points, seed, learning_rate, n_epochs) 
+pickle.dump(g, open(outfile, 'wb'))
