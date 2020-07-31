@@ -19,12 +19,14 @@ n_points = int(sys.argv[2])
 seed = int(sys.argv[3])
 learning_rate = float(sys.argv[4])
 n_epochs = int(sys.argv[5])
+outfile = sys.argv[6]
 
 np.random.seed(seed)
 
 z0, z1, z2, z3, z4= sp.symbols('z0, z1, z2, z3, z4')
 Z = [z0,z1,z2,z3,z4]
-f = z0**5 + z1**5 + z2**5 + z3**5 + z4**5 + 0.5*z0*z1*z2*z3*z4
+psi = 0.5
+f = z0**5 + z1**5 + z2**5 + z3**5 + z4**5 + psi*z0*z1*z2*z3*z4
 HS = Hypersurface(Z, f, n_points)
 HS.set_k(k)
 
@@ -53,7 +55,7 @@ epochs = range(n_epochs)
 for epoch in epochs:
     train(HS, g, learning_rate, factor)
 
-    if epoch % 20 == 0:
+    if epoch % 50 == 0:
         h = tf.matmul(g, g, adjoint_b=True)
         h = h/h[0][0]
         integration = HS.integrate(lambda patch: tf.abs(patch.num_eta_tf(h)/factor - 1), tensor=True).numpy()
@@ -77,6 +79,15 @@ test_delta_sigma = math.sqrt(HS_test.integrate(lambda patch: (tf.abs(patch.num_e
 
 print('delta sigma train:', train_delta_sigma)
 print('delta sigma test:', test_delta_sigma)
-
-outfile = 'out.{0}.{1}.{2}.{3}.{4}'.format(k, n_points, seed, learning_rate, n_epochs) 
-pickle.dump(g, open(outfile, 'wb'))
+pickle.dump( g, open( outfile+".dat", "wb" ) )
+with open( outfile+".txt", "w" ) as f:
+    sys.stdout = f
+    print( 'psi=', psi )
+    print( 'k=', k )
+    print( 'n_points=', n_points )
+    print( 'seed=', seed )
+    print( 'rate=', learning_rate, 'n_epochs=', n_epochs )
+    print('train=', integration)
+    print('test=', test)
+    print('delta_sigma_train=', train_delta_sigma)
+    print('delta_sigma_test=', test_delta_sigma)
