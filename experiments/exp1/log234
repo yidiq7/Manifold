@@ -1,0 +1,22 @@
+nohup: ignoring input
+seed=234 GPU=3
+
+real	9m59.747s
+user	18m56.075s
+sys	1m36.082s
+
+real	3m8.131s
+user	8m34.316s
+sys	0m57.847s
+
+real	12m22.186s
+user	21m40.607s
+sys	1m47.156s
+
+real	116m46.703s
+user	115m20.724s
+sys	8m40.735s
+
+real	356m47.490s
+user	174m2.582s
+sys	21m13.988s
