@@ -1,0 +1,6 @@
+Notes on experiments:
+
+exp1 - backprop code with h=g^tg, Fermat quintic with psi=0.5, 10000 pts, step_size = 1
+
+exp2 - backprop code with h=g^tg, Fermat quintic with psi=0.5, 10000 pts, step_size = 10
+
