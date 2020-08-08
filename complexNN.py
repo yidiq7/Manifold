@@ -13,7 +13,9 @@ class ComplexDense(keras.layers.Layer):
         super(ComplexDense, self).__init__()
         w_init = tf.random_normal_initializer()
         self.w = tf.Variable(
-            initial_value=tf.cast(w_init(shape=(input_dim, units), dtype='float32'), dtype=tf.complex64),
+            #initial_value=tf.cast(w_init(shape=(input_dim, units), dtype='float32'), dtype=tf.complex64),
+            #initial_value=tf.convert_to_tensor(np.array(np.ones((input_dim, units)), dtype=np.complex64)),
+            initial_value=tf.convert_to_tensor(np.array(np.ones((input_dim, units)) + np.random.rand(input_dim, units), dtype=np.complex64)),
             trainable=True,
         )
         self.activation =  activations.get(activation)
@@ -21,6 +23,48 @@ class ComplexDense(keras.layers.Layer):
     def call(self, inputs):
         return self.activation(tf.matmul(inputs, self.w))
 
+
+def gradients_z(func, x):
+    dx_real = tf.gradients(tf.math.real(func), x)
+    dx_imag = tf.gradients(tf.math.imag(func), x)
+    return tf.math.conj(dx_real + dx_imag*tf.constant(1j, dtype=x.dtype)) / 2
+
+
+def complex_hessian(func, x):
+    # Take a real function and calculate dzdzbar(f)
+    grad = tf.gradients(func, x)
+    hessian = tf.stack([gradients_z(tmp, x)[0]
+                        for tmp in tf.unstack(grad, axis=2)],
+                       axis = 1) / 2.0
+    return hessian 
+
+
+def generate_dataset(patch):
+
+    # So that you don't need to invoke set_k()
+    patch.s_tf_1, patch.J_tf_1 = patch.num_s_J_tf(k=1)
+    patch.omega_omegabar = patch.get_omega_omegabar(lambdify=True)
+    patch.restriction = patch.get_restriction(lambdify=True)
+    patch.r_tf = patch.num_restriction_tf()
+
+    x = tf.convert_to_tensor(np.array(patch.points, dtype=np.complex64))
+    y = tf.cast(patch.num_Omega_Omegabar_tf(), dtype=tf.complex64)
+
+    weights = y / tf.cast(patch.num_FS_volume_form_tf('identity', k=1), dtype=tf.complex64)
+    weights = weights / tf.reduce_sum(weights)
+
+    # The Kahler metric calculated by complex_hessian will include the derivative of the norm_coordinate, 
+    # here we transform the restriction so that the corresponding column and row will be ignored in the hessian
+    trans_mat = np.delete(np.identity(patch.dimensions), patch.norm_coordinate, axis=0)
+    trans_tensor = tf.convert_to_tensor(np.array(trans_mat, dtype=np.complex64))
+    restriction = tf.matmul(patch.r_tf, trans_tensor) 
+
+    dataset = tf.data.Dataset.from_tensor_slices((x, y, weights, restriction))
+
+    return dataset
+
+
+'''
 def complex_hessians(ys,
                      xs,
                      gate_gradients=False,
@@ -36,11 +80,6 @@ def complex_hessians(ys,
     hessians = []
     _gradients = tf.gradients(ys, xs, **kwargs) 
     
-    def gradients_z(func, x):
-        dx_real = tf.gradients(tf.math.real(func), x)
-        dx_imag = tf.gradients(tf.math.imag(func), x) 
-        return tf.math.conj(dx_real - dx_imag*tf.constant(1j, dtype=x.dtype)) / 2
-       
     for gradient, x in zip(_gradients, xs):
         # change shape to one-dimension without graph branching
         gradient = array_ops.reshape(gradient, [-1])
@@ -65,19 +104,6 @@ def complex_hessians(ys,
         _reshaped_hessian = array_ops.reshape(hessian.stack(),
                                               array_ops.concat((_shape, _shape), 0))
         hessians.append(_reshaped_hessian)
-
+    
     return hessians
-
-def generate_dataset(patch):
-    x = tf.convert_to_tensor(np.array(patch.points, dtype=np.complex64))
-    y = tf.cast(patch.num_eta_tf('FS'), dtype=tf.complex64)
-
-    # The Kahler metric calculated by complex_hessian will include the derivative of the norm_coordinate, 
-    # here we transform the restriction so that the corresponding column and row will be ignored in the hessian
-    trans_mat = np.delete(np.identity(patch.dimensions), patch.norm_coordinate, axis=0)
-    trans_tensor = tf.convert_to_tensor(np.array(trans_mat, dtype=np.complex64))
-    restriction = tf.matmul(patch.r_tf, trans_tensor) 
-
-    dataset = tf.data.Dataset.from_tensor_slices((x, y, restriction))
-
-    return dataset
+'''
