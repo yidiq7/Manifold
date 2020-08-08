@@ -27,15 +27,28 @@ class ComplexDense(keras.layers.Layer):
 def gradients_z(func, x):
     dx_real = tf.gradients(tf.math.real(func), x)
     dx_imag = tf.gradients(tf.math.imag(func), x)
-    return tf.math.conj(dx_real + dx_imag*tf.constant(1j, dtype=x.dtype)) / 2
+    return (tf.math.conj(dx_real) + tf.math.conj(dx_imag)*tf.constant(1j, dtype=x.dtype)) / 2
+
+def gradients_zbar(func, x):
+    dx_real = tf.gradients(tf.math.real(func), x)
+    dx_imag = tf.gradients(tf.math.imag(func), x)
+    return (dx_real + dx_imag*tf.constant(1j, dtype=x.dtype)) / 2
 
 
 def complex_hessian(func, x):
     # Take a real function and calculate dzdzbar(f)
+    #grad = gradients_z(func, x)
+    grad = tf.math.conj(tf.gradients(func, x))
+    hessian = tf.stack([gradients_zbar(tmp, x)[0]
+                        for tmp in tf.unstack(grad, axis=2)],
+                       axis = 1) / 2.0
+ 
+    '''
     grad = tf.gradients(func, x)
     hessian = tf.stack([gradients_z(tmp, x)[0]
                         for tmp in tf.unstack(grad, axis=2)],
                        axis = 1) / 2.0
+    '''
     return hessian 
 
 
