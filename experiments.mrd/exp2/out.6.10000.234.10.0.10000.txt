@@ -1,0 +1,9 @@
+psi= <bound method MPContext.psi of <mpmath.ctx_mp.MPContext object at 0x7f71de815320>>
+k= 6
+n_points= 10000
+seed= 234
+rate= 10.0 n_epochs= 10000
+train= 0.0018408112
+test= 0.0072509916
+delta_sigma_train= 1.6470126629918848e-05
+delta_sigma_test= 2.9500304693455852e-05

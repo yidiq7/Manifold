@@ -1,0 +1,22 @@
+nohup: ignoring input
+seed=123 GPU=2
+
+real	14m31.204s
+user	25m5.366s
+sys	1m55.732s
+
+real	3m7.119s
+user	8m53.937s
+sys	1m0.275s
+
+real	13m59.089s
+user	23m47.186s
+sys	1m50.871s
+
+real	108m21.230s
+user	106m4.428s
+sys	8m33.989s
+
+real	356m28.753s
+user	175m17.543s
+sys	20m20.576s

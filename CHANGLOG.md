@@ -1,7 +1,30 @@
 # Changelog
 
 ## [Unreleased]
-- Add an attribute hypersurface.k after set\_() is invoked. Then the default value for argument k in the symbolic functions can be changed to self.k
+## [0.3.4] - 2020-07-29
+### Changed
+- Deleted @tf.functions for num\_s\_J\_t(), num\_Omega\_Omegabar\_tf(), etc, to speed up set\_k() function
+## [0.3.3] - 2020-07-27
+### Changed
+- Changed the tensors from complex64 to complex128
+- Wrap the \_tf functions with tf.functions. This will enbale the graph computation.
+
+## [0.3.2] - 2020-07-25
+### Added
+- Method initial\_param\_from\_lowerk(HS, h\_sym, param\_low) in generate\_h.py. This basically take the optimized results from a lower k/2 case and and assign the new param so that the k polynomials is approximately the square of the k/2 poly
+
+## [0.3.1] - 2020-07-21
+### Added
+- Attribute HS.k = k, set in method set\_k()
+
+### Changed
+- Separated the generation of h matrix in file generate\_h.py
+- Simplified Optimization notebook and script
+## [0.3.0] - 2020-07-20
+### Added
+- New file hypersurface\_tf.py and new optimization routine Optimization3-tensorflow.ipynb
+- New \_tf functions which use tensorflow tensors to store the data, which speeds up the calculations.
+- Option 'tensor' for method integrate(), tensor should be set as True if \_tf functions are being integrated
 
 ## [0.2.5] - 2020-07-12
 ### Fixed
