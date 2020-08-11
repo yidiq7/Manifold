@@ -26,7 +26,7 @@ np.random.seed(seed)
 z0, z1, z2, z3, z4= sp.symbols('z0, z1, z2, z3, z4')
 Z = [z0,z1,z2,z3,z4]
 psi = 0.5
-f = z0**5 + z1**5 + z2**5 + z3**5 + z4**5 + psi*z0*z1*z2*z3*z4
+f = z0**5 + z1**5 + z2**5 + z3**5 + z4**5 + psi*z0*z1*z2*z3*z4 
 HS = Hypersurface(Z, f, n_points)
 HS.set_k(k)
 
