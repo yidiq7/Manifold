@@ -1,0 +1,10 @@
+a= 0.5
+b= 2.0
+k= 2
+n_points= 10000
+seed= 17
+rate= 1.0 n_epochs= 1000000
+train= 0.23178335
+test= 0.23665464
+delta_sigma_train= 0.0009166539698862971
+delta_sigma_test= 0.0009429365122545872
