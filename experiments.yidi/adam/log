@@ -1,0 +1,2 @@
+Two layer network: (5, 60) and (60, 60)
+with different alpha and batch size

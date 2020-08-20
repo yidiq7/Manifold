@@ -1,0 +1,2020 @@
+step 0: loss = 0.9053
+test_loss: 0.2069182014465332
+step 0: loss = 0.2065
+test_loss: 0.15197614669799805
+step 0: loss = 0.1411
+test_loss: 0.12769415855407715
+step 0: loss = 0.1233
+test_loss: 0.11759112358093261
+step 0: loss = 0.1083
+test_loss: 0.11147682189941406
+step 0: loss = 0.1038
+test_loss: 0.10663507461547851
+step 0: loss = 0.1008
+test_loss: 0.09826725006103515
+step 0: loss = 0.0941
+test_loss: 0.09698865890502929
+step 0: loss = 0.0872
+test_loss: 0.09259918212890625
+step 0: loss = 0.0882
+test_loss: 0.08854336738586426
+step 0: loss = 0.0814
+test_loss: 0.08845696449279786
+step 0: loss = 0.0816
+test_loss: 0.08472176551818848
+step 0: loss = 0.0804
+test_loss: 0.08181992530822754
+step 0: loss = 0.0753
+test_loss: 0.08223234176635742
+step 0: loss = 0.0800
+test_loss: 0.07940399169921875
+step 0: loss = 0.0719
+test_loss: 0.07715759754180908
+step 0: loss = 0.0706
+test_loss: 0.07765166282653808
+step 0: loss = 0.0713
+test_loss: 0.07662676334381104
+step 0: loss = 0.0739
+test_loss: 0.07415280818939209
+step 0: loss = 0.0675
+test_loss: 0.0744094705581665
+step 0: loss = 0.0700
+test_loss: 0.07258431911468506
+step 0: loss = 0.0663
+test_loss: 0.07241946220397949
+step 0: loss = 0.0696
+test_loss: 0.07205702304840088
+step 0: loss = 0.0669
+test_loss: 0.07083388805389404
+step 0: loss = 0.0665
+test_loss: 0.06867046356201172
+step 0: loss = 0.0643
+test_loss: 0.06881005287170411
+step 0: loss = 0.0605
+test_loss: 0.06877748966217041
+step 0: loss = 0.0635
+test_loss: 0.07056490898132324
+step 0: loss = 0.0642
+test_loss: 0.07035022735595703
+step 0: loss = 0.0654
+test_loss: 0.06839683055877685
+step 0: loss = 0.0623
+test_loss: 0.06584654331207275
+step 0: loss = 0.0622
+test_loss: 0.06711357593536377
+step 0: loss = 0.0622
+test_loss: 0.06530672073364258
+step 0: loss = 0.0591
+test_loss: 0.06686012268066406
+step 0: loss = 0.0644
+test_loss: 0.06568504333496093
+step 0: loss = 0.0616
+test_loss: 0.06670732975006104
+step 0: loss = 0.0621
+test_loss: 0.06449918270111084
+step 0: loss = 0.0599
+test_loss: 0.06536002159118652
+step 0: loss = 0.0628
+test_loss: 0.06294774055480958
+step 0: loss = 0.0574
+test_loss: 0.06362242698669433
+step 0: loss = 0.0595
+test_loss: 0.06276439189910889
+step 0: loss = 0.0574
+test_loss: 0.06276520729064941
+step 0: loss = 0.0598
+test_loss: 0.061213927268981935
+step 0: loss = 0.0590
+test_loss: 0.06092776775360107
+step 0: loss = 0.0565
+test_loss: 0.06147873401641846
+step 0: loss = 0.0555
+test_loss: 0.06128201007843018
+step 0: loss = 0.0567
+test_loss: 0.0617549991607666
+step 0: loss = 0.0568
+test_loss: 0.060706796646118166
+step 0: loss = 0.0575
+test_loss: 0.060729508399963376
+step 0: loss = 0.0608
+test_loss: 0.06153696060180664
+step 0: loss = 0.0552
+test_loss: 0.06142486095428467
+step 0: loss = 0.0568
+test_loss: 0.05985654830932617
+step 0: loss = 0.0532
+test_loss: 0.0594281530380249
+step 0: loss = 0.0552
+test_loss: 0.05825251579284668
+step 0: loss = 0.0529
+test_loss: 0.058665227890014646
+step 0: loss = 0.0543
+test_loss: 0.059503178596496585
+step 0: loss = 0.0561
+test_loss: 0.05911203384399414
+step 0: loss = 0.0523
+test_loss: 0.05958592891693115
+step 0: loss = 0.0548
+test_loss: 0.0582239818572998
+step 0: loss = 0.0523
+test_loss: 0.0593949031829834
+step 0: loss = 0.0554
+test_loss: 0.05912251472473144
+step 0: loss = 0.0561
+test_loss: 0.058385462760925294
+step 0: loss = 0.0541
+test_loss: 0.05816460132598877
+step 0: loss = 0.0527
+test_loss: 0.05822444438934326
+step 0: loss = 0.0517
+test_loss: 0.05737224578857422
+step 0: loss = 0.0535
+test_loss: 0.05602644443511963
+step 0: loss = 0.0530
+test_loss: 0.05803974628448486
+step 0: loss = 0.0540
+test_loss: 0.057748303413391114
+step 0: loss = 0.0511
+test_loss: 0.056222023963928225
+step 0: loss = 0.0513
+test_loss: 0.05627776145935059
+step 0: loss = 0.0517
+test_loss: 0.05773688793182373
+step 0: loss = 0.0545
+test_loss: 0.05704273223876953
+step 0: loss = 0.0531
+test_loss: 0.055577020645141605
+step 0: loss = 0.0514
+test_loss: 0.05622297763824463
+step 0: loss = 0.0523
+test_loss: 0.05684943675994873
+step 0: loss = 0.0548
+test_loss: 0.05649945735931396
+step 0: loss = 0.0528
+test_loss: 0.05586443424224854
+step 0: loss = 0.0528
+test_loss: 0.05727518081665039
+step 0: loss = 0.0515
+test_loss: 0.05580454349517822
+step 0: loss = 0.0511
+test_loss: 0.055495100021362306
+step 0: loss = 0.0533
+test_loss: 0.05635094165802002
+step 0: loss = 0.0527
+test_loss: 0.055210385322570804
+step 0: loss = 0.0516
+test_loss: 0.05532457828521729
+step 0: loss = 0.0505
+test_loss: 0.05627672672271729
+step 0: loss = 0.0540
+test_loss: 0.0547672700881958
+step 0: loss = 0.0498
+test_loss: 0.05460384845733643
+step 0: loss = 0.0496
+test_loss: 0.05469260692596436
+step 0: loss = 0.0522
+test_loss: 0.05426112651824951
+step 0: loss = 0.0503
+test_loss: 0.05355366230010986
+step 0: loss = 0.0508
+test_loss: 0.054673051834106444
+step 0: loss = 0.0506
+test_loss: 0.0539381217956543
+step 0: loss = 0.0490
+test_loss: 0.05483541488647461
+step 0: loss = 0.0513
+test_loss: 0.05396151542663574
+step 0: loss = 0.0517
+test_loss: 0.05302844524383545
+step 0: loss = 0.0494
+test_loss: 0.05368653297424317
+step 0: loss = 0.0494
+test_loss: 0.05353394985198975
+step 0: loss = 0.0497
+test_loss: 0.05388669490814209
+step 0: loss = 0.0502
+test_loss: 0.05353065013885498
+step 0: loss = 0.0494
+test_loss: 0.05359254837036133
+step 0: loss = 0.0508
+test_loss: 0.05278883934020996
+step 0: loss = 0.0496
+test_loss: 0.053165764808654786
+step 0: loss = 0.0477
+test_loss: 0.054031720161437986
+step 0: loss = 0.0508
+test_loss: 0.05297103404998779
+step 0: loss = 0.0495
+test_loss: 0.05351025104522705
+step 0: loss = 0.0525
+test_loss: 0.052399706840515134
+step 0: loss = 0.0504
+test_loss: 0.0534226131439209
+step 0: loss = 0.0481
+test_loss: 0.05320603370666504
+step 0: loss = 0.0504
+test_loss: 0.05247291088104248
+step 0: loss = 0.0490
+test_loss: 0.05332704544067383
+step 0: loss = 0.0504
+test_loss: 0.05208695888519287
+step 0: loss = 0.0484
+test_loss: 0.051826066970825195
+step 0: loss = 0.0476
+test_loss: 0.05188207626342774
+step 0: loss = 0.0496
+test_loss: 0.05213575839996338
+step 0: loss = 0.0484
+test_loss: 0.052045435905456544
+step 0: loss = 0.0484
+test_loss: 0.05297327995300293
+step 0: loss = 0.0489
+test_loss: 0.052779130935668946
+step 0: loss = 0.0499
+test_loss: 0.05295198917388916
+step 0: loss = 0.0477
+test_loss: 0.05285792827606201
+step 0: loss = 0.0505
+test_loss: 0.05257501602172852
+step 0: loss = 0.0512
+test_loss: 0.05175321578979492
+step 0: loss = 0.0473
+test_loss: 0.05190964698791504
+step 0: loss = 0.0474
+test_loss: 0.05117565631866455
+step 0: loss = 0.0466
+test_loss: 0.052737183570861816
+step 0: loss = 0.0471
+test_loss: 0.050274171829223634
+step 0: loss = 0.0473
+test_loss: 0.05092116832733154
+step 0: loss = 0.0477
+test_loss: 0.052530980110168456
+step 0: loss = 0.0496
+test_loss: 0.05148163795471192
+step 0: loss = 0.0466
+test_loss: 0.05097285747528076
+step 0: loss = 0.0480
+test_loss: 0.05095547676086426
+step 0: loss = 0.0479
+test_loss: 0.051534509658813475
+step 0: loss = 0.0480
+test_loss: 0.05234873294830322
+step 0: loss = 0.0494
+test_loss: 0.05073327541351318
+step 0: loss = 0.0489
+test_loss: 0.051287331581115723
+step 0: loss = 0.0488
+test_loss: 0.05119943618774414
+step 0: loss = 0.0471
+test_loss: 0.05086377143859863
+step 0: loss = 0.0479
+test_loss: 0.049780845642089844
+step 0: loss = 0.0455
+test_loss: 0.05082198619842529
+step 0: loss = 0.0462
+test_loss: 0.05138071537017822
+step 0: loss = 0.0474
+test_loss: 0.05122688293457031
+step 0: loss = 0.0463
+test_loss: 0.05050299644470215
+step 0: loss = 0.0482
+test_loss: 0.051699314117431644
+step 0: loss = 0.0461
+test_loss: 0.0501162052154541
+step 0: loss = 0.0471
+test_loss: 0.04983954429626465
+step 0: loss = 0.0458
+test_loss: 0.05006776332855225
+step 0: loss = 0.0471
+test_loss: 0.05017448425292969
+step 0: loss = 0.0459
+test_loss: 0.05076817035675049
+step 0: loss = 0.0462
+test_loss: 0.05038259506225586
+step 0: loss = 0.0478
+test_loss: 0.04999958992004395
+step 0: loss = 0.0457
+test_loss: 0.050813889503479
+step 0: loss = 0.0475
+test_loss: 0.05027191162109375
+step 0: loss = 0.0488
+test_loss: 0.049146232604980467
+step 0: loss = 0.0457
+test_loss: 0.05022472858428955
+step 0: loss = 0.0473
+test_loss: 0.05037293910980225
+step 0: loss = 0.0454
+test_loss: 0.05026527404785156
+step 0: loss = 0.0448
+
+test_loss: 0.05008688926696778
+step 0: loss = 0.0473
+test_loss: 0.05030035495758057
+step 0: loss = 0.0467
+test_loss: 0.04876554489135742
+step 0: loss = 0.0451
+test_loss: 0.049970817565917966
+step 0: loss = 0.0471
+test_loss: 0.048382019996643065
+step 0: loss = 0.0441
+test_loss: 0.04930574893951416
+step 0: loss = 0.0444
+test_loss: 0.049431953430175785
+step 0: loss = 0.0460
+test_loss: 0.04944033145904541
+step 0: loss = 0.0455
+test_loss: 0.050749921798706056
+step 0: loss = 0.0496
+test_loss: 0.04961742401123047
+step 0: loss = 0.0461
+test_loss: 0.049931721687316896
+step 0: loss = 0.0461
+test_loss: 0.04926496982574463
+step 0: loss = 0.0432
+test_loss: 0.04909097671508789
+step 0: loss = 0.0462
+test_loss: 0.049037742614746097
+step 0: loss = 0.0436
+test_loss: 0.0485414981842041
+step 0: loss = 0.0438
+test_loss: 0.04849165439605713
+step 0: loss = 0.0458
+test_loss: 0.04891305923461914
+step 0: loss = 0.0436
+test_loss: 0.04902777671813965
+step 0: loss = 0.0463
+test_loss: 0.04914017677307129
+step 0: loss = 0.0465
+test_loss: 0.04988821506500244
+step 0: loss = 0.0463
+test_loss: 0.048549227714538574
+step 0: loss = 0.0435
+test_loss: 0.04806573867797852
+step 0: loss = 0.0460
+test_loss: 0.049587721824646
+step 0: loss = 0.0457
+test_loss: 0.048116693496704104
+step 0: loss = 0.0438
+test_loss: 0.04819150447845459
+step 0: loss = 0.0440
+test_loss: 0.04750758171081543
+step 0: loss = 0.0453
+test_loss: 0.047717199325561524
+step 0: loss = 0.0453
+test_loss: 0.047393503189086916
+step 0: loss = 0.0435
+test_loss: 0.0478814697265625
+step 0: loss = 0.0470
+test_loss: 0.047875704765319826
+step 0: loss = 0.0467
+test_loss: 0.0478271484375
+step 0: loss = 0.0419
+test_loss: 0.046789536476135256
+step 0: loss = 0.0426
+test_loss: 0.04808727741241455
+step 0: loss = 0.0454
+test_loss: 0.047149796485900876
+step 0: loss = 0.0437
+test_loss: 0.04783726692199707
+step 0: loss = 0.0454
+test_loss: 0.04652141094207764
+step 0: loss = 0.0442
+test_loss: 0.04811812400817871
+step 0: loss = 0.0423
+test_loss: 0.047712674140930174
+step 0: loss = 0.0414
+test_loss: 0.04869823932647705
+step 0: loss = 0.0455
+test_loss: 0.04799473762512207
+step 0: loss = 0.0446
+test_loss: 0.047571783065795896
+step 0: loss = 0.0437
+test_loss: 0.047762851715087894
+step 0: loss = 0.0455
+test_loss: 0.047671632766723634
+step 0: loss = 0.0462
+test_loss: 0.048617916107177736
+step 0: loss = 0.0456
+test_loss: 0.04729825973510742
+step 0: loss = 0.0430
+test_loss: 0.0477675199508667
+step 0: loss = 0.0420
+test_loss: 0.047664036750793455
+step 0: loss = 0.0453
+test_loss: 0.04684985637664795
+step 0: loss = 0.0431
+test_loss: 0.047512993812561036
+step 0: loss = 0.0435
+test_loss: 0.04930264472961426
+step 0: loss = 0.0479
+test_loss: 0.047161707878112795
+step 0: loss = 0.0423
+test_loss: 0.04761170864105225
+step 0: loss = 0.0468
+test_loss: 0.04673773765563965
+step 0: loss = 0.0461
+test_loss: 0.046882548332214356
+step 0: loss = 0.0438
+test_loss: 0.047293200492858886
+step 0: loss = 0.0454
+test_loss: 0.047693219184875485
+step 0: loss = 0.0447
+test_loss: 0.04793612480163574
+step 0: loss = 0.0443
+test_loss: 0.046433115005493165
+step 0: loss = 0.0438
+test_loss: 0.0463946533203125
+step 0: loss = 0.0449
+test_loss: 0.04634789943695068
+step 0: loss = 0.0422
+test_loss: 0.04725904941558838
+step 0: loss = 0.0450
+test_loss: 0.04693875789642334
+step 0: loss = 0.0430
+test_loss: 0.046066904067993165
+step 0: loss = 0.0410
+test_loss: 0.04741683006286621
+step 0: loss = 0.0443
+test_loss: 0.045988879203796386
+step 0: loss = 0.0415
+test_loss: 0.046994171142578124
+step 0: loss = 0.0440
+test_loss: 0.046346035003662106
+step 0: loss = 0.0429
+test_loss: 0.046724247932434085
+step 0: loss = 0.0435
+test_loss: 0.0471077823638916
+step 0: loss = 0.0437
+test_loss: 0.04642595767974853
+step 0: loss = 0.0415
+test_loss: 0.046176424026489256
+step 0: loss = 0.0436
+test_loss: 0.04683145046234131
+step 0: loss = 0.0440
+test_loss: 0.04725370883941651
+step 0: loss = 0.0444
+test_loss: 0.04549395561218262
+step 0: loss = 0.0422
+test_loss: 0.0457341480255127
+step 0: loss = 0.0407
+test_loss: 0.046585493087768555
+step 0: loss = 0.0435
+test_loss: 0.04700913906097412
+step 0: loss = 0.0433
+test_loss: 0.04515476703643799
+step 0: loss = 0.0455
+test_loss: 0.04626523017883301
+step 0: loss = 0.0428
+test_loss: 0.04603418827056885
+step 0: loss = 0.0444
+test_loss: 0.04557289600372314
+step 0: loss = 0.0435
+test_loss: 0.044968457221984864
+step 0: loss = 0.0443
+test_loss: 0.046079797744750975
+step 0: loss = 0.0431
+test_loss: 0.04580196857452393
+step 0: loss = 0.0429
+test_loss: 0.04548931121826172
+step 0: loss = 0.0428
+test_loss: 0.045763163566589354
+step 0: loss = 0.0439
+test_loss: 0.04592437744140625
+step 0: loss = 0.0417
+test_loss: 0.04439523696899414
+step 0: loss = 0.0414
+test_loss: 0.04586156368255615
+step 0: loss = 0.0409
+test_loss: 0.04637839317321777
+step 0: loss = 0.0417
+test_loss: 0.045712881088256836
+step 0: loss = 0.0428
+test_loss: 0.04588136196136475
+step 0: loss = 0.0426
+test_loss: 0.045723795890808105
+step 0: loss = 0.0440
+test_loss: 0.04610303401947022
+step 0: loss = 0.0424
+test_loss: 0.0453009033203125
+step 0: loss = 0.0404
+test_loss: 0.04437343120574951
+step 0: loss = 0.0392
+test_loss: 0.04465517997741699
+step 0: loss = 0.0418
+test_loss: 0.04574624061584473
+step 0: loss = 0.0428
+test_loss: 0.0453058910369873
+step 0: loss = 0.0436
+test_loss: 0.04489093780517578
+step 0: loss = 0.0403
+test_loss: 0.044901061058044436
+step 0: loss = 0.0422
+test_loss: 0.04575745582580566
+step 0: loss = 0.0433
+test_loss: 0.04521204948425293
+step 0: loss = 0.0415
+test_loss: 0.04436332225799561
+step 0: loss = 0.0402
+test_loss: 0.04549321174621582
+step 0: loss = 0.0407
+test_loss: 0.04545020580291748
+step 0: loss = 0.0421
+test_loss: 0.04386837959289551
+step 0: loss = 0.0416
+test_loss: 0.044800124168395995
+step 0: loss = 0.0423
+test_loss: 0.04496452808380127
+step 0: loss = 0.0421
+test_loss: 0.04427437305450439
+step 0: loss = 0.0404
+test_loss: 0.043762216567993166
+step 0: loss = 0.0402
+test_loss: 0.045182719230651855
+step 0: loss = 0.0422
+test_loss: 0.04528000354766846
+step 0: loss = 0.0414
+test_loss: 0.04469368934631348
+step 0: loss = 0.0417
+test_loss: 0.044047918319702145
+step 0: loss = 0.0406
+test_loss: 0.04403069972991944
+step 0: loss = 0.0414
+test_loss: 0.04514184951782227
+step 0: loss = 0.0423
+test_loss: 0.04421199798583984
+step 0: loss = 0.0419
+test_loss: 0.044619393348693845
+step 0: loss = 0.0422
+test_loss: 0.044514760971069336
+step 0: loss = 0.0417
+test_loss: 0.04432733058929443
+step 0: loss = 0.0407
+test_loss: 0.04431384563446045
+step 0: loss = 0.0409
+test_loss: 0.043471364974975585
+step 0: loss = 0.0405
+test_loss: 0.043329381942749025
+step 0: loss = 0.0412
+test_loss: 0.04414079189300537
+step 0: loss = 0.0417
+test_loss: 0.04376871585845947
+step 0: loss = 0.0403
+test_loss: 0.04460830688476562
+step 0: loss = 0.0407
+test_loss: 0.04390092372894287
+step 0: loss = 0.0411
+test_loss: 0.04417891502380371
+step 0: loss = 0.0432
+test_loss: 0.044300713539123536
+step 0: loss = 0.0427
+test_loss: 0.04484652996063233
+step 0: loss = 0.0407
+test_loss: 0.044271960258483886
+step 0: loss = 0.0427
+test_loss: 0.04412876129150391
+step 0: loss = 0.0384
+test_loss: 0.04424544811248779
+step 0: loss = 0.0399
+test_loss: 0.04433911800384521
+step 0: loss = 0.0397
+test_loss: 0.044080162048339845
+step 0: loss = 0.0391
+test_loss: 0.04337164878845215
+step 0: loss = 0.0397
+test_loss: 0.04420684337615967
+step 0: loss = 0.0418
+test_loss: 0.04380894660949707
+step 0: loss = 0.0370
+test_loss: 0.04372150897979736
+step 0: loss = 0.0406
+test_loss: 0.043353424072265626
+step 0: loss = 0.0394
+test_loss: 0.04304282188415527
+step 0: loss = 0.0395
+test_loss: 0.044238190650939944
+step 0: loss = 0.0396
+test_loss: 0.04498120784759521
+step 0: loss = 0.0427
+test_loss: 0.044141988754272464
+step 0: loss = 0.0436
+test_loss: 0.04396607875823975
+step 0: loss = 0.0418
+test_loss: 0.043031682968139646
+step 0: loss = 0.0388
+test_loss: 0.04349264621734619
+step 0: loss = 0.0405
+test_loss: 0.04474661350250244
+step 0: loss = 0.0414
+test_loss: 0.044226150512695316
+step 0: loss = 0.0406
+test_loss: 0.044063692092895505
+step 0: loss = 0.0405
+test_loss: 0.04386600971221924
+step 0: loss = 0.0413
+test_loss: 0.04376469135284424
+step 0: loss = 0.0409
+test_loss: 0.044239182472229
+step 0: loss = 0.0417
+
+test_loss: 0.04389583110809326
+step 0: loss = 0.0408
+test_loss: 0.04466592311859131
+step 0: loss = 0.0406
+test_loss: 0.04330033302307129
+step 0: loss = 0.0411
+test_loss: 0.04247371673583984
+step 0: loss = 0.0375
+test_loss: 0.044075846672058105
+step 0: loss = 0.0407
+test_loss: 0.04251471996307373
+step 0: loss = 0.0400
+test_loss: 0.04331993579864502
+step 0: loss = 0.0401
+test_loss: 0.0431238317489624
+step 0: loss = 0.0404
+test_loss: 0.04307182788848877
+step 0: loss = 0.0414
+test_loss: 0.042824907302856444
+step 0: loss = 0.0383
+test_loss: 0.04276254653930664
+step 0: loss = 0.0403
+test_loss: 0.04329389572143555
+step 0: loss = 0.0402
+test_loss: 0.04294641494750977
+step 0: loss = 0.0401
+test_loss: 0.04221802234649658
+step 0: loss = 0.0383
+test_loss: 0.042700276374816895
+step 0: loss = 0.0390
+test_loss: 0.04327942848205566
+step 0: loss = 0.0396
+test_loss: 0.04255305767059326
+step 0: loss = 0.0392
+test_loss: 0.04326841354370117
+step 0: loss = 0.0396
+test_loss: 0.042672557830810545
+step 0: loss = 0.0400
+test_loss: 0.04163309574127197
+step 0: loss = 0.0400
+test_loss: 0.04266258239746094
+step 0: loss = 0.0408
+test_loss: 0.04233960628509521
+step 0: loss = 0.0394
+test_loss: 0.042850279808044435
+step 0: loss = 0.0392
+test_loss: 0.042499451637268065
+step 0: loss = 0.0394
+test_loss: 0.042969374656677245
+step 0: loss = 0.0407
+test_loss: 0.04177968502044678
+step 0: loss = 0.0367
+test_loss: 0.04232016563415528
+step 0: loss = 0.0389
+test_loss: 0.042969398498535157
+step 0: loss = 0.0389
+test_loss: 0.04291808128356934
+step 0: loss = 0.0389
+test_loss: 0.04400319576263428
+step 0: loss = 0.0398
+test_loss: 0.04235339164733887
+step 0: loss = 0.0398
+test_loss: 0.042535829544067386
+step 0: loss = 0.0400
+test_loss: 0.041846609115600585
+step 0: loss = 0.0384
+test_loss: 0.04270883083343506
+step 0: loss = 0.0399
+test_loss: 0.04320185661315918
+step 0: loss = 0.0398
+test_loss: 0.042713584899902346
+step 0: loss = 0.0400
+test_loss: 0.04326901912689209
+step 0: loss = 0.0408
+test_loss: 0.04257487773895264
+step 0: loss = 0.0399
+test_loss: 0.04184999942779541
+step 0: loss = 0.0398
+test_loss: 0.043057093620300295
+step 0: loss = 0.0381
+test_loss: 0.04254538536071777
+step 0: loss = 0.0396
+test_loss: 0.041249098777771
+step 0: loss = 0.0378
+test_loss: 0.042265892028808594
+step 0: loss = 0.0397
+test_loss: 0.042188100814819336
+step 0: loss = 0.0378
+test_loss: 0.041560006141662595
+step 0: loss = 0.0385
+test_loss: 0.042474160194396975
+step 0: loss = 0.0388
+test_loss: 0.04165548324584961
+step 0: loss = 0.0375
+test_loss: 0.04166871547698975
+step 0: loss = 0.0386
+test_loss: 0.04229310035705566
+step 0: loss = 0.0399
+test_loss: 0.04195162773132324
+step 0: loss = 0.0397
+test_loss: 0.042822952270507815
+step 0: loss = 0.0405
+test_loss: 0.041643614768981936
+step 0: loss = 0.0391
+test_loss: 0.04200749397277832
+step 0: loss = 0.0396
+test_loss: 0.042133393287658694
+step 0: loss = 0.0400
+test_loss: 0.04218629360198975
+step 0: loss = 0.0388
+test_loss: 0.041938462257385255
+step 0: loss = 0.0376
+test_loss: 0.041780281066894534
+step 0: loss = 0.0380
+test_loss: 0.042575564384460446
+step 0: loss = 0.0402
+test_loss: 0.04161934852600098
+step 0: loss = 0.0384
+test_loss: 0.042025785446166995
+step 0: loss = 0.0386
+test_loss: 0.04116238594055176
+step 0: loss = 0.0369
+test_loss: 0.04212435245513916
+step 0: loss = 0.0385
+test_loss: 0.04127734661102295
+step 0: loss = 0.0383
+test_loss: 0.042655835151672365
+step 0: loss = 0.0381
+test_loss: 0.041559090614318846
+step 0: loss = 0.0382
+test_loss: 0.04256619453430176
+step 0: loss = 0.0382
+test_loss: 0.04126124382019043
+step 0: loss = 0.0386
+test_loss: 0.04189826488494873
+step 0: loss = 0.0397
+test_loss: 0.04185234069824219
+step 0: loss = 0.0395
+test_loss: 0.042060956954956055
+step 0: loss = 0.0379
+test_loss: 0.040848674774169924
+step 0: loss = 0.0372
+test_loss: 0.04206352710723877
+step 0: loss = 0.0397
+test_loss: 0.041573042869567874
+step 0: loss = 0.0392
+test_loss: 0.041002354621887206
+step 0: loss = 0.0383
+test_loss: 0.041352701187133786
+step 0: loss = 0.0376
+test_loss: 0.04154639720916748
+step 0: loss = 0.0366
+test_loss: 0.04174601554870606
+step 0: loss = 0.0404
+test_loss: 0.04145496368408203
+step 0: loss = 0.0378
+test_loss: 0.041747117042541505
+step 0: loss = 0.0400
+test_loss: 0.04191762924194336
+step 0: loss = 0.0380
+test_loss: 0.04096121311187744
+step 0: loss = 0.0376
+test_loss: 0.04124966621398926
+step 0: loss = 0.0378
+test_loss: 0.040814905166625975
+step 0: loss = 0.0373
+test_loss: 0.041091480255126954
+step 0: loss = 0.0379
+test_loss: 0.04094277858734131
+step 0: loss = 0.0368
+test_loss: 0.041526107788085936
+step 0: loss = 0.0390
+test_loss: 0.0413289737701416
+step 0: loss = 0.0361
+test_loss: 0.041245741844177244
+step 0: loss = 0.0402
+test_loss: 0.040926523208618164
+step 0: loss = 0.0372
+test_loss: 0.04078139781951904
+step 0: loss = 0.0362
+test_loss: 0.04166731357574463
+step 0: loss = 0.0387
+test_loss: 0.04077452659606934
+step 0: loss = 0.0377
+test_loss: 0.04143743991851807
+step 0: loss = 0.0396
+test_loss: 0.04134921073913574
+step 0: loss = 0.0390
+test_loss: 0.0404496431350708
+step 0: loss = 0.0382
+test_loss: 0.043076906204223636
+step 0: loss = 0.0394
+test_loss: 0.040827150344848635
+step 0: loss = 0.0379
+test_loss: 0.04149901866912842
+step 0: loss = 0.0387
+test_loss: 0.0416618013381958
+step 0: loss = 0.0384
+test_loss: 0.040967183113098146
+step 0: loss = 0.0357
+test_loss: 0.041625661849975584
+step 0: loss = 0.0381
+test_loss: 0.041381149291992186
+step 0: loss = 0.0391
+test_loss: 0.04118788719177246
+step 0: loss = 0.0370
+test_loss: 0.041628751754760746
+step 0: loss = 0.0389
+test_loss: 0.040811195373535156
+step 0: loss = 0.0373
+test_loss: 0.04216157913208008
+step 0: loss = 0.0398
+test_loss: 0.04113931179046631
+step 0: loss = 0.0395
+test_loss: 0.040769796371459964
+step 0: loss = 0.0377
+test_loss: 0.04115346431732178
+step 0: loss = 0.0389
+test_loss: 0.04088018417358399
+step 0: loss = 0.0378
+test_loss: 0.04090045928955078
+step 0: loss = 0.0368
+test_loss: 0.040607423782348634
+step 0: loss = 0.0386
+test_loss: 0.04043357372283936
+step 0: loss = 0.0364
+test_loss: 0.04147168159484863
+step 0: loss = 0.0383
+test_loss: 0.04020140171051025
+step 0: loss = 0.0362
+test_loss: 0.039979290962219236
+step 0: loss = 0.0375
+test_loss: 0.03991870641708374
+step 0: loss = 0.0368
+test_loss: 0.040405406951904296
+step 0: loss = 0.0372
+test_loss: 0.03994351863861084
+step 0: loss = 0.0388
+test_loss: 0.03998457193374634
+step 0: loss = 0.0357
+test_loss: 0.04105979442596436
+step 0: loss = 0.0383
+test_loss: 0.04054905891418457
+step 0: loss = 0.0381
+test_loss: 0.04021189212799072
+step 0: loss = 0.0377
+test_loss: 0.040542950630187986
+step 0: loss = 0.0392
+test_loss: 0.040570793151855467
+step 0: loss = 0.0372
+test_loss: 0.040687727928161624
+step 0: loss = 0.0385
+test_loss: 0.04072673797607422
+step 0: loss = 0.0373
+test_loss: 0.04078059196472168
+step 0: loss = 0.0372
+test_loss: 0.04081839084625244
+step 0: loss = 0.0372
+test_loss: 0.040436444282531736
+step 0: loss = 0.0386
+test_loss: 0.04016498565673828
+step 0: loss = 0.0373
+test_loss: 0.040739092826843265
+step 0: loss = 0.0382
+test_loss: 0.039525468349456784
+step 0: loss = 0.0359
+test_loss: 0.04047454357147217
+step 0: loss = 0.0363
+test_loss: 0.04065825939178467
+step 0: loss = 0.0368
+test_loss: 0.0407175874710083
+step 0: loss = 0.0374
+test_loss: 0.041271147727966306
+step 0: loss = 0.0374
+test_loss: 0.04078130722045899
+step 0: loss = 0.0380
+test_loss: 0.04047718048095703
+step 0: loss = 0.0382
+test_loss: 0.040328507423400876
+step 0: loss = 0.0364
+test_loss: 0.041045670509338376
+step 0: loss = 0.0374
+test_loss: 0.03992285490036011
+step 0: loss = 0.0386
+test_loss: 0.04023333072662354
+step 0: loss = 0.0360
+test_loss: 0.04011164665222168
+step 0: loss = 0.0379
+test_loss: 0.04004915237426758
+step 0: loss = 0.0367
+test_loss: 0.040319843292236326
+step 0: loss = 0.0383
+test_loss: 0.040291972160339355
+step 0: loss = 0.0364
+test_loss: 0.0403584098815918
+step 0: loss = 0.0370
+test_loss: 0.039806106090545655
+step 0: loss = 0.0368
+test_loss: 0.04038295745849609
+step 0: loss = 0.0378
+test_loss: 0.04024482250213623
+step 0: loss = 0.0386
+test_loss: 0.040066189765930176
+step 0: loss = 0.0358
+test_loss: 0.04055791854858398
+step 0: loss = 0.0383
+test_loss: 0.04077178955078125
+step 0: loss = 0.0373
+
+test_loss: 0.03985332250595093
+step 0: loss = 0.0372
+test_loss: 0.040567626953125
+step 0: loss = 0.0376
+test_loss: 0.03994077920913696
+step 0: loss = 0.0359
+test_loss: 0.039390001296997074
+step 0: loss = 0.0371
+test_loss: 0.0398438024520874
+step 0: loss = 0.0379
+test_loss: 0.04036066055297852
+step 0: loss = 0.0360
+test_loss: 0.0397092604637146
+step 0: loss = 0.0380
+test_loss: 0.040027103424072265
+step 0: loss = 0.0367
+test_loss: 0.04031414031982422
+step 0: loss = 0.0378
+test_loss: 0.04013951778411865
+step 0: loss = 0.0371
+test_loss: 0.03985211610794068
+step 0: loss = 0.0337
+test_loss: 0.040135273933410646
+step 0: loss = 0.0366
+test_loss: 0.040094246864318846
+step 0: loss = 0.0362
+test_loss: 0.04059072017669678
+step 0: loss = 0.0369
+test_loss: 0.039633593559265136
+step 0: loss = 0.0357
+test_loss: 0.039972171783447266
+step 0: loss = 0.0358
+test_loss: 0.04031544685363769
+step 0: loss = 0.0362
+test_loss: 0.03984213590621948
+step 0: loss = 0.0387
+test_loss: 0.04010760307312012
+step 0: loss = 0.0357
+test_loss: 0.039980568885803223
+step 0: loss = 0.0390
+test_loss: 0.03965916872024536
+step 0: loss = 0.0361
+test_loss: 0.039807801246643064
+step 0: loss = 0.0375
+test_loss: 0.040437870025634766
+step 0: loss = 0.0367
+test_loss: 0.03956306457519531
+step 0: loss = 0.0361
+test_loss: 0.03973994493484497
+step 0: loss = 0.0352
+test_loss: 0.03964317560195923
+step 0: loss = 0.0381
+test_loss: 0.039769043922424314
+step 0: loss = 0.0368
+test_loss: 0.03977217435836792
+step 0: loss = 0.0364
+test_loss: 0.04017812728881836
+step 0: loss = 0.0371
+test_loss: 0.03993786096572876
+step 0: loss = 0.0362
+test_loss: 0.039516177177429196
+step 0: loss = 0.0351
+test_loss: 0.03940444946289062
+step 0: loss = 0.0355
+test_loss: 0.03990808486938477
+step 0: loss = 0.0369
+test_loss: 0.039384169578552244
+step 0: loss = 0.0372
+test_loss: 0.039187264442443845
+step 0: loss = 0.0363
+test_loss: 0.040035462379455565
+step 0: loss = 0.0361
+test_loss: 0.039247450828552244
+step 0: loss = 0.0368
+test_loss: 0.03937231779098511
+step 0: loss = 0.0364
+test_loss: 0.03946922540664673
+step 0: loss = 0.0370
+test_loss: 0.03935075044631958
+step 0: loss = 0.0374
+test_loss: 0.039173097610473634
+step 0: loss = 0.0362
+test_loss: 0.038963971138000486
+step 0: loss = 0.0371
+test_loss: 0.03927297830581665
+step 0: loss = 0.0363
+test_loss: 0.03932295083999634
+step 0: loss = 0.0382
+test_loss: 0.03947641611099243
+step 0: loss = 0.0363
+test_loss: 0.03951150178909302
+step 0: loss = 0.0365
+test_loss: 0.03992253303527832
+step 0: loss = 0.0370
+test_loss: 0.03896645784378052
+step 0: loss = 0.0357
+test_loss: 0.03934850454330444
+step 0: loss = 0.0347
+test_loss: 0.03940273523330688
+step 0: loss = 0.0365
+test_loss: 0.04015047073364258
+step 0: loss = 0.0378
+test_loss: 0.03872833490371704
+step 0: loss = 0.0350
+test_loss: 0.0394583249092102
+step 0: loss = 0.0344
+test_loss: 0.03895318269729614
+step 0: loss = 0.0363
+test_loss: 0.03870672464370727
+step 0: loss = 0.0349
+test_loss: 0.03989053010940552
+step 0: loss = 0.0381
+test_loss: 0.039345474243164064
+step 0: loss = 0.0350
+test_loss: 0.03869404792785645
+step 0: loss = 0.0355
+test_loss: 0.03970731019973755
+step 0: loss = 0.0383
+test_loss: 0.03962843894958496
+step 0: loss = 0.0358
+test_loss: 0.03934722900390625
+step 0: loss = 0.0373
+test_loss: 0.039264564514160154
+step 0: loss = 0.0388
+test_loss: 0.039747078418731686
+step 0: loss = 0.0363
+test_loss: 0.039607746601104735
+step 0: loss = 0.0381
+test_loss: 0.03898651599884033
+step 0: loss = 0.0349
+test_loss: 0.03954351425170898
+step 0: loss = 0.0361
+test_loss: 0.0387838888168335
+step 0: loss = 0.0351
+test_loss: 0.039923827648162845
+step 0: loss = 0.0366
+test_loss: 0.0383880352973938
+step 0: loss = 0.0367
+test_loss: 0.03971458435058594
+step 0: loss = 0.0382
+test_loss: 0.038879544734954835
+step 0: loss = 0.0371
+test_loss: 0.03889098167419434
+step 0: loss = 0.0366
+test_loss: 0.03892894983291626
+step 0: loss = 0.0362
+test_loss: 0.039226424694061277
+step 0: loss = 0.0376
+test_loss: 0.03866647481918335
+step 0: loss = 0.0371
+test_loss: 0.03925647735595703
+step 0: loss = 0.0354
+test_loss: 0.0388894510269165
+step 0: loss = 0.0366
+test_loss: 0.03972474575042725
+step 0: loss = 0.0365
+test_loss: 0.03928841352462768
+step 0: loss = 0.0369
+test_loss: 0.03895257711410523
+step 0: loss = 0.0346
+test_loss: 0.03883763790130615
+step 0: loss = 0.0338
+test_loss: 0.039650616645812986
+step 0: loss = 0.0353
+test_loss: 0.03849898338317871
+step 0: loss = 0.0359
+test_loss: 0.03980777740478516
+step 0: loss = 0.0361
+test_loss: 0.03868739366531372
+step 0: loss = 0.0359
+test_loss: 0.038500094413757326
+step 0: loss = 0.0373
+test_loss: 0.03849325895309448
+step 0: loss = 0.0372
+test_loss: 0.03887901782989502
+step 0: loss = 0.0370
+test_loss: 0.03892270088195801
+step 0: loss = 0.0363
+test_loss: 0.03946884870529175
+step 0: loss = 0.0354
+test_loss: 0.038975718021392824
+step 0: loss = 0.0364
+test_loss: 0.038832247257232666
+step 0: loss = 0.0357
+test_loss: 0.03823851823806763
+step 0: loss = 0.0347
+test_loss: 0.039043240547180176
+step 0: loss = 0.0368
+test_loss: 0.039183239936828616
+step 0: loss = 0.0369
+test_loss: 0.039123821258544925
+step 0: loss = 0.0358
+test_loss: 0.039028089046478275
+step 0: loss = 0.0353
+test_loss: 0.03837888717651367
+step 0: loss = 0.0352
+test_loss: 0.03916255474090576
+step 0: loss = 0.0354
+test_loss: 0.03836534023284912
+step 0: loss = 0.0358
+test_loss: 0.03851839065551758
+step 0: loss = 0.0344
+test_loss: 0.03897847414016724
+step 0: loss = 0.0361
+test_loss: 0.03829929351806641
+step 0: loss = 0.0368
+test_loss: 0.0387677526473999
+step 0: loss = 0.0356
+test_loss: 0.03978188037872314
+step 0: loss = 0.0353
+test_loss: 0.03866393327713013
+step 0: loss = 0.0350
+test_loss: 0.038320748805999755
+step 0: loss = 0.0344
+test_loss: 0.03917496919631958
+step 0: loss = 0.0354
+test_loss: 0.0383382511138916
+step 0: loss = 0.0371
+test_loss: 0.038605446815490725
+step 0: loss = 0.0354
+test_loss: 0.039470276832580566
+step 0: loss = 0.0353
+test_loss: 0.03811676502227783
+step 0: loss = 0.0352
+test_loss: 0.038638525009155274
+step 0: loss = 0.0367
+test_loss: 0.03841112375259399
+step 0: loss = 0.0354
+test_loss: 0.038914766311645504
+step 0: loss = 0.0367
+test_loss: 0.03884108543395996
+step 0: loss = 0.0348
+test_loss: 0.03879799365997314
+step 0: loss = 0.0351
+test_loss: 0.03790399074554443
+step 0: loss = 0.0352
+test_loss: 0.03880084276199341
+step 0: loss = 0.0345
+test_loss: 0.038933305740356444
+step 0: loss = 0.0348
+test_loss: 0.039133520126342775
+step 0: loss = 0.0352
+test_loss: 0.038373239040374756
+step 0: loss = 0.0351
+test_loss: 0.03856799840927124
+step 0: loss = 0.0353
+test_loss: 0.03853987216949463
+step 0: loss = 0.0355
+test_loss: 0.03919638633728027
+step 0: loss = 0.0391
+test_loss: 0.03821949481964111
+step 0: loss = 0.0348
+test_loss: 0.038305032253265384
+step 0: loss = 0.0353
+test_loss: 0.03818150758743286
+step 0: loss = 0.0359
+test_loss: 0.03863759994506836
+step 0: loss = 0.0365
+test_loss: 0.038739750385284426
+step 0: loss = 0.0336
+test_loss: 0.03819438457489013
+step 0: loss = 0.0337
+test_loss: 0.03821043014526367
+step 0: loss = 0.0365
+test_loss: 0.03772383213043213
+step 0: loss = 0.0356
+test_loss: 0.03825532913208008
+step 0: loss = 0.0353
+test_loss: 0.038322994709014895
+step 0: loss = 0.0348
+test_loss: 0.039164960384368896
+step 0: loss = 0.0351
+test_loss: 0.03903042554855347
+step 0: loss = 0.0359
+test_loss: 0.03797210931777954
+step 0: loss = 0.0357
+test_loss: 0.03937294244766235
+step 0: loss = 0.0358
+test_loss: 0.03913724184036255
+step 0: loss = 0.0350
+test_loss: 0.03805370807647705
+step 0: loss = 0.0352
+test_loss: 0.03840177059173584
+step 0: loss = 0.0351
+test_loss: 0.038384170532226564
+step 0: loss = 0.0354
+test_loss: 0.03876582622528076
+step 0: loss = 0.0367
+test_loss: 0.03860905885696411
+step 0: loss = 0.0349
+test_loss: 0.03792985439300537
+step 0: loss = 0.0348
+test_loss: 0.03865156650543213
+step 0: loss = 0.0361
+test_loss: 0.03794496536254883
+step 0: loss = 0.0348
+test_loss: 0.03904950380325317
+step 0: loss = 0.0358
+test_loss: 0.03841903448104858
+step 0: loss = 0.0352
+test_loss: 0.03892167091369629
+step 0: loss = 0.0360
+test_loss: 0.038658478260040284
+step 0: loss = 0.0379
+test_loss: 0.03850927591323852
+step 0: loss = 0.0349
+test_loss: 0.03820728540420532
+step 0: loss = 0.0372
+
+test_loss: 0.03840454578399658
+step 0: loss = 0.0361
+test_loss: 0.03865185499191284
+step 0: loss = 0.0362
+test_loss: 0.03800035238265991
+step 0: loss = 0.0353
+test_loss: 0.038667376041412356
+step 0: loss = 0.0357
+test_loss: 0.03864129304885864
+step 0: loss = 0.0372
+test_loss: 0.03879105806350708
+step 0: loss = 0.0353
+test_loss: 0.03828983306884766
+step 0: loss = 0.0357
+test_loss: 0.03831695318222046
+step 0: loss = 0.0350
+test_loss: 0.03869502067565918
+step 0: loss = 0.0374
+test_loss: 0.037458231449127195
+step 0: loss = 0.0350
+test_loss: 0.038742244243621826
+step 0: loss = 0.0347
+test_loss: 0.03781887531280517
+step 0: loss = 0.0357
+test_loss: 0.0388882327079773
+step 0: loss = 0.0372
+test_loss: 0.03855895757675171
+step 0: loss = 0.0369
+test_loss: 0.038029277324676515
+step 0: loss = 0.0360
+test_loss: 0.03795032739639282
+step 0: loss = 0.0345
+test_loss: 0.03771003484725952
+step 0: loss = 0.0340
+test_loss: 0.037973229885101316
+step 0: loss = 0.0358
+test_loss: 0.03792950868606568
+step 0: loss = 0.0349
+test_loss: 0.03774036407470703
+step 0: loss = 0.0332
+test_loss: 0.03804965019226074
+step 0: loss = 0.0350
+test_loss: 0.03773049831390381
+step 0: loss = 0.0328
+test_loss: 0.03824289798736572
+step 0: loss = 0.0348
+test_loss: 0.03738176584243774
+step 0: loss = 0.0345
+test_loss: 0.038279287815093994
+step 0: loss = 0.0369
+test_loss: 0.038205301761627196
+step 0: loss = 0.0363
+test_loss: 0.03881962776184082
+step 0: loss = 0.0362
+test_loss: 0.03800649642944336
+step 0: loss = 0.0345
+test_loss: 0.038128459453582765
+step 0: loss = 0.0345
+test_loss: 0.03796413898468018
+step 0: loss = 0.0347
+test_loss: 0.038142049312591554
+step 0: loss = 0.0348
+test_loss: 0.03747198343276978
+step 0: loss = 0.0350
+test_loss: 0.037938854694366454
+step 0: loss = 0.0343
+test_loss: 0.03808658838272095
+step 0: loss = 0.0343
+test_loss: 0.03850760698318481
+step 0: loss = 0.0374
+test_loss: 0.03756577014923096
+step 0: loss = 0.0353
+test_loss: 0.03797110557556152
+step 0: loss = 0.0328
+test_loss: 0.037786922454833984
+step 0: loss = 0.0344
+test_loss: 0.038287127017974855
+step 0: loss = 0.0348
+test_loss: 0.037462818622589114
+step 0: loss = 0.0349
+test_loss: 0.037438313961029056
+step 0: loss = 0.0329
+test_loss: 0.0375895619392395
+step 0: loss = 0.0356
+test_loss: 0.03799372673034668
+step 0: loss = 0.0348
+test_loss: 0.03777100563049316
+step 0: loss = 0.0345
+test_loss: 0.03744897127151489
+step 0: loss = 0.0342
+test_loss: 0.03821398496627808
+step 0: loss = 0.0352
+test_loss: 0.03750525712966919
+step 0: loss = 0.0347
+test_loss: 0.038167319297790527
+step 0: loss = 0.0349
+test_loss: 0.038215961456298825
+step 0: loss = 0.0354
+test_loss: 0.0380195140838623
+step 0: loss = 0.0357
+test_loss: 0.03833996534347534
+step 0: loss = 0.0357
+test_loss: 0.03814100980758667
+step 0: loss = 0.0352
+test_loss: 0.03771707534790039
+step 0: loss = 0.0348
+test_loss: 0.03781479120254517
+step 0: loss = 0.0342
+test_loss: 0.03696062326431274
+step 0: loss = 0.0342
+test_loss: 0.03826655626296997
+step 0: loss = 0.0345
+test_loss: 0.03867189645767212
+step 0: loss = 0.0352
+test_loss: 0.03790431261062622
+step 0: loss = 0.0343
+test_loss: 0.037780776023864746
+step 0: loss = 0.0350
+test_loss: 0.03782489776611328
+step 0: loss = 0.0372
+test_loss: 0.03744363069534302
+step 0: loss = 0.0368
+test_loss: 0.037162704467773436
+step 0: loss = 0.0329
+test_loss: 0.03770658493041992
+step 0: loss = 0.0348
+test_loss: 0.03770461082458496
+step 0: loss = 0.0349
+test_loss: 0.03766362428665161
+step 0: loss = 0.0339
+test_loss: 0.03716009378433228
+step 0: loss = 0.0318
+test_loss: 0.03752568244934082
+step 0: loss = 0.0350
+test_loss: 0.037597436904907224
+step 0: loss = 0.0348
+test_loss: 0.03706662654876709
+step 0: loss = 0.0347
+test_loss: 0.03745546817779541
+step 0: loss = 0.0335
+test_loss: 0.03823628664016723
+step 0: loss = 0.0360
+test_loss: 0.038126897811889646
+step 0: loss = 0.0342
+test_loss: 0.03747517824172974
+step 0: loss = 0.0349
+test_loss: 0.037564363479614254
+step 0: loss = 0.0334
+test_loss: 0.03787114143371582
+step 0: loss = 0.0336
+test_loss: 0.0373300051689148
+step 0: loss = 0.0366
+test_loss: 0.03791419982910156
+step 0: loss = 0.0354
+test_loss: 0.037224061489105224
+step 0: loss = 0.0343
+test_loss: 0.03738931179046631
+step 0: loss = 0.0338
+test_loss: 0.037469565868377686
+step 0: loss = 0.0348
+test_loss: 0.03788549184799194
+step 0: loss = 0.0349
+test_loss: 0.038174569606781006
+step 0: loss = 0.0342
+test_loss: 0.037598915100097656
+step 0: loss = 0.0356
+test_loss: 0.03811896085739136
+step 0: loss = 0.0347
+test_loss: 0.0377678108215332
+step 0: loss = 0.0360
+test_loss: 0.037434580326080324
+step 0: loss = 0.0352
+test_loss: 0.03720032215118408
+step 0: loss = 0.0344
+test_loss: 0.03784492492675781
+step 0: loss = 0.0331
+test_loss: 0.03776665687561035
+step 0: loss = 0.0337
+test_loss: 0.036609163284301756
+step 0: loss = 0.0340
+test_loss: 0.03753845930099487
+step 0: loss = 0.0353
+test_loss: 0.037706093788146974
+step 0: loss = 0.0355
+test_loss: 0.03700721263885498
+step 0: loss = 0.0332
+test_loss: 0.03695364952087402
+step 0: loss = 0.0327
+test_loss: 0.03761601448059082
+step 0: loss = 0.0356
+test_loss: 0.037396302223205564
+step 0: loss = 0.0329
+test_loss: 0.03794628381729126
+step 0: loss = 0.0348
+test_loss: 0.038275408744812014
+step 0: loss = 0.0335
+test_loss: 0.037099366188049314
+step 0: loss = 0.0333
+test_loss: 0.03774429559707641
+step 0: loss = 0.0340
+test_loss: 0.037363336086273194
+step 0: loss = 0.0347
+test_loss: 0.03723966121673584
+step 0: loss = 0.0331
+test_loss: 0.03759162902832031
+step 0: loss = 0.0341
+test_loss: 0.03762803316116333
+step 0: loss = 0.0342
+test_loss: 0.0373060941696167
+step 0: loss = 0.0339
+test_loss: 0.03727277994155884
+step 0: loss = 0.0326
+test_loss: 0.03715991497039795
+step 0: loss = 0.0342
+test_loss: 0.037682735919952394
+step 0: loss = 0.0351
+test_loss: 0.03759316444396973
+step 0: loss = 0.0352
+test_loss: 0.037307045459747314
+step 0: loss = 0.0347
+test_loss: 0.0370721435546875
+step 0: loss = 0.0362
+test_loss: 0.03777234554290772
+step 0: loss = 0.0335
+test_loss: 0.03759045600891113
+step 0: loss = 0.0352
+test_loss: 0.03798680782318115
+step 0: loss = 0.0337
+test_loss: 0.037490203380584716
+step 0: loss = 0.0341
+test_loss: 0.03729785680770874
+step 0: loss = 0.0351
+test_loss: 0.037780706882476804
+step 0: loss = 0.0366
+test_loss: 0.03857826709747315
+step 0: loss = 0.0332
+test_loss: 0.03708303213119507
+step 0: loss = 0.0340
+test_loss: 0.037401053905487064
+step 0: loss = 0.0341
+test_loss: 0.037121322154998776
+step 0: loss = 0.0349
+test_loss: 0.037542755603790286
+step 0: loss = 0.0339
+test_loss: 0.037367260456085204
+step 0: loss = 0.0339
+test_loss: 0.037518243789672855
+step 0: loss = 0.0341
+test_loss: 0.03725624561309814
+step 0: loss = 0.0335
+test_loss: 0.03829545021057129
+step 0: loss = 0.0354
+test_loss: 0.0373796796798706
+step 0: loss = 0.0328
+test_loss: 0.037235107421875
+step 0: loss = 0.0350
+test_loss: 0.037019498348236084
+step 0: loss = 0.0354
+test_loss: 0.03695806980133057
+step 0: loss = 0.0340
+test_loss: 0.03698382139205933
+step 0: loss = 0.0333
+test_loss: 0.03750535249710083
+step 0: loss = 0.0351
+test_loss: 0.03729020833969116
+step 0: loss = 0.0341
+test_loss: 0.037167370319366455
+step 0: loss = 0.0335
+test_loss: 0.03715237855911255
+step 0: loss = 0.0352
+test_loss: 0.03733651876449585
+step 0: loss = 0.0336
+test_loss: 0.03748595952987671
+step 0: loss = 0.0331
+test_loss: 0.03781742095947266
+step 0: loss = 0.0341
+test_loss: 0.0366815447807312
+step 0: loss = 0.0339
+test_loss: 0.03744678735733032
+step 0: loss = 0.0344
+test_loss: 0.03673888921737671
+step 0: loss = 0.0352
+test_loss: 0.037461743354797364
+step 0: loss = 0.0347
+test_loss: 0.036753323078155514
+step 0: loss = 0.0352
+test_loss: 0.03702422857284546
+step 0: loss = 0.0320
+test_loss: 0.03735974073410034
+step 0: loss = 0.0352
+test_loss: 0.037145335674285886
+step 0: loss = 0.0344
+test_loss: 0.03689203500747681
+step 0: loss = 0.0340
+test_loss: 0.037725412845611574
+step 0: loss = 0.0361
+test_loss: 0.03681227684020996
+step 0: loss = 0.0320
+test_loss: 0.037710962295532224
+step 0: loss = 0.0356
+test_loss: 0.036479434967041015
+step 0: loss = 0.0335
+test_loss: 0.03749703645706177
+step 0: loss = 0.0332
+test_loss: 0.03689604997634888
+step 0: loss = 0.0344
+test_loss: 0.03725680112838745
+step 0: loss = 0.0350
+
+test_loss: 0.03695151090621948
+step 0: loss = 0.0355
+test_loss: 0.03729642868041992
+step 0: loss = 0.0338
+test_loss: 0.03727323055267334
+step 0: loss = 0.0335
+test_loss: 0.037114410400390624
+step 0: loss = 0.0345
+test_loss: 0.0370505690574646
+step 0: loss = 0.0334
+test_loss: 0.037511773109436035
+step 0: loss = 0.0359
+test_loss: 0.036746649742126464
+step 0: loss = 0.0343
+test_loss: 0.03714593887329101
+step 0: loss = 0.0335
+test_loss: 0.03743441820144653
+step 0: loss = 0.0353
+test_loss: 0.03763262987136841
+step 0: loss = 0.0328
+test_loss: 0.037644143104553225
+step 0: loss = 0.0345
+test_loss: 0.036963214874267576
+step 0: loss = 0.0344
+test_loss: 0.03763606548309326
+step 0: loss = 0.0354
+test_loss: 0.037003912925720216
+step 0: loss = 0.0331
+test_loss: 0.037050068378448486
+step 0: loss = 0.0332
+test_loss: 0.03775243997573852
+step 0: loss = 0.0365
+test_loss: 0.0370833158493042
+step 0: loss = 0.0347
+test_loss: 0.03732756137847901
+step 0: loss = 0.0351
+test_loss: 0.036733088493347166
+step 0: loss = 0.0340
+test_loss: 0.037202627658843995
+step 0: loss = 0.0354
+test_loss: 0.03673041582107544
+step 0: loss = 0.0330
+test_loss: 0.037457456588745115
+step 0: loss = 0.0344
+test_loss: 0.037062442302703856
+step 0: loss = 0.0341
+test_loss: 0.03718647003173828
+step 0: loss = 0.0357
+test_loss: 0.03686234474182129
+step 0: loss = 0.0334
+test_loss: 0.03740576982498169
+step 0: loss = 0.0344
+test_loss: 0.036808607578277586
+step 0: loss = 0.0329
+test_loss: 0.0366077733039856
+step 0: loss = 0.0345
+test_loss: 0.0363759183883667
+step 0: loss = 0.0342
+test_loss: 0.0373754358291626
+step 0: loss = 0.0358
+test_loss: 0.03680607795715332
+step 0: loss = 0.0340
+test_loss: 0.03729621410369873
+step 0: loss = 0.0357
+test_loss: 0.03738662481307983
+step 0: loss = 0.0342
+test_loss: 0.03666215419769287
+step 0: loss = 0.0331
+test_loss: 0.037014279365539554
+step 0: loss = 0.0338
+test_loss: 0.03675154209136963
+step 0: loss = 0.0331
+test_loss: 0.03734686374664307
+step 0: loss = 0.0348
+test_loss: 0.037127566337585446
+step 0: loss = 0.0349
+test_loss: 0.03679556131362915
+step 0: loss = 0.0344
+test_loss: 0.0364278244972229
+step 0: loss = 0.0339
+test_loss: 0.03692327260971069
+step 0: loss = 0.0348
+test_loss: 0.036463782787323
+step 0: loss = 0.0340
+test_loss: 0.036895642280578615
+step 0: loss = 0.0332
+test_loss: 0.03704160451889038
+step 0: loss = 0.0334
+test_loss: 0.037028746604919435
+step 0: loss = 0.0353
+test_loss: 0.03697334289550781
+step 0: loss = 0.0350
+test_loss: 0.036932783126831056
+step 0: loss = 0.0332
+test_loss: 0.03641821622848511
+step 0: loss = 0.0345
+test_loss: 0.03773821830749512
+step 0: loss = 0.0364
+test_loss: 0.036558370590209964
+step 0: loss = 0.0359
+test_loss: 0.03784464359283447
+step 0: loss = 0.0366
+test_loss: 0.037408721446990964
+step 0: loss = 0.0330
+test_loss: 0.03710772275924683
+step 0: loss = 0.0346
+test_loss: 0.03722995758056641
+step 0: loss = 0.0341
+test_loss: 0.0365649151802063
+step 0: loss = 0.0321
+test_loss: 0.03639829874038696
+step 0: loss = 0.0345
+test_loss: 0.037068328857421874
+step 0: loss = 0.0341
+test_loss: 0.03638933897018433
+step 0: loss = 0.0345
+test_loss: 0.03648717403411865
+step 0: loss = 0.0340
+test_loss: 0.036957528591156
+step 0: loss = 0.0329
+test_loss: 0.0377822208404541
+step 0: loss = 0.0342
+test_loss: 0.03652564525604248
+step 0: loss = 0.0330
+test_loss: 0.03669318437576294
+step 0: loss = 0.0333
+test_loss: 0.03722953796386719
+step 0: loss = 0.0337
+test_loss: 0.03694961071014404
+step 0: loss = 0.0355
+test_loss: 0.036252040863037106
+step 0: loss = 0.0343
+test_loss: 0.037218637466430664
+step 0: loss = 0.0328
+test_loss: 0.03652606964111328
+step 0: loss = 0.0309
+test_loss: 0.03664385080337525
+step 0: loss = 0.0322
+test_loss: 0.037338089942932126
+step 0: loss = 0.0346
+test_loss: 0.03663981437683105
+step 0: loss = 0.0333
+test_loss: 0.03692308187484741
+step 0: loss = 0.0345
+test_loss: 0.03661086082458496
+step 0: loss = 0.0349
+test_loss: 0.03675199747085571
+step 0: loss = 0.0332
+test_loss: 0.0368920373916626
+step 0: loss = 0.0351
+test_loss: 0.03657196521759033
+step 0: loss = 0.0329
+test_loss: 0.03708207130432129
+step 0: loss = 0.0335
+test_loss: 0.0368958306312561
+step 0: loss = 0.0325
+test_loss: 0.0364432954788208
+step 0: loss = 0.0350
+test_loss: 0.03709951400756836
+step 0: loss = 0.0341
+test_loss: 0.036355159282684325
+step 0: loss = 0.0331
+test_loss: 0.03664213180541992
+step 0: loss = 0.0349
+test_loss: 0.0363810658454895
+step 0: loss = 0.0348
+test_loss: 0.03664432525634766
+step 0: loss = 0.0329
+test_loss: 0.0365960431098938
+step 0: loss = 0.0333
+test_loss: 0.0365561056137085
+step 0: loss = 0.0341
+test_loss: 0.036457371711730954
+step 0: loss = 0.0313
+test_loss: 0.03667534112930298
+step 0: loss = 0.0354
+test_loss: 0.03637099266052246
+step 0: loss = 0.0330
+test_loss: 0.036059632301330566
+step 0: loss = 0.0334
+test_loss: 0.03691760301589966
+step 0: loss = 0.0352
+test_loss: 0.03678404331207275
+step 0: loss = 0.0328
+test_loss: 0.036692249774932864
+step 0: loss = 0.0341
+test_loss: 0.03646043539047241
+step 0: loss = 0.0331
+test_loss: 0.036695518493652345
+step 0: loss = 0.0343
+test_loss: 0.03610210180282593
+step 0: loss = 0.0327
+test_loss: 0.03718059539794922
+step 0: loss = 0.0335
+test_loss: 0.03671298503875733
+step 0: loss = 0.0342
+test_loss: 0.036087067127227784
+step 0: loss = 0.0332
+test_loss: 0.03659351348876953
+step 0: loss = 0.0348
+test_loss: 0.03646488428115845
+step 0: loss = 0.0333
+test_loss: 0.03694017648696899
+step 0: loss = 0.0341
+test_loss: 0.03615748882293701
+step 0: loss = 0.0333
+test_loss: 0.03681388139724731
+step 0: loss = 0.0330
+test_loss: 0.0363213038444519
+step 0: loss = 0.0333
+test_loss: 0.03670246601104736
+step 0: loss = 0.0335
+test_loss: 0.036455857753753665
+step 0: loss = 0.0333
+test_loss: 0.036735367774963376
+step 0: loss = 0.0335
+test_loss: 0.0365667200088501
+step 0: loss = 0.0331
+test_loss: 0.03725635290145874
+step 0: loss = 0.0333
+test_loss: 0.036450800895690916
+step 0: loss = 0.0311
+test_loss: 0.03669095516204834
+step 0: loss = 0.0336
+test_loss: 0.036103558540344236
+step 0: loss = 0.0317
+test_loss: 0.036407530307769775
+step 0: loss = 0.0327
+test_loss: 0.037087807655334475
+step 0: loss = 0.0349
+test_loss: 0.03662644386291504
+step 0: loss = 0.0343
+test_loss: 0.036186306476593016
+step 0: loss = 0.0347
+test_loss: 0.036624252796173096
+step 0: loss = 0.0340
+test_loss: 0.037269017696380614
+step 0: loss = 0.0330
+test_loss: 0.0368865966796875
+step 0: loss = 0.0327
+test_loss: 0.03556029558181763
+step 0: loss = 0.0332
+test_loss: 0.03721365451812744
+step 0: loss = 0.0356
+test_loss: 0.036668879985809325
+step 0: loss = 0.0327
+test_loss: 0.03589484930038452
+step 0: loss = 0.0342
+test_loss: 0.03657460927963257
+step 0: loss = 0.0340
+test_loss: 0.03643110752105713
+step 0: loss = 0.0337
+test_loss: 0.037047879695892336
+step 0: loss = 0.0340
+test_loss: 0.03619903802871704
+step 0: loss = 0.0335
+test_loss: 0.03613436222076416
+step 0: loss = 0.0329
+test_loss: 0.036512651443481446
+step 0: loss = 0.0329
+test_loss: 0.03630939245223999
+step 0: loss = 0.0345
+test_loss: 0.03643199443817138
+step 0: loss = 0.0328
+test_loss: 0.03633352518081665
+step 0: loss = 0.0327
+test_loss: 0.03650785207748413
+step 0: loss = 0.0336
+test_loss: 0.03642481088638306
+step 0: loss = 0.0338
+test_loss: 0.03601175308227539
+step 0: loss = 0.0321
+test_loss: 0.036319823265075685
+step 0: loss = 0.0340
+test_loss: 0.03668203592300415
+step 0: loss = 0.0345
+test_loss: 0.03640273094177246
+step 0: loss = 0.0338
+test_loss: 0.03610795497894287
+step 0: loss = 0.0328
+test_loss: 0.0358683967590332
+step 0: loss = 0.0315
+test_loss: 0.03669567584991455
+step 0: loss = 0.0331
+test_loss: 0.036108632087707516
+step 0: loss = 0.0335
+test_loss: 0.0363425874710083
+step 0: loss = 0.0350
+test_loss: 0.03630842924118042
+step 0: loss = 0.0329
+test_loss: 0.03687198638916016
+step 0: loss = 0.0333
+test_loss: 0.036062159538269044
+step 0: loss = 0.0334
+test_loss: 0.03615575790405273
+step 0: loss = 0.0338
+test_loss: 0.0358964991569519
+step 0: loss = 0.0324
+test_loss: 0.03647674560546875
+step 0: loss = 0.0335
+test_loss: 0.03631850957870483
+step 0: loss = 0.0325
+test_loss: 0.03586752414703369
+step 0: loss = 0.0308
+test_loss: 0.036453843116760254
+step 0: loss = 0.0336
+test_loss: 0.03611710548400879
+step 0: loss = 0.0323
+test_loss: 0.03598195075988769
+
+step 0: loss = 0.0320
+test_loss: 0.03607872724533081
+step 0: loss = 0.0325
+test_loss: 0.03637653589248657
+step 0: loss = 0.0325
+test_loss: 0.03621770858764648
+step 0: loss = 0.0349
+test_loss: 0.036562459468841554
+step 0: loss = 0.0343
+test_loss: 0.03635918378829956
+step 0: loss = 0.0324
+test_loss: 0.036104345321655275
+step 0: loss = 0.0329
+test_loss: 0.03619399547576904
+step 0: loss = 0.0327
+test_loss: 0.035783956050872805
+step 0: loss = 0.0323
+test_loss: 0.036590104103088376
+step 0: loss = 0.0347
+test_loss: 0.03603621006011963
+step 0: loss = 0.0323
+test_loss: 0.035760087966918944
+step 0: loss = 0.0322
+test_loss: 0.036698172092437746
+step 0: loss = 0.0349
+test_loss: 0.035911862850189206
+step 0: loss = 0.0344
+test_loss: 0.03648375749588013
+step 0: loss = 0.0329
+test_loss: 0.036192617416381835
+step 0: loss = 0.0335
+test_loss: 0.036073613166809085
+step 0: loss = 0.0330
+test_loss: 0.03632593870162964
+step 0: loss = 0.0338
+test_loss: 0.03657257556915283
+step 0: loss = 0.0348
+test_loss: 0.03610981225967407
+step 0: loss = 0.0328
+test_loss: 0.03617553472518921
+step 0: loss = 0.0349
+test_loss: 0.03589750528335571
+step 0: loss = 0.0320
+test_loss: 0.03636755228042603
+step 0: loss = 0.0326
+test_loss: 0.036604480743408205
+step 0: loss = 0.0321
+test_loss: 0.03622123956680298
+step 0: loss = 0.0342
+test_loss: 0.03670198440551758
+step 0: loss = 0.0354
+test_loss: 0.03595129489898682
+step 0: loss = 0.0334
+test_loss: 0.03606897115707398
+step 0: loss = 0.0347
+test_loss: 0.036299264430999754
+step 0: loss = 0.0325
+test_loss: 0.03627347946166992
+step 0: loss = 0.0334
+test_loss: 0.03593074321746826
+step 0: loss = 0.0323
+test_loss: 0.036214182376861574
+step 0: loss = 0.0324
+test_loss: 0.035898447036743164
+step 0: loss = 0.0316
+test_loss: 0.03579745292663574
+step 0: loss = 0.0337
+test_loss: 0.035906240940093995
+step 0: loss = 0.0355
+test_loss: 0.0358462929725647
+step 0: loss = 0.0318
+test_loss: 0.036101295948028564
+step 0: loss = 0.0324
+test_loss: 0.036219606399536135
+step 0: loss = 0.0336
+test_loss: 0.03589837789535522
+step 0: loss = 0.0318
+test_loss: 0.03623790025711059
+step 0: loss = 0.0320
+test_loss: 0.036373307704925535
+step 0: loss = 0.0337
+test_loss: 0.03635058879852295
+step 0: loss = 0.0336
+test_loss: 0.03584578514099121
+step 0: loss = 0.0324
+test_loss: 0.03588470697402954
+step 0: loss = 0.0336
+test_loss: 0.03635805606842041
+step 0: loss = 0.0338
+test_loss: 0.035994999408721924
+step 0: loss = 0.0321
+test_loss: 0.03602609872817993
+step 0: loss = 0.0337
+test_loss: 0.036043829917907715
+step 0: loss = 0.0327
+test_loss: 0.03644275665283203
+step 0: loss = 0.0321
+test_loss: 0.03600992441177368
+step 0: loss = 0.0339
+test_loss: 0.035872120857238766
+step 0: loss = 0.0320
+test_loss: 0.0361298942565918
+step 0: loss = 0.0337
+test_loss: 0.03607609272003174
+step 0: loss = 0.0316
+test_loss: 0.03567569494247436
+step 0: loss = 0.0342
+test_loss: 0.036371750831604
+step 0: loss = 0.0339
+test_loss: 0.0365739369392395
+step 0: loss = 0.0341
+test_loss: 0.035951201915740964
+step 0: loss = 0.0315
+test_loss: 0.03648642301559448
+step 0: loss = 0.0347
+test_loss: 0.03598225116729736
+step 0: loss = 0.0321
+test_loss: 0.03640730857849121
+step 0: loss = 0.0345
+test_loss: 0.03605720758438111
+step 0: loss = 0.0328
+test_loss: 0.03659595966339111
+step 0: loss = 0.0336
+test_loss: 0.03622817277908325
+step 0: loss = 0.0313
+test_loss: 0.03574243545532227
+step 0: loss = 0.0319
+test_loss: 0.03625457286834717
+step 0: loss = 0.0327
+test_loss: 0.03609124422073364
+step 0: loss = 0.0333
+test_loss: 0.03613130807876587
+step 0: loss = 0.0324
+test_loss: 0.03621230363845825
+step 0: loss = 0.0338
+test_loss: 0.03632964849472046
+step 0: loss = 0.0323
+test_loss: 0.03658815383911133
+step 0: loss = 0.0332
+test_loss: 0.0359293532371521
+step 0: loss = 0.0325
+test_loss: 0.03571834802627563
+step 0: loss = 0.0327
+test_loss: 0.036007487773895265
+step 0: loss = 0.0328
+test_loss: 0.03616231918334961
+step 0: loss = 0.0312
+test_loss: 0.035440502166748045
+step 0: loss = 0.0336
+test_loss: 0.03615105390548706
+step 0: loss = 0.0326
+test_loss: 0.03646833181381225
+step 0: loss = 0.0345
+test_loss: 0.035685408115386966
+step 0: loss = 0.0342
+test_loss: 0.03606648921966553
+step 0: loss = 0.0334
+test_loss: 0.036650612354278564
+step 0: loss = 0.0343
+test_loss: 0.03589224815368652
+step 0: loss = 0.0326
+test_loss: 0.03605336904525757
+step 0: loss = 0.0336
+
