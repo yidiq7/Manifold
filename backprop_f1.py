@@ -27,7 +27,8 @@ n_points = int(sys.argv[2])
 seed = int(sys.argv[3])
 learning_rate = float(sys.argv[4])
 n_epochs = int(sys.argv[5])
-outfile = sys.argv[6]
+outfile = sys.argv[7]
+phi = float(sys.argv[6])
 
 np.random.seed(seed)
 
@@ -36,7 +37,7 @@ if __name__ =='__main__':
     z0, z1, z2, z3, z4= sp.symbols('z0, z1, z2, z3, z4')
     Z = [z0,z1,z2,z3,z4]
     psi = 0.5
-    f = z0**5 + z1**5 + z2**5 + z3**5 + z4**5 + psi*z0*z1*z2*z3*z4 + (z3*(z4**4)) + ((z3**2)*(z4**3)) + ((z3**3)*(z4**2)) + ((z3**4)*z4)
+    f = z0**5 + z1**5 + z2**5 + z3**5 + z4**5 + psi*z0*z1*z2*z3*z4 + phi*((z3*(z4**4)) + ((z3**2)*(z4**3)) + ((z3**3)*(z4**2)) + ((z3**4)*z4))
     HS = Hypersurface(Z, f, n_points)
     HS.set_k(k)
 
@@ -86,6 +87,7 @@ if __name__ =='__main__':
     pickle.dump( g, open( outfile+".dat", "wb" ) )
     with open( outfile+".txt", "w" ) as f:
         sys.stdout = f
+        print('phi=',phi)
         print( 'psi=', psi )
         print( 'k=', k )
         print( 'n_points=', n_points )
