@@ -1,0 +1,10 @@
+phi= 0.6
+psi= 0.5
+k= 4
+n_points= 10000
+seed= 17
+rate= 1.0 n_epochs= 1000000
+train= 0.008037356
+test= 0.009750112
+delta_sigma_train= 4.199048353497255e-05
+delta_sigma_test= 4.422062326427601e-05
