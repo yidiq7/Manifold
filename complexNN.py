@@ -1,21 +1,43 @@
 import tensorflow as tf
 from tensorflow import keras
-from tensorflow.python.framework import dtypes
+#from tensorflow.python.framework import dtypes
 from tensorflow.python.keras import activations
-from tensorflow.python.ops import gradients_util
-from tensorflow.python.ops import array_ops
-from tensorflow.python.ops import tensor_array_ops
-from tensorflow.python.ops import control_flow_ops
+#from tensorflow.python.ops import gradients_util
+#from tensorflow.python.ops import array_ops
+#from tensorflow.python.ops import tensor_array_ops
+#from tensorflow.python.ops import control_flow_ops
 import numpy as np
+import tensorflow.python.keras.backend as K
 
 class ComplexDense(keras.layers.Layer):
     def __init__(self, input_dim, units, activation=None):
         super(ComplexDense, self).__init__()
         w_init = tf.random_normal_initializer()
         self.w = tf.Variable(
-            #initial_value=tf.cast(w_init(shape=(input_dim, units), dtype='float32'), dtype=tf.complex64),
+            initial_value=tf.cast(w_init(shape=(input_dim, units), dtype='float32'), dtype=tf.complex64),
             #initial_value=tf.convert_to_tensor(np.array(np.ones((input_dim, units)), dtype=np.complex64)),
-            initial_value=tf.convert_to_tensor(np.array(np.ones((input_dim, units)) + np.random.rand(input_dim, units), dtype=np.complex64)),
+            #initial_value=tf.convert_to_tensor(np.array(np.ones((input_dim, units)) + np.random.rand(input_dim, units), dtype=np.complex64)),
+            trainable=True,
+        )
+        self.activation =  activations.get(activation)
+        
+    def call(self, inputs):
+        return self.activation(tf.matmul(inputs, self.w))
+
+class BatchNormalization(keras.layers.Layer):
+    def __init__(self):
+        super(BatchNormalization, self).__init__()
+        self.gamma = tf.Variable(initial_value=tf.constant(1.0, dtype=tf.complex64))
+        self.beta = tf.Variable(initial_value=tf.constant(0.0, dtype=tf.complex64))
+
+class ComplexG(keras.layers.Layer):
+    def __init__(self, input_dim, activation=None):
+        super(ComplexG, self).__init__()
+        w_init = tf.random_normal_initializer()
+        self.w = tf.Variable(
+            initial_value=tf.convert_to_tensor(np.array(np.identity(input_dim), dtype=np.complex64)),
+            #initial_value=tf.convert_to_tensor(np.array(np.identity(input_dim) + np.random.rand(input_dim, input_dim), dtype=np.complex64)),
+            #initial_value=tf.ones([input_dim, input_dim], tf.complex64),
             trainable=True,
         )
         self.activation =  activations.get(activation)
@@ -39,20 +61,24 @@ def complex_hessian(func, x):
     # Take a real function and calculate dzdzbar(f)
     #grad = gradients_z(func, x)
     grad = tf.math.conj(tf.gradients(func, x))
-    hessian = tf.stack([gradients_zbar(tmp, x)[0]
+    hessian = tf.stack([gradients_zbar(tmp[0], x)[0]
                         for tmp in tf.unstack(grad, axis=2)],
                        axis = 1) / 2.0
  
-    '''
-    grad = tf.gradients(func, x)
-    hessian = tf.stack([gradients_z(tmp, x)[0]
-                        for tmp in tf.unstack(grad, axis=2)],
-                       axis = 1) / 2.0
-    '''
     return hessian 
 
+def generate_dataset(HS):
+    dataset = None
+    for patch in HS.patches:
+        for subpatch in patch.patches:
+            new_dataset = dataset_on_patch(subpatch)
+            if dataset is None:
+                dataset = new_dataset
+            else:
+                dataset = dataset.concatenate(new_dataset)
+    return dataset
 
-def generate_dataset(patch):
+def dataset_on_patch(patch):
 
     # So that you don't need to invoke set_k()
     patch.s_tf_1, patch.J_tf_1 = patch.num_s_J_tf(k=1)
@@ -63,8 +89,7 @@ def generate_dataset(patch):
     x = tf.convert_to_tensor(np.array(patch.points, dtype=np.complex64))
     y = tf.cast(patch.num_Omega_Omegabar_tf(), dtype=tf.complex64)
 
-    weights = y / tf.cast(patch.num_FS_volume_form_tf('identity', k=1), dtype=tf.complex64)
-    weights = weights / tf.reduce_sum(weights)
+    mass = y / tf.cast(patch.num_FS_volume_form_tf('identity', k=1), dtype=tf.complex64)
 
     # The Kahler metric calculated by complex_hessian will include the derivative of the norm_coordinate, 
     # here we transform the restriction so that the corresponding column and row will be ignored in the hessian
@@ -72,10 +97,13 @@ def generate_dataset(patch):
     trans_tensor = tf.convert_to_tensor(np.array(trans_mat, dtype=np.complex64))
     restriction = tf.matmul(patch.r_tf, trans_tensor) 
 
-    dataset = tf.data.Dataset.from_tensor_slices((x, y, weights, restriction))
+    dataset = tf.data.Dataset.from_tensor_slices((x, y, mass, restriction))
 
     return dataset
 
+def weighted_MAPE(y_true, y_pred, mass):
+    weights = mass / K.sum(mass)
+    return K.sum(tf.cast(K.abs(y_true - y_pred), dtype=tf.complex64) / y_true * weights)
 
 '''
 def complex_hessians(ys,
