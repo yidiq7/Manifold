@@ -769,11 +769,87 @@ but not clear it is worth implementing.
 
 \section{ Results }
 
-Implement the $d=1$ and $d=2$ versions of this algorithm with various widths.
-Compare to the original results and also to the rank restricted version.
-We should take the hint from ML and produce a test set of data points in addition to our training
-set in order to evaluate \eq{cyobj} (in the existing work one uses a different functional and the same dataset).
+\subsection{ Examples }
 
+\begin{enumerate}
+\item The Fermat quintics \eq{fermat}.
+\item A two parameter family with less symmetry,
+\be
+f_1 = z_0^5 + z_1^5 + z_2^5 + z_3^5 + z_4^5 + \psi z_0z_1z_2z_3z_4 +\phi (z_3z_4^4 + z_3^2z_4^3 + z_3^3z_4^2 + z_3^4z_4)
+\ee
+\item Another two parameter family,
+\bea
+f_2 &=& z_3 g(z) + z_4 h(z) \\
+g &=& z_0^4 + z_1^4 + z_2^4 + z_3^4 + a z_0z_1z_2z_3 \\
+h &=& z_0^4 + z_1^4 + z_2^4 + z_4^4 + b z_0z_1z_2z_4 \\
+\eea
+\item Possibly, some randomly chosen $f$'s.
+\end{enumerate}
+
+Each should be worked out with
+\begin{enumerate}
+\item  The standard space of metrics \eq{a1} for as many $k$'s as we can reasonably do.
+\item A two layer holomorphic network, where the inputs are the coordinates.
+\item A two layer holomorphic network, where the inputs are quadratic ($k=2$) and cubic ($k=3$) in the coordinates.
+\item Two layer biholomorphic networks with inputs $z\bz$ and $z^2\bz^2$.
+\item Maybe, a few examples of three layer networks, perhaps with batch norm.
+\end{enumerate}
+
+\subsection{ Observations }
+
+For each of these, we want the training and testing $\eta$ and $\delta\eta$, as we are computing now.
+We probably also want the maximum $|\eta-1|$.
+
+Graph these as functions of the number of layers and number of parameters.
+One fair way to compare all of the different networks is to make the x-axis the total number of real parameters.
+
+\subsection{ Interpretation }
+
+There are two geometric properties of the CY which we expect to control the accuracy.
+One is the smallest length scale on the CY.  The other is the ``complexity'' of the manifold,
+a somewhat vague concept, but somehow inversely related to the amount of symmetry.
+Both of these properties are hard to measure and thus we look at measurable proxies.
+
+A reasonable proxy for the smallest length scale is the distance in moduli space to the nearest
+singular Calabi-Yau manifold, for which $f=\nabla f=0$ has a simultaneous solution in $\IC\IP^4$.
+For example, for the Fermat family of quintics \eq{fermat}, these equations are \eq{fermat} and
+$ 5 z_i^5 = - \psi z_1z_2z_3z_4z_5 \, \forall 1\le i\le 5$, which has a solution if $\psi=-5\omega$
+for $\omega$ any fifth root of unity.  The limit $\psi\rightarrow\infty$ is also singular.
+
+The generic singularity of a hypersurface is an ordinary double point (ODP).  In a small neighborhood
+of a $D=3$ ODP singularity it looks like
+\be\label{eq:conifold}
+z_1^2 + z_2^2 + z_3^2 + z_4^2 = \epsilon
+\ee
+and the singular limit is $\epsilon\rightarrow 0$.  This is usually called the conifold singularity in the
+string theory literature.  A Ricci-flat metric on this noncompact manifold is known \cite{Candelas1990}
+and it looks like the total space of $T^*S^3$, with the volume of the $S^3$ shrinking to zero as $\epsilon^{3/2}$
+when $\epsilon\rightarrow 0$.\footnote{This can be seen by writing the real and imaginary parts of
+\eq{conifold} separately.  For $\epsilon>0$ real, the $S^3$ is the submanifold $\Im z_i=0$.}
+Thus the smallest length scale on this noncompact CY is $L \sim \epsilon^{1/2}$.
+For $\epsilon\ne 0$, the solution of $\nabla f=0$ is all $z_i=0$, and the distance (in the Euclidean metric)
+from this point to the closest solution of $f=0$ is also $\epsilon^{1/2}$.  
+
+The coefficients of the defining function $f=0$ parameterize the complex structure moduli space $\CM_c$ of quintic
+hypersurfaces, up to an overall $GL(5)$ action.  The submanifold of $\CM_c$ on which the CY is singular
+is the discriminant locus.  All this is very complicated, but a reasonable proxy for the smallest length scale
+on the CY is the shortest distance between the solutions of $\nabla f=0$ in $\IC^5$ and the solutions of $f=0$,
+where we normalize $z$ so that the largest distance between a pair of points $f(z_1)=f(z_2)=0$ is unity,
+$\max |z_1-z_2|=1$.  This could presumably be estimated numerically.
+
+So, the conjecture is that the error $\max |\eta-1|$ of the CY metric, as a function of moduli, grows as an
+inverse power of $L$, and furthermore that this maximum error is attained at the point on the CY closest to
+$\nabla f=0$.  Furthermore, the error should decrease with the maximum $k$, which is just $k$ for the 
+metrics \eq{a1} but is the degree of the final layer for the networks.
+
+How can we measure the ``complexity'' of the CY?  This is really much less clear and we probably don't want
+to do it in this paper.  One idea is that we can average the coefficients of $f$ to get another $\hat f$ with more
+discrete symmetry, and measure the distance from $f$ to $\hat f$.  The really correct measure of distance uses
+the metric on $\CM_c$, for which the K\"ahler potential is $K = \log\int \Omega\wedge\bar\Omega$.
+This could also be estimated numerically, but this is a whole new project.
+
+
+\iffalse
 \section{ Neural Tangent Kernel }
 
 Given a loss function $\CL$, we define the NTK on $M\times M$ as
@@ -910,6 +986,7 @@ Each point $x$ will have a neighborhood which is
 linearly embedded, and these will make up regions bounded by planes $M_{ij} x^j=0$.  This representation
 will give a PL metric and we need to either smooth it, or define a Ricci flat PL metric.  Either way we will need
 to find all the planes and their intersections.  Also the condition that this is an embedding looks nontrivial.
+\fi
 
 \appendix
 
@@ -1090,7 +1167,7 @@ as is the case for a Ricci flat manifold.  So the volumes for $T^2$, K3 and the 
 
 While the general quintic hypersurface has no symmetries, we will restrict attention to the
 hypersurfaces
-\be
+\be \label{eq:fermat}
 0 = f(z) = \sum_{i=1}^5 z_i^5 + \psi z_1z_2z_3z_4z_5
 \ee
 which have $S_5 \ltimes \IZ_5^3$ symmetry (the special case $\psi=0$ has an additional $\IZ_5$).
@@ -1351,6 +1428,9 @@ Pure and Applied Mathematics Quarterly special issue in honor of Professor Berni
 
 \bibitem{Ioffe2015}
 Ioffe, S. and Szegedy, C., 2015. Batch normalization: Accelerating deep network training by reducing internal covariate shift. arXiv:1502.03167.
+
+\bibitem{Candelas1990}
+Candelas, P. and De la Ossa, X.C., Comments on conifolds 1990 Nucl. Phys. B, 342, p.246.
 
 \bibitem{GH}
 Griffiths, P. and Harris, J., 2014. {\it Principles of algebraic geometry}. John Wiley \& Sons.
