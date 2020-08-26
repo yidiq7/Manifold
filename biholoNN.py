@@ -9,83 +9,6 @@ from tensorflow.python.keras import activations
 import numpy as np
 import tensorflow.python.keras.backend as K
 
-class ComplexDense(keras.layers.Layer):
-    def __init__(self, input_dim, units, activation=None, trainable=True):
-        super(ComplexDense, self).__init__()
-        w_init = tf.random_normal_initializer()
-        if trainable is True: 
-            self.w = tf.Variable(
-                initial_value=tf.cast(w_init(shape=(input_dim, units), dtype='float32'), dtype=tf.complex64),
-                trainable=True,
-            )
-        else:
-            self.w = tf.Variable(
-                initial_value=tf.cast(calculate_first_layer(), dtype=tf.complex64),
-                trainable=False,
-            )
-        self.activation =  activations.get(activation)
-        
-    def call(self, inputs):
-        return self.activation(tf.matmul(inputs, self.w))
-
-class ComplexG(keras.layers.Layer):
-    def __init__(self, input_dim, activation=None):
-        super(ComplexG, self).__init__()
-        w_init = tf.random_normal_initializer()
-        self.w = tf.Variable(
-            initial_value=tf.convert_to_tensor(np.array(np.identity(input_dim), dtype=np.complex64)),
-            #initial_value=tf.convert_to_tensor(np.array(np.identity(input_dim) + np.random.rand(input_dim, input_dim), dtype=np.complex64)),
-            #initial_value=tf.ones([input_dim, input_dim], tf.complex64),
-            trainable=True,
-        )
-        self.activation =  activations.get(activation)
-        
-    def call(self, inputs):
-        return self.activation(tf.matmul(inputs, self.w))
-
-def calculate_first_layer():
-    w = np.zeros((5, 15))
-    k = 0
-    for i in range(5):
-        for j in range(i, 5): 
-            if j == i:
-                w[i][k] = 1
-            else:
-                w[i][k] = 1 / np.sqrt(2)   
-                w[j][k] = 1 / np.sqrt(2)   
-            k = k + 1    
-    return w 
-
-class LinearTrans(keras.layers.Layer):
-    def __init__(self, input_dim, units, activation=None):
-        super(LinearTrans, self).__init__()
-        self.w = tf.Variable(
-            initial_value=tf.cast(calculate_transform_layer(), dtype=tf.complex64),
-            trainable=False,
-            )
-        self.activation =  activations.get(activation)
-
-    def call(self, inputs):
-        return self.activation(tf.matmul(inputs, self.w))
-
-def calculate_transform_layer():
-    w = np.identity(15, dtype=float)
-    k = 0
-    for i in range(5):
-        for j in range(i, 5):
-            if j == i:
-                continue
-            else:
-                # Mapping 0 ~ 4 to the corresponding column 0, 5, 9, 12, 1 
-                x = int(15 - (6 - i) * (5 - i) / 2) 
-                y = int(15 - (6 - j) * (5 - j) / 2)
-
-                w[x][k] = -0.5
-                w[y][k] = -0.5 
-
-            k = k + 1  
-    return w
-
 class Biholomorphic(keras.layers.Layer):
     '''A layer transform zi to zi*zjbar'''
     def __init__(self):
@@ -93,13 +16,17 @@ class Biholomorphic(keras.layers.Layer):
         
     def call(self, inputs):
         zzbar = tf.einsum('ai,aj->aij', inputs, tf.math.conj(inputs))
+        zzbar = tf.linalg.band_part(zzbar, 0, -1)
         zzbar = tf.reshape(zzbar, [len(zzbar),-1])
-        return tf.concat([tf.math.real(zzbar), tf.math.imag(zzbar)], axis=1)
-
-def gradients_z(func, x):
-    dx_real = tf.gradients(tf.math.real(func), x)
-    dx_imag = tf.gradients(tf.math.imag(func), x)
-    return (tf.math.conj(dx_real) + tf.math.conj(dx_imag)*tf.constant(1j, dtype=x.dtype)) / 2
+        zzbar = tf.concat([tf.math.real(zzbar), tf.math.imag(zzbar)], axis=1)
+        '''
+        zzbar = tf.transpose(zzbar)
+        intermediate_tensor = tf.reduce_sum(tf.abs(zzbar), 1)
+        bool_mask = tf.squeeze(tf.math.logical_not(tf.math.less(intermediate_tensor, 1e-3)))
+        zzbar = tf.boolean_mask(zzbar, bool_mask)
+        zzbar = tf.transpose(zzbar)
+        '''
+        return zzbar
 
 def gradients_zbar(func, x):
     dx_real = tf.gradients(tf.math.real(func), x)
@@ -137,9 +64,9 @@ def dataset_on_patch(patch):
     patch.r_tf = patch.num_restriction_tf()
 
     x = tf.convert_to_tensor(np.array(patch.points, dtype=np.complex64))
-    y = tf.cast(patch.num_Omega_Omegabar_tf(), dtype=tf.complex64)
+    y = tf.cast(patch.num_Omega_Omegabar_tf(), dtype=tf.float32)
 
-    mass = y / tf.cast(patch.num_FS_volume_form_tf('identity', k=1), dtype=tf.complex64)
+    mass = y / tf.cast(patch.num_FS_volume_form_tf('identity', k=1), dtype=tf.float32)
 
     # The Kahler metric calculated by complex_hessian will include the derivative of the norm_coordinate, 
     # here we transform the restriction so that the corresponding column and row will be ignored in the hessian
@@ -153,7 +80,7 @@ def dataset_on_patch(patch):
 
 def weighted_MAPE(y_true, y_pred, mass):
     weights = mass / K.sum(mass)
-    return K.sum(tf.cast(K.abs(y_true - y_pred), dtype=tf.complex64) / y_true * weights)
+    return K.sum(K.abs(y_true - y_pred) / y_true * weights)
 
 '''
 def complex_hessians(ys,
