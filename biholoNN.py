@@ -19,14 +19,50 @@ class Biholomorphic(keras.layers.Layer):
         zzbar = tf.linalg.band_part(zzbar, 0, -1)
         zzbar = tf.reshape(zzbar, [len(zzbar),-1])
         zzbar = tf.concat([tf.math.real(zzbar), tf.math.imag(zzbar)], axis=1)
-        '''
+       
         zzbar = tf.transpose(zzbar)
         intermediate_tensor = tf.reduce_sum(tf.abs(zzbar), 1)
         bool_mask = tf.squeeze(tf.math.logical_not(tf.math.less(intermediate_tensor, 1e-3)))
         zzbar = tf.boolean_mask(zzbar, bool_mask)
         zzbar = tf.transpose(zzbar)
-        '''
+
+        ''' 
+        tmp = tf.transpose(zzbar)
+        intermediate_tensor = tf.reduce_sum(tf.abs(tmp), 1)
+        bool_mask = tf.squeeze(tf.math.logical_not(tf.math.less(intermediate_tensor, 1e-3)))
+        trans = tf.boolean_mask(tf.eye(len(bool_mask)), bool_mask)
+        #trans = tf.transpose(trans)
+        ''' 
+        #return tf.matmul(zzbar, trans, transpose_b=True)
         return zzbar
+
+class Dense(keras.layers.Layer):
+    def __init__(self, input_dim, units, activation=None):
+        super(Dense, self).__init__()
+        w_init = tf.random_normal_initializer()
+        self.w = tf.Variable(
+            initial_value=w_init(shape=(input_dim, units), dtype='float32'),
+            trainable=True,
+        )
+        self.activation =  activations.get(activation)
+
+    def call(self, inputs):
+        return self.activation(tf.matmul(inputs, self.w))
+
+class WidthOneDense(keras.layers.Layer):
+    def __init__(self, activation=None):
+        super(WidthOneDense, self).__init__()
+        #w_init = tf.random_normal_initializer()
+        w_init = tf.reshape(tf.concat([tf.constant([1,0,0,0,0,1,0,0,0,1,0,0,1,0,1], dtype=tf.float32), tf.zeros(10)], 0), [25, 1]) 
+        self.w = tf.Variable(
+            #initial_value=w_init(shape=(25, 1)),
+            initial_value=w_init,
+            trainable=True,
+        )
+        self.activation =  activations.get(activation)
+    def call(self, inputs):
+        return self.activation(tf.matmul(inputs, self.w))
+
 
 def gradients_zbar(func, x):
     dx_real = tf.gradients(tf.math.real(func), x)
