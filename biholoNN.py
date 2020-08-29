@@ -37,12 +37,13 @@ class Biholomorphic(keras.layers.Layer):
         return zzbar
 
 class Dense(keras.layers.Layer):
-    def __init__(self, input_dim, units, activation=None):
+    def __init__(self, input_dim, units, activation=None, trainable=True):
         super(Dense, self).__init__()
-        w_init = tf.random_normal_initializer()
+        #w_init = tf.random_normal_initializer(mean=0.05, stddev=0.05)
+        w_init = tf.random_normal_initializer(mean=0.0, stddev=0.05)
         self.w = tf.Variable(
             initial_value=w_init(shape=(input_dim, units), dtype='float32'),
-            trainable=True,
+            trainable=trainable,
         )
         self.activation =  activations.get(activation)
 
@@ -118,46 +119,3 @@ def weighted_MAPE(y_true, y_pred, mass):
     weights = mass / K.sum(mass)
     return K.sum(K.abs(y_true - y_pred) / y_true * weights)
 
-'''
-def complex_hessians(ys,
-                     xs,
-                     gate_gradients=False,
-                     aggregation_method=None,
-                     name="hessians"):
-
-    xs = gradients_util._AsList(xs)  # pylint: disable=protected-access
-    kwargs = {
-        "gate_gradients": gate_gradients,
-        "aggregation_method": aggregation_method
-    }
-
-    hessians = []
-    _gradients = tf.gradients(ys, xs, **kwargs) 
-    
-    for gradient, x in zip(_gradients, xs):
-        # change shape to one-dimension without graph branching
-        gradient = array_ops.reshape(gradient, [-1])
-
-        # Declare an iterator and tensor array loop variables for the gradients.
-        n = array_ops.size(x)
-        loop_vars = [
-            array_ops.constant(0, dtypes.int32),
-            tensor_array_ops.TensorArray(x.dtype, n)
-        ]
-        # Iterate over all elements of the gradient and compute second order
-        # derivatives.
-       
-        _, hessian = control_flow_ops.while_loop(
-            lambda j, _: j < n,
-            lambda j, result: (j + 1,
-                               result.write(j, gradients_z(gradient[j], x)[0] / 2)),
-            loop_vars
-        )
-
-        _shape = array_ops.shape(x)
-        _reshaped_hessian = array_ops.reshape(hessian.stack(),
-                                              array_ops.concat((_shape, _shape), 0))
-        hessians.append(_reshaped_hessian)
-    
-    return hessians
-'''
