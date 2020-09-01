@@ -1,0 +1,5 @@
+python3 backprop_f1.py 4 10000 17 1 1000000 2.0 f1_4_10000_17_ph20
+python3 backprop_f1.py 4 10000 17 1 1000000 4.0 f1_4_10000_17_ph40
+python3 backprop_f1.py 4 10000 17 1 1000000 6.0 f1_4_10000_17_ph60
+python3 backprop_f1.py 4 10000 17 1 1000000 8.0 f1_4_10000_17_ph80
+python3 backprop_f1.py 4 10000 17 1 1000000 10.0 f1_4_10000_17_ph100
