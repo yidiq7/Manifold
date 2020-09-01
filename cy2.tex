@@ -1,0 +1,1468 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,epsf,amssymb,latexsym,enumerate,cite,shadow,array,color}
+\usepackage[ps,dvips,matrix,arrow,frame,import,curve,color]{xy}
+%\usepackage[matrix,arrow,frame,import,curve,color]{xy}
+\UseCrayolaColors
+
+\setlength{\textwidth}{165mm}
+\setlength{\textheight}{215mm}
+\setlength{\topmargin}{0pt}
+\setlength{\oddsidemargin}{0mm}
+\setlength{\evensidemargin}{0pt}
+
+\setlength{\unitlength}{1mm}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{prop}{Proposition}
+\newtheorem{result}{Result}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{lemma}{Lemma}
+
+% Generate figures.
+\newif\iffigs\figstrue
+
+% Nice script font
+%
+\DeclareFontFamily{U}{rsf}{}
+\DeclareFontShape{U}{rsf}{m}{n}{
+  <5> <6> rsfs5 <7> <8> <9> rsfs7 <10-> rsfs10}{}
+\DeclareMathAlphabet\Scr{U}{rsf}{m}{n}
+
+% Put preprint number in top-right.
+%
+\def\pplogo{\vbox{\kern-\headheight\kern -29pt
+\halign{##&##\hfil\cr&{%\sc
+\ppnumber}\cr\rule{0pt}{2.5ex}&\ppdate\cr}
+}}
+\makeatletter
+\def\ps@firstpage{\ps@empty \def\@oddhead{\hss\pplogo}%
+  \let\@evenhead\@oddhead % in case an article starts on a left-hand page
+}
+%      The only change in \maketitle is \thispagestyle{firstpage}
+%      instead of \thispagestyle{plain}
+\def\maketitle{\par
+ \begingroup
+ \def\thefootnote{\fnsymbol{footnote}}
+ \def\@makefnmark{\hbox{$^{\@thefnmark}$\hss}}
+ \if@twocolumn
+ \twocolumn[\@maketitle]
+ \else \newpage
+ \global\@topnum\z@ \@maketitle \fi\thispagestyle{firstpage}\@thanks
+ \endgroup
+ \setcounter{footnote}{0}
+ \let\maketitle\relax
+ \let\@maketitle\relax
+ \gdef\@thanks{}\gdef\@author{}\gdef\@title{}\let\thanks\relax}
+%\def\thebibliography#1{\section*{References\@mkboth
+% {REFERENCES}{REFERENCES}}\small\list
+% {[\arabic{enumi}]}{\settowidth\labelwidth{[#1]}\leftmargin\labelwidth
+% \advance\leftmargin\labelsep
+% \usecounter{enumi}}
+% \def\newblock{\hskip .11em plus .33em minus .07em}
+% \sloppy\clubpenalty4000\widowpenalty4000
+% \hfuzz=1cm
+% \sfcode`\.=1000\relax}
+%\let\endthebibliography=\endlist
+\makeatother
+
+\def\KL{\mbox{KL}}
+\def\rem{$\clubsuit$}
+\def\E#1#2{\mathbb{E}_{#1}\left[#2\right]}
+\def\Enull#1{\mathbb{E}\left[#1\right]}
+\def\degree{\mbox{degree}\,}
+\def\IC{\mathbb{C}}
+\def\IN{\mathbb{N}}
+\def\IZ{\mathbb{Z}}
+\def\IR{\mathbb{R}}
+\def\IP{\mathbb{P}}
+
+\def\CM {{\cal M}}
+\def\CN {{\cal N}}
+\def\CR {{\cal R}}
+\def\CD {{\cal D}}
+\def\CF {{\cal F}}
+\def\CI {{\cal I}}
+\def\CJ {{\cal J}}
+\def\CP {{\cal P }}
+\def\CQ{{\cal Q}}
+\def\CL {{\cal L}}
+\def\CV {{\cal V}}
+\def\CO {{\cal O}}
+\def\CX {{\cal X}}
+\def\CZ {{\cal Z}}
+\def\CE {{\cal E}}
+\def\CG {{\cal G}}
+\def\CH {{\cal H}}
+\def\CC {{\cal C}}
+\def\CB {{\cal B}}
+\def\CS {{\cal S}}
+\def\CA{{\cal A}}
+\def\CK{{\cal K}}
+\def\CW{{\cal W}}
+\def\CY{{\cal Y}}
+\def\CZ{{\cal Z}}
+\def\la{\langle}
+\def\ra{\rangle}
+\def\vev#1{\bigg\langle #1 \bigg\rangle}
+\def\half{\frac{1}{2}}
+\def\tM{\tilde{M}}
+\def\BT{{\bf T}}
+%
+\newcommand{\secn}[1]{Section~\ref{#1}}
+\newcommand{\tbl}[1]{Table~\ref{#1}}
+\newcommand{\eq}[1]{Eq.~(\ref{eq:#1})}
+\newcommand{\fig}[1]{Fig.~\ref{#1}}
+\newcommand{\nl}{\nonumber \\}
+%
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\sect}[1]{\setcounter{equation}{0}\section{#1}}
+%\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\renewcommand{\Im}{{\rm Im }}
+\renewcommand{\Re}{{\rm Re }}
+
+%\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\def\one{{\hbox{ 1\kern-.8mm l}}}
+%\def\ii{{\rm i}}
+\def\comm#1#2{\left[ #1, #2\right]}
+\def\acomm#1#2{\left\{ #1, #2\right\}}
+\def\Var{{\rm Var\,}}
+\def\tr{{\rm tr\,}}
+\def\sgn{{\rm sgn\,}}
+\def\Mb{{\rm~ Mb}}
+\def\Gb{{\rm~ Gb}}
+\def\Hz{{\rm~ Hz}}
+\def\MHz{{\rm~ MHz}}
+\def\GHz{{\rm~ GHz}}
+\def\Vol{{\rm Vol\,}}
+\def\vol{{\rm vol\,}}
+\def\p{\partial}
+\def\ba{\bar{a}}
+\def\bb{\bar{b}}
+\def\bc{\bar{c}}
+\def\bd{\bar{d}}
+%\def\be{\bar{e}}
+\def\bz{\bar{z}}
+\def\bZ{\bar{Z}}
+\def\bW{\bar{W}}
+\def\bD{\bar{D}}
+\def\bA{\bar{A}}
+\def\bB{\bar{B}}
+\def\bR{\bar{R}}
+\def\bS{\bar{S}}
+\def\bT{\bar{T}}
+\def\bU{\bar{U}}
+\def\bPi{\bar{\Pi}}
+\def\bOmega{\bar{\Omega}}
+\def\bpartial{\bar{\partial}}
+\def\bj{{\bar{j}}}
+\def\bi{{\bar{i}}}
+\def\bk{{\bar{k}}}
+\def\bl{{\bar{l}}}
+\def\bm{{\bar{m}}}
+\def\btheta{\bar{\theta}}
+\def\bpsi{\bar{\psi}}
+\def\bF{\bar{F}}
+\def\bs{{\bar{s}}}
+\def\bt{\bar{t}}
+\def\bv{\bar{v}}
+\def\bx{\bar{x}}
+\def\by{\bar{y}}
+\def\bz{\bar{z}}
+\def\btau{\bar{\tau}}
+\def\bA{\bar{A}}
+\def\bB{\bar{B}}
+\def\bC{\bar{C}}
+\def\bJ{{\bar{J}}}
+\def\bK{{\bar{K}}}
+\def\bL{{\bar{L}}}
+\def\bX{\bar{X}}
+\def\bY{\bar{Y}}
+\def\bZ{\bar{Z}}
+\def\hK{{\hat K}}
+
+\begin{document}
+\setcounter{page}0
+\def\ppnumber{\vbox{\baselineskip14pt
+\hbox{preprint number}}}
+\def\ppdate{June 2019} \date{}
+
+ \iffalse
+\emailAdd{Tudor.Ciobanu@stonybrook.edu}
+\emailAdd{mdouglas@scgp.stonybrook.edu}
+\emailAdd{subramanian.lakshminarasimhan@stonybrook.edu}
+\emailAdd{yidi.qi@stonybrook.edu}
+\fi
+
+\title{\LARGE Numerical CY metrics from holomorphic networks \\[10mm]}
+\author{
+Michael R. Douglas, 
+Subramanian Lakshminarasimhan and Yidi Qi\\[2mm]
+{\normalsize Department of Physics and Simons Center for Geometry and Physics, Stony Brook University} 
+}
+
+{\hfuzz=10cm\maketitle}
+
+\def\Large{\large}
+\def\LARGE{\large\bf}
+
+\vskip 1cm
+
+\begin{abstract}
+We try ML inspired ansatzes for computing Ricci-flat K\"ahler metrics.
+
+Dedicated to the memory of Tudor Ciobanu.
+\end{abstract}
+
+\section{ Introduction }
+
+K\"ahler manifolds with Ricci flat metrics, known as Calabi-Yau manifolds, are the
+first and still the most important starting point for compactification of string theory to produce
+realistic physical models.  Their study led to the discovery of mirror symmetry and a great deal
+of interesting mathematics.  A brief survey of these topics appears in \cite{CYreview}, and textbooks
+on mirror symmetry include \cite{MS1,MS2}.
+
+No closed form expressions are known for these Ricci flat metrics, and it is generally believed that
+none exist.\footnote{
+But see \cite{Gaiotto:2008cd,Kachru:2020tat} for an analytic approach to the K3 metric.}
+One can get an approximate description using methods of numerical general
+relativity, as pioneered by Headrick and Wiseman \cite{Headrick:2005ch}.  The special properties 
+of K\"ahler geometry lead to many simplifications, starting with the representation of the metric by
+a single function.  Donaldson introduced many ideas such as a representation by projective embeddings
+and approximation by balanced metrics \cite{Donaldson}.  Subsequent works simplified and improved
+the numerical methods \cite{Douglas:2006hz,Douglas:2006rr,Doran:2007zn,Braun:2007sn,Bunch:2008,Seyyedali:2008,Braun:2008jp,Anderson:2009ge,Headrick:2009jz,Anderson:2010ke,Anderson:2011ed}
+so that a fairly simple program can get accurate results.
+
+To simplify a bit, the approach used in these works is to expand the K\"ahler potential in a polynomial basis.
+As is the case for spectral methods, this is very good for approximating smooth functions with variations on
+length scales $1/k$, where $k$ is the order of the polynomials used.  This is sometimes good enough, but by varying
+moduli one can easily produce metrics with structure on arbitrarily short scales, say by approaching a singular
+limit, as was studied in \cite{Cui:2019uhy}.  And since on a $D$-dimensional manifold, the number of basis functions grows as $\CO(k^D)$, one cannot take $k$ very large (the ``curse of dimensionality'').  Indeed, almost all of these works restrict
+attention to manifolds with large discrete symmetry groups to get a manageable number of coefficients.
+
+In recent years, there has been much success with machine learning (ML) inspired approaches to scientific
+computation, and especially the solution of PDE's such as Navier-Stokes and the Schr\"odinger equation.
+This is a rapidly developing area and we are not aware of a review covering the material we will use,
+but a simple illustration of the approach
+we follow is \cite{Hoyer2019}.  This work solves problems in structural optimization -- mathematically, the
+unknown is a single function in a bounded domain of $\IR^2$ and the solution is the minimum of a nonlocal
+energy functional (the integrated stress).  What is novel is to represent the unknown function,
+not in terms of finite elements or a Fourier basis, but as the output of a neural network.  This provides
+a space of approximating functions parameterized by the network weights, which can be efficiently computed
+using technologies developed for machine learning.  Standard numerical optimization applied
+to the energy considered as a function of the weights leads to high quality solutions, which are not limited
+by the constraints of previous methods.
+
+These methods have only begun to be explored for higher dimensional geometry.
+Works which study Calabi-Yau metrics include \cite{Ashmore:2019wzb,Anderson:2020}.
+In \cite{Ashmore:2019wzb}, the K\"ahler potential is represented by a gradient boosted decision tree.
+The problem is solved at various lower degrees $k$, and the ML model does extrapolation in the degree
+(Richardson extrapolation).    The work \cite{Anderson:2020} develops a method more similar to what we will
+describe, with separate functions for the metric components and explicitly imposing the K\"ahler condition. 
+
+The idea we propose and study here is to 
+represent the K\"ahler potential as the output of a {\bf holomorphic network}, a
+feedforward neural network with complex weights, whose inputs are the complex coordinates
+or low degree sections, and which uses the activation function $z\rightarrow z^2$, a holomorphic function.
+Its outputs are a subspace of the space of holomorphic sections which is parameterized by weight matrices
+in a simple and efficiently computable way.  Thus, we can find the metric in this class which is closest to Ricci flat
+by numerical optimization of an error function with respect to the weights, much as in ref. \cite{Headrick:2009jz}.
+
+Since each layer doubles the degree of the section, one can in principle work with large values of $k$.
+One faces the usual problems of deep networks in ML, such as exploding gradients, but one can use ML
+techniques to deal with them, such as a variation on batch normalization.
+
+This formulation of the numerical Calabi-Yau metric problem 
+is formally very similar to supervised learning -- both problems amount to fitting a function given
+a set of input-output values $(x_i,y_i)$, where $x_i$ is sampled from an input distribution and $y_i$ is known.
+Thus we can use a standard ML package (TensorFlow) to construct our networks and do the optimization.
+Our code is described in \S \ref{ss:code} and is available at {\tt https://github.com/yidiq7/Manifold} .
+
+We obtain results for a variety of quintic hypersurfaces, including the familiar
+one-parameter family of Fermat quintics, and also hypersurfaces with much less symmetry.
+Our main focus is to understand the accuracy of these metrics and its dependence on parameters,
+both degree $k$ and the moduli and amount of symmetry of the manifold.
+
+A brief summary of the approach and the mathematical questions it raises can be found in \cite{Douglas2020}.
+
+Polynomial activation functions have appeared in the ML literature \cite{Chrysos2020,Mannelli2020},
+but our motivations (holomorphy and contact with higher dimensional geometry) are new.  
+
+\section{ Numerical methods inspired by machine learning }
+
+In this section we alternate between the points specific to our problem and review of the concepts
+we use from machine learning.  Some useful background material includes \cite{GH,Huybrechts} on
+complex geometry and \cite{Bishop} on machine learning.  We also review the basic definitions we use from
+complex geometry in Appendix A.
+
+\subsection{ Review of the embedding method }
+
+Following Donaldson \cite{Donaldson}, most work on numerical Calabi-Yau metrics
+represents the metric using an embedding by holomorphic sections of a very ample line bundle $\CL$.
+Let us briefly review this.
+
+We recall that a line bundle is defined by choosing patches $U_\alpha$ on the manifold $M$ and holomorphic transition
+functions $f_{\alpha\beta}$ on the overlaps of patches $U_\alpha\cup U_\beta$ satisfying the
+consistency conditions $f_{\alpha\beta}f_{\beta\gamma}f_{\gamma\alpha}=1$.  A section $s$ is then a holomorphic
+function $s_\alpha$ on each patch satisfying $s_\alpha=f_{\alpha\beta}s_\beta$.  Now this is ambiguous
+considered as a function, because we can always multiply by a set of holomorphic functions $\lambda_\alpha$
+defined on each patch, taking $s_\alpha\rightarrow \lambda_\alpha s_\alpha$.  But the ratio of a pair of sections is
+unambiguous.  This can be rephrased as the statement that a vector of $N$ sections is an unambiguous map $\iota$
+from $M$ to $\IC\IP^{N-1}$, since $\lambda_\alpha$ acts to rescale the entire vector.
+The very ample condition then implies that the map $\iota$ is an embedding.
+
+Pulling back the Fubini-Study metric on $\IC\IP^{N-1}$, 
+the embedding then leads to the K\"ahler potential
+\be \label{eq:a1}
+K = \log \sum_{I,\bJ} h_{I,\bJ} s^I \bs^\bj
+\ee
+where $s^I$ is a basis of $N=h_0(\CL)$ holomorphic sections.  This gives us an $N^2$ real dimensional
+family of metrics parameterized by the hermitian matrix $h_{I,\bJ}$.
+One then does integrals over $M$ by Monte Carlo, as in \cite{Douglas:2006rr}.
+This setup can be used in various ways, but conceptually the simplest is to choose a measure of how
+close the metric is to Ricci flatness and numerically optimize it, as done in \cite{Headrick:2009jz}.
+This is easy to program (as we will review
+below), especially compared with methods that use explicit coordinate patches or a grid.
+
+Let us focus on the case of $M$ a hypersurface $f=0$ in a weighted projective space $W$.
+The homogeneous coordinates will be $Z^i$ with degrees $n_i$.
+Now a holomorphic section is simply
+a weighted homogeneous polynomial, so this ansatz is easy to work with mathematically.
+Physically one can define a holomorphic section as a 
+ground state of a magnetic Schr\"odinger operator, {\it i.e.} a state in the lowest Landau level
+(see for example \cite{Douglas:2008pz}).
+Thus, in the terminology of numerical methods, this is a spectral method.  A spectral method expands
+continuous functions in terms of the low lying eigenfunctions of some operator, such as the
+translation operator (leading to a Fourier basis) or a Laplacian.  The upper cutoff on eigenvalue
+corresponds to a fixed lower cutoff on the length scale, and thus 
+spectral methods are usually not well adapted to problems with multiple scales.
+
+In our problem, 
+let us denote the degree of the polynomial (equivalently of the line bundle) by $k$.  An expansion
+in polynomials of degree $k$ can represent functions with up to $k$ nodes, so with variations on
+length scales roughly down to $1/k$.  However,
+by adjusting moduli it is easy to produce CY metrics with multiple scales -- for example,
+we might have a small resolved cycle in a large bulk manifold.  Thus we would like a more flexible
+ansatz than \eq{a1} but one which is still easy to program.  
+
+One option would be to use a higher
+degree line bundle and a subset of its sections, keeping more sections in regions with more variation.
+Mathematically, this amounts to restricting the rank of the matrix $h_{I\bJ}$.
+This could be done by imposing the form $h=U^\dag \lambda U$ with $\lambda$ a
+diagonal matrix of restricted rank.
+Let us denote the space of metrics of the form \eq{a1} 
+with a degree $k$ embedding and in which $\mbox{rank}\, h \le D$ as $\CG_{k,D}$.
+It has real dimension $\CO(ND)$ so this mitigates the curse of dimensionality, however to use this truncation we
+have to search for an appropriate subspace of sections, which is not straightforward.  Thus we leave this
+interesting idea for future investigation.
+
+\subsection{ Feed-forward networks }
+
+Let us briefly review the definition of a feed-forward network (FFN, also called
+MLP for multilayer perceptron).  It is
+a parameterized space of functions
+\be \label{eq:defF}
+F_w : \CX \rightarrow \CY ,
+\ee
+with an input $x\in\CX \cong \IR^D$ and an output $y\in \CY\cong \IR^{D'}$ (we will generally take $D'=1$).
+It is the composition of a series of functions or layers indexed $0,1,\ldots,d$.  The number
+of layers $d+1$ is the depth.
+
+The parameters or weights $w$ are a series of matrices $\{ w_{(0)},w_{(1)},\ldots,w_{(d)} \}$ which enter the 
+following expression:
+\bea \label{eq:defFy}
+y_j(w;x) &=& \sum_{i_d=1}^{D_d} w^{(d)}_{j,i_d} \theta( z_{(d-1)}^{i_d} )\\
+ &\vdots & \nonumber \\ \label{eq:defF2}
+  z_{(1)}^{i_2} &=& \sum_{i_1=1}^{D_1} (w_{(1)})^{i_2}_{i_1} \theta( z_{(0)}^{i_1} )\\
+  \label{eq:defF1}
+ z_{(0)}^{i_1} &=& \sum_{i=1}^D (w_{(0)})^{i_1}_i x^i \\
+\eea
+The ``activation function'' $\theta(x)$ is a nonlinear function, for which a popular choice is
+the ``ReLU'' function 
+\be
+\theta_{ReLU}(x) = \begin{cases} x, x\ge 0 \\ 0, x<0 \end{cases}.
+\ee
+The term ``unit'' is sometimes used to denote a sum followed by a single application of $\theta$,
+so this network will have $D_1+\ldots+D_d$ units.
+
+It has been shown that feed-forward networks can approximate arbitrary functions.
+This is the case even for depth two ($d=1$) \cite{Cybenko}, but in this case one can need an exponentially
+large number of units, as would be the case for simpler methods of interpolation (the ``curse of dimension'').
+By using more layers, one can gain many advantages -- complicated functions can be represented with
+many fewer units, and local optimization techniques are much more effective.  
+How exactly this works is not
+well understood theoretically and there are many interesting observations and hypotheses as to how these
+advantages arise.
+
+As an aside, one
+basic application of this in physics and statistics is to use a feed-forward network with a single
+output to represent a family $P_w$ of probability distributions on $\CX$ parameterized by the weights $w$,
+by taking the output $y$ to be the probability density function.\footnote{
+Another very common choice for representing a probability distribution over a finite set
+$S$ is to use a network with a separate output $y_a$ for each option $a\in S$, and take the final layer
+to be the ``softmax'' $P(a)=\exp y_a/\sum_{b\in S} \exp y_b$ to get a normalized probability distribution $P(a)$.}
+The expectation value of a function $\CO(x)$ in the distribution $P_w$ is then
+\be
+\E{w}{\CO} \equiv \frac{ \int d\mu(x)\ y(w;x)\, \CO(x) }{ \int d\mu(x)\ y(w;x) } .
+\ee
+Here $d\mu(x)$ is a measure on $\CX$, which mathematically is required to turn the function $y(w;x)$ on $\CX$
+into a density on $\CX$.  Given coordinates $x^i$ on $\CX$, this could be Lebesgue measure, but we are free
+to make other choices.
+
+In a high dimensional configuration space $\CX$, one often does these integrals by sampling,
+choosing a set of $N_p$ points $x_{(i)}\in\CX$ and taking
+\be
+d\mu(x) = \frac{1}{N_p} \sum_{i=1}^{N_p} \delta(x-x_{(i)}) .
+\ee
+The sample points $x_{(i)}$ could be distributed 
+according to an {\it a priori} probability measure $Dx$ on $\CX$, or we could
+adapt the sampling to prefer regions with large measure (importance-based sampling).  Many options have been
+developed in statistics.
+
+An analogous idea could be used to get a parameterized family of quantum
+wave functions, in this case taking all of $(x,w,y)$ to be complex, and taking
+\be
+\E{w}{\CO} \equiv \frac{ \int d\mu(x)\ |y(w;x)|^2 \CO(x) }{ \int d\mu(x)\ |y(w;x)|^2 } .
+\ee
+One would also have to choose an
+appropriate $\theta(x)$.   % Some works using these wave functions include \cite{}.
+
+\subsection{ Multilayer holomorphic embeddings }
+
+The idea we will pursue in this work is to use \eq{defFy} to define a subspace of sections.
+Thus we take the input space $\CX$ to be the ambient weighted projective space, and we choose
+$\theta(x)$ to be a nonlinear homogeneous holomorphic function.  
+The simplest choice and the one we will use is to take
+\be \label{eq:deftheta}
+\theta(x) = x^2 .
+\ee
+We then take the successive layers \eq{defF1}, \eq{defF2}, {\it etc.} to define subspaces of a space of
+sections. 
+To get a real valued K\"ahler potential, we replace \eq{defFy} with
+\bea \label{eq:defFK}
+K(w;Z) &=&  \log\sum_{i_d=1,\bj_d=1}^{D_d} h^{(d)}_{i_d,\bj_d} z_d^{i_d} \bz_{d}^{\bj_d} \\
+z_d^{i_d} &\equiv& \theta( z_{(d-1)}^{i_d} ) 
+\eea
+where $z_{(d-1)}$ and the previous layers are as above.
+
+This construction gives us a class of metrics for each choice of depth $d$ and layer widths $D_1,\ldots,D_d$,
+obtained from embeddings with degree  $k=2^d$.  The total number of real weights is
+\be
+N_w = 2\left( D D_1 + D_1 D_2 + \ldots + D_{d-1} D_d \right) + D_d^2 .
+\ee
+Generally $D_i < h_0(2^i)$ so this will not span the complete basis of sections, in other words
+we have restricted the embedding and are only using a subset of metrics.  While the final layer $z_d$ is a linear
+subspace of $H^0(\CL^{2^d})$, this subspace is nonlinearly parameterized by the weights.
+The hope is that it is flexible enough to describe the metrics of interest.
+
+A variation on this is to take the inputs to be a complete basis of sections $s^I$ of degree $k_0$, so
+\be  \label{eq:defF2}
+ z_{(0)}^{i_1} = \sum_{I=1}^{h_0(k_0)} (w_{(0)})^{i_1}_i s^I 
+\ee
+where $I$ is an index for the basis.  For the hypersurface $f=0$ in $\IC\IP^{D-1}$, the basis will be the symmetrized 
+degree $k_0$ monomials, quotiented by the ideal generated by $f$ (if $k_0 \ge \deg f$).
+
+Other combinations of layers and activation functions are of course possible, subject to the constraint
+that every activation (intermediate value) is homogeneous (a section of a definite line bundle).
+Thus one cannot have skip connections, but one could take other products of outputs from previous layers.
+
+\subsection{ Biholomorphic embeddings }
+
+Another variation is to use biholomorphic sections, meaning products of holomorphic and antiholomorphic sections,
+as the activations (intermediate values) of the network.  Thus, we would take
+\bea  \label{eq:defF3}
+ x_{(0)}^{i_1} &=& \sum_{i,j=1}^D (w_{(0)})^{i_1}_{i,\bj} z^i \bz^{\bj} \\
+ x_{(1)}^{i_2} &=& \sum_{i=1}^{D_1} (w_{(1)})^{i_2}_{i_1} \theta(x_{(0)}^{i_1}) \\
+& \vdots & \\
+ K(w;Z) &=&  \log \sum_{i=1}^{D_d} (w_{(d)})_{i} \theta( x_{(d-1)}^i ) .
+\eea
+The first layer weights $w_{(0)}$ should be a hermitian matrix, so that the activations and subsequent
+weight matrices will all be real.  One still needs the activation function $\theta$ to be homogeneous,
+and $z\rightarrow z^2$ is still the natural choice.  The total number of real weights is now
+\be
+N_w = D^2 + D D_1 + D_1 D_2 + \ldots + D_{d-2} D_{d-1} + D_d.
+\ee
+Again, there are many variations on this.
+
+A potential advantage of this representation over the holomorphic network is that the higher degree
+space of K\"ahler potentials contains the lower degree spaces in a simpler way.  For example, suppose we wanted to
+represent
+\be
+K = \left( \sum_{i=1}^D |z_i|^2 \right)^n
+\ee
+with $n=2^d$.  This is a degree $n$ K\"ahler potential which leads to exactly the same metric as a degree $1$
+potential (up to an overall rescaling).  Representing it with the holomorphic network requires exponentially
+wide intermediate layers, but the biholomorphic network can do it with width 1 intermediate layers.
+
+
+\subsection{ Generalizations to other ambient spaces; discrete symmetries }
+
+A sensible network must respect the gradings etc. 
+
+For hypersurfaces in weighted projective space, we need to modify the construction.
+The simplest option is to take the inputs to be a basis of all sections of the same degree as the
+defining function $f$.  Another option is not to have a single feed-forward structure but rather
+a DAG of layers connected in all ways consistent with homogeneity.  One might also generalize
+the activation function, allowing two layers with outputs $z$ and $z'$ to send the product $zz'$
+to the next layer.
+
+Next let us consider toric varieties.  In physics terms, a toric variety is the moduli space of a
+$U(1)^r$ gauge theory with four supercharges (say, a $(2,2)$ sigma model).  There are many
+equivalent mathematical definitions; the closest to the physics is that it is the symplectic (or GIT) quotient
+of $\IC^N$ by a $U(1)^r$ action.  Thus a toric manifold $M$ is specified by 
+an $N\times r$ integral matrix $\Sigma$ of $U(1)^r$  charges and a moment map, a real-valued function on the
+Lie algebra of $U(1)^r$.  If it is a smooth manifold, it will have $b^2=r$, and the fields (the coordinates
+on $\IC^N$) are sections of line bundles with $c_1(\CL)$ given by the corresponding row of $\Sigma$
+(say this in a more mathematical way).  We can then multiply coordinates and take weighted sums in any way that
+preserves the grading, to get a nonlinearly defined subspace of the space of sections of some $\CL$.
+All of these constructions should be unified in some representation theoretic way.
+
+A basic example is to take all of the monomials in the defining polynomial, {\it i.e.} a basis of sections of $\CN$,
+project to a subspace, and take the sum of the squares of the resulting functions.  Thus we are comparing the
+representing power of $\mbox{Sym}^2 H^0(\CL)$ with $\sigma(P\cdot H^0(\CL)$ for some projector $P$.
+
+How can we compare the general ability to represent functions of a basis and a subset?
+We can define the associated kernels, which here are the Bergman kernels.  Given a metric on
+$\CL$ and a volume form, we can define the inner product on sections and the corresponding Bergman
+kernel
+\be
+\rho(z,\bar z') = \sum_i s(z)\bar s(\bar z') .
+\ee
+We can then look at $\rho_1-\rho_2$ and show that it has small norm in some sense.
+This will probably not be the case, but $\rho_2$ is parameterized and what we really care about is
+how well the best $\rho_2$ can approximate $\rho_1$.
+
+
+\subsection{ Supervised learning, sampling and data }
+
+So far our discussion has not had much to do with machine learning.  Let us briefly review a simple
+ML problem, supervised learning, to see the similarities and differences.  It turns out that our problem is similar enough
+to this that we could try to adapt standard ML software to do our computations, however as we will
+explain there are some technical problems in doing this.
+
+In supervised learning, we have a data set of $N_{data}$ items, each of which is an input-output pair $(x_n,y_n)$.
+These are supposed to be drawn from a probability distribution $\CP$ on $\CX\times\CY$.
+The goal is to choose the function \eq{defF} from $\CX$ to $\CY$
+which best describes the general relation $\CP$ between input and output,
+in the sense that it minimizes some definition of the expected error (an objective or ``loss'' function).
+The procedure of making this choice given the data set (and perhaps limited ``prior'' information about $\CP$)
+is called training the network.
+
+A simple choice of objective function is the mean squared error, 
+\be \label{eq:mse}
+\CE = \E{\CP}{ \left(f_w(x) - y\right)^2 }.
+\ee
+If we estimate this by evaluating it on our data set, we get the training error
+\be \label{eq:train}
+\CE_{train} =  \frac{1}{N_{data}} \sum_{n=1}^{N_{data}}{ \left(f_w(x_n) - y_n\right)^2 }.
+\ee
+
+A standard ML training procedure is the following.  We start with an FFN as in \eq{defFy},
+with the weights initialized to random values -- in other words, we draw the $w$ from some distribution
+independent of the data.  A common choice is for each matrix element $w_{i_m}^{(m),i_{m+1}}$ to be
+an independent Gaussian random variable with mean zero and variance $1/\sqrt{D_m}$.  This choice is made so that
+the expected eigenvalues of the weight matrix are order $D_m^0$.
+
+The next step is to minimize \eq{train} as a function of the weights.  A simple algorithm for this is
+gradient descent, a stepwise process in which the weights at time $t+1$ are derived from those at $t$ as
+\be \label{eq:gd}
+w({t+1}) = w({t}) - \epsilon(t) \frac{ \partial \CE_{train} } { \partial w }\bigg|_{w=w(t)} .
+\ee 
+While this will only find a local minimum, it works better for these problems than one might have thought.
+One trick for improving the quality of the result is
+to make the step size $\epsilon(t)$ decrease with time, according to a ``learning schedule''
+chosen empirically to get good results for the task at hand.
+
+An improvement on this procedure is ``stochastic gradient descent'' or SGD.  This is much like \eq{gd}
+except that instead of evaluating the training error $\CE_{train}$ on the full data set, one evaluates it on
+a subset or ``batch,'' with the batch varied from one step to the next so that their union covers the full data set.  This was
+originally done for computational reasons but it also turns out to produce a noise term with beneficial 
+properties, for example in helping to escape local minima.  
+
+Finally, once the optimization is deemed to have converged, one judges the results by estimating \eq{mse}.
+This estimate must be made by using an independent data set from that used in training as otherwise we are
+rewarding our model for matching both signal and noise.\footnote{In classification problems, one often uses networks
+with many more parameters than data points and which can completely fit the dataset, so that the minimum
+of $\CE_{train}$ is zero!  In this case $\CE_{train}$ is clearly a poor estimate for $\CE$.}
+However in most applications we do not have any direct access to $\CP$, rather we only have an empirical
+data set.  Thus one starts by dividing the full data set into disjoint ``training'' and ``testing'' subsets, evaluates
+\eq{train} on the training set for training, and then evaluates the sum of errors over the testing set to estimate $\CE$. 
+The final model can be very accurate, surprisingly so when compared to expectations from standard
+statistical theory.  Let us cite \cite{} as a few papers which study these theoretical questions.
+
+While our problem is not one of supervised learning, it will be useful to phrase it in terms as similar
+as possible, so that we can most easily use ML software.  The workflow of the supervised learning task involves defining
+a set of data points $(x_n,y_n)$ which are independent of the weights, repeated evaluation of the network at each $x_n$
+to get a prediction $f(x_n)$ for the corresponding $y_n$, and optimization of an objective function which is
+a sum of terms which each depend on a single data point.
+The network is normally defined by concatenating layers, such as multiplication by a weight matrix
+(a fully connected layer), application of an activation function, and so on.  These layers are implemented
+in associated software libraries, such as Keras for Tensorflow.  As we explain next,
+while we will have to implement some new layers for our problem, otherwise our workflow is the same.
+
+\subsection{ Batch normalization }
+
+A very common problem with deep networks is the exploding/vanishing gradient problem.
+To see this, consider the gradient of the objective function \eq{mse},
+\be
+\frac{ \partial  } { \partial w }\CE = 2\E{\CP}{ \left(f_w(x) - y\right)\cdot \frac{ \partial f_w(x) } { \partial w } }.
+\ee
+Using the chain rule, the gradients of $f$ for a given layer
+can be written as a product of the gradient of the subsequent layers with respect to their inputs,
+times the output of the preceding layers.
+These products include a weight at each layer, so one has the general scaling $\nabla \CE \sim w^{d-1}$.
+Using this in gradient descent, one has $\dot w \sim w^{d-1}$, which tends to drive the weights to
+infinity or zero.
+
+One of the most successful solutions to this problem is batch normalization \cite{Ioffe2015}.
+Rather than operate directly on the weights, the basic idea is to ``whiten'' the inputs to each layer.
+For each component of the input, one subtracts its mean value
+mean and rescales by the variance to standardize its distribution.  This removes the dependence on
+the scales of weights from other layers.  Furthermore, it
+is a differentiable transformation
+and thus one can optimize a network with such a layer.   
+
+Batch normalization has two further ingredients.
+First, additional learned weights ($\beta,\gamma)$
+are provided to compensate for the standardization.  Explicitly, if the
+standardized data points are $\hat x_i$, one uses instead $\gamma\hat x_i+\beta$, with the new weights
+optimized along with the original ones.
+Second, the standardization is done on a per-batch basis, again to reduce the computational requirements.
+
+Does batch normalization, either in its standard definition or some variant, make sense in our setup?
+For us, an overall rescaling of the vector of sections by a local holomorphic function $\lambda$ is allowed,
+but not individual rescalings of the components.  Furthermore, shifts are not allowed.
+Thus standard batch normalization is not sensible, but we can take the same rescaling for every component,
+\be
+z_{(n)}^i \rightarrow \lambda(z_{(n)}) z_{(n)}^i .
+\ee 
+Here $\lambda$ could be a general function, but the natural choice in order to normalize the vector is
+\bea
+z_{(n)}^i \rightarrow \hat z_{(n)}^i &=& \frac{\gamma}{\sqrt{\sigma^2+ \epsilon}} \cdot z_{(n)}^i \\
+\sigma^2 &\equiv & \E{\mbox{batch}}{\sum_i |z_{(n)}^i|^2 }.
+\eea
+This could be done per-batch, or even on a per point basis.  
+The weight $\gamma$ is redundant with the next layer weights, but
+using it changes the optimization problem, so we might include it.
+The parameter $\epsilon$ is included for numerical stability and should be small.
+
+Finally, the backpropagation through this layer uses
+\bea
+\frac{ \partial \hat z_{(n)}^i }{ \partial z_{(n)}^j } &=& \frac{\gamma}{\sqrt{\sigma^2+ \epsilon}} \delta^i_j -
+\frac{\gamma}{2(\sigma^2+ \epsilon)^{3/2}} z_{(n)}^i  \frac{ \partial \sigma^2 }{ \partial z_{(n)}^j } \\
+&=& \frac{\gamma}{\sqrt{\sigma^2+ \epsilon}} - \frac{\gamma}{2(\sigma^2+ \epsilon)^{3/2}} z_{(n)}^i \bz_{(n)}^j .
+\eea
+There is a similar expression for the biholomorphic network in terms of the real quantities $x_{(n)}^i$,
+\be
+\frac{ \partial \hat x_{(n)}^i }{ \partial x_{(n)}^j } =
+\frac{\gamma}{\sqrt{\sigma^2+ \epsilon}} - \frac{\gamma}{(\sigma^2+ \epsilon)^{3/2}} x_{(n)}^i x_{(n)}^j .
+\ee
+Presumably, we can modify the Tensorflow batch normalization layer to do this.
+
+\section{ Implementation }
+
+
+\subsection{ Geometric quantities } 
+
+There is the holomorphic three-form
+\be
+\Omega = \ldots 
+\ee
+and the associated volume form
+\be
+d\mu_\Omega \equiv \CN_\Omega \Omega \wedge \bar\Omega .
+\ee
+The normalization $\CN_\Omega$ will be described shortly.  
+This volume form depends on the complex structure but is independent of the K\"ahler form
+and thus the embedding we use to represent $M$.
+
+The Kahler form and associated volume element are
+\bea \label{eq:omegag}
+\omega_g &=& \partial_i \partial_\bj K \\
+\label{eq:MA}
+d\mu_g \equiv \omega_g^3 &=& \det \omega_g = \det_{i,\bj} \partial_i \partial_\bj K .
+\eea
+Now the integral $\int_M\omega_g^3$ is a topological invariant, so one can choose the normalization
+of $d\mu_\Omega$ to make $\eta=1$ for the Ricci flat metric.  
+
+\subsection{ General implementation }
+
+This follows the approach taken in \cite{}
+with the main difference being the use of the feed-forward network \eq{defFK}.
+
+We start by sampling points on $M$ for doing integrals, using the procedure of \cite{Douglas}.
+This sample will play the role of the input dataset in a supervised learning task.
+It will be naturally distributed according to the Fubini-Study volume element and thus (using a theorem
+of Shiffman-Zelditch)
+\be
+\lim_{N_{data}\rightarrow\infty} \frac{1}{N_{data}} \sum_i f(x_i) = \int_M \omega_{FS}^3 f(x) ,
+\ee
+where the Fubini-Study metric $\omega_{FS}$ and volume element is the special case of \eq{omegag} with $k=1$
+and a fixed hermitian metric $h_{i\bj}$.  Given such a metric, to sample from $M$ we first choose two points
+$a$ and $b$ on the ambient WP space\footnote{ 
+More details on computations on WP can be found
+in the Penn group papers.} 
+from a normal distribution with covariance $h_{i\bj}$.
+We then find the points on the intersection of the line $\lambda a+\rho b$ with $M$, in other words
+the choices of $\lambda/\rho$ for which $f(\lambda a+\rho b)=0$.  This equation will have $\deg f$
+solutions (with multiplicity) and for our purposes (which do not look at correlations between points) we
+can simply add all of them to the data set as inputs $x_n$, evaluating the variable $y_n$ for each.
+
+By reweighting, we define an empirical approximation to $d\mu_\Omega$, which is
+\be\label{eq:muOmegaD}
+d\mu_{\Omega,\CD} = \sum_{i\in \CD} \frac{ |\Omega(x_i)|^2 }{ \omega_{FS}(x_i)^3 } .
+\ee
+
+The objective function measures the deviation of the metric from Ricci flatness.  The simplest such measure
+is
+\be
+\eta = \frac{ \omega_g^3 }{ \Omega\wedge\bar\Omega }
+\ee
+The ``least squares error'' for Ricci flatness is then
+\bea \label{eq:Lquad}
+\CE &=& \int_M \Omega\wedge\bar\Omega \left(\eta-1\right)^2 \\
+&=& \int_M \omega_{FS}^3 \frac{\left( \omega_g^3-\Omega\wedge\bar\Omega \right)^2 }{ 
+\omega_{FS}^3 \Omega\wedge\bar\Omega } \\
+&=& \int_M \omega_{FS}^3 \frac{(f_w(x_i) - y_i)^2}{y_i}
+\label{eq:cyobj}
+\eea
+where
+\bea
+y_i &=& \frac{ \Omega\wedge\bar\Omega }{ \omega_{FS}^3 } \\
+f_w(x_i) &=& \frac{ \omega_g^3 }{ \omega_{FS}^3 } .
+\eea
+The point of writing it this way is that $y_i$ is independent of the weights, so we can also consider
+it as part of the ``data set,'' the target value for $f_w$ evaluated at the point $x_i$.  An ML package
+will provide common objective functions such as least squared error and we will be able to use this one directly.
+
+Note that we can choose a different function of $\eta$ which has the same optimum yet has
+a statistics/information theory interpretation.  For example, if we consider a volume form on the CY as
+a probability density, it is natural to look at the KL divergence:
+\be \label{eq:KLobj}
+\mbox{KL}\left( d\mu_\Omega | d\mu_g \right) = 
+-\int_M d\mu_\Omega \log \eta .
+\ee
+This will also have its minimum at the Ricci-flat metric.
+Still, it may be less convenient for optimization, so we compute with the least squares definition.
+
+Thus we need to construct layers which implement \eq{defFK}, the two derivatives which produce $g_{i\bj}$,
+and the nonlinear definition of $f_w$ in terms of this.  Now optimization requires evaluating the gradient
+of $f_w$ and this is done by the backpropagation algorithm built into the ML package.  Thus there is already
+a built-in ability to compute derivatives, the question is how to use it to compute the three derivatives
+implicit in the definition $\mbox{grad}\, \CE$.  This should be possible because we can chain gradient
+computations, for example see \cite{TFhessian}.
+
+Now given that the inputs to the network are the coordinates $Z^a$ of a point $x_i$, the derivatives with
+respect to $Z$ can be obtained by interpolating an additive layer $Z\rightarrow Z+b$ and taking the $b$
+derivative.  Presumably, we can combine these to get the required second and third derivatives.
+
+
+\subsection{ Adaptive method }
+
+We could vary the dataset to lower the variance of the objective function.  Interesting to work out
+but not clear it is worth implementing.
+
+\section{ Results }
+
+\subsection{ Examples }
+
+\begin{enumerate}
+\item The Fermat quintics \eq{fermat}.
+\item A two parameter family with less symmetry,
+\be
+f_1 = z_0^5 + z_1^5 + z_2^5 + z_3^5 + z_4^5 + \psi z_0z_1z_2z_3z_4 +\phi (z_3z_4^4 + z_3^2z_4^3 + z_3^3z_4^2 + z_3^4z_4)
+\ee
+\item Another two parameter family,
+\bea
+f_2 &=& z_3 g(z) + z_4 h(z) \\
+g &=& z_0^4 + z_1^4 + z_2^4 + z_3^4 + a z_0z_1z_2z_3 \\
+h &=& z_0^4 + z_1^4 + z_2^4 + z_4^4 + b z_0z_1z_2z_4 \\
+\eea
+\item Possibly, some randomly chosen $f$'s.
+\end{enumerate}
+
+Each should be worked out with
+\begin{enumerate}
+\item  The standard space of metrics \eq{a1} for as many $k$'s as we can reasonably do.
+\item A two layer holomorphic network, where the inputs are the coordinates.
+\item A two layer holomorphic network, where the inputs are quadratic ($k=2$) and cubic ($k=3$) in the coordinates.
+\item Two layer biholomorphic networks with inputs $z\bz$ and $z^2\bz^2$.
+\item Maybe, a few examples of three layer networks, perhaps with batch norm.
+\end{enumerate}
+
+\subsection{ Observations }
+
+For each of these, we want the training and testing $\eta$ and $\delta\eta$, as we are computing now.
+We probably also want the maximum $|\eta-1|$.
+
+Graph these as functions of the number of layers and number of parameters.
+One fair way to compare all of the different networks is to make the x-axis the total number of real parameters.
+
+\subsection{ Interpretation }
+
+There are two geometric properties of the CY which we expect to control the accuracy.
+One is the smallest length scale on the CY.  The other is the ``complexity'' of the manifold,
+a somewhat vague concept, but somehow inversely related to the amount of symmetry.
+Both of these properties are hard to measure and thus we look at measurable proxies.
+
+A reasonable proxy for the smallest length scale is the distance in moduli space to the nearest
+singular Calabi-Yau manifold, for which $f=\nabla f=0$ has a simultaneous solution in $\IC\IP^4$.
+For example, for the Fermat family of quintics \eq{fermat}, these equations are \eq{fermat} and
+$ 5 z_i^5 = - \psi z_1z_2z_3z_4z_5 \, \forall 1\le i\le 5$, which has a solution if $\psi=-5\omega$
+for $\omega$ any fifth root of unity.  The limit $\psi\rightarrow\infty$ is also singular.
+
+The generic singularity of a hypersurface is an ordinary double point (ODP).  In a small neighborhood
+of a $D=3$ ODP singularity it looks like
+\be\label{eq:conifold}
+z_1^2 + z_2^2 + z_3^2 + z_4^2 = \epsilon
+\ee
+and the singular limit is $\epsilon\rightarrow 0$.  This is usually called the conifold singularity in the
+string theory literature.  A Ricci-flat metric on this noncompact manifold is known \cite{Candelas1990}
+and it looks like the total space of $T^*S^3$, with the volume of the $S^3$ shrinking to zero as $\epsilon^{3/2}$
+when $\epsilon\rightarrow 0$.\footnote{This can be seen by writing the real and imaginary parts of
+\eq{conifold} separately.  For $\epsilon>0$ real, the $S^3$ is the submanifold $\Im z_i=0$.}
+Thus the smallest length scale on this noncompact CY is $L \sim \epsilon^{1/2}$.
+For $\epsilon\ne 0$, the solution of $\nabla f=0$ is all $z_i=0$, and the distance (in the Euclidean metric)
+from this point to the closest solution of $f=0$ is also $\epsilon^{1/2}$.  
+
+The coefficients of the defining function $f=0$ parameterize the complex structure moduli space $\CM_c$ of quintic
+hypersurfaces, up to an overall $GL(5)$ action.  The submanifold of $\CM_c$ on which the CY is singular
+is the discriminant locus.  All this is very complicated, but a reasonable proxy for the smallest length scale
+on the CY is the shortest distance between the solutions of $\nabla f=0$ in $\IC^5$ and the solutions of $f=0$,
+where we normalize $z$ so that the largest distance between a pair of points $f(z_1)=f(z_2)=0$ is unity,
+$\max |z_1-z_2|=1$.  This could presumably be estimated numerically.
+
+So, the conjecture is that the error $\max |\eta-1|$ of the CY metric, as a function of moduli, grows as an
+inverse power of $L$, and furthermore that this maximum error is attained at the point on the CY closest to
+$\nabla f=0$.  Furthermore, the error should decrease with the maximum $k$, which is just $k$ for the 
+metrics \eq{a1} but is the degree of the final layer for the networks.
+
+How can we measure the ``complexity'' of the CY?  This is really much less clear and we probably don't want
+to do it in this paper.  One idea is that we can average the coefficients of $f$ to get another $\hat f$ with more
+discrete symmetry, and measure the distance from $f$ to $\hat f$.  The really correct measure of distance uses
+the metric on $\CM_c$, for which the K\"ahler potential is $K = \log\int \Omega\wedge\bar\Omega$.
+This could also be estimated numerically, but this is a whole new project.
+
+
+\iffalse
+\section{ Neural Tangent Kernel }
+
+Given a loss function $\CL$, we define the NTK on $M\times M$ as
+\be
+K_{NTK}(z,z') = \sum_w \Pi(w,w') \vev{ \frac{\partial\CL}{\partial w}\bigg|_z \frac{\partial\CL}{\partial w'}\bigg|_{z'} }.
+\ee
+where the expectation value is over the initialization distribution for the weights $w$.
+Our loss function is the integral of a density on $M$, so the NTK will be a bilocal density,
+\be
+K_{NTK}(z,z') = d\mu_\Omega(z) d\mu_\Omega(z') \hK_{NTK}(z,z') .
+\ee
+
+
+First consider the loss function \eq{KLobj}, then
+\bea
+\frac{\partial\CL}{\partial w}\bigg|_z &=& d\mu_\Omega \omega^{-1} \frac{\partial\omega}{\partial w}\bigg|_z \\
+&=& d\mu_\Omega \omega^{i\bj} \partial_i \bar\partial_\bj \frac{\partial K}{\partial w}\bigg|_z .
+\eea
+If we take the linear ansatz \eq{a1}, then $w\cong h$ and this becomes
+\bea \label{eq:Lgrad}
+\frac{\partial\CL}{\partial w}\bigg|_z &=& d\mu_\Omega \omega^{i\bj} \partial_i \bar\partial_\bj 
+\frac{\partial }{\partial w} \log h_{I\bJ} s^I \bs^\bJ  \bigg|_z \\
+&=& d\mu_\Omega \omega^{i\bj} \partial_i \bar\partial_\bj 
+\frac{s^I \bs^\bJ }{ h_{I\bJ} s^I \bs^\bJ }  \bigg|_z .
+\eea
+This is already nonlinear in $h$, and the derivatives will make it more nonlinear.
+So, even if $h$ is Gaussian initialized, it will not be easy to compute the expectation.
+
+In fact the NTK arguments assume the quadratic loss function \eq{Lquad}, whose
+gradient lives in the same space as the target.  In fact the formulas are simpler if we
+take the measure $\omega^3$.  Let us take holomorphic weights $a$
+acting on $s$, then the gradient is (factor 2?)
+\be
+\frac{\partial\CL}{\partial a} = \int \left(\frac{\omega^3}{ \Omega \wedge\bar\Omega} - 1\right)
+ \omega^2 \wedge \frac{\partial\CL}{\partial a} .
+\ee
+The gradient of the constant term should give zero, so everything is computable in terms of
+a two-point function on the space of weights
+\be
+\Pi_\mu( a, b ) \equiv \int_M \frac{ \omega^3_a \omega^3_b } { \mu }
+\ee
+with $\mu=\mu_\Omega$.
+This factors through a two-point function on the space of volume forms.
+
+Let the initialization covariance be
+\be
+\vev{h_{I\bJ} h_{K\bL}} = P_{I\bL} P_{K\bJ} ,
+\ee
+then this determines a kernel
+\be
+K_P(z,\bz') = P_{I\bK} s^I(z) \bs^\bK(\bz') .
+\ee
+If the sum $\Pi$ over $w$ factorizes into a product of holomorphic and antiholomorphic,
+then it defines another kernel $K_\Pi$, which could be the same as $K_P$.
+This gets us down to
+\be
+\hK_{NTK}(z,z') = \omega^{i\bj} \partial_i \bar\partial_\bj  \bigg|_z
+\omega^{k\bL} \partial_k \bar\partial_\bL \bigg|_{z'} |K_\Pi(z,\bz')|^2 \vev{ e^{-K{(z,\bz)}} e^{-K{(z',\bz')}} }.
+\ee
+To compute this expectation value, we can write the inverses as (fill in details!)
+\bea
+ \vev{ e^{-K{(z,\bz)}} e^{-K{(z',\bz')}} } &=& \int_0^\infty dt \int_0^\infty dt' \ \vev{ e^{-ths\bs|_z-t'hs\bs|_z'} } \\
+ &=& \int_0^\infty dt \int_0^\infty dt' \ \exp -\half P P\left( t s(z)\bs(\bz) + t' s(z') \bs(\bz') \right)^2 \\
+ \nonumber
+ &=& \int_0^\infty dt \int_0^\infty dt' \ \exp -\half\left( t^2 |K_P(z,\bz)|^2 + 2tt' |K_P(z,\bz')|^2 + (t')^2|K_P(z',\bz')|^2
+ \right) \\
+ &\sim& \det\left(\begin{matrix} 
+ |K_P(z,\bz)|^2 & |K_P(z,\bz')|^2 \\
+ |K_P(z,\bz')|^2 & |K_P(z',\bz')|^2 \end{matrix} \right)^{-1/2}
+\eea
+This would be doable, but the problem is that $\omega^{-1}$ in \eq{Lgrad} also depends on $h$ in an
+even more nonlinear way.  It is probably better to choose a loss function with simpler dependence on $h$.
+Still, all formulas for the curvature require inverting the metric.
+We may be better off with a ``first order'' formalism which includes the inversion as an explicit condition.
+
+Integration over $h$ is a ``random K\"ahler geometry'' problem in the sense of Klevtsov, Zelditch {\it et al}.
+Suppose this works, presumably the NTK will be a natural geometric kernel.  We probably want to set $P=\Pi$
+and minimize the dependence on prior data.
+
+Can we guess the result?  We make predictions from the NTK as
+\be
+y_{pred}(x) = \vec K_{NTK}(x,x_i) \cdot \left(K_{NTK}(x_i,x_j) \right)^{-1} \cdot \vec y_j .
+\ee
+So, if we had an orthonormal basis in which to expand the holomorphic volume form, we could fit it.
+However the goal here is not so much to fit the holomorphic volume form, rather it is to fit it in terms of
+a K\"ahler volume form.  Thus it would be more useful to have a $K_\omega$ with simple dependence
+on $\omega$ and $h$, such that the minimum of
+\be
+\CL = \sum_{i} \left(d\mu_\Omega(x_i) - \sum_j K_\omega(x_i,x_j) d\mu_\Omega(x_j)\right)^2
+\ee
+is at the Ricci flat $\omega$.  A natural candidate or at least building block for
+this $K_\omega$ is the $Q$ operator of section 4
+of Donaldson's 2005 paper, which is projection on the orthonormal basis of functions $s^I \bs^\bJ/hs\bs$.
+If we take $h$ to be the $d\mu_{\Omega,\CD}$ balanced metric, then this should be a reproducing 
+kernel (check! also how do we orthonormalize the basis?).  
+Conversely, optimizing $\CL$ should lead us to the balanced metric.
+We can then use \eq{a1} to obtain $K$.
+
+If this works, then since our multilayer ansatz is a nonlinear subspace of the general space of sections,
+then we just need to restrict the optimization to this space.  Now we have an explicit formula for
+$hs\bs$, but what does it mean to ``project on a nonlinear subspace'' ?  Does it mean to accept the
+final layer defining the vector $s$ as defining the subspace?
+
+The upshot would be that the explicit computation of a loss function like \eq{KLobj} or even \eq{cyobj} may be an
+unneeded complication -- since we have the explicit basis of sections we can construct our own kernel
+which will also have optimality properties for the Ricci flat metric.  Or at least for the balanced metric, which
+if we are primarily interested in the Ricci flat metric, will bring in another $1/k^2$ error.
+
+
+\section{ Analogies to information geometry, and other generalizations }
+
+An amusing question is whether there is any simple interpretation of the double derivative
+$\partial^2/\partial w\bar \partial \bar w$ of either objective function \eq{cyobj} or \eq{KLobj}.
+This is somewhat like a K\"ahler metric
+on the space of metrics and possibly has this interpretation.
+
+Follow this up and discuss other relations between K\"ahler geometry, Hessian geometry and information geometry.
+
+Possible analogs in quantum information?  We can think of $\Omega$ as a wave function whose norm squared
+gives the probability.  Is there an analogous definition for $\omega_g^3$, perhaps involving a density matrix? 
+The expression \eq{defFK} gives us $e^K$ as a density matrix for the LLL states, but it's not clear how to think
+of the Monge-Ampere expression \eq{MA}.
+
+\subsection{ General Riemannian geometries }
+
+We can generalize the concept to embed a manifold $M$ into a high dimensional space $\IR^N$ using a neural network.
+Then, rather than define a single function $K$, we can pull back the Euclidean metric to get a metric on $M$,
+and optimize a geometric condition on it.  What class of embeddings can we get this way?
+
+references: Roweis and Saul 2000, Hauser and Ray 2017 ?
+
+Start with a two layer network and ReLU activation.  We first need a primary embedding of $M$ into some $\IR^n$.
+Each point $x$ will have a neighborhood which is
+linearly embedded, and these will make up regions bounded by planes $M_{ij} x^j=0$.  This representation
+will give a PL metric and we need to either smooth it, or define a Ricci flat PL metric.  Either way we will need
+to find all the planes and their intersections.  Also the condition that this is an embedding looks nontrivial.
+\fi
+
+\appendix
+
+\section{ Math review }
+
+A first reference is GSW volume II chapters 15 and 16, especially \S 15.3, 15.4 and 15.5 on 
+the Hodge decomposition and Dolbeault cohomology.
+After that, a classic math reference is Griffiths and Harris, Principles of Algebraic Geometry.
+This needs serious study, but \S 0.2 on complex manifolds and Dolbeault cohomology
+and \S 0.7 on K\"ahler metrics are not hard.
+
+To go deeper into the subject one should study toric geometry and toric hypersurfaces.
+The classic physics paper is Witten's hep-th/9301042, and a standard math introduction is \cite{Fulton}.
+There are a lot of string theory PhD theses which work this out, e.g. Bouchard  hep-th/0609123.
+
+Let us first give the computation of the volume of $\IC\IP^n$ and a hypersurface $M$ defined as $f=0$ in this space.
+These volumes are topological quantities, meaning that they are invariant under continuous deformations
+of the metric.  In fact if we take the Fubini-Study metric 
+\be \label{eq:normK}
+K=\frac{i}{2\pi}\log \sum_i^{n+1} |Z^i|^2
+\ee
+or its restriction to $M$, normalized as we just did, the volumes will be integers.
+
+The formula \eq{omegag} expresses the K\"ahler metric as a total derivative of the K\"ahler potential.
+On reviewing Dolbeault cohomology, one sees a closely related formula
+\be \label{eq:defomega}
+\omega = \partial\bpartial K
+\ee
+for the $(1,1)$-form $\omega$, the K\"ahler form.  This can be used to construct the volume form,
+\be
+\sqrt{\det g} = \det\omega = \frac{1}{n!}\omega^n .
+\ee
+(see p.31 of GH; it would be nice to check the normalizations in a symbolic algebra system).
+Furthermore, since $\partial\omega=0$, we have
+\be \label{eq:partialvol}
+\omega^n = \partial (\bpartial K\wedge \omega^{n-1}).
+\ee
+
+Now if $K$ were a single valued function, \eq{defomega} would imply that
+the integral of $\omega$ over any two-cycle would vanish.  It is not, but this argument tells us that varying $K$ by
+a function, $K\rightarrow K+f$, does not change the integral of $\omega$.  The same holds for the volume form
+by \eq{partialvol}.
+
+Next, let us see that for $K$ given by \eq{normK},
+\be\label{eq:dirac}
+\int_{\Sigma} \omega \in \IZ,
+\ee
+for any two-cycle $\Sigma$.  Furthermore there is a two-cycle for which this integral is $1$.
+The integral only depends on the homology class of the cycle. 
+In fact $\IC\IP^n$ has a unique generator of $H^2$, as
+can be seen by embedding $\IC\IP^1$ into it as $(z^1,z^2)\rightarrow(z^1,z^2,0,\ldots,0)$, the fact
+that $\IC\IP^1$ is topologically a two-sphere, and the $SU(n+1)$ symmetry of $\IC\IP^n$ which takes
+all such embeddings into each other.  Thus we can just compute this integral on $\IC\IP^1$.
+You should do this exercise.
+
+A simpler way to do this integral and understand why it is quantized, is to break up $\IC\IP^n$
+into patches, and express the integral as a sum of terms involving the differences of $K$ between
+different patches.  In mathematics this comes from a relation between $\omega$ and an associated
+gauge field and line bundle $\CL$.  In other words, we can postulate a $U(1)$ gauge field $A$, with
+curvature $F=dA$, such that
+\be
+\omega = F .
+\ee 
+Then, the integral of $F$ over a basis of homology two-cycles, is by definition the first Chern class
+of the line bundle.  One writes $c_1(\CL)=1$, and in the math literature this $\CL$ is called $\CO(1)$.
+You can read about this in the references, but the simplest physical construction
+of $F$ is the following: we consider a Dirac monopole at the origin in $\IR^3$, and identify $\IC\IP^1\cong S^2$
+with the sphere of unit radius centered at the origin.  Then, $A$ is the monopole field, and the fact
+that the integral \eq{dirac} is quantized is just the Dirac quantization condition (where we set the charge
+of the electron to 1).
+
+This is related to our problem as follows.  We can relate the coordinates $Z^i$ to solutions of the
+Schr\"odinger equation in the monopole magnetic field on $\IC\IP^1$,
+\be
+\psi_a^{(i)} = Z_a^i \exp -\half |Z_a|^2 .
+\ee
+Here $a=1,2$ labels the patches with $Z^a=1$, and $\psi_a$ is the wave function in patch $a$.
+$Z^i_a$ is the value of the coordinate $Z^i$ in that patch.
+In fact these solutions are ground states in the lowest Landau level.
+
+Similarly, if one put $k$ monopoles at the origin, one would get a solution with magnetic field $k$
+times as large.  This defines the line bundle $\CO(k)$, with $c_1=k$.
+
+Now, the math fact which I won't explain in detail, is that the numbers $c_1$ are also related to the
+number of zeroes of a section of the bundle.  In the case at hand they are equal, for example $Z^i$ has a single
+zero in the patch $a\ne i$ and no zero in the patch $a=i$.  Similarly the section $(Z^i)^k$ of $\CO(k)$ has
+$k$ zeroes.  In fact one can turn all the problems of integrating wedge products of these $\omega$'s,
+into counting zeroes of simultaneous equations.  This is called intersection theory in the mathematics and
+in the simple case at hand works as follows: we can associate $\CO(1)$ with a dual two-cycle $\Sigma$,
+the generator of $H^2$.  Then the powers $\omega^k$ are associated with dual $2k$-cycles which each
+generate their own $H^{2k}$.  This implies that
+\be
+\int_{\IC\IP^n} \omega^n = 1 
+\ee
+and thus the volume of $\IC\IP^n$ in the K\"ahler metric derived from \eq{normK} is $1/n!$.
+
+One can check this directly by writing the coordinates as
+\be
+Z^i = r_i e^{i\theta_i}
+\ee
+upon which the condition $1=\sum |Z^i|^2$ becomes $1=\sum r_i^2$.  Thus $\IC\IP^n$ is closely
+related to the sphere $S^{2n+1}$ -- it is obtained by quotienting by the overall phase, 
+$\theta_i\rightarrow\theta_i+\epsilon$.  This is a circle with constant volume, so the two volumes
+are just related by an overall $2\pi$ (I think).
+
+Next, let us consider $M$, the hypersurface $f=0$ in $\IC\IP^{n+1}$, where $f$ is a degree $k$ homogeneous
+polynomial.  The volume form on $M$ is $\omega^n/n!$ where $\omega$ is the restriction of
+$\omega$ as above to this surface.  To do this restriction in practice, one must embed the $n$-dimensional
+cotangent space $T^*M$ in the $n+1$-dimensional cotangent space  $T^*\IC\IP^{n+1}$.  Now the homogeneous
+coordinates $Z^i$ are also sections of a line bundle $\CL$, defined by restricting $\CO(1)$ to $M$.
+However we cannot use them all as coordinates in a patch as they are redundant.  In terms of the
+cotangent bundle we can express this redundancy as
+\be
+T^*\IC\IP^n \cong T^*M \oplus \CN^*_{\IC\IP^{n+1}} M ,
+\ee
+where $\CN^*_{\IC\IP^{n+1}} M$ is the conormal bundle, in other words the dual to the normal bundle in 
+which vectors normal to $M$ live.  While the normal vector to $M$ depends on the metric, one can choose a section of
+the conormal bundle which does not.  It is a one-form which vanishes if we contract it with a tangent vector on $M$.
+Thus it is just the one-form $df$, since the condition that a vector $v$ is tangent to $M$ is $v^i\partial_i f=0$.
+
+Thus, to restrict $\omega$ and the metric to $M$, we want to choose a local set of coordinates in which one of
+the coordinates $Z^i$ is replaced by $f$, and change basis from $(dZ^1,dZ^2,\ldots,dZ^{n+1})$ to 
+$(dZ^1,dZ^2,\ldots,df,\ldots,dZ^{n+1})$, and omit $df$.  To restrict the volume form we just need the Jacobian
+of the resulting matrix (with $df$ omitted).  Writing the new coordinates as $\hat Z^i$,
+one can see that this matrix is (for $n=2$ and replacing $\hat Z^3$),
+\be
+\left(\begin{matrix} d\hat Z^1 & d\hat Z^2 & df \end{matrix} \right) = 
+\left(\begin{matrix} 1 & 0 & 0 \\
+0 & 1 & 0 \\
+\frac{\partial f}{\partial Z^1} & \frac{\partial f}{\partial Z^2} & \frac{\partial f}{\partial Z^3} \\
+\end{matrix} \right)
+\left(\begin{matrix} dZ^1 & dZ^2 & dZ^3 \end{matrix} \right).
+\ee
+To reexpress $\omega$ in the new frame, one must invert this matrix to get $dZ^i$ in terms of the 
+new frame.  One can then omit the $\partial f$ and $\bpartial \bar f$ components.
+
+As we discussed, we want to choose subpatches of each patch on $\IC\IP^{n+1}$ on which
+the various components $|\partial f/\partial Z^i|$ are maximized, and then omit this $\hat Z^i$ in that patch.
+Thus this relation will take a slightly different form in each patch.
+
+One can even carry out the argument in terms of intersection theory to get the volume of $M$
+in the restriction of the Fubini-Study metric.
+\iffalse
+This follows from the relation between the cotangent bundles on $\IC\IP^{n+1}$ and on $M$,
+\be
+0 \rightarrow T^*M \rightarrow  T^*{\IC\IP^{n+1} \rightarrow  \CN_{\IC\IP^{n+1}} M \rightarrow 0 .
+\ee
+This ``exact sequence''
+ includes the fact we just used that locally $T^*{\IC\IP^{n+1}$ breaks up into the cotangent
+and conormal bundles on $M$, but in fact makes sense on the whole manifold $M$.
+It implies a relation between the Chern classes,
+\be
+c_1(T^*{\IC\IP^{n+1}) = c_1(T^*M) + c_1(\CN_{\IC\IP^{n+1}} M)
+\ee
+This can be compared with $f$ which
+is also a section of the normal bundle.  
+(this is explained in the ``adjunction formulas'' in \S 1.1 of GH, pages 145--147 in my copy), which tells us
+that $c_1(\CN_{\IC\IP^{n+1}} M) = -\degree f$.  Then one can compute $c_1(T^*{\IC\IP^{n+1})$
+to find that
+\be
+c_1(T^*M) = \mbox{degree} f - (n+2).
+\ee
+Thus we see the degree required to get $c_1(M)=0$ and a Calabi-Yau metric.
+\fi
+Now, the K\"ahler form $\omega$ from \eq{normK} is the curvature of $\CO(1)$, which is just
+obtained by restriction.  To do an integral over $M$ in intersection theory, one can wedge the
+form with the curvature of the normal bundle.  This is $\degree f$ as is 
+explained in the ``adjunction formulas'' in \S 1.1 of GH, pages 145--147 in my copy.
+Thus we have the volume
+\bea
+\frac{1}{n!}\int_M \omega^n &=& \frac{\degree f }{n!} \\
+&=& \frac{n+2}{n!} \qquad \mbox{if} \ \degree f =n+2
+\eea
+as is the case for a Ricci flat manifold.  So the volumes for $T^2$, K3 and the quintic should be
+3, 2 and $5/6$ respectively.
+
+\section{ Symmetries }
+
+While the general quintic hypersurface has no symmetries, we will restrict attention to the
+hypersurfaces
+\be \label{eq:fermat}
+0 = f(z) = \sum_{i=1}^5 z_i^5 + \psi z_1z_2z_3z_4z_5
+\ee
+which have $S_5 \ltimes \IZ_5^3$ symmetry (the special case $\psi=0$ has an additional $\IZ_5$).
+Let us call this symmetry group $\Gamma$ and denote a general  element as $(\alpha,\sigma)$ where
+\be
+z_j \rightarrow \exp \frac{2\pi i\alpha_j}{5} \sigma_{j,k} z_k 
+\ee
+where $\sigma_{j,k}$ is a permutation, then the parameters must satisfy $\sum \alpha_j=0 (5)$ to
+preserve $f$.  In addition an overall rotation $z_j\rightarrow e^{2\pi i/5}z_j$ can be compensated
+by $\lambda$.   These conditions are satisfied by the following ``charge vectors'' 
+\bea
+\alpha^{(1)} &=& ( 1, -1, 0, 0, 0 ) \\
+\alpha^{(2)} &=& ( 0, 1, -1, 0, 0 ) \\
+\alpha^{(3)} &=& ( 0, 0, 1, -1, 0 ) \\
+\eea
+which can be grouped into a vector $\vec \alpha=(\alpha^{(1)},\alpha^{(2)},\alpha^{(3)})$.
+
+These symmetries must preserve the K\"ahler potential up to an overall constant shift.
+This will force many of its parameters to be zero and relate other parameters.
+
+For the general expression  \eq{a1}, this requires every nonzero matrix element $h_{I,\bJ}$ to
+transform by the same phase.  Thus a nonzero element must satisfy
+\be
+0 = \sum_{a=1}^k {\vec \alpha}( I_a ) - {\vec \alpha}( J_a ) 
+\ee
+Furthermore the $S_k$ action relates many of the matrix elements.
+
+Let us consider some low order cases.  For $k=1$ the $\IZ_5^3$ symmetry sets all the off-diagonal
+terms to zero, while the $S_5$ symmetry forces $h$ to be proportional to the identity.
+This amounts to the statement that 
+\be
+X^{1,1} = \sum_{i=1}^5 |z_i|^2
+\ee
+is the only polynomial of degree $(1,1)$ invariant under $\Gamma$.
+
+For $k=2$ the identity $h$ is of course allowed, but there is an another allowed diagonal $h$.
+This is because there are two invariants of degree $(2,2)$, $(X^{1,1})^2$ and
+\be
+X^{2,2} = \sum_{i=1}^5 |z_i|^4 .
+\ee
+
+Clearly we can make a new invariant $X^{l,l}$ at each order $l$, and get invariants 
+\be
+\prod (X^{1,1})^{n_1}  (X^{2,2})^{n_2} \ldots
+\ee
+with $\sum_l l n_l = k$.  This is however not a complete set.  This is clear for $k\ge \deg f$
+as $f$ contains new invariants, for example $X^{5,0}\equiv z_1z_2z_3z_4z_5$ and its
+complex conjugate $X^{0,5}$.
+
+In practice we can use an overcomplete set of parameters, so what we want is a general algorithm
+that produces a not too redundant set along with the linear transformation $T$ mapping them into the matrix $h$.
+This could be done by first imposing the $\IZ_5^3$ symmetry to set most of the matrix elements to zero,
+and then applying the following algorithm.
+\begin{enumerate}
+\item Create an empty set $L$ which will contain an independent set of matrix elements $h_{I,\bar J}$.
+\item Iterate through the matrix elements $h_{I,\bar J}$ which respect $\IZ_5^3$ symmetry.
+\item Considering all $\sigma\in S_5$, if no $(\sigma I,\sigma \bar J)$ appears in the set $L$, add $(I,\bar J)$ to $L$.
+\item If we add $(I,\bar J)$, the corresponding matrix elements of $T$ are
+\be
+T_{(\sigma I,\sigma \bar J),(I,\bar J)} = 1 .
+\ee
+\end{enumerate}
+In general this might not find all the relations, but it should be good enough.
+
+For the neural networks, we presumably can only combine quantities with the same symmetry properties
+in each layer.  This is quite a drastic restriction, for example in the first layer with inputs $z_i$, the
+weight matrix would have to be the identity matrix.  As we go deeper there will be allowed combinations,
+but maybe not enough - we might want to generalize $z\rightarrow z^2$ to products of sections with
+different degrees.
+
+Another approach this suggests is to use the invariants $X^{l,l}$, $X^{5,0}$ and $X^{0,5}$
+as our elementary variables.  A straightforward way to use these is to decompose $(k,k)$ in all possible ways, {\it e.g.}
+\bea
+Z^{2,2} &=& w_{1,1} (X^{1,1})^2 + w_2 X^{2,2} \\
+Z^{3,3} &=& w_{1,1,1} (X^{1,1})^3 + w_{1,2} X^{1,1} X^{2,2} + w_3 X^{3,3} \\
+Z^{4,4} &=& w_{1,1,1,1} (X^{1,1})^4 + w_{1,3} X^{1,1} X^{3,3} + w_{2,2} (X^{2,2})^2 +
+ w_{1,1,2} (X^{1,1})^2 X^{2,2}+ w_4 X^{4,4} 
+\eea
+and so on.  But instead of taking $K=Z^{k,k}$ defined this way, we could also use some of the $Z$'s
+as intermediate layers.  For example, we could exclude all the terms of more than quadratic order
+in the $X$'s, instead using the $Z$'s:
+\bea
+Z^{3,3} &=& w_{1,2} X^{1,1} Z^{2,2} + w_3 X^{3,3} \\
+Z^{4,4} &=& w_{1,3} X^{1,1} Z^{3,3} + w_{2,2} (Z^{2,2})^2 + w_4 X^{4,4} \\
+Z^{5,5} &=& w_{1,4} X^{1,1} Z^{4,4} + w_{2,3} Z^{2,2} Z^{3,3} + w_5 X^{5,5} + \tilde w X^{5,0} X^{0,5}
+\eea
+so that the result would depend on nonlinear combinations of the weights $w$.
+With this approach we could get a very high degree function with $O(k^2)$ weights.
+
+\def\bx{\bf}
+\def\etal{{\it et.~al.}}
+\def\NP#1{Nucl. Phys. {\bx #1}}
+\def\NPPS#1{Nucl. Phys. (Proc. Suppl.) {\bx #1}}
+\def\PL#1{Phys. Lett. {\bx #1}}
+\def\PR#1{Phys. Rev. {\bx #1}}
+\def\PRL#1{Phys. Rev. Lett. {\bx #1}}
+\def\ANN#1{Annals Phys. {\bx #1}}
+\def\IJMP#1{Int. J. Mod. Phys. {\bx #1}}
+\def\JH#1{J. High Energy Phys. {\bx #1}}
+\def\JMP#1{J. Math. Phys. {\bx #1}}
+\def\RMP#1{Rev. Mod. Phys. {\bx #1}}
+\def\CMP#1{Comm. Math. Phys. {\bx #1}}
+\def\ATMP#1{Adv. Theor. Math. Phys {\bx #1}}
+\def\ep#1{{#1}}
+
+\bibliographystyle{amsplain}
+\begin{thebibliography}{10}
+
+\bibitem{CYreview}
+``Calabi-Yau metrics for string compactification,''
+\NP{B898} (2015) 667-674,
+\ep{ arXiv:1503.02899}.
+
+\bibitem{MS1}
+Hori, K., Thomas, R., Katz, S., Vafa, C., Pandharipande, R., Klemm, A., Vakil, R. and Zaslow, E., 2003. 
+{\it Mirror symmetry} (Vol. 1). AMS
+
+\bibitem{MS2}
+Aspinwall, P., Bridgeland, T., Craw, A., Douglas, M. R., 
+Gross, M., Kapustin, A., Moore, G. W., Segal, G.,
+Szendroi, B. and Wilson, P. M. H., 2009. {\it Dirichlet branes and mirror symmetry} (Vol. 4). AMS
+  
+    %\cite{Gaiotto:2008cd}
+\bibitem{Gaiotto:2008cd} 
+  D.~Gaiotto, G.~W.~Moore and A.~Neitzke,
+  ``Four-dimensional wall-crossing via three-dimensional field theory,''
+  Commun.\ Math.\ Phys.\  {\bf 299}, 163 (2010)
+ [arXiv:0807.4723 [hep-th]].
+
+%\cite{Kachru:2020tat}
+\bibitem{Kachru:2020tat}
+S.~Kachru, A.~Tripathy and M.~Zimet,
+``K3 metrics,''
+[arXiv:2006.02435 [hep-th]].
+%0 citations counted in INSPIRE as of 07 Jun 2020
+
+  %\cite{Headrick:2005ch}
+\bibitem{Headrick:2005ch} 
+  M.~Headrick and T.~Wiseman,
+  ``Numerical Ricci-flat metrics on K3,''
+  Class.\ Quant.\ Grav.\  {\bf 22}, 4931 (2005)
+  [hep-th/0506129].
+
+\bibitem{Donaldson}
+S. K. Donaldson, 
+``Some numerical results in complex differential geometry,'' [math.DG/0512625].
+
+
+  %\cite{Douglas:2006hz}
+\bibitem{Douglas:2006hz} 
+  M.~R.~Douglas, R.~L.~Karp, S.~Lukic and R.~Reinbacher,
+  ``Numerical solution to the hermitian Yang-Mills equation on the Fermat quintic,''
+  JHEP {\bf 0712}, 083 (2007)
+  [hep-th/0606261].
+
+%\cite{Douglas:2006rr}
+\bibitem{Douglas:2006rr} 
+  M.~R.~Douglas, R.~L.~Karp, S.~Lukic and R.~Reinbacher,
+  ``Numerical Calabi-Yau metrics,''
+  J.\ Math.\ Phys.\  {\bf 49}, 032302 (2008)
+  [hep-th/0612075].
+
+%\cite{Doran:2007zn}
+\bibitem{Doran:2007zn} 
+  C.~Doran, M.~Headrick, C.~P.~Herzog, J.~Kantor and T.~Wiseman,
+  ``Numerical Kahler-Einstein metric on the third del Pezzo,''
+  Commun.\ Math.\ Phys.\  {\bf 282}, 357 (2008)
+  [hep-th/0703057 [HEP-TH]].
+
+  %\cite{Braun:2007sn}
+\bibitem{Braun:2007sn} 
+  V.~Braun, T.~Brelidze, M.~R.~Douglas and B.~A.~Ovrut,
+  ``Calabi-Yau Metrics for Quotients and Complete Intersections,''
+  JHEP {\bf 0805}, 080 (2008)
+  [arXiv:0712.3563 [hep-th]].
+
+\bibitem{Bunch:2008}
+ R.~S.~Bunch and S.~K.~Donaldson,
+  ``Numerical approximations to extremal metrics on toric surfaces,''
+  {\it Handbook of geometric analysis} No. 1, 1-28,
+ Adv. Lect. Math. (ALM), 7, Int. Press, Somerville, MA, 2008, 
+ [arXiv:0803.0987 [math.DG]].
+
+\bibitem{Seyyedali:2008}
+ R.~Seyyedali,
+   ``Numerical Algorithms for Finding Balanced Metrics on Vector Bundles,''
+   Asian J. Math. 13 (2009), no. 3, 311-321, 
+   [arXiv:0804.4005 [math.DG]].
+
+  %\cite{Braun:2008jp}
+\bibitem{Braun:2008jp} 
+  V.~Braun, T.~Brelidze, M.~R.~Douglas and B.~A.~Ovrut,
+  ``Eigenvalues and Eigenfunctions of the Scalar Laplace Operator on Calabi-Yau Manifolds,''
+  JHEP {\bf 0807}, 120 (2008)
+  [arXiv:0805.3689 [hep-th]].
+    
+%\cite{Anderson:2009ge}
+\bibitem{Anderson:2009ge} 
+  L.~B.~Anderson, J.~Gray, D.~Grayson, Y.~H.~He and A.~Lukas,
+  ``Yukawa Couplings in Heterotic Compactification,''
+  Commun.\ Math.\ Phys.\  {\bf 297}, 95 (2010)
+  [arXiv:0904.2186 [hep-th]].
+
+  %\cite{Headrick:2009jz}
+\bibitem{Headrick:2009jz} 
+  M.~Headrick and A.~Nassar,
+  ``Energy functionals for Calabi-Yau metrics,''
+  Adv.\ Theor.\ Math.\ Phys.\  {\bf 17}, 867 (2013)
+  [arXiv:0908.2635 [hep-th]].
+  %%CITATION = ARXIV:0908.2635;%%
+
+%\cite{Anderson:2010ke}
+\bibitem{Anderson:2010ke} 
+  L.~B.~Anderson, V.~Braun, R.~L.~Karp and B.~A.~Ovrut,
+  ``Numerical Hermitian Yang-Mills Connections and Vector Bundle Stability in Heterotic Theories,''
+  JHEP {\bf 1006}, 107 (2010)
+  [arXiv:1004.4399 [hep-th]].
+
+  %\cite{Anderson:2011ed}
+\bibitem{Anderson:2011ed} 
+  L.~B.~Anderson, V.~Braun and B.~A.~Ovrut,
+  ``Numerical Hermitian Yang-Mills Connections and Kahler Cone Substructure,''
+  JHEP {\bf 1201}, 014 (2012)
+  [arXiv:1103.3041 [hep-th]].
+  
+%\cite{Cui:2019uhy}
+\bibitem{Cui:2019uhy}
+W.~Cui and J.~Gray,
+%``Numerical Metrics, Curvature Expansions and Calabi-Yau Manifolds,''
+JHEP \textbf{05}, 044 (2020)
+doi:10.1007/JHEP05(2020)044
+[arXiv:1912.11068 [hep-th]].
+%0 citations counted in INSPIRE as of 01 Jun 2020
+
+\bibitem{Hoyer2019}
+  Hoyer, S., Sohl-Dickstein, J. and Greydanus, S., 2019. Neural reparameterization improves structural optimization. 
+   arXiv:1909.04240.
+  
+  %\cite{Ashmore:2019wzb}
+\bibitem{Ashmore:2019wzb}
+A.~Ashmore, Y.~H.~He and B.~A.~Ovrut,
+%``Machine learning Calabi-Yau metrics,''
+[arXiv:1910.08605 [hep-th]].
+%5 citations counted in INSPIRE as of 01 Jun 2020
+
+\bibitem{Anderson:2020}
+L. B. Anderson, J. Gray, S. Krippendorf, N. Raghuram and F. Ruehle, “Machine learning SU(3) structure,” To appear.
+
+\bibitem{Chrysos2020}
+Chrysos, G.G., Moschoglou, S., Bouritsas, G., Deng, J., Panagakis, Y. and Zafeiriou, S., 2020. $\Pi-$ nets: Deep Polynomial Neural Networks.  arXiv:2003.03828.
+
+\bibitem{Mannelli2020}
+Mannelli, S.S., Vanden-Eijnden, E. and Zdeborov\'a, L., 2020. Optimization and Generalization of Shallow Neural Networks with Quadratic Activation Functions.  arXiv:2006.15459.
+
+\bibitem{Douglas2020}
+Douglas, M.R., Holomorphic feedforward networks, submitted to the
+Pure and Applied Mathematics Quarterly special issue in honor of Professor Bernie Shiffman.
+
+\bibitem{Ioffe2015}
+Ioffe, S. and Szegedy, C., 2015. Batch normalization: Accelerating deep network training by reducing internal covariate shift. arXiv:1502.03167.
+
+\bibitem{Candelas1990}
+Candelas, P. and De la Ossa, X.C., Comments on conifolds 1990 Nucl. Phys. B, 342, p.246.
+
+\bibitem{GH}
+Griffiths, P. and Harris, J., 2014. {\it Principles of algebraic geometry}. John Wiley \& Sons.
+
+\bibitem{Huybrechts}
+Huybrechts, D., 2006. {\it Complex geometry: an introduction}. Springer Science \& Business Media.
+
+\bibitem{Bishop}
+Bishop, C.M., 2006. {\it Pattern recognition and machine learning}. Springer.
+
+\bibitem{Douglas:2008pz} 
+  M.~R.~Douglas and S.~Klevtsov,
+  ``Bergman Kernel from Path Integral,''
+  Commun.\ Math.\ Phys.\  {\bf 293}, 205 (2010)
+  [arXiv:0808.2451 [hep-th]].
+
+\bibitem{Cybenko}
+Cybenko, G., 1989. Approximation by superpositions of a sigmoidal function. Mathematics of control, signals and systems, 2(4), pp.303-314.
+
+\bibitem{TFhessian}
+{\tt https://github.com/tensorflow/tensorflow/blob/r2.0/tensorflow/python/ops/gradients\_impl.py}
+
+\bibitem{Fulton}
+{\tt http://home.ustc.edu.cn/~hanzr/pdf/Introduction\%20to\%20Toric\%20Varieties-Fulton.pdf}
+
+
+\end{thebibliography}
+
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+

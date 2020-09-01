@@ -10,25 +10,23 @@ import numpy as np
 import tensorflow.python.keras.backend as K
 
 class ComplexDense(keras.layers.Layer):
-    def __init__(self, input_dim, units, activation=None):
+    def __init__(self, input_dim, units, activation=None, trainable=True):
         super(ComplexDense, self).__init__()
         w_init = tf.random_normal_initializer()
-        self.w = tf.Variable(
-            initial_value=tf.cast(w_init(shape=(input_dim, units), dtype='float32'), dtype=tf.complex64),
-            #initial_value=tf.convert_to_tensor(np.array(np.ones((input_dim, units)), dtype=np.complex64)),
-            #initial_value=tf.convert_to_tensor(np.array(np.ones((input_dim, units)) + np.random.rand(input_dim, units), dtype=np.complex64)),
-            trainable=True,
-        )
+        if trainable is True: 
+            self.w = tf.Variable(
+                initial_value=tf.cast(w_init(shape=(input_dim, units), dtype='float32'), dtype=tf.complex64),
+                trainable=True,
+            )
+        else:
+            self.w = tf.Variable(
+                initial_value=tf.cast(calculate_first_layer(), dtype=tf.complex64),
+                trainable=False,
+            )
         self.activation =  activations.get(activation)
         
     def call(self, inputs):
         return self.activation(tf.matmul(inputs, self.w))
-
-class BatchNormalization(keras.layers.Layer):
-    def __init__(self):
-        super(BatchNormalization, self).__init__()
-        self.gamma = tf.Variable(initial_value=tf.constant(1.0, dtype=tf.complex64))
-        self.beta = tf.Variable(initial_value=tf.constant(0.0, dtype=tf.complex64))
 
 class ComplexG(keras.layers.Layer):
     def __init__(self, input_dim, activation=None):
@@ -45,6 +43,58 @@ class ComplexG(keras.layers.Layer):
     def call(self, inputs):
         return self.activation(tf.matmul(inputs, self.w))
 
+def calculate_first_layer():
+    w = np.zeros((5, 15))
+    k = 0
+    for i in range(5):
+        for j in range(i, 5): 
+            if j == i:
+                w[i][k] = 1
+            else:
+                w[i][k] = 1 / np.sqrt(2)   
+                w[j][k] = 1 / np.sqrt(2)   
+            k = k + 1    
+    return w 
+
+class LinearTrans(keras.layers.Layer):
+    def __init__(self, input_dim, units, activation=None):
+        super(LinearTrans, self).__init__()
+        self.w = tf.Variable(
+            initial_value=tf.cast(calculate_transform_layer(), dtype=tf.complex64),
+            trainable=False,
+            )
+        self.activation =  activations.get(activation)
+
+    def call(self, inputs):
+        return self.activation(tf.matmul(inputs, self.w))
+
+def calculate_transform_layer():
+    w = np.identity(15, dtype=float)
+    k = 0
+    for i in range(5):
+        for j in range(i, 5):
+            if j == i:
+                continue
+            else:
+                # Mapping 0 ~ 4 to the corresponding column 0, 5, 9, 12, 1 
+                x = int(15 - (6 - i) * (5 - i) / 2) 
+                y = int(15 - (6 - j) * (5 - j) / 2)
+
+                w[x][k] = -0.5
+                w[y][k] = -0.5 
+
+            k = k + 1  
+    return w
+
+class Biholomorphic(keras.layers.Layer):
+    '''A layer transform zi to zi*zjbar'''
+    def __init__(self):
+        super(Biholomorphic, self).__init__()
+        
+    def call(self, inputs):
+        zzbar = tf.einsum('ai,aj->aij', inputs, tf.math.conj(inputs))
+        zzbar = tf.reshape(zzbar, [len(zzbar),-1])
+        return tf.concat([tf.math.real(zzbar), tf.math.imag(zzbar)], axis=1)
 
 def gradients_z(func, x):
     dx_real = tf.gradients(tf.math.real(func), x)

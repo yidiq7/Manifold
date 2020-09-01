@@ -1,6 +1,14 @@
 # Changelog
 
 ## [Unreleased]
+## [0.5.0] - 2020-08-26
+### Added
+- Biholomorphic neural network
+
+## [0.4.0] 
+### Added 
+- The neural network model complexNN.py
+
 ## [0.3.4] - 2020-07-29
 ### Changed
 - Deleted @tf.functions for num\_s\_J\_t(), num\_Omega\_Omegabar\_tf(), etc, to speed up set\_k() function
