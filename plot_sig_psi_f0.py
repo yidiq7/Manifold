@@ -1,16 +1,16 @@
 import numpy as np 
 import matplotlib.pyplot as plt 
 
-data_k1 = np.genfromtxt("f1_k1.txt")
-data_k2 = np.genfromtxt("f1_k2.txt")
-data_k3 = np.genfromtxt("f1_k3.txt")
-data_k4 = np.genfromtxt("f1_k4.txt")
+data_k1 = np.genfromtxt("f0_k1.txt")
+data_k2 = np.genfromtxt("f0_k2.txt")
+data_k3 = np.genfromtxt("f0_k3.txt")
+data_k4 = np.genfromtxt("f0_k4.txt")
 
-xs = np.array([0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0,2,4,6,8])
+xs = np.array([0.0,0.5,1.0,2.5,5.0,7.5,10.0])
 
 fig,ax = plt.subplots(2,2)
 
-fig.suptitle('Error vs. $\phi$ for Various k')
+fig.suptitle('Error vs. $\psi$ for Various k')
 
 ax[0,0].plot(xs,data_k1[:,0],'k-',label='k=1')
 ax[0,0].fill_between(xs,data_k1[:,0]-data_k1[:,1],data_k1[:,0]+data_k1[:,1],alpha=0.5)
@@ -32,7 +32,7 @@ ax[1,1].legend()
 ax[0,0].set_ylabel('$\sigma \pm \delta_\sigma$')
 ax[1,0].set_ylabel('$\sigma \pm \delta_\sigma$')
 
-ax[1,0].set_xlabel('$\phi$')
-ax[1,1].set_xlabel('$\phi$')
+ax[1,0].set_xlabel('-$\psi$')
+ax[1,1].set_xlabel('-$\psi$')
 
 plt.show()
