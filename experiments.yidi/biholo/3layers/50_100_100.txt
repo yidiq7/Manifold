@@ -1,14 +1,15 @@
+[Results]
 model_name = 50_100_100 
-seed = 123 
+seed = 1234 
 psi = 0.5 
-n_pairs = 10000 
-n_points = 50000 
+n_pairs = 100000 
+n_points = 500000 
 batch_size = 1000 
 layers = 50_100_100 
 
-n_epochs = 0 
-train_time = 43.216830 
-sigma_train = 0.013855 
-sigma_test = 0.014310 
-delta_sigma_train = 0.000050 
-delta_sigma_test = 0.000051 
+n_epochs = 21 
+train_time = 588.808733 
+sigma_train = 0.009828 
+sigma_test = 0.009880 
+delta_sigma_train = 0.000012 
+delta_sigma_test = 0.000012 

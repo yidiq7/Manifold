@@ -1,6 +1,15 @@
 # Changelog
 
 ## [Unreleased]
+## [0.5.2] - 2020-09-02
+### Added
+- Updated a new output format
+
+## [0.5.1] - 2020-08-28
+### Changed
+- Removed zeros in the inputs with bool mask
+- Switched to the build-in adam optimizer since everything is real
+
 ## [0.5.0] - 2020-08-26
 ### Added
 - Biholomorphic neural network

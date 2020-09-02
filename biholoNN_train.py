@@ -1,17 +1,17 @@
+import os
+os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 from hypersurface_tf import *
 from generate_h import *
 from biholoNN import *
 import tensorflow as tf
 import numpy as np
-import os
 import time
 
-os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
-seed = 123
+seed = 1234
 psi = 0.5
-n_pairs = 10000
+n_pairs = 100000
 batch_size = 1000
 layers = '50_100_100'
 max_epochs = 10000
@@ -87,36 +87,35 @@ start_time = time.time()
 
 stop = False
 loss_old = 10
-n_epochs = max_epochs
+epoch = 0
 
-for epoch in range(max_epochs):
-    while not stop:
-        for step, (points, Omega_Omegabar, mass, restriction) in enumerate(train_set):
-            with tf.GradientTape() as tape:
-            
-                omega = volume_form(points, Omega_Omegabar, mass, restriction)
-                loss = weighted_MAPE(Omega_Omegabar, omega, mass)  
-                grads = tape.gradient(loss, model.trainable_weights)
+while epoch < max_epochs and stop is False:
+    for step, (points, Omega_Omegabar, mass, restriction) in enumerate(train_set):
+        with tf.GradientTape() as tape:
+        
+            omega = volume_form(points, Omega_Omegabar, mass, restriction)
+            loss = weighted_MAPE(Omega_Omegabar, omega, mass)  
+            grads = tape.gradient(loss, model.trainable_weights)
 
-            optimizer.apply_gradients(zip(grads, model.trainable_weights))
+        optimizer.apply_gradients(zip(grads, model.trainable_weights))
 
-            #if step % 500 == 0:
-            #    print("step %d: loss = %.4f" % (step, loss))
+        #if step % 500 == 0:
+        #    print("step %d: loss = %.4f" % (step, loss))
     
-        test_loss = cal_total_loss(test_set, weighted_MAPE)
-        print("train_loss:", loss.numpy())
-        print("test_loss:", test_loss)
+    test_loss = cal_total_loss(test_set, weighted_MAPE)
+    print("train_loss:", loss.numpy())
+    print("test_loss:", test_loss)
 
-        log_file.write("train_loss: %f \n" %loss)
-        log_file.write("test_loss: %f \n" %test_loss)
+    log_file.write("train_loss: %f \n" %loss)
+    log_file.write("test_loss: %f \n" %test_loss)
        
-        # Early stopping 
-        if epoch % 10 == 0:
-            if loss > loss_old:
-                stop = True 
-                n_epochs = epoch
-            loss_old = loss 
+    # Early stopping 
+    if epoch % 10 == 0:
+        if loss > loss_old:
+            stop = True 
+        loss_old = loss 
 
+    epoch = epoch + 1
 
 train_time = time.time() - start_time
 
@@ -146,6 +145,7 @@ print(delta_sigma_test)
 # Write to file
 
 with open(saved_path + model_name + ".txt", "w") as f:
+    f.write('[Results] \n')
     f.write('model_name = %s \n' % model_name)
     f.write('seed = %d \n' % seed)
     f.write('psi = %g \n' % psi)
@@ -154,11 +154,12 @@ with open(saved_path + model_name + ".txt", "w") as f:
     f.write('batch_size = %d \n' % batch_size)
     f.write('layers = %s \n' % layers) 
     f.write('\n')
-    f.write('n_epochs = %d \n' % n_epochs)
+    f.write('n_epochs = %d \n' % epoch)
     f.write('train_time = %f \n' % train_time)
     f.write('sigma_train = %f \n' % train_loss)
     f.write('sigma_test = %f \n' % test_loss)
     f.write('delta_sigma_train = %f \n' % delta_sigma_train)
     f.write('delta_sigma_test = %f \n' % delta_sigma_test)
 
-
+with open(saved_path + "summary.txt", "a") as f:
+    f.write('%d %g %d %f %f %f %f %f \n' % (seed, psi, n_pairs, train_time, train_loss, test_loss, delta_sigma_train, delta_sigma_test))
