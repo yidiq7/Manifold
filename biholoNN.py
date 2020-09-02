@@ -1,13 +1,11 @@
 import tensorflow as tf
 from tensorflow import keras
-#from tensorflow.python.framework import dtypes
 from tensorflow.python.keras import activations
-#from tensorflow.python.ops import gradients_util
-#from tensorflow.python.ops import array_ops
-#from tensorflow.python.ops import tensor_array_ops
-#from tensorflow.python.ops import control_flow_ops
 import numpy as np
 import tensorflow.python.keras.backend as K
+import os
+
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 class Biholomorphic(keras.layers.Layer):
     '''A layer transform zi to zi*zjbar'''
@@ -17,7 +15,7 @@ class Biholomorphic(keras.layers.Layer):
     def call(self, inputs):
         zzbar = tf.einsum('ai,aj->aij', inputs, tf.math.conj(inputs))
         zzbar = tf.linalg.band_part(zzbar, 0, -1)
-        zzbar = tf.reshape(zzbar, [len(zzbar),-1])
+        zzbar = tf.reshape(zzbar, [-1, 25])
         zzbar = tf.concat([tf.math.real(zzbar), tf.math.imag(zzbar)], axis=1)
        
         zzbar = tf.transpose(zzbar)

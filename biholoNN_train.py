@@ -3,41 +3,55 @@ from generate_h import *
 from biholoNN import *
 import tensorflow as tf
 import numpy as np
+import os
+import time
 
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
+seed = 123
+psi = 0.5
+n_pairs = 10000
+batch_size = 1000
+layers = '50_100_100'
+max_epochs = 10000
+
+saved_path = 'experiments.yidi/biholo/3layers/'
+model_name = layers 
 
 z0, z1, z2, z3, z4 = sp.symbols('z0, z1, z2, z3, z4')
 Z = [z0,z1,z2,z3,z4]
-f = z0**5 + z1**5 + z2**5 + z3**5 + z4**5 + 0.5*z0*z1*z2*z3*z4
-#np.random.seed(123)
-HS = Hypersurface(Z, f, 10000)
-#np.random.seed(124)
-HS_test = Hypersurface(Z, f, 10000)
+f = z0**5 + z1**5 + z2**5 + z3**5 + z4**5 + psi*z0*z1*z2*z3*z4
+np.random.seed(seed)
+HS = Hypersurface(Z, f, n_pairs)
+HS_test = Hypersurface(Z, f, n_pairs)
 
 train_set = generate_dataset(HS)
 test_set = generate_dataset(HS_test)
 
-train_set = train_set.shuffle(500000).batch(1000)
-test_set = test_set.shuffle(50000).batch(1000)
+train_set = train_set.shuffle(HS.n_points).batch(batch_size)
+test_set = test_set.shuffle(HS_test.n_points).batch(batch_size)
 
 class KahlerPotential(tf.keras.Model):
 
     def __init__(self):
         super(KahlerPotential, self).__init__()
         self.biholomorphic = Biholomorphic()
-        self.layer1 = Dense(25,500, activation=tf.square)
-        self.layer2 = Dense(500,500, activation=tf.square)
+        self.layer1 = Dense(25,50, activation=tf.square)
+        self.layer2 = Dense(50,100, activation=tf.square)
+        self.layer3 = Dense(100,100, activation=tf.square)
 
     def call(self, inputs):
         x = self.biholomorphic(inputs)
         x = self.layer1(x)
         x = self.layer2(x)
-        #x = self.layer3(x)
+        x = self.layer3(x)
         x = tf.reduce_sum(x, 1)
         x = tf.math.log(x)
         return x
 
 model = KahlerPotential()
+#model = tf.keras.models.load_model(saved_path + model_name, compile=False)
 
 @tf.function
 def volume_form(x, Omega_Omegabar, mass, restriction):
@@ -50,31 +64,101 @@ def volume_form(x, Omega_Omegabar, mass, restriction):
     return volume_form / factor
 
 optimizer = tf.keras.optimizers.Adam()
-epochs = 6000
 
-for epoch in range(epochs):
-    for step, (points, Omega_Omegabar, mass, restriction) in enumerate(train_set):
-        with tf.GradientTape() as tape:
-            
-            omega = volume_form(points, Omega_Omegabar, mass, restriction)
-            loss = weighted_MAPE(Omega_Omegabar, omega, mass)  
-            grads = tape.gradient(loss, model.trainable_weights)
-
-        optimizer.apply_gradients(zip(grads, model.trainable_weights))
-
-        if step % 500 == 0:
-            print("step %d: loss = %.4f" % (step, loss))
+def cal_total_loss(dataset, loss_function):
     
-    test_loss = 0
-    test_loss_old = 100
+    total_loss = 0
     total_mass = 0
     
-    for step, (points, Omega_Omegabar, mass, restriction) in enumerate(test_set):
+    for step, (points, Omega_Omegabar, mass, restriction) in enumerate(dataset):
         omega = volume_form(points, Omega_Omegabar, mass, restriction)
         mass_sum = tf.reduce_sum(mass)
-        test_loss += weighted_MAPE(Omega_Omegabar, omega, mass) * mass_sum
+        total_loss += loss_function(Omega_Omegabar, omega, mass) * mass_sum
         total_mass += mass_sum
    
-    test_loss = test_loss / total_mass
-    print("test_loss:", test_loss.numpy())
+    total_loss = total_loss / total_mass
     
+    return total_loss.numpy()
+
+# Training
+log_file = open(saved_path + model_name + '.log', 'w')
+
+start_time = time.time()
+
+stop = False
+loss_old = 10
+n_epochs = max_epochs
+
+for epoch in range(max_epochs):
+    while not stop:
+        for step, (points, Omega_Omegabar, mass, restriction) in enumerate(train_set):
+            with tf.GradientTape() as tape:
+            
+                omega = volume_form(points, Omega_Omegabar, mass, restriction)
+                loss = weighted_MAPE(Omega_Omegabar, omega, mass)  
+                grads = tape.gradient(loss, model.trainable_weights)
+
+            optimizer.apply_gradients(zip(grads, model.trainable_weights))
+
+            #if step % 500 == 0:
+            #    print("step %d: loss = %.4f" % (step, loss))
+    
+        test_loss = cal_total_loss(test_set, weighted_MAPE)
+        print("train_loss:", loss.numpy())
+        print("test_loss:", test_loss)
+
+        log_file.write("train_loss: %f \n" %loss)
+        log_file.write("test_loss: %f \n" %test_loss)
+       
+        # Early stopping 
+        if epoch % 10 == 0:
+            if loss > loss_old:
+                stop = True 
+                n_epochs = epoch
+            loss_old = loss 
+
+
+train_time = time.time() - start_time
+
+log_file.close()
+model.save(saved_path + model_name)
+
+#######################################################################
+# Calculate delta_sigma
+
+train_loss = cal_total_loss(train_set, weighted_MAPE)
+
+def delta_sigma_square_train(y_true, y_pred, mass):
+    weights = mass / K.sum(mass)
+    return K.sum((K.abs(y_true - y_pred) / y_true - train_loss)**2 * weights)
+
+def delta_sigma_square_test(y_true, y_pred, mass):
+    weights = mass / K.sum(mass)
+    return K.sum((K.abs(y_true - y_pred) / y_true - test_loss)**2 * weights)
+
+delta_sigma_train = math.sqrt(cal_total_loss(train_set, delta_sigma_square_train) / HS.n_points)
+delta_sigma_test = math.sqrt(cal_total_loss(test_set, delta_sigma_square_test) / HS.n_points)
+
+print(delta_sigma_train)
+print(delta_sigma_test)
+
+#####################################################################
+# Write to file
+
+with open(saved_path + model_name + ".txt", "w") as f:
+    f.write('model_name = %s \n' % model_name)
+    f.write('seed = %d \n' % seed)
+    f.write('psi = %g \n' % psi)
+    f.write('n_pairs = %d \n' % n_pairs)
+    f.write('n_points = %d \n' % HS.n_points)
+    f.write('batch_size = %d \n' % batch_size)
+    f.write('layers = %s \n' % layers) 
+    f.write('\n')
+    f.write('n_epochs = %d \n' % n_epochs)
+    f.write('train_time = %f \n' % train_time)
+    f.write('sigma_train = %f \n' % train_loss)
+    f.write('sigma_test = %f \n' % test_loss)
+    f.write('delta_sigma_train = %f \n' % delta_sigma_train)
+    f.write('delta_sigma_test = %f \n' % delta_sigma_test)
+
+
