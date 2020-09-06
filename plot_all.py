@@ -6,8 +6,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-if not os.path.exists('plot'):
-    os.makedirs('plot')
+if not os.path.exists('plot3'):
+    os.makedirs('plot3')
 
 z0, z1, z2, z3, z4= sp.symbols('z0, z1, z2, z3, z4')
 Z = [z0,z1,z2,z3,z4]
@@ -15,7 +15,7 @@ f = z0**5 + z1**5 + z2**5 + z3**5 + z4**5 + 0.5*z0*z1*z2*z3*z4
 HS = Hypersurface(Z, f, 1000)
 
 config = configparser.RawConfigParser()
-directory = './results'
+directory = './results3'
 k_old = 0
 for filename in sorted(os.listdir(directory)):
     print('Plotting ', filename)
@@ -59,4 +59,4 @@ for filename in sorted(os.listdir(directory)):
         X, Y, ZZ, rstride=1, cstride=1, cmap=plt.cm.YlGnBu_r,
         linewidth=0, antialiased=False)
     
-    fig.savefig('./plot/'+filename+'.png', dpi=fig.dpi)
+    fig.savefig('./plot3/'+filename+'.png', dpi=fig.dpi)

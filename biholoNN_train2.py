@@ -6,19 +6,18 @@ from biholoNN import *
 import tensorflow as tf
 import numpy as np
 import time
-import sys
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
-seed = int(sys.argv[1])
+seed = 1234
 psi = 0.5
 n_pairs = 100000
 batch_size = 1000
-layers = '100_500_1000_1'
+layers = '50_100_100'
 max_epochs = 10000
 
-saved_path = 'experiments.yidi/biholo/3layers/'
-model_name = layers + '_seed' + str(seed) 
+saved_path = 'experiments.mrd/biholo/'
+model_name = layers 
 
 z0, z1, z2, z3, z4 = sp.symbols('z0, z1, z2, z3, z4')
 Z = [z0,z1,z2,z3,z4]
@@ -38,18 +37,16 @@ class KahlerPotential(tf.keras.Model):
     def __init__(self):
         super(KahlerPotential, self).__init__()
         self.biholomorphic = Biholomorphic()
-        self.layer1 = Dense(25,100, activation=tf.square)
-        self.layer2 = Dense(100,500, activation=tf.square)
-        self.layer3 = Dense(500,1000, activation=tf.square)
-        self.layer4 = Dense(1000, 1)
+        self.layer1 = Dense(25,50, activation=tf.square)
+        self.layer2 = Dense(50,100, activation=tf.square)
+        self.layer3 = Dense(100,100, activation=tf.square)
 
     def call(self, inputs):
         x = self.biholomorphic(inputs)
         x = self.layer1(x)
         x = self.layer2(x)
         x = self.layer3(x)
-        x = self.layer4(x)
-        #x = tf.reduce_sum(x, 1)
+        x = tf.reduce_sum(x, 1)
         x = tf.math.log(x)
         return x
 

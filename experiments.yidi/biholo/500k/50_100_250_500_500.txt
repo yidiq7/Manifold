@@ -1,0 +1,1960 @@
+step 0: loss = 1.0045
+test_loss: 0.026899545
+step 0: loss = 0.0268
+test_loss: 0.012684648
+step 0: loss = 0.0122
+test_loss: 0.011300703
+step 0: loss = 0.0109
+test_loss: 0.010896232
+step 0: loss = 0.0111
+test_loss: 0.010030875
+step 0: loss = 0.0098
+test_loss: 0.009818134
+step 0: loss = 0.0091
+test_loss: 0.009940554
+step 0: loss = 0.0097
+test_loss: 0.0095082475
+step 0: loss = 0.0092
+test_loss: 0.00964509
+step 0: loss = 0.0094
+test_loss: 0.009480822
+step 0: loss = 0.0090
+test_loss: 0.009520196
+step 0: loss = 0.0091
+test_loss: 0.0096270675
+step 0: loss = 0.0098
+test_loss: 0.00900265
+step 0: loss = 0.0093
+test_loss: 0.008616549
+step 0: loss = 0.0082
+test_loss: 0.00918568
+step 0: loss = 0.0094
+test_loss: 0.009213623
+step 0: loss = 0.0093
+test_loss: 0.009268902
+step 0: loss = 0.0104
+test_loss: 0.008911467
+step 0: loss = 0.0092
+test_loss: 0.009267513
+step 0: loss = 0.0105
+test_loss: 0.008899919
+step 0: loss = 0.0094
+test_loss: 0.008972404
+step 0: loss = 0.0093
+test_loss: 0.009161553
+step 0: loss = 0.0090
+test_loss: 0.008754283
+step 0: loss = 0.0084
+test_loss: 0.00873462
+step 0: loss = 0.0090
+test_loss: 0.009149716
+step 0: loss = 0.0093
+test_loss: 0.009187271
+step 0: loss = 0.0088
+test_loss: 0.009464627
+step 0: loss = 0.0094
+test_loss: 0.008919658
+step 0: loss = 0.0089
+test_loss: 0.009522621
+step 0: loss = 0.0106
+test_loss: 0.009090708
+step 0: loss = 0.0092
+test_loss: 0.008700957
+step 0: loss = 0.0084
+test_loss: 0.009267372
+step 0: loss = 0.0097
+test_loss: 0.008758638
+step 0: loss = 0.0087
+test_loss: 0.008599115
+step 0: loss = 0.0085
+test_loss: 0.009367899
+step 0: loss = 0.0093
+test_loss: 0.008887344
+step 0: loss = 0.0092
+test_loss: 0.008827222
+step 0: loss = 0.0083
+test_loss: 0.009381574
+step 0: loss = 0.0100
+test_loss: 0.008530333
+step 0: loss = 0.0087
+test_loss: 0.008650675
+step 0: loss = 0.0084
+test_loss: 0.00856052
+step 0: loss = 0.0087
+test_loss: 0.008866471
+step 0: loss = 0.0089
+test_loss: 0.00930994
+step 0: loss = 0.0096
+test_loss: 0.008548987
+step 0: loss = 0.0092
+test_loss: 0.008385481
+step 0: loss = 0.0084
+test_loss: 0.008997774
+step 0: loss = 0.0092
+test_loss: 0.009063247
+step 0: loss = 0.0089
+test_loss: 0.008612506
+step 0: loss = 0.0087
+test_loss: 0.008603166
+step 0: loss = 0.0083
+test_loss: 0.008695402
+step 0: loss = 0.0082
+test_loss: 0.0091892965
+step 0: loss = 0.0092
+test_loss: 0.008518032
+step 0: loss = 0.0086
+test_loss: 0.008822173
+step 0: loss = 0.0091
+test_loss: 0.008452849
+step 0: loss = 0.0083
+test_loss: 0.008429744
+step 0: loss = 0.0084
+test_loss: 0.008434268
+step 0: loss = 0.0093
+test_loss: 0.008523695
+step 0: loss = 0.0085
+test_loss: 0.00855781
+step 0: loss = 0.0085
+test_loss: 0.008694634
+step 0: loss = 0.0089
+test_loss: 0.008936617
+step 0: loss = 0.0086
+test_loss: 0.008537196
+step 0: loss = 0.0083
+test_loss: 0.00866054
+step 0: loss = 0.0080
+test_loss: 0.008816604
+step 0: loss = 0.0089
+test_loss: 0.008371041
+step 0: loss = 0.0087
+test_loss: 0.008512217
+step 0: loss = 0.0084
+test_loss: 0.008619257
+step 0: loss = 0.0084
+test_loss: 0.0084379325
+step 0: loss = 0.0088
+test_loss: 0.00866945
+step 0: loss = 0.0085
+test_loss: 0.008747894
+step 0: loss = 0.0085
+test_loss: 0.008649931
+step 0: loss = 0.0084
+test_loss: 0.008643616
+step 0: loss = 0.0089
+test_loss: 0.008437837
+step 0: loss = 0.0085
+test_loss: 0.008617645
+step 0: loss = 0.0091
+test_loss: 0.008505074
+step 0: loss = 0.0089
+test_loss: 0.008843196
+step 0: loss = 0.0091
+test_loss: 0.008866104
+step 0: loss = 0.0090
+test_loss: 0.008562984
+step 0: loss = 0.0083
+test_loss: 0.008474835
+step 0: loss = 0.0083
+test_loss: 0.008854375
+step 0: loss = 0.0088
+test_loss: 0.008313479
+step 0: loss = 0.0085
+test_loss: 0.008353914
+step 0: loss = 0.0081
+test_loss: 0.008553877
+step 0: loss = 0.0082
+test_loss: 0.008470527
+step 0: loss = 0.0082
+test_loss: 0.00852384
+step 0: loss = 0.0083
+test_loss: 0.0085399
+step 0: loss = 0.0090
+test_loss: 0.00836035
+step 0: loss = 0.0086
+test_loss: 0.008631993
+step 0: loss = 0.0084
+test_loss: 0.008652738
+step 0: loss = 0.0082
+test_loss: 0.008336038
+step 0: loss = 0.0083
+test_loss: 0.00880046
+step 0: loss = 0.0095
+test_loss: 0.0084547
+step 0: loss = 0.0086
+test_loss: 0.0087006595
+step 0: loss = 0.0086
+test_loss: 0.008584772
+step 0: loss = 0.0086
+test_loss: 0.008591013
+step 0: loss = 0.0085
+test_loss: 0.008414972
+step 0: loss = 0.0087
+test_loss: 0.008589951
+step 0: loss = 0.0088
+test_loss: 0.008565249
+step 0: loss = 0.0081
+test_loss: 0.0084972335
+step 0: loss = 0.0088
+test_loss: 0.008793717
+step 0: loss = 0.0084
+test_loss: 0.008327668
+step 0: loss = 0.0086
+test_loss: 0.008532352
+step 0: loss = 0.0089
+test_loss: 0.008401611
+step 0: loss = 0.0086
+test_loss: 0.008536717
+step 0: loss = 0.0078
+test_loss: 0.008435898
+step 0: loss = 0.0083
+test_loss: 0.008401468
+step 0: loss = 0.0083
+test_loss: 0.008327673
+step 0: loss = 0.0077
+test_loss: 0.008309453
+step 0: loss = 0.0081
+test_loss: 0.008353152
+step 0: loss = 0.0081
+test_loss: 0.008544787
+step 0: loss = 0.0088
+test_loss: 0.008377676
+step 0: loss = 0.0083
+test_loss: 0.008410901
+step 0: loss = 0.0081
+test_loss: 0.008764908
+step 0: loss = 0.0085
+test_loss: 0.008363005
+step 0: loss = 0.0085
+test_loss: 0.0084872525
+step 0: loss = 0.0085
+test_loss: 0.0085828025
+step 0: loss = 0.0079
+test_loss: 0.008640747
+step 0: loss = 0.0085
+test_loss: 0.008596563
+step 0: loss = 0.0088
+test_loss: 0.008365012
+step 0: loss = 0.0075
+test_loss: 0.008494448
+step 0: loss = 0.0083
+test_loss: 0.008294276
+step 0: loss = 0.0078
+test_loss: 0.0083306115
+step 0: loss = 0.0083
+test_loss: 0.008430318
+step 0: loss = 0.0088
+test_loss: 0.008735991
+step 0: loss = 0.0088
+test_loss: 0.008496302
+step 0: loss = 0.0087
+test_loss: 0.008523406
+step 0: loss = 0.0089
+test_loss: 0.008446322
+step 0: loss = 0.0086
+test_loss: 0.008424452
+step 0: loss = 0.0082
+test_loss: 0.008053283
+step 0: loss = 0.0079
+test_loss: 0.008123857
+step 0: loss = 0.0081
+test_loss: 0.008290739
+step 0: loss = 0.0084
+test_loss: 0.008344813
+step 0: loss = 0.0082
+test_loss: 0.008056148
+step 0: loss = 0.0076
+test_loss: 0.00834062
+step 0: loss = 0.0084
+test_loss: 0.0081309015
+step 0: loss = 0.0082
+test_loss: 0.007953906
+step 0: loss = 0.0080
+test_loss: 0.008051293
+step 0: loss = 0.0079
+test_loss: 0.008203883
+step 0: loss = 0.0082
+test_loss: 0.007962754
+step 0: loss = 0.0078
+test_loss: 0.008106361
+step 0: loss = 0.0079
+test_loss: 0.008201241
+step 0: loss = 0.0079
+test_loss: 0.007850729
+step 0: loss = 0.0080
+test_loss: 0.008126068
+step 0: loss = 0.0082
+test_loss: 0.008223972
+step 0: loss = 0.0088
+test_loss: 0.008069417
+step 0: loss = 0.0084
+test_loss: 0.008327347
+step 0: loss = 0.0081
+test_loss: 0.007838428
+step 0: loss = 0.0082
+test_loss: 0.00844651
+step 0: loss = 0.0086
+test_loss: 0.008208834
+step 0: loss = 0.0085
+test_loss: 0.008229386
+step 0: loss = 0.0082
+test_loss: 0.007897797
+step 0: loss = 0.0081
+test_loss: 0.008098654
+step 0: loss = 0.0082
+test_loss: 0.008439676
+step 0: loss = 0.0082
+test_loss: 0.007998294
+step 0: loss = 0.0082
+test_loss: 0.007979865
+step 0: loss = 0.0080
+test_loss: 0.007918766
+step 0: loss = 0.0081
+test_loss: 0.00797129
+step 0: loss = 0.0079
+test_loss: 0.00804667
+step 0: loss = 0.0083
+test_loss: 0.007621442
+step 0: loss = 0.0078
+test_loss: 0.007818684
+step 0: loss = 0.0082
+test_loss: 0.0077623683
+step 0: loss = 0.0078
+test_loss: 0.0078185545
+step 0: loss = 0.0079
+test_loss: 0.0077416147
+step 0: loss = 0.0078
+test_loss: 0.007546404
+step 0: loss = 0.0073
+test_loss: 0.0077860104
+step 0: loss = 0.0076
+test_loss: 0.007552142
+step 0: loss = 0.0075
+test_loss: 0.007314263
+step 0: loss = 0.0076
+test_loss: 0.0072753537
+step 0: loss = 0.0070
+test_loss: 0.0071407533
+step 0: loss = 0.0075
+test_loss: 0.007165594
+step 0: loss = 0.0073
+test_loss: 0.0072116265
+step 0: loss = 0.0075
+test_loss: 0.006995624
+step 0: loss = 0.0073
+test_loss: 0.006886821
+step 0: loss = 0.0073
+test_loss: 0.0068373396
+step 0: loss = 0.0069
+test_loss: 0.007048496
+step 0: loss = 0.0068
+test_loss: 0.006817953
+step 0: loss = 0.0070
+test_loss: 0.00671495
+step 0: loss = 0.0068
+test_loss: 0.0067723505
+step 0: loss = 0.0070
+test_loss: 0.0066489964
+step 0: loss = 0.0064
+test_loss: 0.0065989546
+step 0: loss = 0.0062
+test_loss: 0.0064846883
+step 0: loss = 0.0068
+test_loss: 0.0062007527
+step 0: loss = 0.0058
+test_loss: 0.0062262444
+
+step 0: loss = 0.0061
+test_loss: 0.0064092744
+step 0: loss = 0.0064
+test_loss: 0.0062505025
+step 0: loss = 0.0064
+test_loss: 0.0061236825
+step 0: loss = 0.0059
+test_loss: 0.006206858
+step 0: loss = 0.0062
+test_loss: 0.0061523016
+step 0: loss = 0.0063
+test_loss: 0.0063905194
+step 0: loss = 0.0065
+test_loss: 0.006198403
+step 0: loss = 0.0064
+test_loss: 0.006342251
+step 0: loss = 0.0066
+test_loss: 0.0062119393
+step 0: loss = 0.0060
+test_loss: 0.006294703
+step 0: loss = 0.0064
+test_loss: 0.006086548
+step 0: loss = 0.0061
+test_loss: 0.0061233933
+step 0: loss = 0.0060
+test_loss: 0.0061796447
+step 0: loss = 0.0059
+test_loss: 0.0060690236
+step 0: loss = 0.0062
+test_loss: 0.0063168174
+step 0: loss = 0.0063
+test_loss: 0.0059747174
+step 0: loss = 0.0061
+test_loss: 0.006393955
+step 0: loss = 0.0058
+test_loss: 0.006265187
+step 0: loss = 0.0066
+test_loss: 0.0060299416
+step 0: loss = 0.0060
+test_loss: 0.00594308
+step 0: loss = 0.0059
+test_loss: 0.006130989
+step 0: loss = 0.0064
+test_loss: 0.006380436
+step 0: loss = 0.0065
+test_loss: 0.006030104
+step 0: loss = 0.0055
+test_loss: 0.006202914
+step 0: loss = 0.0065
+test_loss: 0.0060871067
+step 0: loss = 0.0061
+test_loss: 0.0060697673
+step 0: loss = 0.0062
+test_loss: 0.0064259544
+step 0: loss = 0.0063
+test_loss: 0.006312621
+step 0: loss = 0.0065
+test_loss: 0.0061807004
+step 0: loss = 0.0060
+test_loss: 0.0061310893
+step 0: loss = 0.0058
+test_loss: 0.00631002
+step 0: loss = 0.0062
+test_loss: 0.0062929546
+step 0: loss = 0.0067
+test_loss: 0.00604027
+step 0: loss = 0.0062
+test_loss: 0.0061134463
+step 0: loss = 0.0062
+test_loss: 0.0059396685
+step 0: loss = 0.0059
+test_loss: 0.006248477
+step 0: loss = 0.0063
+test_loss: 0.006122278
+step 0: loss = 0.0062
+test_loss: 0.006139154
+step 0: loss = 0.0060
+test_loss: 0.0060297
+step 0: loss = 0.0061
+test_loss: 0.006099791
+step 0: loss = 0.0060
+test_loss: 0.0060837464
+step 0: loss = 0.0059
+test_loss: 0.0061658253
+step 0: loss = 0.0060
+test_loss: 0.006059386
+step 0: loss = 0.0061
+test_loss: 0.0059805075
+step 0: loss = 0.0063
+test_loss: 0.006301885
+step 0: loss = 0.0062
+test_loss: 0.006044219
+step 0: loss = 0.0063
+test_loss: 0.0058815326
+step 0: loss = 0.0062
+test_loss: 0.0064817364
+step 0: loss = 0.0064
+test_loss: 0.005915912
+step 0: loss = 0.0059
+test_loss: 0.006358705
+step 0: loss = 0.0063
+test_loss: 0.006231928
+step 0: loss = 0.0059
+test_loss: 0.0061890134
+step 0: loss = 0.0061
+test_loss: 0.006241244
+step 0: loss = 0.0058
+test_loss: 0.005939962
+step 0: loss = 0.0061
+test_loss: 0.0060111973
+step 0: loss = 0.0057
+test_loss: 0.006091791
+step 0: loss = 0.0058
+test_loss: 0.0062487167
+step 0: loss = 0.0059
+test_loss: 0.006178237
+step 0: loss = 0.0059
+test_loss: 0.006044958
+step 0: loss = 0.0058
+test_loss: 0.006026014
+step 0: loss = 0.0065
+test_loss: 0.00608373
+step 0: loss = 0.0059
+test_loss: 0.0059854756
+step 0: loss = 0.0060
+test_loss: 0.006031127
+step 0: loss = 0.0063
+test_loss: 0.006010569
+step 0: loss = 0.0062
+test_loss: 0.0061292443
+step 0: loss = 0.0063
+test_loss: 0.006045414
+step 0: loss = 0.0062
+test_loss: 0.0060246047
+step 0: loss = 0.0057
+test_loss: 0.0059592985
+step 0: loss = 0.0058
+test_loss: 0.006162414
+step 0: loss = 0.0066
+test_loss: 0.0061544552
+step 0: loss = 0.0059
+test_loss: 0.0062938076
+step 0: loss = 0.0066
+test_loss: 0.00596217
+step 0: loss = 0.0065
+test_loss: 0.0062695593
+step 0: loss = 0.0063
+test_loss: 0.0059490823
+step 0: loss = 0.0060
+test_loss: 0.006021743
+step 0: loss = 0.0062
+test_loss: 0.0058811842
+step 0: loss = 0.0056
+test_loss: 0.007908772
+step 0: loss = 0.0079
+test_loss: 0.005989084
+step 0: loss = 0.0060
+test_loss: 0.00599771
+step 0: loss = 0.0061
+test_loss: 0.005933108
+step 0: loss = 0.0063
+test_loss: 0.005981137
+step 0: loss = 0.0060
+test_loss: 0.0061534937
+step 0: loss = 0.0064
+test_loss: 0.0060296375
+step 0: loss = 0.0062
+test_loss: 0.005957461
+step 0: loss = 0.0060
+test_loss: 0.005994073
+step 0: loss = 0.0058
+test_loss: 0.006198464
+step 0: loss = 0.0061
+test_loss: 0.00607653
+step 0: loss = 0.0060
+test_loss: 0.006022733
+step 0: loss = 0.0061
+test_loss: 0.0062899454
+step 0: loss = 0.0062
+test_loss: 0.0059416685
+step 0: loss = 0.0057
+test_loss: 0.0060673384
+step 0: loss = 0.0059
+test_loss: 0.005936064
+step 0: loss = 0.0057
+test_loss: 0.005934448
+step 0: loss = 0.0057
+test_loss: 0.0058162115
+step 0: loss = 0.0054
+test_loss: 0.0058193817
+step 0: loss = 0.0059
+test_loss: 0.005720219
+step 0: loss = 0.0061
+test_loss: 0.0056274855
+step 0: loss = 0.0057
+test_loss: 0.0057882816
+step 0: loss = 0.0056
+test_loss: 0.005803946
+step 0: loss = 0.0055
+test_loss: 0.0054650805
+step 0: loss = 0.0055
+test_loss: 0.0054887626
+step 0: loss = 0.0055
+test_loss: 0.005587814
+step 0: loss = 0.0057
+test_loss: 0.005298658
+step 0: loss = 0.0052
+test_loss: 0.005344317
+step 0: loss = 0.0053
+test_loss: 0.0050786743
+step 0: loss = 0.0049
+test_loss: 0.0051595713
+step 0: loss = 0.0052
+test_loss: 0.0051106713
+step 0: loss = 0.0048
+test_loss: 0.004855918
+step 0: loss = 0.0047
+test_loss: 0.004852554
+step 0: loss = 0.0046
+test_loss: 0.0047869002
+step 0: loss = 0.0047
+test_loss: 0.0074245897
+step 0: loss = 0.0073
+test_loss: 0.0051219654
+step 0: loss = 0.0052
+test_loss: 0.0045403372
+step 0: loss = 0.0046
+test_loss: 0.004681628
+step 0: loss = 0.0048
+test_loss: 0.0045700134
+step 0: loss = 0.0046
+test_loss: 0.0047401222
+step 0: loss = 0.0049
+test_loss: 0.0045599905
+step 0: loss = 0.0043
+test_loss: 0.0046702726
+step 0: loss = 0.0043
+test_loss: 0.0045226384
+step 0: loss = 0.0048
+test_loss: 0.0044245147
+step 0: loss = 0.0042
+test_loss: 0.004338685
+step 0: loss = 0.0042
+test_loss: 0.004582792
+step 0: loss = 0.0049
+test_loss: 0.0043082945
+step 0: loss = 0.0041
+test_loss: 0.004126728
+step 0: loss = 0.0041
+test_loss: 0.0042470167
+step 0: loss = 0.0043
+test_loss: 0.0043799086
+step 0: loss = 0.0043
+test_loss: 0.004235772
+step 0: loss = 0.0044
+test_loss: 0.0040388135
+step 0: loss = 0.0039
+test_loss: 0.004010011
+step 0: loss = 0.0038
+test_loss: 0.003908307
+step 0: loss = 0.0038
+test_loss: 0.003811105
+step 0: loss = 0.0036
+test_loss: 0.0038058823
+step 0: loss = 0.0037
+test_loss: 0.003854989
+step 0: loss = 0.0037
+test_loss: 0.0037654457
+step 0: loss = 0.0038
+test_loss: 0.00365127
+step 0: loss = 0.0038
+test_loss: 0.0035444128
+step 0: loss = 0.0037
+test_loss: 0.0036561058
+step 0: loss = 0.0035
+test_loss: 0.0034156991
+step 0: loss = 0.0033
+test_loss: 0.0033677365
+step 0: loss = 0.0034
+test_loss: 0.003351674
+step 0: loss = 0.0033
+test_loss: 0.0032265263
+step 0: loss = 0.0031
+test_loss: 0.003378912
+step 0: loss = 0.0034
+test_loss: 0.0031728267
+step 0: loss = 0.0032
+test_loss: 0.004154649
+step 0: loss = 0.0041
+test_loss: 0.0032650423
+step 0: loss = 0.0031
+test_loss: 0.003082314
+step 0: loss = 0.0031
+test_loss: 0.0031350786
+step 0: loss = 0.0032
+test_loss: 0.0031325794
+step 0: loss = 0.0031
+test_loss: 0.0031468233
+step 0: loss = 0.0030
+test_loss: 0.003119857
+step 0: loss = 0.0030
+test_loss: 0.0030170511
+step 0: loss = 0.0030
+test_loss: 0.003043021
+step 0: loss = 0.0030
+test_loss: 0.003000655
+step 0: loss = 0.0029
+test_loss: 0.0028468557
+step 0: loss = 0.0030
+test_loss: 0.0029972899
+step 0: loss = 0.0029
+test_loss: 0.003006745
+step 0: loss = 0.0030
+test_loss: 0.003067048
+step 0: loss = 0.0029
+test_loss: 0.0028895417
+step 0: loss = 0.0029
+test_loss: 0.0028714822
+step 0: loss = 0.0029
+test_loss: 0.0027945482
+step 0: loss = 0.0029
+test_loss: 0.002796769
+step 0: loss = 0.0027
+test_loss: 0.0029404133
+step 0: loss = 0.0030
+test_loss: 0.0028637268
+step 0: loss = 0.0028
+test_loss: 0.0029284856
+step 0: loss = 0.0029
+test_loss: 0.0027940567
+step 0: loss = 0.0025
+test_loss: 0.0026931101
+step 0: loss = 0.0027
+test_loss: 0.0025751917
+step 0: loss = 0.0026
+test_loss: 0.0028535274
+step 0: loss = 0.0028
+test_loss: 0.0026788355
+step 0: loss = 0.0026
+test_loss: 0.0026921802
+step 0: loss = 0.0027
+test_loss: 0.002698504
+step 0: loss = 0.0027
+test_loss: 0.0025152348
+step 0: loss = 0.0025
+test_loss: 0.0026432837
+step 0: loss = 0.0027
+test_loss: 0.004503557
+step 0: loss = 0.0045
+test_loss: 0.0027613011
+step 0: loss = 0.0028
+test_loss: 0.002409133
+step 0: loss = 0.0025
+test_loss: 0.0025264095
+step 0: loss = 0.0024
+test_loss: 0.0025022815
+step 0: loss = 0.0025
+test_loss: 0.0024463004
+step 0: loss = 0.0024
+test_loss: 0.002360154
+step 0: loss = 0.0023
+
+test_loss: 0.002471726
+step 0: loss = 0.0025
+test_loss: 0.002455631
+step 0: loss = 0.0024
+test_loss: 0.0024616022
+step 0: loss = 0.0025
+test_loss: 0.0025408384
+step 0: loss = 0.0025
+test_loss: 0.0023783164
+step 0: loss = 0.0024
+test_loss: 0.0023504659
+step 0: loss = 0.0024
+test_loss: 0.0024157243
+step 0: loss = 0.0023
+test_loss: 0.0024472524
+step 0: loss = 0.0024
+test_loss: 0.002323523
+step 0: loss = 0.0022
+test_loss: 0.0023130018
+step 0: loss = 0.0023
+test_loss: 0.002455885
+step 0: loss = 0.0024
+test_loss: 0.0023483864
+step 0: loss = 0.0023
+test_loss: 0.002222497
+step 0: loss = 0.0022
+test_loss: 0.0022730636
+step 0: loss = 0.0023
+test_loss: 0.0023216454
+step 0: loss = 0.0023
+test_loss: 0.0023043042
+step 0: loss = 0.0023
+test_loss: 0.0023324473
+step 0: loss = 0.0023
+test_loss: 0.0024867281
+step 0: loss = 0.0025
+test_loss: 0.0023835315
+step 0: loss = 0.0024
+test_loss: 0.0024480675
+step 0: loss = 0.0024
+test_loss: 0.0022882519
+step 0: loss = 0.0023
+test_loss: 0.0023740171
+step 0: loss = 0.0023
+test_loss: 0.0022294316
+step 0: loss = 0.0022
+test_loss: 0.0023360248
+step 0: loss = 0.0022
+test_loss: 0.002153085
+step 0: loss = 0.0022
+test_loss: 0.0020670083
+step 0: loss = 0.0020
+test_loss: 0.0021403886
+step 0: loss = 0.0021
+test_loss: 0.0067338003
+step 0: loss = 0.0064
+test_loss: 0.0021824709
+step 0: loss = 0.0022
+test_loss: 0.0020322122
+step 0: loss = 0.0020
+test_loss: 0.0020450233
+step 0: loss = 0.0021
+test_loss: 0.002156016
+step 0: loss = 0.0021
+test_loss: 0.0023537492
+step 0: loss = 0.0022
+test_loss: 0.0021339005
+step 0: loss = 0.0021
+test_loss: 0.00202908
+step 0: loss = 0.0020
+test_loss: 0.00222091
+step 0: loss = 0.0022
+test_loss: 0.0021404205
+step 0: loss = 0.0021
+test_loss: 0.0022789708
+step 0: loss = 0.0022
+test_loss: 0.0021336293
+step 0: loss = 0.0021
+test_loss: 0.0020436333
+step 0: loss = 0.0021
+test_loss: 0.0021182923
+step 0: loss = 0.0021
+test_loss: 0.0023468086
+step 0: loss = 0.0023
+test_loss: 0.002288283
+step 0: loss = 0.0023
+test_loss: 0.0020933487
+step 0: loss = 0.0022
+test_loss: 0.0021764901
+step 0: loss = 0.0023
+test_loss: 0.0021853296
+step 0: loss = 0.0021
+test_loss: 0.00209005
+step 0: loss = 0.0021
+test_loss: 0.0021422834
+step 0: loss = 0.0021
+test_loss: 0.0020050076
+step 0: loss = 0.0019
+test_loss: 0.0020844145
+step 0: loss = 0.0020
+test_loss: 0.0021036847
+step 0: loss = 0.0021
+test_loss: 0.0021377474
+step 0: loss = 0.0021
+test_loss: 0.0020491073
+step 0: loss = 0.0021
+test_loss: 0.0020443578
+step 0: loss = 0.0021
+test_loss: 0.0020825993
+step 0: loss = 0.0021
+test_loss: 0.0020926234
+step 0: loss = 0.0021
+test_loss: 0.0020441157
+step 0: loss = 0.0020
+test_loss: 0.0019580463
+step 0: loss = 0.0019
+test_loss: 0.0022951504
+step 0: loss = 0.0022
+test_loss: 0.0019459146
+step 0: loss = 0.0019
+test_loss: 0.0019016323
+step 0: loss = 0.0019
+test_loss: 0.001943056
+step 0: loss = 0.0018
+test_loss: 0.049532387
+step 0: loss = 0.0456
+test_loss: 0.0022886787
+step 0: loss = 0.0024
+test_loss: 0.0019854086
+step 0: loss = 0.0019
+test_loss: 0.0020359333
+step 0: loss = 0.0021
+test_loss: 0.001893737
+step 0: loss = 0.0018
+test_loss: 0.001963436
+step 0: loss = 0.0019
+test_loss: 0.0018843653
+step 0: loss = 0.0018
+test_loss: 0.0022118026
+step 0: loss = 0.0023
+test_loss: 0.0019178928
+step 0: loss = 0.0020
+test_loss: 0.002163445
+step 0: loss = 0.0021
+test_loss: 0.0019704327
+step 0: loss = 0.0020
+test_loss: 0.0019918408
+step 0: loss = 0.0019
+test_loss: 0.0019426882
+step 0: loss = 0.0019
+test_loss: 0.002246279
+step 0: loss = 0.0022
+test_loss: 0.0021379828
+step 0: loss = 0.0020
+test_loss: 0.0019115137
+step 0: loss = 0.0019
+test_loss: 0.00180799
+step 0: loss = 0.0018
+test_loss: 0.0018763912
+step 0: loss = 0.0019
+test_loss: 0.0018547255
+step 0: loss = 0.0018
+test_loss: 0.0018985136
+step 0: loss = 0.0018
+test_loss: 0.0019185537
+step 0: loss = 0.0020
+test_loss: 0.0020453266
+step 0: loss = 0.0019
+test_loss: 0.0017405696
+step 0: loss = 0.0017
+test_loss: 0.0018244461
+step 0: loss = 0.0018
+test_loss: 0.0018500527
+step 0: loss = 0.0018
+test_loss: 0.0018577564
+step 0: loss = 0.0018
+test_loss: 0.001937979
+step 0: loss = 0.0020
+test_loss: 0.0020068297
+step 0: loss = 0.0019
+test_loss: 0.0019639444
+step 0: loss = 0.0020
+test_loss: 0.0019611805
+step 0: loss = 0.0019
+test_loss: 0.0019932378
+step 0: loss = 0.0020
+test_loss: 0.0019436234
+step 0: loss = 0.0019
+test_loss: 0.0017863942
+step 0: loss = 0.0018
+test_loss: 0.0019721407
+step 0: loss = 0.0020
+test_loss: 0.0018432159
+step 0: loss = 0.0018
+test_loss: 0.0018697605
+step 0: loss = 0.0019
+test_loss: 0.0019198664
+step 0: loss = 0.0019
+test_loss: 0.009416309
+step 0: loss = 0.0092
+test_loss: 0.0018647319
+step 0: loss = 0.0018
+test_loss: 0.0017578652
+step 0: loss = 0.0017
+test_loss: 0.0018335916
+step 0: loss = 0.0018
+test_loss: 0.0018246162
+step 0: loss = 0.0018
+test_loss: 0.0018365014
+step 0: loss = 0.0019
+test_loss: 0.0018537245
+step 0: loss = 0.0018
+test_loss: 0.0018220905
+step 0: loss = 0.0018
+test_loss: 0.002068245
+step 0: loss = 0.0021
+test_loss: 0.001784088
+step 0: loss = 0.0017
+test_loss: 0.0018254858
+step 0: loss = 0.0017
+test_loss: 0.0019478197
+step 0: loss = 0.0020
+test_loss: 0.0018466056
+step 0: loss = 0.0018
+test_loss: 0.0016886236
+step 0: loss = 0.0017
+test_loss: 0.0018927653
+step 0: loss = 0.0020
+test_loss: 0.0018095144
+step 0: loss = 0.0018
+test_loss: 0.0018319659
+step 0: loss = 0.0018
+test_loss: 0.0018137298
+step 0: loss = 0.0018
+test_loss: 0.0017985841
+step 0: loss = 0.0018
+test_loss: 0.0018250392
+step 0: loss = 0.0018
+test_loss: 0.0018313403
+step 0: loss = 0.0018
+test_loss: 0.001812819
+step 0: loss = 0.0018
+test_loss: 0.0017287286
+step 0: loss = 0.0017
+test_loss: 0.0017619795
+step 0: loss = 0.0017
+test_loss: 0.0019190155
+step 0: loss = 0.0020
+test_loss: 0.0018274226
+step 0: loss = 0.0018
+test_loss: 0.0017458473
+step 0: loss = 0.0017
+test_loss: 0.0016768315
+step 0: loss = 0.0016
+test_loss: 0.0018378205
+step 0: loss = 0.0018
+test_loss: 0.0016728215
+step 0: loss = 0.0016
+test_loss: 0.0017733831
+step 0: loss = 0.0018
+test_loss: 0.0019922636
+step 0: loss = 0.0019
+test_loss: 0.0016046563
+step 0: loss = 0.0015
+test_loss: 0.0017056898
+step 0: loss = 0.0017
+test_loss: 0.001639475
+step 0: loss = 0.0016
+test_loss: 0.001848277
+step 0: loss = 0.0019
+test_loss: 0.0018501405
+step 0: loss = 0.0018
+test_loss: 0.0017490066
+step 0: loss = 0.0017
+test_loss: 0.0036334847
+step 0: loss = 0.0036
+test_loss: 0.0018131471
+step 0: loss = 0.0017
+test_loss: 0.0016585268
+step 0: loss = 0.0017
+test_loss: 0.0016423535
+step 0: loss = 0.0017
+test_loss: 0.0017826493
+step 0: loss = 0.0017
+test_loss: 0.0018561642
+step 0: loss = 0.0018
+test_loss: 0.0017028549
+step 0: loss = 0.0017
+test_loss: 0.0016065779
+step 0: loss = 0.0017
+test_loss: 0.0017200522
+step 0: loss = 0.0017
+test_loss: 0.0017780829
+step 0: loss = 0.0018
+test_loss: 0.0017746778
+step 0: loss = 0.0017
+test_loss: 0.001777687
+step 0: loss = 0.0018
+test_loss: 0.001779567
+step 0: loss = 0.0017
+test_loss: 0.0018787918
+step 0: loss = 0.0018
+test_loss: 0.0018557768
+step 0: loss = 0.0018
+test_loss: 0.0016678801
+step 0: loss = 0.0017
+test_loss: 0.0016290975
+step 0: loss = 0.0016
+test_loss: 0.0016560834
+step 0: loss = 0.0015
+test_loss: 0.001762446
+step 0: loss = 0.0018
+test_loss: 0.0017774671
+step 0: loss = 0.0019
+test_loss: 0.0016666835
+step 0: loss = 0.0017
+test_loss: 0.0018374869
+step 0: loss = 0.0019
+test_loss: 0.0017121858
+step 0: loss = 0.0018
+test_loss: 0.0018045992
+step 0: loss = 0.0018
+test_loss: 0.0017168331
+step 0: loss = 0.0016
+test_loss: 0.0015667375
+step 0: loss = 0.0016
+test_loss: 0.0017388967
+step 0: loss = 0.0018
+test_loss: 0.0016728899
+step 0: loss = 0.0016
+test_loss: 0.00170121
+step 0: loss = 0.0017
+test_loss: 0.0016427214
+step 0: loss = 0.0017
+test_loss: 0.0017201515
+step 0: loss = 0.0016
+test_loss: 0.0017460077
+step 0: loss = 0.0017
+test_loss: 0.0015680615
+step 0: loss = 0.0015
+test_loss: 0.0016249766
+step 0: loss = 0.0016
+test_loss: 0.00165085
+step 0: loss = 0.0017
+test_loss: 0.0017483889
+step 0: loss = 0.0017
+test_loss: 0.0015376143
+step 0: loss = 0.0015
+test_loss: 0.005503029
+step 0: loss = 0.0056
+test_loss: 0.001661684
+step 0: loss = 0.0016
+test_loss: 0.0017263255
+step 0: loss = 0.0017
+test_loss: 0.0017356208
+step 0: loss = 0.0017
+test_loss: 0.0015416751
+step 0: loss = 0.0015
+
+test_loss: 0.0017300537
+step 0: loss = 0.0017
+test_loss: 0.001560015
+step 0: loss = 0.0016
+test_loss: 0.001584625
+step 0: loss = 0.0016
+test_loss: 0.0016637242
+step 0: loss = 0.0016
+test_loss: 0.0018392823
+step 0: loss = 0.0018
+test_loss: 0.0017073768
+step 0: loss = 0.0018
+test_loss: 0.0015993279
+step 0: loss = 0.0015
+test_loss: 0.001535402
+step 0: loss = 0.0016
+test_loss: 0.001644751
+step 0: loss = 0.0016
+test_loss: 0.0017912936
+step 0: loss = 0.0019
+test_loss: 0.0016864463
+step 0: loss = 0.0018
+test_loss: 0.001804184
+step 0: loss = 0.0019
+test_loss: 0.0017614802
+step 0: loss = 0.0017
+test_loss: 0.001600608
+step 0: loss = 0.0016
+test_loss: 0.0015837918
+step 0: loss = 0.0016
+test_loss: 0.0016270961
+step 0: loss = 0.0015
+test_loss: 0.0016877411
+step 0: loss = 0.0017
+test_loss: 0.0016437941
+step 0: loss = 0.0016
+test_loss: 0.0016022936
+step 0: loss = 0.0017
+test_loss: 0.0017058296
+step 0: loss = 0.0017
+test_loss: 0.0016119607
+step 0: loss = 0.0016
+test_loss: 0.0016792493
+step 0: loss = 0.0017
+test_loss: 0.0017167829
+step 0: loss = 0.0016
+test_loss: 0.0016179882
+step 0: loss = 0.0017
+test_loss: 0.0016193362
+step 0: loss = 0.0017
+test_loss: 0.001694972
+step 0: loss = 0.0017
+test_loss: 0.0017324181
+step 0: loss = 0.0017
+test_loss: 0.0016177741
+step 0: loss = 0.0016
+test_loss: 0.0015211265
+step 0: loss = 0.0015
+test_loss: 0.0015862146
+step 0: loss = 0.0016
+test_loss: 0.0015096932
+step 0: loss = 0.0015
+test_loss: 0.0016968785
+step 0: loss = 0.0017
+test_loss: 0.0016366683
+step 0: loss = 0.0016
+test_loss: 0.0066578984
+step 0: loss = 0.0064
+test_loss: 0.0035742854
+step 0: loss = 0.0034
+test_loss: 0.0023346243
+step 0: loss = 0.0024
+test_loss: 0.0018228446
+step 0: loss = 0.0018
+test_loss: 0.0017575559
+step 0: loss = 0.0017
+test_loss: 0.001643614
+step 0: loss = 0.0017
+test_loss: 0.001656775
+step 0: loss = 0.0017
+test_loss: 0.0017355913
+step 0: loss = 0.0017
+test_loss: 0.0017127567
+step 0: loss = 0.0017
+test_loss: 0.001657704
+step 0: loss = 0.0016
+test_loss: 0.0017388855
+step 0: loss = 0.0018
+test_loss: 0.0015855302
+step 0: loss = 0.0016
+test_loss: 0.0016324151
+step 0: loss = 0.0017
+test_loss: 0.0015027191
+step 0: loss = 0.0015
+test_loss: 0.0015432381
+step 0: loss = 0.0016
+test_loss: 0.0015209904
+step 0: loss = 0.0015
+test_loss: 0.0017216736
+step 0: loss = 0.0017
+test_loss: 0.0018171843
+step 0: loss = 0.0019
+test_loss: 0.0016304586
+step 0: loss = 0.0016
+test_loss: 0.0016460507
+step 0: loss = 0.0017
+test_loss: 0.0016528696
+step 0: loss = 0.0017
+test_loss: 0.0015880956
+step 0: loss = 0.0016
+test_loss: 0.0015551716
+step 0: loss = 0.0015
+test_loss: 0.0014986292
+step 0: loss = 0.0015
+test_loss: 0.0015913429
+step 0: loss = 0.0016
+test_loss: 0.005134226
+step 0: loss = 0.0052
+test_loss: 0.0015078611
+step 0: loss = 0.0015
+test_loss: 0.0014687929
+step 0: loss = 0.0015
+test_loss: 0.0014711472
+step 0: loss = 0.0015
+test_loss: 0.0016083568
+step 0: loss = 0.0016
+test_loss: 0.0015452818
+step 0: loss = 0.0016
+test_loss: 0.001467473
+step 0: loss = 0.0014
+test_loss: 0.0016635796
+step 0: loss = 0.0016
+test_loss: 0.0014644596
+step 0: loss = 0.0014
+test_loss: 0.0014385714
+step 0: loss = 0.0014
+test_loss: 0.0014700042
+step 0: loss = 0.0014
+test_loss: 0.001692624
+step 0: loss = 0.0017
+test_loss: 0.0015857674
+step 0: loss = 0.0016
+test_loss: 0.0016207622
+step 0: loss = 0.0016
+test_loss: 0.0015110802
+step 0: loss = 0.0015
+test_loss: 0.0015153195
+step 0: loss = 0.0015
+test_loss: 0.0015524222
+step 0: loss = 0.0015
+test_loss: 0.0014923374
+step 0: loss = 0.0015
+test_loss: 0.0014753364
+step 0: loss = 0.0015
+test_loss: 0.0016162922
+step 0: loss = 0.0016
+test_loss: 0.0014941369
+step 0: loss = 0.0015
+test_loss: 0.0016008101
+step 0: loss = 0.0016
+test_loss: 0.0015348189
+step 0: loss = 0.0015
+test_loss: 0.0015342222
+step 0: loss = 0.0015
+test_loss: 0.0014054064
+step 0: loss = 0.0014
+test_loss: 0.0014849234
+step 0: loss = 0.0015
+test_loss: 0.0015633742
+step 0: loss = 0.0016
+test_loss: 0.0014592394
+step 0: loss = 0.0015
+test_loss: 0.0015350644
+step 0: loss = 0.0015
+test_loss: 0.0016171604
+step 0: loss = 0.0016
+test_loss: 0.001559638
+step 0: loss = 0.0016
+test_loss: 0.0015348465
+step 0: loss = 0.0015
+test_loss: 0.0014186976
+step 0: loss = 0.0014
+test_loss: 0.0015276765
+step 0: loss = 0.0015
+test_loss: 0.0013110427
+step 0: loss = 0.0013
+test_loss: 0.0014861536
+step 0: loss = 0.0015
+test_loss: 0.0014701427
+step 0: loss = 0.0014
+test_loss: 0.0014950935
+step 0: loss = 0.0014
+test_loss: 0.0014010501
+step 0: loss = 0.0013
+test_loss: 0.0014516716
+step 0: loss = 0.0014
+test_loss: 0.0016496258
+step 0: loss = 0.0017
+test_loss: 0.0016723605
+step 0: loss = 0.0017
+test_loss: 0.0014651595
+step 0: loss = 0.0014
+test_loss: 0.0013951323
+step 0: loss = 0.0014
+test_loss: 0.001300405
+step 0: loss = 0.0013
+test_loss: 0.0014616826
+step 0: loss = 0.0015
+test_loss: 0.0015136217
+step 0: loss = 0.0015
+test_loss: 0.0013658685
+step 0: loss = 0.0013
+test_loss: 0.0014432812
+step 0: loss = 0.0014
+test_loss: 0.0014105703
+step 0: loss = 0.0014
+test_loss: 0.0016826709
+step 0: loss = 0.0017
+test_loss: 0.0015004295
+step 0: loss = 0.0015
+test_loss: 0.0014985863
+step 0: loss = 0.0015
+test_loss: 0.0015520026
+step 0: loss = 0.0015
+test_loss: 0.0014519627
+step 0: loss = 0.0014
+test_loss: 0.0015411959
+step 0: loss = 0.0015
+test_loss: 0.0017328672
+step 0: loss = 0.0017
+test_loss: 0.0015292788
+step 0: loss = 0.0015
+test_loss: 0.0014168662
+step 0: loss = 0.0014
+test_loss: 0.0015244811
+step 0: loss = 0.0015
+test_loss: 0.0015240108
+step 0: loss = 0.0015
+test_loss: 0.0017058884
+step 0: loss = 0.0017
+test_loss: 0.0014871908
+step 0: loss = 0.0014
+test_loss: 0.0014686123
+step 0: loss = 0.0015
+test_loss: 0.0015265883
+step 0: loss = 0.0015
+test_loss: 0.0016502659
+step 0: loss = 0.0015
+test_loss: 0.0015007951
+step 0: loss = 0.0015
+test_loss: 0.0014247404
+step 0: loss = 0.0015
+test_loss: 0.0014640131
+step 0: loss = 0.0015
+test_loss: 0.0014125719
+step 0: loss = 0.0014
+test_loss: 0.00144135
+step 0: loss = 0.0015
+test_loss: 0.0014317648
+step 0: loss = 0.0015
+test_loss: 0.0014876242
+step 0: loss = 0.0015
+test_loss: 0.0014494365
+step 0: loss = 0.0014
+test_loss: 0.0014837525
+step 0: loss = 0.0015
+test_loss: 0.0013572634
+step 0: loss = 0.0014
+test_loss: 0.0015165361
+step 0: loss = 0.0015
+test_loss: 0.0015261818
+step 0: loss = 0.0015
+test_loss: 0.0014310303
+step 0: loss = 0.0015
+test_loss: 0.0018797688
+step 0: loss = 0.0018
+test_loss: 0.0014165281
+step 0: loss = 0.0014
+test_loss: 0.0013308005
+step 0: loss = 0.0013
+test_loss: 0.0014280429
+step 0: loss = 0.0014
+test_loss: 0.0013646086
+step 0: loss = 0.0013
+test_loss: 0.0013927519
+step 0: loss = 0.0013
+test_loss: 0.0014906172
+step 0: loss = 0.0014
+test_loss: 0.0015120427
+step 0: loss = 0.0015
+test_loss: 0.0016432826
+step 0: loss = 0.0016
+test_loss: 0.001696233
+step 0: loss = 0.0017
+test_loss: 0.0014034305
+step 0: loss = 0.0014
+test_loss: 0.0015757078
+step 0: loss = 0.0016
+test_loss: 0.0013564142
+step 0: loss = 0.0014
+test_loss: 0.001608404
+step 0: loss = 0.0016
+test_loss: 0.0015277884
+step 0: loss = 0.0014
+test_loss: 0.0015860926
+step 0: loss = 0.0016
+test_loss: 0.0013773317
+step 0: loss = 0.0014
+test_loss: 0.0014650495
+step 0: loss = 0.0015
+test_loss: 0.0014933439
+step 0: loss = 0.0014
+test_loss: 0.0014040599
+step 0: loss = 0.0014
+test_loss: 0.001400128
+step 0: loss = 0.0014
+test_loss: 0.0014558348
+step 0: loss = 0.0014
+test_loss: 0.0015117569
+step 0: loss = 0.0014
+test_loss: 0.0012203866
+step 0: loss = 0.0012
+test_loss: 0.0014140009
+step 0: loss = 0.0015
+test_loss: 0.0013687083
+step 0: loss = 0.0014
+test_loss: 0.0015148716
+step 0: loss = 0.0015
+test_loss: 0.00143443
+step 0: loss = 0.0014
+test_loss: 0.0014053945
+step 0: loss = 0.0014
+test_loss: 0.0014139739
+step 0: loss = 0.0014
+test_loss: 0.0013490766
+step 0: loss = 0.0013
+test_loss: 0.0015782082
+step 0: loss = 0.0016
+test_loss: 0.0015439077
+step 0: loss = 0.0015
+test_loss: 0.0014874588
+step 0: loss = 0.0015
+test_loss: 0.0014626668
+step 0: loss = 0.0015
+test_loss: 0.0014513157
+step 0: loss = 0.0015
+test_loss: 0.0014860355
+step 0: loss = 0.0015
+test_loss: 0.0013976941
+step 0: loss = 0.0014
+test_loss: 0.0014102209
+step 0: loss = 0.0014
+test_loss: 0.0014631553
+step 0: loss = 0.0014
+test_loss: 0.005310721
+step 0: loss = 0.0052
+test_loss: 0.0016281545
+step 0: loss = 0.0016
+
+test_loss: 0.001398015
+step 0: loss = 0.0013
+test_loss: 0.0013328579
+step 0: loss = 0.0013
+test_loss: 0.0013276626
+step 0: loss = 0.0013
+test_loss: 0.0013205142
+step 0: loss = 0.0012
+test_loss: 0.0014473045
+step 0: loss = 0.0014
+test_loss: 0.0013651834
+step 0: loss = 0.0014
+test_loss: 0.0013528503
+step 0: loss = 0.0012
+test_loss: 0.0014037052
+step 0: loss = 0.0013
+test_loss: 0.0013604288
+step 0: loss = 0.0013
+test_loss: 0.0014511135
+step 0: loss = 0.0014
+test_loss: 0.001311586
+step 0: loss = 0.0013
+test_loss: 0.0014475611
+step 0: loss = 0.0015
+test_loss: 0.0014392533
+step 0: loss = 0.0014
+test_loss: 0.0013418675
+step 0: loss = 0.0015
+test_loss: 0.0015898673
+step 0: loss = 0.0016
+test_loss: 0.0014882111
+step 0: loss = 0.0014
+test_loss: 0.0014940577
+step 0: loss = 0.0015
+test_loss: 0.0014259473
+step 0: loss = 0.0014
+test_loss: 0.0015860763
+step 0: loss = 0.0015
+test_loss: 0.001461864
+step 0: loss = 0.0015
+test_loss: 0.0014749604
+step 0: loss = 0.0014
+test_loss: 0.0014110852
+step 0: loss = 0.0014
+test_loss: 0.0013247475
+step 0: loss = 0.0013
+test_loss: 0.001345653
+step 0: loss = 0.0013
+test_loss: 0.0014367345
+step 0: loss = 0.0015
+test_loss: 0.001530509
+step 0: loss = 0.0015
+test_loss: 0.0013742793
+step 0: loss = 0.0014
+test_loss: 0.0013277638
+step 0: loss = 0.0013
+test_loss: 0.0014232707
+step 0: loss = 0.0015
+test_loss: 0.0015267776
+step 0: loss = 0.0015
+test_loss: 0.0014868109
+step 0: loss = 0.0016
+test_loss: 0.0013390471
+step 0: loss = 0.0013
+test_loss: 0.001523601
+step 0: loss = 0.0015
+test_loss: 0.0040981383
+step 0: loss = 0.0040
+test_loss: 0.0015612338
+step 0: loss = 0.0016
+test_loss: 0.0013067877
+step 0: loss = 0.0013
+test_loss: 0.0015979772
+step 0: loss = 0.0015
+test_loss: 0.0012837704
+step 0: loss = 0.0012
+test_loss: 0.0012964365
+step 0: loss = 0.0013
+test_loss: 0.0012549093
+step 0: loss = 0.0012
+test_loss: 0.001348287
+step 0: loss = 0.0013
+test_loss: 0.0013756313
+step 0: loss = 0.0013
+test_loss: 0.0013931321
+step 0: loss = 0.0014
+test_loss: 0.0013925274
+step 0: loss = 0.0014
+test_loss: 0.0015069469
+step 0: loss = 0.0014
+test_loss: 0.0013862716
+step 0: loss = 0.0014
+test_loss: 0.0013818042
+step 0: loss = 0.0013
+test_loss: 0.0012960203
+step 0: loss = 0.0013
+test_loss: 0.0013558569
+step 0: loss = 0.0013
+test_loss: 0.0014929334
+step 0: loss = 0.0014
+test_loss: 0.0013756522
+step 0: loss = 0.0014
+test_loss: 0.0014265551
+step 0: loss = 0.0015
+test_loss: 0.0016192594
+step 0: loss = 0.0016
+test_loss: 0.0013902204
+step 0: loss = 0.0013
+test_loss: 0.0013850891
+step 0: loss = 0.0013
+test_loss: 0.0012957839
+step 0: loss = 0.0013
+test_loss: 0.0014253103
+step 0: loss = 0.0014
+test_loss: 0.0014660066
+step 0: loss = 0.0015
+test_loss: 0.0012588261
+step 0: loss = 0.0012
+test_loss: 0.0013373311
+step 0: loss = 0.0013
+test_loss: 0.0014010835
+step 0: loss = 0.0014
+test_loss: 0.0013493559
+step 0: loss = 0.0014
+test_loss: 0.0013695651
+step 0: loss = 0.0014
+test_loss: 0.0013890219
+step 0: loss = 0.0014
+test_loss: 0.001348164
+step 0: loss = 0.0013
+test_loss: 0.0014635547
+step 0: loss = 0.0014
+test_loss: 0.0014729118
+step 0: loss = 0.0014
+test_loss: 0.0013770526
+step 0: loss = 0.0013
+test_loss: 0.0013340877
+step 0: loss = 0.0014
+test_loss: 0.0014920776
+step 0: loss = 0.0014
+test_loss: 0.0046823737
+step 0: loss = 0.0047
+test_loss: 0.0012631236
+step 0: loss = 0.0012
+test_loss: 0.001354921
+step 0: loss = 0.0014
+test_loss: 0.00132813
+step 0: loss = 0.0013
+test_loss: 0.0013407656
+step 0: loss = 0.0013
+test_loss: 0.0014075431
+step 0: loss = 0.0014
+test_loss: 0.0013866831
+step 0: loss = 0.0014
+test_loss: 0.0012520509
+step 0: loss = 0.0012
+test_loss: 0.0013486714
+step 0: loss = 0.0014
+test_loss: 0.0013678556
+step 0: loss = 0.0013
+test_loss: 0.0013082718
+step 0: loss = 0.0012
+test_loss: 0.0014053473
+step 0: loss = 0.0014
+test_loss: 0.0014398635
+step 0: loss = 0.0014
+test_loss: 0.001405688
+step 0: loss = 0.0014
+test_loss: 0.0013413694
+step 0: loss = 0.0013
+test_loss: 0.0014124113
+step 0: loss = 0.0014
+test_loss: 0.0015996583
+step 0: loss = 0.0016
+test_loss: 0.0013222869
+step 0: loss = 0.0014
+test_loss: 0.0014424422
+step 0: loss = 0.0015
+test_loss: 0.0013404458
+step 0: loss = 0.0014
+test_loss: 0.0013416698
+step 0: loss = 0.0013
+test_loss: 0.00130824
+step 0: loss = 0.0013
+test_loss: 0.0012498652
+step 0: loss = 0.0012
+test_loss: 0.001393153
+step 0: loss = 0.0014
+test_loss: 0.0016057504
+step 0: loss = 0.0016
+test_loss: 0.0012103118
+step 0: loss = 0.0012
+test_loss: 0.0012949238
+step 0: loss = 0.0013
+test_loss: 0.0013194791
+step 0: loss = 0.0013
+test_loss: 0.0012722898
+step 0: loss = 0.0013
+test_loss: 0.0012407013
+step 0: loss = 0.0012
+test_loss: 0.0014753309
+step 0: loss = 0.0015
+test_loss: 0.0012887793
+step 0: loss = 0.0013
+test_loss: 0.001242222
+step 0: loss = 0.0012
+test_loss: 0.0013331154
+step 0: loss = 0.0013
+test_loss: 0.0013745626
+step 0: loss = 0.0014
+test_loss: 0.0012260365
+step 0: loss = 0.0012
+test_loss: 0.0013265387
+step 0: loss = 0.0013
+test_loss: 0.0012268084
+step 0: loss = 0.0012
+test_loss: 0.0012832488
+step 0: loss = 0.0013
+test_loss: 0.0014098741
+step 0: loss = 0.0014
+test_loss: 0.0015451218
+step 0: loss = 0.0016
+test_loss: 0.0012986955
+step 0: loss = 0.0013
+test_loss: 0.0014005986
+step 0: loss = 0.0013
+test_loss: 0.001198013
+step 0: loss = 0.0012
+test_loss: 0.0014153069
+step 0: loss = 0.0014
+test_loss: 0.0013393349
+step 0: loss = 0.0013
+test_loss: 0.0013942559
+step 0: loss = 0.0014
+test_loss: 0.0015091142
+step 0: loss = 0.0016
+test_loss: 0.001650365
+step 0: loss = 0.0017
+test_loss: 0.0013313898
+step 0: loss = 0.0012
+test_loss: 0.0013825694
+step 0: loss = 0.0014
+test_loss: 0.0013237074
+step 0: loss = 0.0014
+test_loss: 0.0014227723
+step 0: loss = 0.0014
+test_loss: 0.0014519262
+step 0: loss = 0.0015
+test_loss: 0.0013654418
+step 0: loss = 0.0013
+test_loss: 0.0013502153
+step 0: loss = 0.0014
+test_loss: 0.0013000527
+step 0: loss = 0.0012
+test_loss: 0.0014056412
+step 0: loss = 0.0014
+test_loss: 0.0013313578
+step 0: loss = 0.0013
+test_loss: 0.0013428003
+step 0: loss = 0.0013
+test_loss: 0.001353133
+step 0: loss = 0.0013
+test_loss: 0.001326476
+step 0: loss = 0.0013
+test_loss: 0.0014460826
+step 0: loss = 0.0015
+test_loss: 0.0012963824
+step 0: loss = 0.0013
+test_loss: 0.0012731927
+step 0: loss = 0.0012
+test_loss: 0.0015093011
+step 0: loss = 0.0015
+test_loss: 0.0013077185
+step 0: loss = 0.0012
+test_loss: 0.0012966611
+step 0: loss = 0.0013
+test_loss: 0.0013966098
+step 0: loss = 0.0014
+test_loss: 0.0014293931
+step 0: loss = 0.0014
+test_loss: 0.001298946
+step 0: loss = 0.0013
+test_loss: 0.0015717288
+step 0: loss = 0.0015
+test_loss: 0.0011918575
+step 0: loss = 0.0012
+test_loss: 0.001287504
+step 0: loss = 0.0013
+test_loss: 0.0013639972
+step 0: loss = 0.0014
+test_loss: 0.0013521027
+step 0: loss = 0.0013
+test_loss: 0.0013140799
+step 0: loss = 0.0013
+test_loss: 0.0013430291
+step 0: loss = 0.0013
+test_loss: 0.0015548927
+step 0: loss = 0.0016
+test_loss: 0.0013335205
+step 0: loss = 0.0014
+test_loss: 0.001221746
+step 0: loss = 0.0012
+test_loss: 0.0014957628
+step 0: loss = 0.0014
+test_loss: 0.0015720092
+step 0: loss = 0.0016
+test_loss: 0.00137741
+step 0: loss = 0.0013
+test_loss: 0.0012587325
+step 0: loss = 0.0013
+test_loss: 0.0014710448
+step 0: loss = 0.0014
+test_loss: 0.0014329986
+step 0: loss = 0.0014
+test_loss: 0.0013280024
+step 0: loss = 0.0013
+test_loss: 0.0014280562
+step 0: loss = 0.0014
+test_loss: 0.0014177798
+step 0: loss = 0.0014
+test_loss: 0.0014224764
+step 0: loss = 0.0014
+test_loss: 0.0014033642
+step 0: loss = 0.0014
+test_loss: 0.0013191373
+step 0: loss = 0.0013
+test_loss: 0.0012714525
+step 0: loss = 0.0012
+test_loss: 0.0011948897
+step 0: loss = 0.0012
+test_loss: 0.0014399055
+step 0: loss = 0.0014
+test_loss: 0.0013487635
+step 0: loss = 0.0014
+test_loss: 0.0012535339
+step 0: loss = 0.0012
+test_loss: 0.0013231003
+step 0: loss = 0.0014
+test_loss: 0.0013496493
+step 0: loss = 0.0013
+test_loss: 0.0012678907
+step 0: loss = 0.0013
+test_loss: 0.0012238756
+step 0: loss = 0.0012
+test_loss: 0.0013362382
+step 0: loss = 0.0013
+test_loss: 0.0013196089
+step 0: loss = 0.0013
+test_loss: 0.0013105735
+step 0: loss = 0.0013
+test_loss: 0.0013412316
+step 0: loss = 0.0013
+test_loss: 0.0013086234
+step 0: loss = 0.0013
+test_loss: 0.0013322869
+step 0: loss = 0.0013
+test_loss: 0.0012952619
+step 0: loss = 0.0013
+
+test_loss: 0.0014394842
+step 0: loss = 0.0015
+test_loss: 0.0014719128
+step 0: loss = 0.0014
+test_loss: 0.0013499008
+step 0: loss = 0.0013
+test_loss: 0.0015697876
+step 0: loss = 0.0015
+test_loss: 0.0013930163
+step 0: loss = 0.0013
+test_loss: 0.0011901769
+step 0: loss = 0.0011
+test_loss: 0.002632871
+step 0: loss = 0.0026
+test_loss: 0.0013163325
+step 0: loss = 0.0013
+test_loss: 0.0012512519
+step 0: loss = 0.0013
+test_loss: 0.0013742741
+step 0: loss = 0.0013
+test_loss: 0.0012868495
+step 0: loss = 0.0013
+test_loss: 0.0012833719
+step 0: loss = 0.0013
+test_loss: 0.0014985601
+step 0: loss = 0.0015
+test_loss: 0.0013323894
+step 0: loss = 0.0013
+test_loss: 0.0013464848
+step 0: loss = 0.0013
+test_loss: 0.001266803
+step 0: loss = 0.0012
+test_loss: 0.0013642841
+step 0: loss = 0.0014
+test_loss: 0.0014047505
+step 0: loss = 0.0013
+test_loss: 0.0012861169
+step 0: loss = 0.0013
+test_loss: 0.0012641092
+step 0: loss = 0.0013
+test_loss: 0.0013917622
+step 0: loss = 0.0014
+test_loss: 0.0013366581
+step 0: loss = 0.0013
+test_loss: 0.0014155704
+step 0: loss = 0.0014
+test_loss: 0.0016039291
+step 0: loss = 0.0016
+test_loss: 0.0014213392
+step 0: loss = 0.0015
+test_loss: 0.001304096
+step 0: loss = 0.0013
+test_loss: 0.0013281541
+step 0: loss = 0.0013
+test_loss: 0.0013863491
+step 0: loss = 0.0014
+test_loss: 0.0013336543
+step 0: loss = 0.0013
+test_loss: 0.0012660399
+step 0: loss = 0.0012
+test_loss: 0.0012868083
+step 0: loss = 0.0013
+test_loss: 0.0013386244
+step 0: loss = 0.0014
+test_loss: 0.0013337559
+step 0: loss = 0.0013
+test_loss: 0.0012473102
+step 0: loss = 0.0012
+test_loss: 0.0013348135
+step 0: loss = 0.0014
+test_loss: 0.0013101317
+step 0: loss = 0.0013
+test_loss: 0.0013168249
+step 0: loss = 0.0013
+test_loss: 0.0014040192
+step 0: loss = 0.0015
+test_loss: 0.0013178552
+step 0: loss = 0.0013
+test_loss: 0.0012764501
+step 0: loss = 0.0012
+test_loss: 0.001328027
+step 0: loss = 0.0013
+test_loss: 0.0012762945
+step 0: loss = 0.0012
+test_loss: 0.0013314098
+step 0: loss = 0.0013
+test_loss: 0.0046657007
+step 0: loss = 0.0046
+test_loss: 0.0013380308
+step 0: loss = 0.0013
+test_loss: 0.0012349575
+step 0: loss = 0.0013
+test_loss: 0.0013020544
+step 0: loss = 0.0013
+test_loss: 0.001169006
+step 0: loss = 0.0012
+test_loss: 0.0013510634
+step 0: loss = 0.0013
+test_loss: 0.0012780235
+step 0: loss = 0.0013
+test_loss: 0.00127601
+step 0: loss = 0.0012
+test_loss: 0.0012677318
+step 0: loss = 0.0012
+test_loss: 0.001298231
+step 0: loss = 0.0013
+test_loss: 0.0013049071
+step 0: loss = 0.0013
+test_loss: 0.0015007447
+step 0: loss = 0.0015
+test_loss: 0.0012774128
+step 0: loss = 0.0013
+test_loss: 0.0013899799
+step 0: loss = 0.0014
+test_loss: 0.0013915882
+step 0: loss = 0.0014
+test_loss: 0.0012805647
+step 0: loss = 0.0013
+test_loss: 0.0016107226
+step 0: loss = 0.0016
+test_loss: 0.001268815
+step 0: loss = 0.0013
+test_loss: 0.0013790753
+step 0: loss = 0.0013
+test_loss: 0.0012398191
+step 0: loss = 0.0013
+test_loss: 0.0013899278
+step 0: loss = 0.0014
+test_loss: 0.0012738822
+step 0: loss = 0.0013
+test_loss: 0.001318561
+step 0: loss = 0.0013
+test_loss: 0.0013234705
+step 0: loss = 0.0014
+test_loss: 0.0013236296
+step 0: loss = 0.0013
+test_loss: 0.0012287919
+step 0: loss = 0.0012
+test_loss: 0.0013276344
+step 0: loss = 0.0013
+test_loss: 0.0013760363
+step 0: loss = 0.0013
+test_loss: 0.0013686846
+step 0: loss = 0.0013
+test_loss: 0.0014530474
+step 0: loss = 0.0014
+test_loss: 0.0013206733
+step 0: loss = 0.0013
+test_loss: 0.001278129
+step 0: loss = 0.0013
+test_loss: 0.0013602719
+step 0: loss = 0.0013
+test_loss: 0.0013762991
+step 0: loss = 0.0014
+test_loss: 0.001327916
+step 0: loss = 0.0013
