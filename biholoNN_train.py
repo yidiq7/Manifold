@@ -14,7 +14,7 @@ seed = int(sys.argv[1])
 psi = 0.5
 n_pairs = 100000
 batch_size = 1000
-layers = '100_500_2000'
+layers = '100_500_1000_1'
 max_epochs = 10000
 
 saved_path = 'experiments.yidi/biholo/3layers/'
@@ -40,14 +40,16 @@ class KahlerPotential(tf.keras.Model):
         self.biholomorphic = Biholomorphic()
         self.layer1 = Dense(25,100, activation=tf.square)
         self.layer2 = Dense(100,500, activation=tf.square)
-        self.layer3 = Dense(500,2000, activation=tf.square)
+        self.layer3 = Dense(500,1000, activation=tf.square)
+        self.layer4 = Dense(1000, 1)
 
     def call(self, inputs):
         x = self.biholomorphic(inputs)
         x = self.layer1(x)
         x = self.layer2(x)
         x = self.layer3(x)
-        x = tf.reduce_sum(x, 1)
+        x = self.layer4(x)
+        #x = tf.reduce_sum(x, 1)
         x = tf.math.log(x)
         return x
 
