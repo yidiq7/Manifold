@@ -6,18 +6,19 @@ from biholoNN import *
 import tensorflow as tf
 import numpy as np
 import time
+import sys
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
-seed = 1234
+seed = int(sys.argv[1])
 psi = 0.5
 n_pairs = 100000
 batch_size = 1000
-layers = '50_100_100'
+layers = '100_500_2000'
 max_epochs = 10000
 
 saved_path = 'experiments.yidi/biholo/3layers/'
-model_name = layers 
+model_name = layers + '_seed' + str(seed) 
 
 z0, z1, z2, z3, z4 = sp.symbols('z0, z1, z2, z3, z4')
 Z = [z0,z1,z2,z3,z4]
@@ -37,9 +38,9 @@ class KahlerPotential(tf.keras.Model):
     def __init__(self):
         super(KahlerPotential, self).__init__()
         self.biholomorphic = Biholomorphic()
-        self.layer1 = Dense(25,50, activation=tf.square)
-        self.layer2 = Dense(50,100, activation=tf.square)
-        self.layer3 = Dense(100,100, activation=tf.square)
+        self.layer1 = Dense(25,100, activation=tf.square)
+        self.layer2 = Dense(100,500, activation=tf.square)
+        self.layer3 = Dense(500,2000, activation=tf.square)
 
     def call(self, inputs):
         x = self.biholomorphic(inputs)
@@ -111,9 +112,10 @@ while epoch < max_epochs and stop is False:
        
     # Early stopping 
     if epoch % 10 == 0:
-        if loss > loss_old:
+        train_loss = cal_total_loss(train_set, weighted_MAPE)
+        if train_loss > loss_old:
             stop = True 
-        loss_old = loss 
+        loss_old = train_loss 
 
     epoch = epoch + 1
 

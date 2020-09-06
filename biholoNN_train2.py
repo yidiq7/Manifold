@@ -99,8 +99,8 @@ while epoch < max_epochs and stop is False:
 
         optimizer.apply_gradients(zip(grads, model.trainable_weights))
 
-        if step % 500 == 0:
-            print("step %d: loss = %.4f" % (step, loss))
+        #if step % 500 == 0:
+        #    print("step %d: loss = %.4f" % (step, loss))
     
     test_loss = cal_total_loss(test_set, weighted_MAPE)
     print("train_loss:", loss.numpy())
@@ -111,9 +111,10 @@ while epoch < max_epochs and stop is False:
        
     # Early stopping 
     if epoch % 10 == 0:
-        if loss > loss_old:
+        train_loss = cal_total_loss(train_set, weighted_MAPE)
+        if train_loss > loss_old:
             stop = True 
-        loss_old = loss 
+        loss_old = train_loss 
 
     epoch = epoch + 1
 
