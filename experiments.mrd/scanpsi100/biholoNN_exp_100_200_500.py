@@ -1,5 +1,4 @@
 import os
-os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 from hypersurface_tf import *
 from generate_h import *
 from biholoNN import *
