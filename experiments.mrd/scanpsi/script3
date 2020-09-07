@@ -3,7 +3,7 @@
 DIR=experiments.mrd/scanpsi
 
 for seed in 1234 235
-do for psi in 0.01 -0.01 -10
+do for psi in 0.01 m0.01 m10
    do echo ${psi/./p}
        OUT=$DIR/${psi/./p}_${seed}/
        mkdir -p $OUT
