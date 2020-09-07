@@ -430,3 +430,141 @@ WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_
 WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f97a00cfca0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
 WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f97a00cf160> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
 WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f97a00c7c10> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:From /usr/local/lib/python3.8/dist-packages/tensorflow/python/training/tracking/tracking.py:111: Model.state_updates (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+2020-09-07 12:29:16.726265: W tensorflow/python/util/util.cc:348] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
+WARNING:tensorflow:From /usr/local/lib/python3.8/dist-packages/tensorflow/python/training/tracking/tracking.py:111: Layer.updates (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+train_loss: 0.03810683
+test_loss: 0.037934043
+train_loss: 0.034104116
+test_loss: 0.033927485
+train_loss: 0.033705473
+test_loss: 0.032187562
+train_loss: 0.03253584
+test_loss: 0.032111704
+train_loss: 0.033644125
+test_loss: 0.031990003
+train_loss: 0.029398967
+test_loss: 0.03125247
+train_loss: 0.031140137
+test_loss: 0.032648858
+train_loss: 0.03268294
+test_loss: 0.031833246
+train_loss: 0.03351667
+test_loss: 0.030858291
+train_loss: 0.03327205
+test_loss: 0.03120372
+train_loss: 0.031564854
+test_loss: 0.031278867
+train_loss: 0.030048516
+test_loss: 0.030865064
+train_loss: 0.030315401
+test_loss: 0.030203063
+train_loss: 0.029189942
+test_loss: 0.03023247
+train_loss: 0.031113796
+test_loss: 0.03069515
+train_loss: 0.03095416
+test_loss: 0.030665766
+train_loss: 0.029738456
+test_loss: 0.03036326
+train_loss: 0.028479101
+test_loss: 0.030927707
+train_loss: 0.030934341
+test_loss: 0.029991025
+train_loss: 0.031081561
+test_loss: 0.030579735
+train_loss: 0.02794771
+test_loss: 0.030710498
+train_loss: 0.029222224
+test_loss: 0.030034276
+train_loss: 0.028943988
+test_loss: 0.029808486
+train_loss: 0.02955707
+test_loss: 0.030061012
+train_loss: 0.030293178
+test_loss: 0.029982079
+train_loss: 0.0304572
+test_loss: 0.029904062
+train_loss: 0.031313986
+test_loss: 0.02958132
+train_loss: 0.031120203
+test_loss: 0.030759646
+train_loss: 0.029523252
+test_loss: 0.029732488
+train_loss: 0.026302896
+test_loss: 0.029903766
+train_loss: 0.03197633
+test_loss: 0.029471574
+train_loss: 0.03002726
+test_loss: 0.030209498
+train_loss: 0.030043034
+test_loss: 0.029847167
+train_loss: 0.02824028
+test_loss: 0.030219203
+train_loss: 0.030101072
+test_loss: 0.02983862
+train_loss: 0.028632347
+test_loss: 0.030012941
+train_loss: 0.029262275
+test_loss: 0.030363027
+train_loss: 0.030806707
+test_loss: 0.029592846
+train_loss: 0.028124534
+test_loss: 0.029812153
+train_loss: 0.027990198
+test_loss: 0.02930073
+train_loss: 0.029400533
+test_loss: 0.029578786
+4.242932320994874e-05
+4.2431894022862076e-05
+
+real	21m22.184s
+user	28m29.670s
+sys	1m5.053s
++ for psi in m2 0
++ echo 0
+0
++ OUT=experiments.mrd/scanpsi/0_235/
++ mkdir -p experiments.mrd/scanpsi/0_235/
++ python3 biholoNN_exp_50_100_200.py experiments.mrd/scanpsi/0_235/ 235 0
+2020-09-07 12:29:45.370432: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.10.1
+/usr/local/lib/python3.8/dist-packages/tensorflow/python/autograph/utils/testing.py:21: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import imp
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 51, in starmapstar
+    return list(itertools.starmap(args[0], args[1]))
+  File "/home/mdouglas/Manifold/hypersurface_tf.py", line 204, in solve_poly
+    c_solved = polyroots(coeff)
+  File "/usr/lib/python3/dist-packages/mpmath/calculus/polynomials.py", line 195, in polyroots
+    raise ctx.NoConvergence("Didn't converge in maxsteps=%d steps." \
+mpmath.libmp.libhyper.NoConvergence: Didn't converge in maxsteps=50 steps.
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "biholoNN_exp_50_100_200.py", line 28, in <module>
+    HS_test = Hypersurface(Z, f, n_pairs)
+  File "/home/mdouglas/Manifold/hypersurface_tf.py", line 31, in __init__
+    self.points = self.__solve_points(n_pairs)
+  File "/home/mdouglas/Manifold/hypersurface_tf.py", line 225, in __solve_points
+    for points_d in pool.starmap(Hypersurface.solve_poly,
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 372, in starmap
+    return self._map_async(func, iterable, starmapstar, chunksize).get()
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 768, in get
+    raise self._value
+mpmath.libmp.libhyper.NoConvergence: Didn't converge in maxsteps=50 steps.
+
+real	0m49.409s
+user	6m10.853s
+sys	0m4.320s
++ echo seed psi n_pairs train_time train_loss test_loss delta_sigma_train delta_sigma_test
++ cat experiments.mrd/scanpsi/0_1234/summary.txt experiments.mrd/scanpsi/m1_1234/summary.txt experiments.mrd/scanpsi/m1_235/summary.txt experiments.mrd/scanpsi/m2_1234/summary.txt experiments.mrd/scanpsi/m2_235/summary.txt experiments.mrd/scanpsi/m3_1234/summary.txt experiments.mrd/scanpsi/m3_235/summary.txt experiments.mrd/scanpsi/m4p5_1234/summary.txt experiments.mrd/scanpsi/m4p5_235/summary.txt experiments.mrd/scanpsi/m5_1234/summary.txt experiments.mrd/scanpsi/m5_235/summary.txt experiments.mrd/scanpsi/m5p5_1234/summary.txt experiments.mrd/scanpsi/m5p5_235/summary.txt experiments.mrd/scanpsi/m6_1234/summary.txt experiments.mrd/scanpsi/m6_235/summary.txt
