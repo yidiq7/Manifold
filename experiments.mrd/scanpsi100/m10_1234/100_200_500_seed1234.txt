@@ -1,0 +1,15 @@
+[Results] 
+model_name = 100_200_500_seed1234 
+seed = 1234 
+psi = -10 
+n_pairs = 100000 
+n_points = 500000 
+batch_size = 10000 
+layers = 100_200_500 
+
+n_epochs = 111 
+train_time = 1254.123467 
+sigma_train = 0.010333 
+sigma_test = 0.010667 
+delta_sigma_train = 0.000012 
+delta_sigma_test = 0.000012 
