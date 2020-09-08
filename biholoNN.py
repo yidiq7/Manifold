@@ -1,7 +1,7 @@
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.python.keras import activations
-import numpy as np
+import numpy as np 
 import tensorflow.python.keras.backend as K
 import os
 
@@ -24,14 +24,6 @@ class Biholomorphic(keras.layers.Layer):
         zzbar = tf.boolean_mask(zzbar, bool_mask)
         zzbar = tf.transpose(zzbar)
 
-        ''' 
-        tmp = tf.transpose(zzbar)
-        intermediate_tensor = tf.reduce_sum(tf.abs(tmp), 1)
-        bool_mask = tf.squeeze(tf.math.logical_not(tf.math.less(intermediate_tensor, 1e-3)))
-        trans = tf.boolean_mask(tf.eye(len(bool_mask)), bool_mask)
-        #trans = tf.transpose(trans)
-        ''' 
-        #return tf.matmul(zzbar, trans, transpose_b=True)
         return zzbar
 
 class Dense(keras.layers.Layer):
@@ -116,4 +108,12 @@ def dataset_on_patch(patch):
 def weighted_MAPE(y_true, y_pred, mass):
     weights = mass / K.sum(mass)
     return K.sum(K.abs(y_true - y_pred) / y_true * weights)
+
+def weighted_MSE(y_true, y_pred, mass):
+    weights = mass / K.sum(mass)
+    return K.sum(tf.square(y_pred / y_true - 1) * weights)
+
+def max_error(y_true, y_pred, mass):
+    return tf.math.reduce_max(K.abs(y_true - y_pred))
+
 

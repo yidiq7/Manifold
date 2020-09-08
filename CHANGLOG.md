@@ -1,6 +1,12 @@
 # Changelog
 
 ## [Unreleased]
+## [0.6.0] - 2020-09-08
+### Added
+- Two new loss function weighted\_MSE and max\_error
+### Changed
+- Fixed the last layer. It contains weights instead of just reduce\_sum.
+
 ## [0.5.2] - 2020-09-02
 ### Added
 - Updated a new output format
