@@ -91,7 +91,7 @@ log_file = open(saved_path + model_name + '.log', 'w')
 start_time = time.time()
 
 stop = False
-loss_old = 10
+loss_old = 100000
 epoch = 0
 
 while epoch < max_epochs and stop is False:
