@@ -12,13 +12,14 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 seed = int(sys.argv[1])
 psi = float(sys.argv[2])
+phi = float(sys.argv[3])
 n_pairs = 100000
 batch_size = 1000
 layers = '100_500_100_1'
 max_epochs = 10000
 
-saved_path = 'experiments_nannu/biholo/3layers/f0/'
-model_name = layers + '_f0' + '_seed' + str(seed) + '_' + str(int(10*psi))
+saved_path = 'experiments_nannu/biholo/3layers/f1/'
+model_name = layers + '_f1' + '_seed' + str(seed) + '_npsi_' + str(int(10*psi)) + '_phi_' + str(int(10*phi))
 
 
 
@@ -46,7 +47,7 @@ if __name__ =='__main__':
 
     z0, z1, z2, z3, z4 = sp.symbols('z0, z1, z2, z3, z4')
     Z = [z0,z1,z2,z3,z4]
-    f = z0**5 + z1**5 + z2**5 + z3**5 + z4**5 - psi*z0*z1*z2*z3*z4
+    f = z0**5 + z1**5 + z2**5 + z3**5 + z4**5 - psi*z0*z1*z2*z3*z4 + phi*((z3*(z4**4)) + ((z3**2)*(z4**3)) + ((z3**3)*(z4**2)) + ((z3**4)*z4))
     np.random.seed(seed)
     HS = Hypersurface(Z, f, n_pairs)
     HS_test = Hypersurface(Z, f, n_pairs)
@@ -155,6 +156,7 @@ if __name__ =='__main__':
         f.write('model_name = %s \n' % model_name)
         f.write('seed = %d \n' % seed)
         f.write('psi = %g \n' % psi)
+        f.write('phi = %g \n' % phi)
         f.write('n_pairs = %d \n' % n_pairs)
         f.write('n_points = %d \n' % HS.n_points)
         f.write('batch_size = %d \n' % batch_size)
@@ -167,5 +169,5 @@ if __name__ =='__main__':
         f.write('delta_sigma_train = %f \n' % delta_sigma_train)
         f.write('delta_sigma_test = %f \n' % delta_sigma_test)
 
-    with open(saved_path + "summary.txt", "a") as f:
-        f.write('%d %g %d %f %f %f %f %f \n' % (seed, psi, n_pairs, train_time, train_loss, test_loss, delta_sigma_train, delta_sigma_test))
+    with open(saved_path + "NegativePsi_summary.txt", "a") as f:
+        f.write('%d %g %d %f %f %f %f %f \n' % (seed, psi, phi, n_pairs, train_time, train_loss, test_loss, delta_sigma_train, delta_sigma_test))
