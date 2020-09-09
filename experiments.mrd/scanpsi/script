@@ -12,5 +12,5 @@ do for psi in 0 m1 m2 m3 m4 m4.5 m5.5 m6 m5
 done
 
 
-echo > $DIR/data.txt seed psi n_pairs train_time train_loss test_loss delta_sigma_train delta_sigma_test
-cat $DIR/*/summary.txt >> $DIR/data.txt
+echo > $DIR/data.txt layers seed psi n_pairs train_time train_loss test_loss delta_sigma_train delta_sigma_test
+sed "s/^/50_100_200 /" $DIR/*/summary.txt >> $DIR/data.txt
