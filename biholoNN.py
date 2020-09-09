@@ -114,6 +114,7 @@ def weighted_MSE(y_true, y_pred, mass):
     return K.sum(tf.square(y_pred / y_true - 1) * weights)
 
 def max_error(y_true, y_pred, mass):
-    return tf.math.reduce_max(K.abs(y_true - y_pred))
+    return tf.math.reduce_max(K.abs(y_true - y_pred) / y_true)
 
-
+def MSE_plus_max_error(y_true, y_pred, mass):
+    return weighted_MAPE(y_true, y_pred, mass) + 0.1*max_error(y_true, y_pred, mass)
