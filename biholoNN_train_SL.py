@@ -14,11 +14,11 @@ seed = int(sys.argv[1])
 psi = float(sys.argv[2])
 n_pairs = 100000
 batch_size = 1000
-layers = '100_500_1000_1'
+layers = '100_500_100_1'
 max_epochs = 10000
 
-saved_path = 'experiments_nannu/biholo/3layers/f0'
-model_name = layers + '_f0' + '_seed' + str(seed) + str(psi)
+saved_path = 'experiments_nannu/biholo/3layers/f0/'
+model_name = layers + '_f0' + '_seed' + str(seed) + '_' + str(psi)
 
 
 
