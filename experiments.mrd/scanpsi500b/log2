@@ -7015,3 +7015,2755 @@ test_loss: 0.099230275
 train_loss: 0.09824903
 test_loss: 0.099081784
 train_loss: 0.101001196
+test_loss: 0.098885074
+train_loss: 0.099625826
+test_loss: 0.098717056
+train_loss: 0.09205294
+test_loss: 0.09855874
+train_loss: 0.09702953
+test_loss: 0.09836601
+train_loss: 0.09623366
+test_loss: 0.09818439
+train_loss: 0.094040394
+test_loss: 0.09798798
+train_loss: 0.09585064
+test_loss: 0.09783486
+train_loss: 0.09646888
+test_loss: 0.097679265
+train_loss: 0.09861621
+test_loss: 0.09746998
+train_loss: 0.10005266
+test_loss: 0.09730809
+train_loss: 0.097327046
+test_loss: 0.09713235
+train_loss: 0.09848777
+test_loss: 0.09694225
+train_loss: 0.09739837
+test_loss: 0.09673469
+train_loss: 0.09920445
+test_loss: 0.096505746
+train_loss: 0.09476068
+test_loss: 0.09631643
+train_loss: 0.09464939
+test_loss: 0.096113205
+train_loss: 0.093650244
+test_loss: 0.09591637
+train_loss: 0.09373979
+test_loss: 0.095678896
+train_loss: 0.09110983
+test_loss: 0.0954588
+train_loss: 0.094345346
+test_loss: 0.09522209
+train_loss: 0.093630865
+test_loss: 0.09496098
+train_loss: 0.09593794
+test_loss: 0.09473946
+train_loss: 0.093533225
+test_loss: 0.09451771
+train_loss: 0.09403066
+test_loss: 0.09422765
+train_loss: 0.09386911
+test_loss: 0.093970366
+train_loss: 0.09203811
+test_loss: 0.09370197
+train_loss: 0.096382916
+test_loss: 0.09347619
+train_loss: 0.092809826
+test_loss: 0.09310767
+train_loss: 0.08883841
+test_loss: 0.09288054
+train_loss: 0.09475763
+test_loss: 0.09252946
+train_loss: 0.09026411
+test_loss: 0.0922089
+train_loss: 0.09208806
+test_loss: 0.091951065
+train_loss: 0.090225056
+test_loss: 0.09157375
+train_loss: 0.09242139
+test_loss: 0.09123675
+train_loss: 0.09522644
+test_loss: 0.09089703
+train_loss: 0.08862755
+test_loss: 0.09053454
+train_loss: 0.08845915
+test_loss: 0.09020933
+train_loss: 0.093966134
+test_loss: 0.08979978
+train_loss: 0.084611185
+test_loss: 0.08942577
+train_loss: 0.086261824
+test_loss: 0.08897213
+train_loss: 0.088918075
+test_loss: 0.088610806
+train_loss: 0.088785216
+test_loss: 0.08814839
+train_loss: 0.08877887
+test_loss: 0.087708704
+train_loss: 0.08577886
+test_loss: 0.087306134
+train_loss: 0.08610386
+test_loss: 0.0868783
+train_loss: 0.08514566
+test_loss: 0.086387776
+train_loss: 0.08525495
+test_loss: 0.08592904
+train_loss: 0.08380053
+test_loss: 0.085569486
+train_loss: 0.08314912
+test_loss: 0.085031874
+train_loss: 0.08512289
+test_loss: 0.08470867
+train_loss: 0.08175184
+test_loss: 0.08405543
+train_loss: 0.08207435
+test_loss: 0.08358511
+train_loss: 0.082148425
+test_loss: 0.08306997
+train_loss: 0.08021991
+test_loss: 0.082541674
+train_loss: 0.08180071
+test_loss: 0.08205961
+train_loss: 0.07730733
+test_loss: 0.081520475
+train_loss: 0.08010344
+test_loss: 0.08097975
+train_loss: 0.0791117
+test_loss: 0.08048306
+train_loss: 0.077941164
+test_loss: 0.08003118
+train_loss: 0.0789316
+test_loss: 0.07945641
+train_loss: 0.08033201
+test_loss: 0.07883929
+train_loss: 0.0825558
+test_loss: 0.07834968
+train_loss: 0.07521988
+test_loss: 0.07781941
+train_loss: 0.07487176
+test_loss: 0.07730902
+train_loss: 0.080004625
+test_loss: 0.07667611
+train_loss: 0.07661906
+test_loss: 0.07620038
+train_loss: 0.0750312
+test_loss: 0.075673334
+train_loss: 0.07339471
+test_loss: 0.075115904
+train_loss: 0.06954667
+test_loss: 0.07456227
+train_loss: 0.075486824
+test_loss: 0.0739657
+train_loss: 0.07135613
+test_loss: 0.07340891
+train_loss: 0.074340165
+test_loss: 0.0728952
+train_loss: 0.069818944
+test_loss: 0.0722736
+train_loss: 0.071524546
+test_loss: 0.07177738
+train_loss: 0.06917881
+test_loss: 0.07122875
+train_loss: 0.07542783
+test_loss: 0.07073952
+train_loss: 0.06762685
+test_loss: 0.070248045
+train_loss: 0.07146564
+test_loss: 0.069648124
+train_loss: 0.07041926
+test_loss: 0.06914747
+train_loss: 0.065013304
+test_loss: 0.06864301
+train_loss: 0.06737305
+test_loss: 0.06809025
+train_loss: 0.06543706
+test_loss: 0.06752227
+train_loss: 0.0655262
+test_loss: 0.06704376
+train_loss: 0.067462154
+test_loss: 0.06647775
+train_loss: 0.06723954
+test_loss: 0.06606508
+train_loss: 0.06880869
+test_loss: 0.065576546
+train_loss: 0.06384139
+test_loss: 0.065133326
+train_loss: 0.06458869
+test_loss: 0.064651266
+train_loss: 0.06565571
+test_loss: 0.06411505
+train_loss: 0.06328733
+test_loss: 0.06355498
+train_loss: 0.063972265
+test_loss: 0.06306311
+train_loss: 0.06145173
+test_loss: 0.06247271
+train_loss: 0.062476967
+test_loss: 0.061988376
+train_loss: 0.060228735
+test_loss: 0.061399747
+train_loss: 0.058944054
+test_loss: 0.061188284
+train_loss: 0.061017066
+test_loss: 0.06046588
+train_loss: 0.057508197
+test_loss: 0.059774276
+train_loss: 0.05729097
+test_loss: 0.05927968
+train_loss: 0.05588036
+test_loss: 0.05868253
+train_loss: 0.058311418
+test_loss: 0.057914533
+train_loss: 0.059661068
+test_loss: 0.057365403
+train_loss: 0.057495516
+test_loss: 0.056822874
+train_loss: 0.05667738
+test_loss: 0.056584504
+train_loss: 0.056528397
+test_loss: 0.055604443
+train_loss: 0.05211766
+test_loss: 0.055032022
+train_loss: 0.056058615
+test_loss: 0.054319512
+train_loss: 0.054793507
+test_loss: 0.054147933
+train_loss: 0.049848307
+test_loss: 0.05347436
+train_loss: 0.052602336
+test_loss: 0.052312154
+train_loss: 0.05077267
+test_loss: 0.05160027
+train_loss: 0.05023574
+test_loss: 0.05109202
+train_loss: 0.049680885
+test_loss: 0.050170183
+train_loss: 0.047771968
+test_loss: 0.049482252
+train_loss: 0.045472696
+test_loss: 0.04871674
+train_loss: 0.04906641
+test_loss: 0.04790668
+train_loss: 0.046758227
+test_loss: 0.047120668
+train_loss: 0.04699534
+test_loss: 0.046361905
+train_loss: 0.043450035
+test_loss: 0.045514114
+train_loss: 0.043578666
+test_loss: 0.04486685
+train_loss: 0.042137083
+test_loss: 0.04381185
+train_loss: 0.043573864
+test_loss: 0.043079603
+train_loss: 0.04025676
+test_loss: 0.04244686
+train_loss: 0.040370896
+test_loss: 0.04159089
+train_loss: 0.038328394
+test_loss: 0.040594183
+train_loss: 0.03960216
+test_loss: 0.03967947
+train_loss: 0.03717418
+test_loss: 0.038885444
+train_loss: 0.03800766
+test_loss: 0.037976827
+train_loss: 0.03646905
+test_loss: 0.037401564
+train_loss: 0.037814613
+test_loss: 0.03690727
+train_loss: 0.03698702
+test_loss: 0.036309518
+train_loss: 0.034264497
+test_loss: 0.034771916
+train_loss: 0.032705817
+test_loss: 0.034177758
+train_loss: 0.03358949
+test_loss: 0.033794213
+train_loss: 0.034956563
+test_loss: 0.03325575
+train_loss: 0.031491265
+test_loss: 0.03200567
+train_loss: 0.03176905
+test_loss: 0.031904284
+train_loss: 0.031204768
+test_loss: 0.033462122
+train_loss: 0.031083757
+test_loss: 0.031028612
+train_loss: 0.030024314
+test_loss: 0.03049256
+train_loss: 0.03079598
+test_loss: 0.029719286
+train_loss: 0.028127715
+test_loss: 0.031143194
+train_loss: 0.028945932
+test_loss: 0.028697582
+train_loss: 0.03041726
+test_loss: 0.028621463
+train_loss: 0.027904876
+test_loss: 0.0279337
+train_loss: 0.028092863
+test_loss: 0.029722864
+train_loss: 0.026767898
+test_loss: 0.027013868
+train_loss: 0.027283376
+test_loss: 0.026809163
+train_loss: 0.028114866
+test_loss: 0.02863737
+train_loss: 0.02707327
+test_loss: 0.026623884
+train_loss: 0.02545515
+test_loss: 0.026815264
+train_loss: 0.02599359
+test_loss: 0.025917854
+train_loss: 0.025134932
+test_loss: 0.026884686
+train_loss: 0.025915053
+test_loss: 0.025381066
+train_loss: 0.027694268
+test_loss: 0.025774613
+train_loss: 0.026156396
+test_loss: 0.025288379
+train_loss: 0.023059968
+test_loss: 0.025467409
+train_loss: 0.026834894
+test_loss: 0.024780948
+train_loss: 0.025928672
+test_loss: 0.025005085
+train_loss: 0.024623396
+test_loss: 0.024340054
+train_loss: 0.025573207
+test_loss: 0.024720225
+train_loss: 0.02386126
+test_loss: 0.024503378
+train_loss: 0.022607446
+test_loss: 0.024745794
+train_loss: 0.022915788
+test_loss: 0.023871057
+train_loss: 0.02390717
+test_loss: 0.024360623
+train_loss: 0.023751136
+test_loss: 0.024171397
+train_loss: 0.022563279
+test_loss: 0.023462266
+train_loss: 0.024391564
+test_loss: 0.024469199
+train_loss: 0.022730354
+test_loss: 0.023290459
+train_loss: 0.022949684
+test_loss: 0.023475116
+train_loss: 0.022949811
+test_loss: 0.023369383
+train_loss: 0.023878366
+test_loss: 0.023183461
+train_loss: 0.023835802
+test_loss: 0.022972714
+train_loss: 0.025133006
+test_loss: 0.023586493
+train_loss: 0.022501906
+test_loss: 0.023079472
+train_loss: 0.022855867
+test_loss: 0.02391996
+train_loss: 0.022276174
+test_loss: 0.022519495
+train_loss: 0.022856036
+test_loss: 0.022991277
+train_loss: 0.022720363
+test_loss: 0.022220273
+train_loss: 0.023553234
+test_loss: 0.023026854WARNING:tensorflow:From /home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/training/tracking/tracking.py:111: Model.state_updates (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+2020-09-09 09:27:04.547065: W tensorflow/python/util/util.cc:348] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
+WARNING:tensorflow:From /home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/training/tracking/tracking.py:111: Layer.updates (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+
+train_loss: 0.021578476
+test_loss: 0.022308428
+train_loss: 0.025027733
+test_loss: 0.023078283
+train_loss: 0.022614546
+test_loss: 0.02230181
+train_loss: 0.021312306
+test_loss: 0.022137793
+train_loss: 0.022583816
+test_loss: 0.02272804
+train_loss: 0.022468757
+test_loss: 0.022473462
+train_loss: 0.021830704
+test_loss: 0.022470394
+train_loss: 0.021373939
+test_loss: 0.022451673
+train_loss: 0.021652583
+test_loss: 0.02216533
+train_loss: 0.022361526
+test_loss: 0.022165982
+train_loss: 0.023749493
+test_loss: 0.021781653
+train_loss: 0.021439495
+test_loss: 0.02176726
+train_loss: 0.021118838
+test_loss: 0.022067714
+train_loss: 0.023094686
+test_loss: 0.021832524
+train_loss: 0.021714212
+test_loss: 0.022227816
+train_loss: 0.020008784
+test_loss: 0.021302177
+train_loss: 0.021382557
+test_loss: 0.02089846
+train_loss: 0.019297719
+test_loss: 0.021700224
+train_loss: 0.020617323
+test_loss: 0.021932604
+train_loss: 0.020919502
+test_loss: 0.021000834
+train_loss: 0.021649472
+test_loss: 0.020925261
+train_loss: 0.021019202
+test_loss: 0.021353547
+train_loss: 0.020510796
+test_loss: 0.020987941
+train_loss: 0.020416422
+test_loss: 0.020923268
+train_loss: 0.0215142
+test_loss: 0.02089803
+train_loss: 0.020009097
+test_loss: 0.020948099
+train_loss: 0.020351358
+test_loss: 0.020803638
+train_loss: 0.019070918
+test_loss: 0.020691404
+train_loss: 0.02016942
+test_loss: 0.020520462
+train_loss: 0.020639636
+test_loss: 0.020983895
+train_loss: 0.019737858
+test_loss: 0.020113626
+train_loss: 0.022475233
+test_loss: 0.020697353
+train_loss: 0.019232027
+test_loss: 0.020240773
+train_loss: 0.020947745
+test_loss: 0.020557068
+train_loss: 0.020367427
+test_loss: 0.02014348
+train_loss: 0.019446086
+test_loss: 0.020038988
+train_loss: 0.019751314
+test_loss: 0.020332815
+train_loss: 0.019738775
+test_loss: 0.019779129
+train_loss: 0.020944998
+test_loss: 0.019988509
+train_loss: 0.019429002
+test_loss: 0.01975658
+train_loss: 0.019782906
+test_loss: 0.023180814
+train_loss: 0.019672884
+test_loss: 0.019750249
+train_loss: 0.019995112
+test_loss: 0.019816427
+train_loss: 0.018917661
+test_loss: 0.02037578
+train_loss: 0.019585526
+test_loss: 0.020483961
+train_loss: 0.020788908
+test_loss: 0.019696789
+train_loss: 0.018191375
+test_loss: 0.019554868
+train_loss: 0.018964106
+test_loss: 0.019473419
+train_loss: 0.019216329
+test_loss: 0.020784432
+10985.72user 269.61system 2:12:51elapsed 141%CPU (0avgtext+0avgdata 4578192maxresident)k
+0inputs+1344outputs (0major+41125439minor)pagefaults 0swaps
+2020-09-09 09:28:36.079022: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.10.1
+2020-09-09 09:31:00.692284: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcuda.so.1
+2020-09-09 09:31:00.727066: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties: 
+pciBusID: 0000:3d:00.0 name: Tesla V100-SXM2-32GB computeCapability: 7.0
+coreClock: 1.53GHz coreCount: 80 deviceMemorySize: 31.72GiB deviceMemoryBandwidth: 836.37GiB/s
+2020-09-09 09:31:00.727172: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.10.1
+2020-09-09 09:31:00.731190: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.10
+2020-09-09 09:31:00.737697: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcufft.so.10
+2020-09-09 09:31:00.739047: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcurand.so.10
+2020-09-09 09:31:00.747222: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusolver.so.10
+2020-09-09 09:31:00.751327: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusparse.so.10
+2020-09-09 09:31:00.766997: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudnn.so.7
+2020-09-09 09:31:00.774999: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1858] Adding visible gpu devices: 0
+2020-09-09 09:31:00.776624: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2020-09-09 09:31:00.839435: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 2300000000 Hz
+2020-09-09 09:31:00.847026: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x47bac10 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-09-09 09:31:00.847140: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-09-09 09:31:01.166952: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x46c5050 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2020-09-09 09:31:01.167001: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Tesla V100-SXM2-32GB, Compute Capability 7.0
+2020-09-09 09:31:01.171115: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties: 
+pciBusID: 0000:3d:00.0 name: Tesla V100-SXM2-32GB computeCapability: 7.0
+coreClock: 1.53GHz coreCount: 80 deviceMemorySize: 31.72GiB deviceMemoryBandwidth: 836.37GiB/s
+2020-09-09 09:31:01.171160: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.10.1
+2020-09-09 09:31:01.171196: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.10
+2020-09-09 09:31:01.171208: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcufft.so.10
+2020-09-09 09:31:01.171221: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcurand.so.10
+2020-09-09 09:31:01.171233: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusolver.so.10
+2020-09-09 09:31:01.171252: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusparse.so.10
+2020-09-09 09:31:01.171274: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudnn.so.7
+2020-09-09 09:31:01.188682: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1858] Adding visible gpu devices: 0
+2020-09-09 09:31:01.188979: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.10.1
+2020-09-09 09:31:02.757554: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1257] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-09-09 09:31:02.757608: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1263]      0 
+2020-09-09 09:31:02.757616: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1276] 0:   N 
+2020-09-09 09:31:02.761306: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1402] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 30098 MB memory) -> physical GPU (device: 0, name: Tesla V100-SXM2-32GB, pci bus id: 0000:3d:00.0, compute capability: 7.0)
+2020-09-09 09:31:06.973210: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.10
+2020-09-09 09:31:07.451285: I tensorflow/core/kernels/cuda_solvers.cc:180] Creating CudaSolver handles for stream 0x7194a00
+2020-09-09 09:31:07.451414: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusolver.so.10
+2020-09-09 09:31:08.079319: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.10
+WARNING:tensorflow:5 out of the last 5 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6fd96e7b70> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:6 out of the last 6 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6fd96e78c8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:7 out of the last 7 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6fd00b12f0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:8 out of the last 8 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6fd973c1e0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:9 out of the last 9 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6fd97172f0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:10 out of the last 10 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6fd010a8c8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6fd973c510> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6fd00f6ea0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6f741ea6a8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6f741f3730> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6f6deab268> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6f741ea8c8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6f741ea9d8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6f741ea2f0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6fd00f6d90> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6f74053048> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6f74053e18> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6f74034e18> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6f74034b70> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6f740346a8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6f6dc49488> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6f6dc49b70> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f70c0f262f0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6f6de65f28> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6f6de65ea0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6f6dbbfd90> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6f6dbbfa60> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6f6db447b8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6f6db44730> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6f6db44a60> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6f6dd41950> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6f6dd41d90> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6f741a4158> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6f6dce8d08> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6f6dae58c8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6f6daef620> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:From /home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/training/tracking/tracking.py:111: Model.state_updates (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+2020-09-09 09:39:05.434078: W tensorflow/python/util/util.cc:348] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
+WARNING:tensorflow:From /home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/training/tracking/tracking.py:111: Layer.updates (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+train_loss: 1.9997982
+test_loss: 3.2039714
+train_loss: 3.5197163
+test_loss: 2.6422343
+train_loss: 2.4985874
+test_loss: 3.6446826
+train_loss: 1.9997199
+test_loss: 1.9977773
+train_loss: 1.997511
+test_loss: 1.9973729
+train_loss: 1.998884
+test_loss: 1.9978355
+train_loss: 1.9961195
+test_loss: 1.9977295
+train_loss: 1.9991922
+test_loss: 1.9973359
+train_loss: 1.9992535
+test_loss: 1.997704
+train_loss: 1.9984523
+test_loss: 1.9975617
+train_loss: 1.9941556
+test_loss: 1.9975513
+train_loss: 1.9994388
+test_loss: 1.9973751
+train_loss: 1.9990311
+test_loss: 1.9976542
+train_loss: 1.996218
+test_loss: 1.9973209
+train_loss: 1.994239
+test_loss: 1.9975456
+train_loss: 1.9966991
+test_loss: 1.9979874
+train_loss: 1.9950087
+test_loss: 1.9979932
+train_loss: 1.9965694
+test_loss: 1.9977921
+train_loss: 1.9965436
+test_loss: 1.997559
+train_loss: 1.9983257
+test_loss: 1.9976001
+train_loss: 1.9976717
+test_loss: 1.9974988
+3940.38user 123.92system 11:57.30elapsed 566%CPU (0avgtext+0avgdata 4559132maxresident)k
+0inputs+1256outputs (0major+10473364minor)pagefaults 0swaps
+2020-09-09 09:40:33.062415: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.10.1
+2020-09-09 09:43:03.727279: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcuda.so.1
+2020-09-09 09:43:03.757610: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties: 
+pciBusID: 0000:3d:00.0 name: Tesla V100-SXM2-32GB computeCapability: 7.0
+coreClock: 1.53GHz coreCount: 80 deviceMemorySize: 31.72GiB deviceMemoryBandwidth: 836.37GiB/s
+2020-09-09 09:43:03.757648: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.10.1
+2020-09-09 09:43:03.759466: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.10
+2020-09-09 09:43:03.761899: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcufft.so.10
+2020-09-09 09:43:03.762545: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcurand.so.10
+2020-09-09 09:43:03.765505: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusolver.so.10
+2020-09-09 09:43:03.767589: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusparse.so.10
+2020-09-09 09:43:03.772694: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudnn.so.7
+2020-09-09 09:43:03.777647: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1858] Adding visible gpu devices: 0
+2020-09-09 09:43:03.778790: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2020-09-09 09:43:03.867259: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 2300000000 Hz
+2020-09-09 09:43:03.875290: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x4d08670 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-09-09 09:43:03.875388: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-09-09 09:43:04.201062: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x4c371b0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2020-09-09 09:43:04.201184: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Tesla V100-SXM2-32GB, Compute Capability 7.0
+2020-09-09 09:43:04.206511: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties: 
+pciBusID: 0000:3d:00.0 name: Tesla V100-SXM2-32GB computeCapability: 7.0
+coreClock: 1.53GHz coreCount: 80 deviceMemorySize: 31.72GiB deviceMemoryBandwidth: 836.37GiB/s
+2020-09-09 09:43:04.206629: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.10.1
+2020-09-09 09:43:04.206703: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.10
+2020-09-09 09:43:04.206725: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcufft.so.10
+2020-09-09 09:43:04.206746: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcurand.so.10
+2020-09-09 09:43:04.206766: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusolver.so.10
+2020-09-09 09:43:04.206804: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusparse.so.10
+2020-09-09 09:43:04.206824: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudnn.so.7
+2020-09-09 09:43:04.214751: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1858] Adding visible gpu devices: 0
+2020-09-09 09:43:04.214817: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.10.1
+2020-09-09 09:43:05.731656: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1257] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-09-09 09:43:05.731763: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1263]      0 
+2020-09-09 09:43:05.731778: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1276] 0:   N 
+2020-09-09 09:43:05.740324: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1402] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 30098 MB memory) -> physical GPU (device: 0, name: Tesla V100-SXM2-32GB, pci bus id: 0000:3d:00.0, compute capability: 7.0)
+2020-09-09 09:43:11.275569: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.10
+2020-09-09 09:43:11.955440: I tensorflow/core/kernels/cuda_solvers.cc:180] Creating CudaSolver handles for stream 0x7701ef0
+2020-09-09 09:43:11.955554: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusolver.so.10
+2020-09-09 09:43:12.562219: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.10
+WARNING:tensorflow:5 out of the last 5 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f8831877d90> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:6 out of the last 6 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f88318c4a60> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:7 out of the last 7 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f88318c49d8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:8 out of the last 8 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f883188f0d0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:9 out of the last 9 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f8831899268> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:10 out of the last 10 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f8831899d08> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f88204caf28> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f8831899f28> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f88204caae8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f8820348378> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f88204d27b8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f87d479f7b8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f87d479f950> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f87d479fea0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f882020aae8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f88201efea0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f882020e7b8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f882020ef28> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f8820199ea0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f8820199d08> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f882020ec80> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f8820095a60> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f87d4610950> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f87d4608f28> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f87d4608ea0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f8820100378> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f87d476c378> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f87d476c6a8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f8820427400> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f8820427730> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f88204270d0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f87d44a2e18> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f87d44a2b70> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f87d455a950> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f87d447d8c8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f87d4462a60> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:From /home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/training/tracking/tracking.py:111: Model.state_updates (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+2020-09-09 10:28:16.649561: W tensorflow/python/util/util.cc:348] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
+WARNING:tensorflow:From /home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/training/tracking/tracking.py:111: Layer.updates (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+train_loss: 0.23731345
+test_loss: 0.23258159
+train_loss: 0.1206158
+test_loss: 0.12081225
+train_loss: 0.09594507
+test_loss: 0.0948597
+train_loss: 0.08971312
+test_loss: 0.08983887
+train_loss: 0.08521742
+test_loss: 0.08642676
+train_loss: 0.083648734
+test_loss: 0.08296662
+train_loss: 0.07781798
+test_loss: 0.07945002
+train_loss: 0.076388
+test_loss: 0.07634831
+train_loss: 0.073454574
+test_loss: 0.07363024
+train_loss: 0.07084295
+test_loss: 0.07128281
+train_loss: 0.069458894
+test_loss: 0.06920773
+train_loss: 0.06662289
+test_loss: 0.067310385
+train_loss: 0.06666584
+test_loss: 0.06563614
+train_loss: 0.06287284
+test_loss: 0.063899085
+train_loss: 0.06180632
+test_loss: 0.062011395
+train_loss: 0.058600694
+test_loss: 0.060052574
+train_loss: 0.057003766
+test_loss: 0.058042523
+train_loss: 0.05533106
+test_loss: 0.055584222
+train_loss: 0.052135322
+test_loss: 0.052896485
+train_loss: 0.049424015
+test_loss: 0.05035581
+train_loss: 0.047740765
+test_loss: 0.047584105
+train_loss: 0.04460541
+test_loss: 0.04492242
+train_loss: 0.041850958
+test_loss: 0.041935798
+train_loss: 0.039483823
+test_loss: 0.039881542
+train_loss: 0.036870904
+test_loss: 0.037468173
+train_loss: 0.034172136
+test_loss: 0.03505211
+train_loss: 0.032880098
+test_loss: 0.033000786
+train_loss: 0.030405797
+test_loss: 0.03116977
+train_loss: 0.029450623
+test_loss: 0.02954689
+train_loss: 0.02725856
+test_loss: 0.028257942
+train_loss: 0.026524127
+test_loss: 0.02693249
+train_loss: 0.025750218
+test_loss: 0.025573494
+train_loss: 0.024288645
+test_loss: 0.02466304
+train_loss: 0.023472758
+test_loss: 0.023335379
+train_loss: 0.022568941
+test_loss: 0.022402264
+train_loss: 0.020752013
+test_loss: 0.021484036
+train_loss: 0.020268416
+test_loss: 0.020658234
+train_loss: 0.019699063
+test_loss: 0.019978577
+train_loss: 0.019564867
+test_loss: 0.019572796
+train_loss: 0.017799754
+test_loss: 0.018295089
+train_loss: 0.01796949
+test_loss: 0.018533507
+train_loss: 0.017795004
+test_loss: 0.017491098
+train_loss: 0.016998902
+test_loss: 0.017386679
+train_loss: 0.016791685
+test_loss: 0.016884
+train_loss: 0.016336512
+test_loss: 0.016717896
+train_loss: 0.015704727
+test_loss: 0.016493982
+train_loss: 0.015041938
+test_loss: 0.015719913
+train_loss: 0.01449238
+test_loss: 0.015055882
+train_loss: 0.01461138
+test_loss: 0.015061392
+train_loss: 0.014420787
+test_loss: 0.015493075
+train_loss: 0.014658669
+test_loss: 0.01442705
+train_loss: 0.014132285
+test_loss: 0.014367214
+train_loss: 0.014268547
+test_loss: 0.013958389
+train_loss: 0.013070025
+test_loss: 0.014064732
+train_loss: 0.013890555
+test_loss: 0.013921511
+train_loss: 0.013366988
+test_loss: 0.013766468
+train_loss: 0.012579716
+test_loss: 0.012924894
+train_loss: 0.012150479
+test_loss: 0.012647149
+train_loss: 0.012496317
+test_loss: 0.012656143
+train_loss: 0.01190822
+test_loss: 0.012833907
+train_loss: 0.012426298
+test_loss: 0.0125484485
+train_loss: 0.011655226
+test_loss: 0.011951207
+train_loss: 0.011669972
+test_loss: 0.011925464
+train_loss: 0.011389805
+test_loss: 0.0123033095
+train_loss: 0.011682477
+test_loss: 0.011738237
+train_loss: 0.01194323
+test_loss: 0.012430305
+train_loss: 0.0112016145
+test_loss: 0.011671407
+train_loss: 0.011310333
+test_loss: 0.011719657
+train_loss: 0.01101371
+test_loss: 0.011529356
+train_loss: 0.011138888
+test_loss: 0.011529061
+train_loss: 0.0108271595
+test_loss: 0.010824189
+train_loss: 0.01074769
+test_loss: 0.011117994
+train_loss: 0.010733801
+test_loss: 0.0111565925
+train_loss: 0.0105908215
+test_loss: 0.011271957
+train_loss: 0.010651082
+test_loss: 0.011145891
+train_loss: 0.010128858
+test_loss: 0.010816256
+train_loss: 0.01033871
+test_loss: 0.010719363
+train_loss: 0.010116742
+test_loss: 0.010247858
+train_loss: 0.010163474
+test_loss: 0.010486096
+train_loss: 0.010566478
+test_loss: 0.010696241
+train_loss: 0.010073577
+test_loss: 0.010238323
+train_loss: 0.010503769
+test_loss: 0.010206563
+train_loss: 0.0097591225
+test_loss: 0.010321216
+train_loss: 0.009522462
+test_loss: 0.010297652
+train_loss: 0.009596642
+test_loss: 0.010362415
+train_loss: 0.0098989075
+test_loss: 0.010185469
+train_loss: 0.009473198
+test_loss: 0.009686024
+train_loss: 0.010088116
+test_loss: 0.010170611
+train_loss: 0.009340474
+test_loss: 0.009816238
+train_loss: 0.009094064
+test_loss: 0.009515753
+train_loss: 0.009331257
+test_loss: 0.0097553665
+train_loss: 0.009489595
+test_loss: 0.010028328
+train_loss: 0.009637125
+test_loss: 0.009686268
+train_loss: 0.009240402
+test_loss: 0.010131965
+train_loss: 0.008807938
+test_loss: 0.009451702
+train_loss: 0.009192226
+test_loss: 0.009527803
+train_loss: 0.0095757125
+test_loss: 0.00952221
+train_loss: 0.008898856
+test_loss: 0.009710529
+train_loss: 0.009051255
+test_loss: 0.0094760535
+train_loss: 0.009110289
+test_loss: 0.009249853
+train_loss: 0.008844142
+test_loss: 0.009044044
+train_loss: 0.008306798
+test_loss: 0.008742234
+train_loss: 0.0091506
+test_loss: 0.009196543
+train_loss: 0.008764969
+test_loss: 0.009113294
+train_loss: 0.00898577
+test_loss: 0.009275484
+train_loss: 0.008423679
+test_loss: 0.008553626
+train_loss: 0.008320006
+test_loss: 0.008767607
+train_loss: 0.0087127015
+test_loss: 0.008810873
+train_loss: 0.008327067
+test_loss: 0.008267269
+train_loss: 0.00843292
+test_loss: 0.009211705
+train_loss: 0.009094555
+test_loss: 0.008684096
+train_loss: 0.008461088
+test_loss: 0.008456936
+train_loss: 0.008511187
+test_loss: 0.008351594
+train_loss: 0.008280478
+test_loss: 0.008551543
+train_loss: 0.008052053
+test_loss: 0.0082772495
+train_loss: 0.008374554
+test_loss: 0.008213018
+train_loss: 0.00820606
+test_loss: 0.008609787
+train_loss: 0.008268658
+test_loss: 0.008849674
+train_loss: 0.007902708
+test_loss: 0.008141891
+train_loss: 0.0077663963
+test_loss: 0.007956974
+train_loss: 0.007889122
+test_loss: 0.008031296
+train_loss: 0.008075332
+test_loss: 0.008759954
+train_loss: 0.007890683
+test_loss: 0.007879043
+train_loss: 0.008258213
+test_loss: 0.007920322
+train_loss: 0.008369207
+test_loss: 0.007905431
+train_loss: 0.0077347243
+test_loss: 0.008153216
+train_loss: 0.007585701
+test_loss: 0.0077879326
+train_loss: 0.0076333783
+test_loss: 0.007821816
+train_loss: 0.007940845
+test_loss: 0.008183428
+train_loss: 0.0074143913
+test_loss: 0.0079329945
+train_loss: 0.0078102164
+test_loss: 0.007469953
+train_loss: 0.008049709
+test_loss: 0.0075682653
+train_loss: 0.0074633965
+test_loss: 0.007843792
+train_loss: 0.0072117066
+test_loss: 0.007681409
+train_loss: 0.0073167817
+test_loss: 0.007507821
+train_loss: 0.007260872
+test_loss: 0.007432564
+train_loss: 0.007380167
+test_loss: 0.00755251
+train_loss: 0.007116379
+test_loss: 0.0075576426
+train_loss: 0.007178773
+test_loss: 0.007438668
+train_loss: 0.00696734
+test_loss: 0.0073419437
+train_loss: 0.0072840587
+test_loss: 0.007483698
+6218.23user 273.87system 49:13.15elapsed 219%CPU (0avgtext+0avgdata 4604472maxresident)k
+0inputs+1264outputs (0major+30283634minor)pagefaults 0swaps
+2020-09-09 10:29:46.501227: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.10.1
+2020-09-09 10:32:09.310209: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcuda.so.1
+2020-09-09 10:32:09.407654: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties: 
+pciBusID: 0000:3d:00.0 name: Tesla V100-SXM2-32GB computeCapability: 7.0
+coreClock: 1.53GHz coreCount: 80 deviceMemorySize: 31.72GiB deviceMemoryBandwidth: 836.37GiB/s
+2020-09-09 10:32:09.407706: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.10.1
+2020-09-09 10:32:09.410473: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.10
+2020-09-09 10:32:09.413216: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcufft.so.10
+2020-09-09 10:32:09.413667: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcurand.so.10
+2020-09-09 10:32:09.416512: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusolver.so.10
+2020-09-09 10:32:09.418213: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusparse.so.10
+2020-09-09 10:32:09.424044: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudnn.so.7
+2020-09-09 10:32:09.427345: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1858] Adding visible gpu devices: 0
+2020-09-09 10:32:09.427749: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2020-09-09 10:32:09.471413: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 2300000000 Hz
+2020-09-09 10:32:09.477736: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x572c040 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-09-09 10:32:09.477772: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-09-09 10:32:09.659356: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x565bb20 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2020-09-09 10:32:09.659398: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Tesla V100-SXM2-32GB, Compute Capability 7.0
+2020-09-09 10:32:09.661729: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties: 
+pciBusID: 0000:3d:00.0 name: Tesla V100-SXM2-32GB computeCapability: 7.0
+coreClock: 1.53GHz coreCount: 80 deviceMemorySize: 31.72GiB deviceMemoryBandwidth: 836.37GiB/s
+2020-09-09 10:32:09.661768: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.10.1
+2020-09-09 10:32:09.661803: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.10
+2020-09-09 10:32:09.661818: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcufft.so.10
+2020-09-09 10:32:09.661831: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcurand.so.10
+2020-09-09 10:32:09.661845: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusolver.so.10
+2020-09-09 10:32:09.661858: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusparse.so.10
+2020-09-09 10:32:09.661871: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudnn.so.7
+2020-09-09 10:32:09.666162: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1858] Adding visible gpu devices: 0
+2020-09-09 10:32:09.666203: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.10.1
+2020-09-09 10:32:10.419499: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1257] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-09-09 10:32:10.419547: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1263]      0 
+2020-09-09 10:32:10.419554: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1276] 0:   N 
+2020-09-09 10:32:10.422937: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1402] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 30098 MB memory) -> physical GPU (device: 0, name: Tesla V100-SXM2-32GB, pci bus id: 0000:3d:00.0, compute capability: 7.0)
+2020-09-09 10:32:13.127270: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.10
+2020-09-09 10:32:13.867413: I tensorflow/core/kernels/cuda_solvers.cc:180] Creating CudaSolver handles for stream 0x84f36f0
+2020-09-09 10:32:13.867675: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusolver.so.10
+2020-09-09 10:32:14.667261: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.10
+WARNING:tensorflow:5 out of the last 5 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f2a00487bf8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:6 out of the last 6 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f2a15ef36a8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:7 out of the last 7 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f2a00487f28> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:8 out of the last 8 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f2a15e802f0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:9 out of the last 9 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f2a15e962f0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:10 out of the last 10 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f2a15e96158> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f2a004ddd08> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f2a15e96a60> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f2a004dd950> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f2a00372620> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f2a002d7950> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f29bc5cc598> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f29bc5ccd08> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f2a00152b70> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f2a00077ea0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f2a000c9048> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f2a000bd7b8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f2a000bdd08> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f29bc423d90> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f29bc45f0d0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f29bc45e2f0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f29bc51fc80> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f2a003cf950> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f2a00229b70> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f2a002297b8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f2a002308c8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f2a002306a8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f2a0026d378> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f2a0026d510> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f2a0026c9d8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f2a0026d620> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f29bc2668c8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f29bc266950> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f2a00193e18> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f29bc2817b8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f2a003079d8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+train_loss: 1.9998329
+test_loss: 1.9980285
+train_loss: 0.4294088
+test_loss: 0.42491645
+train_loss: 0.42650574
+test_loss: 0.421184
+train_loss: 0.41961372
+test_loss: 0.41993213
+train_loss: 0.41413793
+test_loss: 0.41849148
+train_loss: 0.42001987
+test_loss: 0.4169149
+train_loss: 0.41449487
+test_loss: 0.4151682
+train_loss: 0.40794048
+test_loss: 0.41327175
+train_loss: 0.4066139
+test_loss: 0.4112446
+train_loss: 0.40670356
+test_loss: 0.4090709
+train_loss: 0.40885955
+test_loss: 0.40677553
+train_loss: 0.4034137
+test_loss: 0.4043459
+train_loss: 0.3989531
+test_loss: 0.401794
+train_loss: 0.39982414
+test_loss: 0.39911148
+train_loss: 0.39279693
+test_loss: 0.39633033
+train_loss: 0.392789
+test_loss: 0.39340246
+train_loss: 0.3894043
+test_loss: 0.3903626
+train_loss: 0.38856894
+test_loss: 0.38718843
+train_loss: 0.38806176
+test_loss: 0.38391018
+train_loss: 0.3831712
+test_loss: 0.38050795
+train_loss: 0.3752456
+test_loss: 0.3769785
+train_loss: 0.3731187
+test_loss: 0.37332028
+train_loss: 0.36506775
+test_loss: 0.36956212
+train_loss: 0.36961877
+test_loss: 0.36566672
+train_loss: 0.3626904
+test_loss: 0.36165604
+train_loss: 0.36133617
+test_loss: 0.35751322
+train_loss: 0.3531707
+test_loss: 0.3532423
+train_loss: 0.34615844
+test_loss: 0.34887022
+train_loss: 0.34789437
+test_loss: 0.3443535
+train_loss: 0.33727774
+test_loss: 0.33972397
+train_loss: 0.33738437
+test_loss: 0.33499518
+train_loss: 0.33006418
+test_loss: 0.3301381
+train_loss: 0.32267654
+test_loss: 0.32520244
+train_loss: 0.3220703
+test_loss: 0.32017845
+train_loss: 0.30882287
+test_loss: 0.31508422
+train_loss: 0.3093219
+test_loss: 0.30992183
+train_loss: 0.3019754
+test_loss: 0.30471897
+train_loss: 0.29912144
+test_loss: 0.29944345
+train_loss: 0.29425535
+test_loss: 0.29409897
+train_loss: 0.2891016
+test_loss: 0.28870222
+train_loss: 0.280977
+test_loss: 0.2832243
+train_loss: 0.28011245
+test_loss: 0.2776577
+train_loss: 0.27515164
+test_loss: 0.27199557
+train_loss: 0.2691058
+test_loss: 0.26618022
+train_loss: 0.25646275
+test_loss: 0.260211
+train_loss: 0.25399217
+test_loss: 0.2540375
+train_loss: 0.25083327
+test_loss: 0.24760556
+train_loss: 0.24254635
+test_loss: 0.24088009
+train_loss: 0.23381807
+test_loss: 0.23384294
+train_loss: 0.22951964
+test_loss: 0.22647431
+train_loss: 0.21933407
+test_loss: 0.21879907
+train_loss: 0.21094814
+test_loss: 0.21093842
+train_loss: 0.20344153
+test_loss: 0.20303993
+train_loss: 0.19321063
+test_loss: 0.19525576
+train_loss: 0.18759574
+test_loss: 0.1877318
+train_loss: 0.18006216
+test_loss: 0.1805167
+train_loss: 0.17317384
+test_loss: 0.17366827
+train_loss: 0.16898838
+test_loss: 0.1672405
+train_loss: 0.16227551
+test_loss: 0.16128446
+train_loss: 0.15498294
+test_loss: 0.15577711
+train_loss: 0.15004244
+test_loss: 0.15077522
+train_loss: 0.14458211
+test_loss: 0.14625037
+train_loss: 0.13884068
+test_loss: 0.14220062
+train_loss: 0.13837042
+test_loss: 0.13860123
+train_loss: 0.13356133
+test_loss: 0.1354338
+train_loss: 0.13333192
+test_loss: 0.13265616
+train_loss: 0.13110729
+test_loss: 0.13023287
+train_loss: 0.1273328
+test_loss: 0.12810501
+train_loss: 0.12597656
+test_loss: 0.12622143
+train_loss: 0.1252703
+test_loss: 0.12456738
+train_loss: 0.12375347
+test_loss: 0.12307975
+train_loss: 0.121821016
+test_loss: 0.12173714
+train_loss: 0.122345865
+test_loss: 0.120504126
+train_loss: 0.11899201
+test_loss: 0.11936074
+train_loss: 0.117840804
+test_loss: 0.11831631
+train_loss: 0.117701575
+test_loss: 0.117307335
+train_loss: 0.1161418
+test_loss: 0.1163561
+train_loss: 0.11321635
+test_loss: 0.11544529
+train_loss: 0.113891914
+test_loss: 0.114559926
+train_loss: 0.11447175
+test_loss: 0.11370905
+train_loss: 0.11299996
+test_loss: 0.11287714
+train_loss: 0.111864716
+test_loss: 0.1120676
+train_loss: 0.11073945
+test_loss: 0.11127634
+train_loss: 0.11095346
+test_loss: 0.11049716
+train_loss: 0.109598175
+test_loss: 0.10973197
+train_loss: 0.10893953
+test_loss: 0.10899025
+train_loss: 0.10846354
+test_loss: 0.10824295
+train_loss: 0.10701126
+test_loss: 0.10754022
+train_loss: 0.106190346
+test_loss: 0.1068356
+train_loss: 0.10602291
+test_loss: 0.10613855
+train_loss: 0.10579632
+test_loss: 0.10547851
+train_loss: 0.104681686
+test_loss: 0.10480918
+train_loss: 0.10382344
+test_loss: 0.1041694
+train_loss: 0.10358651
+test_loss: 0.10352909
+train_loss: 0.10349177
+test_loss: 0.10291972
+train_loss: 0.10218716
+test_loss: 0.102319114
+train_loss: 0.10154368
+test_loss: 0.10176897
+train_loss: 0.101614416
+test_loss: 0.101192065
+train_loss: 0.099688515
+test_loss: 0.10063302
+train_loss: 0.09953924
+test_loss: 0.10009546
+train_loss: 0.097756326
+test_loss: 0.099554196
+train_loss: 0.09876752
+test_loss: 0.09904256
+train_loss: 0.10042406
+test_loss: 0.09851018
+train_loss: 0.09696354
+test_loss: 0.097979635
+train_loss: 0.09823223
+test_loss: 0.097466014
+train_loss: 0.097661115
+test_loss: 0.09694702
+train_loss: 0.09646406
+test_loss: 0.09643414
+train_loss: 0.09548177
+test_loss: 0.09589229
+train_loss: 0.094327725
+test_loss: 0.09537091
+train_loss: 0.09452008
+test_loss: 0.09485122
+train_loss: 0.09547788
+test_loss: 0.094343975
+train_loss: 0.09388296
+test_loss: 0.09381404
+train_loss: 0.09503241
+test_loss: 0.09329314
+train_loss: 0.092407495
+test_loss: 0.09281851
+train_loss: 0.092185184
+test_loss: 0.092332244
+train_loss: 0.089834526
+test_loss: 0.09184611
+train_loss: 0.090829745
+test_loss: 0.09135848
+train_loss: 0.0906418
+test_loss: 0.09091609
+train_loss: 0.090988405
+test_loss: 0.09042212
+train_loss: 0.08859323
+test_loss: 0.089949556
+train_loss: 0.08884028
+test_loss: 0.08948774
+train_loss: 0.08824359
+test_loss: 0.08901108
+train_loss: 0.08922172
+test_loss: 0.08852391
+train_loss: 0.08829746
+test_loss: 0.08803973
+train_loss: 0.0881798
+test_loss: 0.08755153
+train_loss: 0.08618464
+test_loss: 0.08707345
+train_loss: 0.08667551
+test_loss: 0.08656855
+train_loss: 0.08562928
+test_loss: 0.086021915
+train_loss: 0.08499029
+test_loss: 0.08554021
+train_loss: 0.08563045
+test_loss: 0.085042395
+train_loss: 0.084456325
+test_loss: 0.08450988
+train_loss: 0.08356324
+test_loss: 0.08397769
+train_loss: 0.08306119
+test_loss: 0.083435975
+train_loss: 0.082898356
+test_loss: 0.08291384
+train_loss: 0.08176927
+test_loss: 0.08239701
+train_loss: 0.08150029
+test_loss: 0.08184593
+train_loss: 0.08087574
+test_loss: 0.08133256
+train_loss: 0.08020805
+test_loss: 0.080766715
+train_loss: 0.08000313
+test_loss: 0.08024101
+train_loss: 0.08027966
+test_loss: 0.07970314
+train_loss: 0.07865671
+test_loss: 0.0791588
+train_loss: 0.078492366
+test_loss: 0.07859755
+train_loss: 0.077233925
+test_loss: 0.078122176
+train_loss: 0.0770407
+test_loss: 0.07758563
+train_loss: 0.077064715
+test_loss: 0.077087544
+train_loss: 0.07662176
+test_loss: 0.07655674
+train_loss: 0.07519285
+test_loss: 0.07604384
+train_loss: 0.07547867
+test_loss: 0.07554295
+train_loss: 0.07487997
+test_loss: 0.07506178
+train_loss: 0.07439041
+test_loss: 0.07458201
+train_loss: 0.07436679
+test_loss: 0.074124224
+train_loss: 0.07337529
+test_loss: 0.07366163
+train_loss: 0.07327919
+test_loss: 0.07315503
+train_loss: 0.07312318
+test_loss: 0.07279573
+train_loss: 0.07170685
+test_loss: 0.072331354
+train_loss: 0.07261006
+test_loss: 0.071901396
+train_loss: 0.071312286
+test_loss: 0.071548365
+train_loss: 0.07033363
+test_loss: 0.07109982
+train_loss: 0.06991357
+test_loss: 0.07075485
+train_loss: 0.0700442
+test_loss: 0.070290156
+train_loss: 0.07000369
+test_loss: 0.069984205
+train_loss: 0.06924572
+test_loss: 0.06963131
+train_loss: 0.069791004
+test_loss: 0.06926153
+train_loss: 0.06857571
+test_loss: 0.068990275
+train_loss: 0.069189936
+test_loss: 0.06862978
+train_loss: 0.0672961
+test_loss: 0.0684116
+train_loss: 0.06871025
+test_loss: 0.06809285
+train_loss: 0.0679433
+test_loss: 0.06777088
+train_loss: 0.06753488
+test_loss: 0.067594
+train_loss: 0.06631095
+test_loss: 0.06722787
+train_loss: 0.06687123
+test_loss: 0.06703155
+train_loss: 0.06608045
+test_loss: 0.06678938
+train_loss: 0.06556009
+test_loss: 0.06663646
+train_loss: 0.0659648
+test_loss: 0.06637626
+train_loss: 0.06563712
+test_loss: 0.06615548
+train_loss: 0.06611404
+test_loss: 0.06604362
+train_loss: 0.06610074
+test_loss: 0.06579624
+train_loss: 0.06562765
+test_loss: 0.065594904
+train_loss: 0.06563458
+test_loss: 0.06544516
+train_loss: 0.065046005
+test_loss: 0.06530038
+train_loss: 0.06441656
+test_loss: 0.06517059
+train_loss: 0.06464035
+test_loss: 0.065014936
+train_loss:WARNING:tensorflow:From /home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/training/tracking/tracking.py:111: Model.state_updates (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+2020-09-09 12:19:02.412604: W tensorflow/python/util/util.cc:348] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
+WARNING:tensorflow:From /home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/training/tracking/tracking.py:111: Layer.updates (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+ 0.064705715
+test_loss: 0.0647941
+train_loss: 0.06407981
+test_loss: 0.064799696
+train_loss: 0.063408285
+test_loss: 0.06449077
+train_loss: 0.0643504
+test_loss: 0.064383924
+train_loss: 0.06470646
+test_loss: 0.064401865
+train_loss: 0.06322434
+test_loss: 0.06415719
+train_loss: 0.06383653
+test_loss: 0.064093485
+train_loss: 0.06216097
+test_loss: 0.06393831
+train_loss: 0.06263452
+test_loss: 0.06385459
+train_loss: 0.063548155
+test_loss: 0.0637445
+train_loss: 0.06369449
+test_loss: 0.06366088
+train_loss: 0.062231634
+test_loss: 0.06344841
+train_loss: 0.06300399
+test_loss: 0.063398205
+train_loss: 0.061475344
+test_loss: 0.063366234
+train_loss: 0.06290294
+test_loss: 0.0631748
+train_loss: 0.062759906
+test_loss: 0.063000426
+train_loss: 0.06289737
+test_loss: 0.0629176
+train_loss: 0.06260385
+test_loss: 0.062813036
+train_loss: 0.06269985
+test_loss: 0.06282302
+train_loss: 0.062072784
+test_loss: 0.06263076
+train_loss: 0.061587416
+test_loss: 0.062513225
+train_loss: 0.062308945
+test_loss: 0.062351506
+train_loss: 0.061927825
+test_loss: 0.062231082
+train_loss: 0.062366746
+test_loss: 0.062047053
+train_loss: 0.061757088
+test_loss: 0.06193723
+train_loss: 0.061359357
+test_loss: 0.061776355
+train_loss: 0.06175247
+test_loss: 0.061716925
+train_loss: 0.06131796
+test_loss: 0.0614887
+train_loss: 0.061363213
+test_loss: 0.0613647
+train_loss: 0.060152445
+test_loss: 0.061138734
+train_loss: 0.061355412
+test_loss: 0.061077893
+train_loss: 0.05941973
+test_loss: 0.060782854
+train_loss: 0.05999212
+test_loss: 0.060581364
+train_loss: 0.059798416
+test_loss: 0.060519528
+train_loss: 0.059931725
+test_loss: 0.060233306
+train_loss: 0.060668603
+test_loss: 0.06008188
+train_loss: 0.059335567
+test_loss: 0.05974118
+train_loss: 0.0587231
+test_loss: 0.05941785
+train_loss: 0.05933474
+test_loss: 0.05916582
+train_loss: 0.05892929
+test_loss: 0.058909338
+train_loss: 0.0581161
+test_loss: 0.05863959
+train_loss: 0.057556063
+test_loss: 0.058331974
+train_loss: 0.05753033
+test_loss: 0.057877634
+train_loss: 0.05799539
+test_loss: 0.05756415
+train_loss: 0.05705508
+test_loss: 0.057246894
+train_loss: 0.056095876
+test_loss: 0.056572888
+train_loss: 0.0558896
+test_loss: 0.05630677
+train_loss: 0.055526786
+test_loss: 0.05564778
+train_loss: 0.054620687
+test_loss: 0.054904684
+train_loss: 0.054925647
+test_loss: 0.05438728
+train_loss: 0.052953765
+test_loss: 0.053687535
+train_loss: 0.052474886
+test_loss: 0.052884
+train_loss: 0.052035533
+test_loss: 0.05206734
+train_loss: 0.05047536
+test_loss: 0.050869107
+train_loss: 0.049812295
+test_loss: 0.05003174
+train_loss: 0.048303917
+test_loss: 0.048872374
+train_loss: 0.04795347
+test_loss: 0.04733913
+train_loss: 0.04541386
+test_loss: 0.046190076
+train_loss: 0.044704713
+test_loss: 0.044879653
+train_loss: 0.043310508
+test_loss: 0.043120258
+train_loss: 0.04051874
+test_loss: 0.04089544
+train_loss: 0.039630778
+test_loss: 0.039588742
+train_loss: 0.037461706
+test_loss: 0.037383366
+train_loss: 0.035523515
+test_loss: 0.035794865
+train_loss: 0.03343243
+test_loss: 0.03347528
+train_loss: 0.031789925
+test_loss: 0.032347772
+train_loss: 0.029821588
+test_loss: 0.029971508
+train_loss: 0.02878287
+test_loss: 0.028905297
+train_loss: 0.026141543
+test_loss: 0.02654565
+train_loss: 0.024417374
+test_loss: 0.025169667
+train_loss: 0.02361834
+test_loss: 0.023079513
+train_loss: 0.022194572
+test_loss: 0.02203394
+train_loss: 0.021318806
+test_loss: 0.019921293
+train_loss: 0.018504
+test_loss: 0.018825077
+train_loss: 0.017918097
+test_loss: 0.017920662
+train_loss: 0.015815808
+test_loss: 0.016497822
+train_loss: 0.015851554
+test_loss: 0.01601805
+train_loss: 0.014606072
+test_loss: 0.0146461725
+train_loss: 0.014942931
+test_loss: 0.013496629
+train_loss: 0.013200758
+test_loss: 0.0131894145
+train_loss: 0.012059884
+test_loss: 0.012382134
+train_loss: 0.011318371
+test_loss: 0.011834193
+train_loss: 0.01092984
+test_loss: 0.010821915
+train_loss: 0.011059378
+test_loss: 0.011155268
+train_loss: 0.009836808
+test_loss: 0.010537382
+train_loss: 0.0101336455
+test_loss: 0.00997328
+train_loss: 0.0094093075
+test_loss: 0.010180745
+train_loss: 0.009250337
+test_loss: 0.009578967
+train_loss: 0.009746952
+test_loss: 0.00912071
+train_loss: 0.009027018
+test_loss: 0.009495934
+train_loss: 0.008661835
+test_loss: 0.008557892
+train_loss: 0.008364128
+test_loss: 0.008635301
+train_loss: 0.00856478
+test_loss: 0.008505857
+train_loss: 0.008041531
+test_loss: 0.008042385
+train_loss: 0.00832884
+test_loss: 0.008219336
+train_loss: 0.007672473
+test_loss: 0.008009517
+train_loss: 0.007882265
+test_loss: 0.0077522453
+train_loss: 0.007831135
+test_loss: 0.0079133175
+train_loss: 0.007385156
+test_loss: 0.007371511
+train_loss: 0.0075415103
+test_loss: 0.0075598513
+train_loss: 0.007796636
+test_loss: 0.0075542135
+train_loss: 0.007916121
+test_loss: 0.007948683
+train_loss: 0.007540563
+test_loss: 0.0072729024
+train_loss: 0.0071213413
+test_loss: 0.007270101
+train_loss: 0.007221462
+test_loss: 0.0069953953
+train_loss: 0.0075120428
+test_loss: 0.007271654
+train_loss: 0.0069779553
+test_loss: 0.007039361
+train_loss: 0.007003211
+test_loss: 0.0070876274
+train_loss: 0.006903152
+test_loss: 0.0070385104
+train_loss: 0.0070988494
+test_loss: 0.006786899
+train_loss: 0.006707939
+test_loss: 0.007069418
+train_loss: 0.0068347547
+test_loss: 0.0068681054
+train_loss: 0.0067782467
+test_loss: 0.0065112696
+train_loss: 0.0069137756
+test_loss: 0.0070970342
+train_loss: 0.006948075
+test_loss: 0.0067791054
+train_loss: 0.006870387
+test_loss: 0.007014332
+train_loss: 0.00659982
+test_loss: 0.0070570824
+train_loss: 0.0066452455
+test_loss: 0.006487284
+train_loss: 0.006466172
+test_loss: 0.0066701816
+train_loss: 0.006616352
+test_loss: 0.0068217176
+train_loss: 0.0064625354
+test_loss: 0.006424723
+train_loss: 0.006691587
+test_loss: 0.0064253965
+train_loss: 0.0065643676
+test_loss: 0.0067003984
+train_loss: 0.0066623
+test_loss: 0.0065011387
+train_loss: 0.0064605414
+test_loss: 0.0063207205
+train_loss: 0.00677701
+test_loss: 0.0066385553
+train_loss: 0.006526626
+test_loss: 0.006560718
+train_loss: 0.0063215625
+test_loss: 0.006543083
+train_loss: 0.0065450477
+test_loss: 0.0066354796
+train_loss: 0.0067472276
+test_loss: 0.0065922043
+train_loss: 0.006424525
+test_loss: 0.00653696
+train_loss: 0.006642108
+test_loss: 0.006409857
+train_loss: 0.006458114
+test_loss: 0.0064314
+train_loss: 0.006157196
+test_loss: 0.0062722536
+train_loss: 0.006206963
+test_loss: 0.006285108
+train_loss: 0.0067394124
+test_loss: 0.006456821
+train_loss: 0.0065284558
+test_loss: 0.006375983
+train_loss: 0.0061831716
+test_loss: 0.006258041
+train_loss: 0.006657046
+test_loss: 0.0064337994
+train_loss: 0.0062973537
+test_loss: 0.0061786673
+train_loss: 0.0062087476
+test_loss: 0.00625477
+train_loss: 0.0062948815
+test_loss: 0.0063793366
+train_loss: 0.006213009
+test_loss: 0.0061871577
+train_loss: 0.006343165
+test_loss: 0.006518736
+train_loss: 0.0063004373
+test_loss: 0.006646548
+train_loss: 0.006267394
+test_loss: 0.006091797
+train_loss: 0.006433958
+test_loss: 0.006275232
+train_loss: 0.006436291
+test_loss: 0.006413434
+train_loss: 0.0059216167
+test_loss: 0.0061087953
+train_loss: 0.0060525453
+test_loss: 0.005965631
+train_loss: 0.0063126376
+test_loss: 0.0060582175
+train_loss: 0.0061912453
+test_loss: 0.0059255245
+train_loss: 0.006159059
+test_loss: 0.0061203493
+train_loss: 0.0060179983
+test_loss: 0.006066257
+train_loss: 0.0064138635
+test_loss: 0.006407063
+train_loss: 0.0059081893
+test_loss: 0.0062027485
+train_loss: 0.006406173
+test_loss: 0.0063991537
+train_loss: 0.0060702823
+test_loss: 0.0061368826
+train_loss: 0.0061493684
+test_loss: 0.0062737605
+9636.52user 263.71system 1:50:52elapsed 148%CPU (0avgtext+0avgdata 4628740maxresident)k
+0inputs+1320outputs (0major+50442643minor)pagefaults 0swaps
+2020-09-09 12:20:38.882510: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.10.1
+2020-09-09 12:23:12.093392: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcuda.so.1
+2020-09-09 12:23:12.172516: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties: 
+pciBusID: 0000:3d:00.0 name: Tesla V100-SXM2-32GB computeCapability: 7.0
+coreClock: 1.53GHz coreCount: 80 deviceMemorySize: 31.72GiB deviceMemoryBandwidth: 836.37GiB/s
+2020-09-09 12:23:12.172587: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.10.1
+2020-09-09 12:23:12.175498: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.10
+2020-09-09 12:23:12.178357: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcufft.so.10
+2020-09-09 12:23:12.178855: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcurand.so.10
+2020-09-09 12:23:12.181493: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusolver.so.10
+2020-09-09 12:23:12.182978: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusparse.so.10
+2020-09-09 12:23:12.189503: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudnn.so.7
+2020-09-09 12:23:12.202405: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1858] Adding visible gpu devices: 0
+2020-09-09 12:23:12.204074: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2020-09-09 12:23:12.299299: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 2300000000 Hz
+2020-09-09 12:23:12.349443: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5d44060 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-09-09 12:23:12.349660: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-09-09 12:23:12.870147: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5c4ee90 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2020-09-09 12:23:12.870230: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Tesla V100-SXM2-32GB, Compute Capability 7.0
+2020-09-09 12:23:12.873757: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties: 
+pciBusID: 0000:3d:00.0 name: Tesla V100-SXM2-32GB computeCapability: 7.0
+coreClock: 1.53GHz coreCount: 80 deviceMemorySize: 31.72GiB deviceMemoryBandwidth: 836.37GiB/s
+2020-09-09 12:23:12.873815: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.10.1
+2020-09-09 12:23:12.873853: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.10
+2020-09-09 12:23:12.873872: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcufft.so.10
+2020-09-09 12:23:12.873889: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcurand.so.10
+2020-09-09 12:23:12.873906: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusolver.so.10
+2020-09-09 12:23:12.873924: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusparse.so.10
+2020-09-09 12:23:12.873942: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudnn.so.7
+2020-09-09 12:23:12.880142: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1858] Adding visible gpu devices: 0
+2020-09-09 12:23:12.880201: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.10.1
+2020-09-09 12:23:14.336819: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1257] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-09-09 12:23:14.336896: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1263]      0 
+2020-09-09 12:23:14.336904: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1276] 0:   N 
+2020-09-09 12:23:14.355944: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1402] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 30098 MB memory) -> physical GPU (device: 0, name: Tesla V100-SXM2-32GB, pci bus id: 0000:3d:00.0, compute capability: 7.0)
+2020-09-09 12:23:20.736966: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.10
+2020-09-09 12:23:21.449063: I tensorflow/core/kernels/cuda_solvers.cc:180] Creating CudaSolver handles for stream 0x8645660
+2020-09-09 12:23:21.449209: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusolver.so.10
+2020-09-09 12:23:22.253522: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.10
+WARNING:tensorflow:5 out of the last 5 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3ae01b1a60> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:6 out of the last 6 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3ae9ff6a60> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:7 out of the last 7 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3aea020b70> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:8 out of the last 8 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3a8c1ecf28> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:9 out of the last 9 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3a8c1eba60> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:10 out of the last 10 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3a8c1ebbf8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3a8c1eb730> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3a8c21ed90> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3a846bfd90> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3ae013f840> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3ae013fb70> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3ae0167598> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3a84646950> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3a8c1262f0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3a8c159840> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3a8c159ea0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3ae00ce378> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3ae00ce400> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3a8c18d620> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3ae00ce1e0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3a8c192d90> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3a8c0a42f0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3a8c0c6268> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3a8c0ad0d0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3a8c0cca60> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3a8c0ccb70> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3a8c0cc1e0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3a8c02fea0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3ae018fd08> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3a843a4400> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3a84424400> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3a84379d90> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3a844c9840> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3a842ea6a8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3ae018f840> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3a84321268> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+train_loss: 1.9994471
+test_loss: 2.0489168
+train_loss: 1.9956871
+test_loss: 1.9985362
+train_loss: 1.9960759
+test_loss: 1.9983141
+train_loss: 1.9987082
+test_loss: 1.997967
+train_loss: 1.9969497
+test_loss: 1.9986929
+train_loss: 1.9965851
+test_loss: 1.9991955
+train_loss: 0.5124294
+test_loss: 0.51660603
+train_loss: 0.51481515
+test_loss: 0.51666784
+train_loss: 0.51712
+test_loss: 0.5161474
+train_loss: 0.5086778
+test_loss: 0.51558113
+train_loss: 0.51901037
+test_loss: 0.51499116
+train_loss: 0.5126993
+test_loss: 0.514335
+train_loss: 0.50934434
+test_loss: 0.51368433
+train_loss: 0.5154836
+test_loss: 0.51297295
+train_loss: 0.5085075
+test_loss: 0.51225454
+train_loss: 0.5129329
+test_loss: 0.5114743
+train_loss: 0.51212436
+test_loss: 0.5106796
+train_loss: 0.50083375
+test_loss: 0.50985545
+train_loss: 0.5125638
+test_loss: 0.50898993
+train_loss: 0.50293535
+test_loss: 0.5080943
+train_loss: 0.5049474
+test_loss: 0.507175
+train_loss: 0.50593877
+test_loss: 0.5062183
+train_loss: 0.5008668
+test_loss: 0.5052088
+train_loss: 0.5054816
+test_loss: 0.5041874
+train_loss: 0.5019709
+test_loss: 0.50314426
+train_loss: 0.5023666
+test_loss: 0.5020378
+train_loss: 0.5067213
+test_loss: 0.5009162
+train_loss: 0.5060759
+test_loss: 0.49978015
+train_loss: 0.4980819
+test_loss: 0.49858758
+train_loss: 0.49530393
+test_loss: 0.49735835
+train_loss: 0.5037118
+test_loss: 0.49610204
+train_loss: 0.49007934
+test_loss: 0.49481913
+train_loss: 0.49817964
+test_loss: 0.4934844
+train_loss: 0.48242664
+test_loss: 0.4921428
+train_loss: 0.49655664
+test_loss: 0.4907499
+train_loss: 0.48735973
+test_loss: 0.489337
+train_loss: 0.49277705
+test_loss: 0.48787194
+train_loss: 0.48155463
+test_loss: 0.48636332
+train_loss: 0.48667654
+test_loss: 0.4848358
+train_loss: 0.4843322
+test_loss: 0.48326257
+train_loss: 0.48188314
+test_loss: 0.48165572
+train_loss: 0.47807926
+test_loss: 0.48000836
+train_loss: 0.47364047
+test_loss: 0.47831988
+train_loss: 0.4754226
+test_loss: 0.47659525
+train_loss: 0.474361
+test_loss: 0.47482413
+train_loss: 0.4709721
+test_loss: 0.47302368
+train_loss: 0.47112387
+test_loss: 0.4712034
+train_loss: 0.47568652
+test_loss: 0.46929994
+train_loss: 0.47250664
+test_loss: 0.46736485
+train_loss: 0.4722103
+test_loss: 0.4653935
+train_loss: 0.46124858
+test_loss: 0.46336538
+train_loss: 0.45983204
+test_loss: 0.46128628
+train_loss: 0.46110293
+test_loss: 0.45918313
+train_loss: 0.4555318
+test_loss: 0.45700774
+train_loss: 0.45228654
+test_loss: 0.45479825
+train_loss: 0.4560427
+test_loss: 0.45252976
+train_loss: 0.446918
+test_loss: 0.45020267
+train_loss: 0.45064223
+test_loss: 0.4478094
+train_loss: 0.4405542
+test_loss: 0.44536126
+train_loss: 0.4377395
+test_loss: 0.4428562
+train_loss: 0.4389577
+test_loss: 0.4403034
+train_loss: 0.44419456
+test_loss: 0.4376663
+train_loss: 0.43440163
+test_loss: 0.43496823
+train_loss: 0.4392792
+test_loss: 0.43218997
+train_loss: 0.42971355
+test_loss: 0.42933846
+train_loss: 0.42973372
+test_loss: 0.42640817
+train_loss: 0.4193616
+test_loss: 0.42341354
+train_loss: 0.41846508
+test_loss: 0.42032996
+train_loss: 0.41181767
+test_loss: 0.41715917
+train_loss: 0.4156885
+test_loss: 0.41394043
+train_loss: 0.4129288
+test_loss: 0.41060397
+train_loss: 0.41209567
+test_loss: 0.40720314
+train_loss: 0.4033798
+test_loss: 0.40372193
+train_loss: 0.40531182
+test_loss: 0.40018103
+train_loss: 0.39774522
+test_loss: 0.39656782
+train_loss: 0.39617836
+test_loss: 0.39291042
+train_loss: 0.38672584
+test_loss: 0.3891879
+train_loss: 0.38508308
+test_loss: 0.38544518
+train_loss: 0.38048714
+test_loss: 0.38167608
+train_loss: 0.37573242
+test_loss: 0.3778928
+train_loss: 0.37556374
+test_loss: 0.3740873
+train_loss: 0.3719231
+test_loss: 0.37024462
+train_loss: 0.36423093
+test_loss: 0.36638516
+train_loss: 0.36077312
+test_loss: 0.36250243
+train_loss: 0.365331
+test_loss: 0.35858098
+train_loss: 0.35046268
+test_loss: 0.35461554
+train_loss: 0.34655172
+test_loss: 0.35064885
+train_loss: 0.3404358
+test_loss: 0.34662753
+train_loss: 0.3491508
+test_loss: 0.34260273
+train_loss: 0.3419721
+test_loss: 0.3385349
+train_loss: 0.3299925
+test_loss: 0.33444765
+train_loss: 0.32919025
+test_loss: 0.33035198
+train_loss: 0.32566196
+test_loss: 0.32623163
+train_loss: 0.32228875
+test_loss: 0.32212138
+train_loss: 0.31779474
+test_loss: 0.31800848
+train_loss: 0.30846974
+test_loss: 0.31389207
+train_loss: 0.30880088
+test_loss: 0.3097795
+train_loss: 0.3087363
+test_loss: 0.30566245
+train_loss: 0.29980636
+test_loss: 0.30154026
+train_loss: 0.2933316
+test_loss: 0.29743612
+train_loss: 0.28991365
+test_loss: 0.29331788
+train_loss: 0.28520072
+test_loss: 0.2891834
+train_loss: 0.28866416
+test_loss: 0.28503686
+train_loss: 0.27533215
+test_loss: 0.2808803
+train_loss: 0.27449834
+test_loss: 0.2767052
+train_loss: 0.2748905
+test_loss: 0.27249995
+train_loss: 0.26989815
+test_loss: 0.2682626
+train_loss: 0.26213276
+test_loss: 0.2640078
+train_loss: 0.26004744
+test_loss: 0.25972524
+train_loss: 0.25435045
+test_loss: 0.2553987
+train_loss: 0.24366751
+test_loss: 0.2510396
+train_loss: 0.24638724
+test_loss: 0.24667895
+train_loss: 0.24666896
+test_loss: 0.24228713
+train_loss: 0.23273006
+test_loss: 0.23788626
+train_loss: 0.2333406
+test_loss: 0.23347619
+train_loss: 0.23060037
+test_loss: 0.22906376
+train_loss: 0.22142662
+test_loss: 0.22466989
+train_loss: 0.21852702
+test_loss: 0.22031516
+train_loss: 0.21295556
+test_loss: 0.2160004
+train_loss: 0.2130068
+test_loss: 0.21176782
+train_loss: 0.20746966
+test_loss: 0.2076046
+train_loss: 0.20221767
+test_loss: 0.20353782
+train_loss: 0.2019758
+test_loss: 0.1995465
+train_loss: 0.19411698
+test_loss: 0.19566493
+train_loss: 0.19399515
+test_loss: 0.19190617
+train_loss: 0.19462138
+test_loss: 0.18823698
+train_loss: 0.18167187
+test_loss: 0.18468116
+train_loss: 0.17986521
+test_loss: 0.18123463
+train_loss: 0.18020171
+test_loss: 0.17787555
+train_loss: 0.17457113
+test_loss: 0.17460251
+train_loss: 0.16938952
+test_loss: 0.17146157
+train_loss: 0.16840695
+test_loss: 0.16839133
+train_loss: 0.16278583
+test_loss: 0.16541533
+train_loss: 0.16043141
+test_loss: 0.16251688
+train_loss: 0.15839803
+test_loss: 0.15969945
+train_loss: 0.15385064
+test_loss: 0.15696996
+train_loss: 0.15365954
+test_loss: 0.15432763
+train_loss: 0.15324965
+test_loss: 0.15177122
+train_loss: 0.14812475
+test_loss: 0.1492843
+train_loss: 0.14727546
+test_loss: 0.14686581
+train_loss: 0.14210424
+test_loss: 0.14454205
+train_loss: 0.14273441
+test_loss: 0.14228928
+train_loss: 0.14169307
+test_loss: 0.14011277
+train_loss: 0.13700256
+test_loss: 0.13800798
+train_loss: 0.13133337
+test_loss: 0.13600288
+train_loss: 0.14046273
+test_loss: 0.13404673
+train_loss: 0.13062179
+test_loss: 0.13218723
+train_loss: 0.1298163
+test_loss: 0.13041134
+train_loss: 0.12871122
+test_loss: 0.12872347
+train_loss: 0.13012886
+test_loss: 0.12710862
+train_loss: 0.12906373
+test_loss: 0.1255645
+train_loss: 0.12380176
+test_loss: 0.124122754
+train_loss: 0.124804094
+test_loss: 0.122767985
+train_loss: 0.123690054
+test_loss: 0.121462554
+train_loss: 0.12457461
+test_loss: 0.12023858
+train_loss: 0.11448561
+test_loss: 0.11910136
+train_loss: 0.118771836
+test_loss: 0.118013844
+train_loss: 0.1167147
+test_loss: 0.11700369
+train_loss: 0.11905137
+test_loss: 0.11605677
+train_loss: 0.11258388
+test_loss: 0.11516128
+train_loss: 0.1105009
+test_loss: 0.11433408
+train_loss: 0.116169855
+test_loss: 0.11354233
+train_loss: 0.11579551
+test_loss: 0.11281157
+train_loss: 0.1098531
+test_loss: 0.112144955
+train_loss: 0.11010134
+test_loss: 0.11146954
+train_loss: 0.111144036
+test_loss: 0.110872574
+train_loss: 0.10731241
+test_loss: 0.11030538
+train_loss: 0.11277926
+test_loss: 0.10977953
+train_loss: 0.11028382
+test_loss: 0.10929611
+train_loss: 0.11235049
+test_loss: 0.10882989
+train_loss: 0.10717715
+test_loss: 0.10840231
+train_loss: 0.1067622
+test_loss: 0.10800191
+train_loss: 0.1028094
+test_loss: 0.10762655
+train_loss: 0.113470346
+test_loss: 0.10727882
+train_loss: 0.10613615
+test_loss: 0.106956035
+train_loss: 0.10002437
+test_loss: 0.10663092
+train_loss: 0.10910494
+test_loss: 0.10633302
+train_loss: 0.106646836
+test_loss: 0.10605556
+train_loss: 0.10565254
+test_loss: 0.10577341
+train_loss: 0.105013564
+test_loss: 0.10551222
+train_loss: 0.10617419
+test_loss: 0.10528928
+train_loss: 0.10286246
+test_loss: 0.10506955
+train_loss: 0.10141662
+test_loss: 0.10482488
+train_loss: 0.10691076
+test_loss: 0.10459914
+train_loss: 0.10241035
+test_loss: 0.104392275
+train_loss: 0.103344366
+test_loss: 0.104199976
+train_loss: 0.10067873
+test_loss: 0.10400875
+train_loss: 0.10266349
+test_loss: 0.10381609
+train_loss: 0.10427551
+test_loss: 0.103604555
+train_loss: 0.10157584
+test_loss: 0.10340078
+train_loss: 0.09869019
+test_loss: 0.10323884
+train_loss: 0.09493813
+test_loss: 0.10302374
+train_loss: 0.10306907
+test_loss: 0.10283663
+train_loss: 0.10221565
+test_loss: 0.10263532
+train_loss: 0.1006214
+test_loss: 0.10242333
+train_loss: 0.10227002
+test_loss: 0.10225678
+train_loss: 0.098591566
+test_loss: 0.102002084
+train_loss: 0.09997127
+test_loss: 0.101755686
+train_loss: 0.099619515
+test_loss: 0.101554215
+train_loss: 0.0996145
+test_loss: 0.10127917
+train_loss: 0.10197398
+test_loss: 0.10103523
+train_loss: 0.09647761
+test_loss: 0.100782685
+train_loss: 0.093741044
+test_loss: 0.10052496
+train_loss: 0.10201949
+test_loss: 0.10019195
+train_loss: 0.103196174
+test_loss: 0.099894084
+train_loss: 0.10089453
+test_loss: 0.099583276
+train_loss: 0.09860834
+test_loss: 0.09927002
+train_loss: 0.099624276
+test_loss: 0.09884167
+train_loss: 0.0938159
+test_loss: 0.09858265
+train_loss: 0.09897672
+test_loss: 0.09798614
+train_loss: 0.08934326
+test_loss: 0.09755415
+train_loss: 0.09718045
+test_loss: 0.09715635
+train_loss: 0.09580354
+test_loss: 0.09661279
+train_loss: 0.09284563
+test_loss: 0.096248776
+train_loss: 0.09119343
+test_loss: 0.09558447
+train_loss: 0.09697655
+test_loss: 0.09495425
+train_loss: 0.09228338
+test_loss: 0.09437243
+train_loss: 0.092777856
+test_loss: 0.09393603
+train_loss: 0.09052688
+test_loss: 0.093182504
+train_loss: 0.09025352
+test_loss: 0.092594676
+train_loss: 0.09614962
+test_loss: 0.09198516
+train_loss: 0.08917874
+test_loss: 0.09128153
+train_loss: 0.092190824
+test_loss: 0.09097735
+train_loss: 0.08389602
+test_loss: 0.090083204
+train_loss: 0.08672486
+test_loss: 0.08949099
+train_loss: 0.0887322
+test_loss: 0.08896204
+train_loss: 0.088745534
+test_loss: 0.08848037
+train_loss: 0.09337616
+test_loss: 0.088106945
+train_loss: 0.08347609
+test_loss: 0.08779649
+train_loss: 0.089372285
+test_loss: 0.086844444
+train_loss: 0.085759476
+test_loss: 0.08647192
+train_loss: 0.083619244
+test_loss: 0.08604541
+train_loss: 0.079843685
+test_loss: 0.08599253
+train_loss: 0.0854603
+test_loss: 0.08534894
+train_loss: 0.087073304
+test_loss: 0.0848931
+train_loss: 0.082043655
+test_loss: 0.08464741
+train_loss: 0.08319561
+test_loss: 0.08424513
+train_loss: 0.07979985
+test_loss: 0.08463877
+train_loss: 0.08300839
+test_loss: 0.08411506
+train_loss: 0.081461936
+test_loss: 0.08338841
+train_loss: 0.080611095
+test_loss: 0.08290948
+train_loss: 0.08647159
+test_loss: 0.0830072
+train_loss: 0.07984209
+test_loss: 0.082850076
+train_loss: 0.080936
+test_loss: 0.08215603
+train_loss: 0.07799645
+test_loss: 0.08184544
+train_loss: 0.079746775
+test_loss: 0.08155993
+train_loss: 0.08484007
+test_loss: 0.08125357
+train_loss: 0.08268745
+test_loss: 0.08101078
+train_loss: 0.08734535
+test_loss: 0.080743946
+train_loss: 0.07759231
+test_loss: 0.08050828
+train_loss: 0.077155605
+test_loss: 0.08054974
+train_loss: 0.08393128
+test_loss: 0.079988524
+train_loss: 0.07361849
+test_loss: 0.08030302
+train_loss: 0.07486059
+test_loss: 0.079523675
+train_loss: 0.077599525
+test_loss: 0.07922809
+train_loss: 0.07476329
+test_loss: 0.07920756
+train_loss: 0.07655796
+test_loss: 0.07920424
+train_loss: 0.07528313
+test_loss: 0.079931006
+train_loss: 0.07913957
+test_loss: 0.07827665
+train_loss: 0.0793081
+test_loss: 0.07841868
+train_loss: 0.07494946
+test_loss: 0.07798474
+train_loss: 0.077192575
+test_loss: 0.07760312
+train_loss: 0.07265362
+test_loss: 0.07729552
+train_loss: 0.07949716
+test_loss: 0.07778031
+train_loss: 0.077235326
+test_loss: 0.07690016
+train_loss: 0.07461051
+test_loss: 0.07693242
+train_loss: 0.07778281
+test_loss: 0.07672057
+train_loss: 0.076903224
+test_loss: 0.0762806
+train_loss: 0.07395545
+test_loss: 0.076100886
+train_loss: 0.07590698
+test_loss: 0.07585617
+train_loss: 0.07480743
+test_loss: 0.07560437
+train_loss: 0.07660209
+test_loss: 0.07542941
+train_loss: 0.07738442
+test_loss: 0.07509467
+train_loss: 0.070650056
+test_loss: 0.07488274
+train_loss: 0.07559255
+test_loss: 0.07493427
+train_loss: 0.072798535
+test_loss: 0.074468635
+train_loss: 0.07352581
+test_loss: 0.074701265
+train_loss: 0.072280884
+test_loss: 0.07414512
+train_loss: 0.076135196
+test_loss: 0.07387088
+train_loss: 0.07229127
+test_loss: 0.07363477
+train_loss: 0.07034561
+test_loss: 0.07341138
+train_loss: 0.074462004
+test_loss: 0.073514335
+train_loss: 0.07116149
+test_loss: 0.07284589
+train_loss: 0.071686804
+test_loss: 0.07268615
+train_loss: 0.069024324
+test_loss: 0.07238098
+train_loss: 0.06938137
+test_loss: 0.072152734
+train_loss: 0.06887141
+test_loss: 0.07174275
+train_loss: 0.072748214
+test_loss: 0.071492404
+train_loss: 0.07189469
+test_loss: 0.072084315
+train_loss: 0.070577025
+test_loss: 0.07126592
+train_loss: 0.07156672
+test_loss: 0.0707218
+train_loss: 0.06986194
+test_loss: 0.07048069
+train_loss: 0.068124294
+test_loss: 0.070015006
+train_loss: 0.06415727
+test_loss: 0.06964561
+train_loss: 0.0711964
+test_loss: 0.0692603
+train_loss: 0.06494698
+test_loss: 0.06876534
+train_loss: 0.066035256
+test_loss: 0.06844476
+train_loss: 0.068244904
+test_loss: 0.068230025
+train_loss: 0.068277575
+test_loss: 0.06779787
+train_loss: 0.06706339
+test_loss: 0.06735592
+train_loss: 0.06924447
+test_loss: 0.06701492
+train_loss: 0.065519094
+test_loss: 0.06678611
+train_loss: 0.06306596
+test_loss: 0.06732716
+train_loss: 0.06399042
+test_loss: 0.06630074
+train_loss: 0.064622745
+test_loss: 0.06570334
+train_loss: 0.06590113
+test_loss: 0.06540919
+train_loss: 0.061557405
+test_loss: 0.0652096
+train_loss: 0.06290523
+test_loss: 0.0653019
+train_loss: 0.06282832
+test_loss: 0.06458085
+train_loss: 0.06389352
+test_loss: 0.064441755
+train_loss: 0.062891096
+test_loss: 0.0646397
+train_loss: 0.062887385
+test_loss: 0.06397011
+train_loss: 0.061900776
+test_loss: 0.06369575
+train_loss: 0.059931576
+test_loss: 0.06348848
+train_loss: 0.062124908
+test_loss: 0.06316703
+train_loss: 0.06376256
+test_loss: 0.06309833
+train_loss: 0.06467202
+test_loss: 0.06280884
+train_loss: 0.058404617
+test_loss: 0.0640461
+train_loss: 0.06573919
+test_loss: 0.06260193
+train_loss: 0.063473254
+test_loss: 0.06282449
+train_loss: 0.05704805
+test_loss: 0.062476065
+train_loss: 0.0613057
+test_loss: 0.062070094
+train_loss: 0.063286066
+test_loss: 0.06203125
+train_loss: 0.06007174
+test_loss: 0.06164211
+train_loss: 0.057682063
+test_loss: 0.061580222
+train_loss: 0.057228375
+test_loss: 0.061437115
+train_loss: 0.065754205
+test_loss: 0.06251139
+train_loss: 0.061609346
+test_loss: 0.060964253
+train_loss: 0.060281858
+test_loss: 0.06104518
+train_loss: 0.058155313
+test_loss: 0.060846277
+train_loss: 0.06235737
+test_loss: 0.06066186
+train_loss: 0.056386635
+test_loss: 0.060386334
+train_loss: 0.061577994
+test_loss: 0.060508903
+train_loss: 0.062182438
+test_loss: 0.06010761
+train_loss: 0.058945507
+test_loss: 0.06015449
+train_loss: 0.06136987
+test_loss: 0.060527477
+train_loss: 0.053981032
+test_loss: 0.05979246
+train_loss: 0.060946282
+test_loss: 0.05964056
+train_loss: 0.05760167
+test_loss: 0.059285786
+train_loss: 0.05954148
+test_loss: 0.05908287
+train_loss: 0.054368094
+test_loss: 0.059048936
+train_loss: 0.057008892
+test_loss: 0.058801133
+train_loss: 0.058104545
+test_loss: 0.05853606
+train_loss: 0.061735615
+test_loss: 0.058309354
+train_loss: 0.053596385
+test_loss: 0.058207996
+train_loss: 0.0567566
+test_loss: 0.05773171
+train_loss: 0.052705646
+test_loss: 0.058739223
+train_loss: 0.058766723
+test_loss: 0.0577961
+train_loss: 0.057377156
+test_loss: 0.057091568
+train_loss: 0.0551012
+test_loss: 0.056915052
+train_loss: 0.055655424
+test_loss: 0.05657763
+train_loss: 0.05516567
+test_loss: 0.056393076
+train_loss: 0.054729544
+test_loss: 0.055778652
+train_loss: 0.053312793
+test_loss: 0.055676844
+train_loss: 0.05448611
+test_loss: 0.055196498
+train_loss: 0.052835885
+test_loss: 0.05475921
+train_loss: 0.052624978
+test_loss: 0.055667087
+train_loss: 0.0537093
+test_loss: 0.053519927
+train_loss: 0.054512914
+test_loss: 0.05279564
+train_loss: 0.051370412
+test_loss: 0.05257522
+train_loss: 0.050553948
+test_loss: 0.05149424
+train_loss: 0.050259113
+test_loss: 0.050592463
+train_loss: 0.047271736
+test_loss: 0.050981704
+train_loss: 0.051070005
+test_loss: 0.048856452WARNING:tensorflow:From /home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/training/tracking/tracking.py:111: Model.state_updates (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+2020-09-09 14:53:11.722916: W tensorflow/python/util/util.cc:348] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
+WARNING:tensorflow:From /home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/training/tracking/tracking.py:111: Layer.updates (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+
+train_loss: 0.05055
+test_loss: 0.047518313
+train_loss: 0.044253018
+test_loss: 0.04632218
+train_loss: 0.048492182
+test_loss: 0.046674848
+train_loss: 0.043672465
+test_loss: 0.043790996
+train_loss: 0.043682702
+test_loss: 0.042943895
+train_loss: 0.04265158
+test_loss: 0.042421862
+train_loss: 0.038440805
+test_loss: 0.040287673
+train_loss: 0.034967966
+test_loss: 0.039195392
+train_loss: 0.033861466
+test_loss: 0.037192985
+train_loss: 0.033270903
+test_loss: 0.036405772
+train_loss: 0.036131874
+test_loss: 0.03610297
+train_loss: 0.035013407
+test_loss: 0.03443165
+train_loss: 0.031370334
+test_loss: 0.03289133
+train_loss: 0.031714298
+test_loss: 0.031981744
+train_loss: 0.0319017
+test_loss: 0.03209592
+train_loss: 0.03371336
+test_loss: 0.03067559
+train_loss: 0.028310593
+test_loss: 0.030923001
+train_loss: 0.027428979
+test_loss: 0.029232245
+train_loss: 0.028573398
+test_loss: 0.028353674
+train_loss: 0.02876986
+test_loss: 0.027480438
+train_loss: 0.026123032
+test_loss: 0.026559282
+train_loss: 0.024085715
+test_loss: 0.026696658
+train_loss: 0.023927301
+test_loss: 0.026204517
+train_loss: 0.023034858
+test_loss: 0.025941616
+train_loss: 0.024738079
+test_loss: 0.025266755
+train_loss: 0.024642441
+test_loss: 0.024941068
+train_loss: 0.02167636
+test_loss: 0.024508294
+train_loss: 0.021547027
+test_loss: 0.02413906
+train_loss: 0.020840613
+test_loss: 0.023058834
+train_loss: 0.021355234
+test_loss: 0.023347458
+train_loss: 0.02411329
+test_loss: 0.023004636
+train_loss: 0.020564537
+test_loss: 0.02239217
+train_loss: 0.019331437
+test_loss: 0.021882432
+train_loss: 0.019764286
+test_loss: 0.022583334
+train_loss: 0.02140399
+test_loss: 0.021887206
+train_loss: 0.020713538
+test_loss: 0.023311501
+train_loss: 0.01970388
+test_loss: 0.021041002
+train_loss: 0.019649174
+test_loss: 0.021048453
+train_loss: 0.020341415
+test_loss: 0.020789288
+train_loss: 0.017470421
+test_loss: 0.019975485
+train_loss: 0.021931782
+test_loss: 0.020532103
+train_loss: 0.020633692
+test_loss: 0.020341638
+train_loss: 0.01860373
+test_loss: 0.01974495
+train_loss: 0.016337343
+test_loss: 0.019371301
+train_loss: 0.017743345
+test_loss: 0.019796351
+train_loss: 0.017915437
+test_loss: 0.019425845
+train_loss: 0.018147364
+test_loss: 0.020068785
+train_loss: 0.01705713
+test_loss: 0.018957708
+train_loss: 0.020155273
+test_loss: 0.01986407
+train_loss: 0.016702313
+test_loss: 0.019076843
+train_loss: 0.017484669
+test_loss: 0.018242003
+train_loss: 0.017175406
+test_loss: 0.02056091
+train_loss: 0.017931473
+test_loss: 0.018380167
+train_loss: 0.017614778
+test_loss: 0.017526727
+train_loss: 0.019450048
+test_loss: 0.018192876
+train_loss: 0.016546946
+test_loss: 0.01761011
+train_loss: 0.017057292
+test_loss: 0.017370632
+train_loss: 0.016282097
+test_loss: 0.01735952
+train_loss: 0.015699724
+test_loss: 0.017806167
+train_loss: 0.016244566
+test_loss: 0.01705427
+train_loss: 0.014992399
+test_loss: 0.01711708
+train_loss: 0.015184246
+test_loss: 0.017006088
+train_loss: 0.017522784
+test_loss: 0.016950738
+train_loss: 0.017811414
+test_loss: 0.016590983
+train_loss: 0.015973516
+test_loss: 0.017364277
+train_loss: 0.015824907
+test_loss: 0.016667062
+train_loss: 0.014886732
+test_loss: 0.016683392
+train_loss: 0.015956756
+test_loss: 0.01616801
+train_loss: 0.015416203
+test_loss: 0.016115325
+train_loss: 0.014906623
+test_loss: 0.015954386
+train_loss: 0.01524898
+test_loss: 0.015840009
+train_loss: 0.014489977
+test_loss: 0.01597828
+train_loss: 0.016357945
+test_loss: 0.015836738
+train_loss: 0.015326632
+test_loss: 0.015926154
+train_loss: 0.014739423
+test_loss: 0.016130088
+train_loss: 0.014546724
+test_loss: 0.01556483
+train_loss: 0.01762532
+test_loss: 0.015852438
+train_loss: 0.013112705
+test_loss: 0.015169543
+train_loss: 0.013823745
+test_loss: 0.015385492
+train_loss: 0.014255093
+test_loss: 0.015259742
+train_loss: 0.014659716
+test_loss: 0.014748522
+train_loss: 0.014335506
+test_loss: 0.016781794
+train_loss: 0.013394738
+test_loss: 0.014831578
+train_loss: 0.013070858
+test_loss: 0.014896891
+train_loss: 0.013269216
+test_loss: 0.014784913
+train_loss: 0.013277994
+test_loss: 0.014345928
+train_loss: 0.013264144
+test_loss: 0.014756506
+train_loss: 0.013947979
+test_loss: 0.014777674
+train_loss: 0.0130218845
+test_loss: 0.014707475
+train_loss: 0.013168364
+test_loss: 0.01422139
+train_loss: 0.012199646
+test_loss: 0.014336059
+train_loss: 0.013060084
+test_loss: 0.014169557
+train_loss: 0.01293638
+test_loss: 0.013963602
+train_loss: 0.014001732
+test_loss: 0.014299047
+train_loss: 0.012954717
+test_loss: 0.014797095
+train_loss: 0.015646314
+test_loss: 0.014434313
+train_loss: 0.01331161
+test_loss: 0.0143077215
+train_loss: 0.01264948
+test_loss: 0.014169801
+train_loss: 0.015384051
+test_loss: 0.014026979
+train_loss: 0.014417998
+test_loss: 0.014193925
+train_loss: 0.011618153
+test_loss: 0.013819853
+train_loss: 0.0129475435
+test_loss: 0.014067561
+train_loss: 0.012465082
+test_loss: 0.013583777
+train_loss: 0.012690507
+test_loss: 0.013650656
+train_loss: 0.011866251
+test_loss: 0.014065691
+train_loss: 0.013874738
+test_loss: 0.013228051
+train_loss: 0.01257503
+test_loss: 0.015046556
+12324.40user 430.80system 2:33:25elapsed 138%CPU (0avgtext+0avgdata 4643804maxresident)k
+0inputs+1376outputs (0major+60856167minor)pagefaults 0swaps
