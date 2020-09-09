@@ -1,0 +1,44 @@
+BASH=/bin/bash
+BASHOPTS=cmdhist:complete_fullquote:extquote:force_fignore:hostcomplete:interactive_comments:progcomp:promptvars:sourcepath
+BASH_ALIASES=()
+BASH_ARGC=()
+BASH_ARGV=()
+BASH_CMDS=()
+BASH_LINENO=([0]="0")
+BASH_SOURCE=([0]="experiments.mrd/scanpsi100/script")
+BASH_VERSINFO=([0]="4" [1]="4" [2]="20" [3]="1" [4]="release" [5]="x86_64-pc-linux-gnu")
+BASH_VERSION='4.4.20(1)-release'
+DIRSTACK=()
+EUID=162515747
+GROUPS=()
+HOME=/home/mrdouglas
+HOSTNAME=aiorion
+HOSTTYPE=x86_64
+IFS=$' \t\n'
+KRB5CCNAME=FILE:/tmp/krb5cc_162515747_ESTuCD
+LANG=en_US.UTF-8
+LOGNAME=mrdouglas
+MACHTYPE=x86_64-pc-linux-gnu
+MAIL=/var/mail/mrdouglas
+OLDPWD=/home/mrdouglas
+OPTERR=1
+OPTIND=1
+OSTYPE=linux-gnu
+PATH=/home/mrdouglas/Manifold/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+PPID=32890
+PS4='+ '
+PWD=/home/mrdouglas/Manifold
+SHELL=/bin/bash
+SHELLOPTS=braceexpand:hashall:interactive-comments:xtrace
+SHLVL=2
+SSH_CLIENT='129.49.6.206 59871 130'
+SSH_CONNECTION='129.49.6.206 59871 130.245.162.50 130'
+SSH_TTY=/dev/pts/0
+TERM=xterm-256color
+UID=162515747
+USER=mrdouglas
+VIRTUAL_ENV=/home/mrdouglas/Manifold
+XDG_RUNTIME_DIR=/run/user/162515747
+XDG_SESSION_ID=130
+_=/bin/bash
+0

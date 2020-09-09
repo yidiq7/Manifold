@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set 2>&1
+
+DIR=experiments.mrd/scanpsi500
+
+echo gpu=$GPU
+
+for seed in 1234 235 320 472
+do for psi in 0 0.01 m0.01 m1 m2 m3 m4 m4.5 m5.5 m6 m8 m10 m15 m5
+   do echo ${psi/./p}
+       OUT=$DIR/${psi/./p}_${seed}/
+       mkdir -p $OUT
+       CUDA_VISIBLE_DEVICES=$GPU time python3 biholoNN_exp_100_500_100_long.py $OUT $seed ${psi/m/-}
+   done
+done
+
+
+echo > $DIR/data.txt layers seed psi n_pairs train_time train_loss test_loss delta_sigma_train delta_sigma_test
+cat $DIR/*/summary.txt >> $DIR/data.txt

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+DIR=experiments.mrd/scanpsi
+
+for seed in 1234 235
+do for psi in 0.01 m0.01 m10
+   do echo ${psi/./p}
+       OUT=$DIR/${psi/./p}_${seed}/
+       mkdir -p $OUT
+       time python3 biholoNN_exp_50_100_200.py $OUT $seed ${psi/m/-}
+   done
+done
+
+
+echo > $DIR/data.txt seed psi n_pairs train_time train_loss test_loss delta_sigma_train delta_sigma_test
+cat $DIR/*/summary.txt >> $DIR/data.txt

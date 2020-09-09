@@ -14,16 +14,19 @@ seed = int(sys.argv[1])
 psi = 0.5
 n_pairs = 100000
 batch_size = 1000
-layers = '100_500_1000_1'
+layers = '100_500_100_1'
 max_epochs = 10000
+loss_func = max_error
 
-saved_path = 'experiments.yidi/biholo/3layers/'
+saved_path = 'experiments.yidi/biholo/3layers/MSE/'
 model_name = layers + '_seed' + str(seed) 
+
+np.random.seed(seed)
+tf.random.set_seed(seed)
 
 z0, z1, z2, z3, z4 = sp.symbols('z0, z1, z2, z3, z4')
 Z = [z0,z1,z2,z3,z4]
 f = z0**5 + z1**5 + z2**5 + z3**5 + z4**5 + psi*z0*z1*z2*z3*z4
-np.random.seed(seed)
 HS = Hypersurface(Z, f, n_pairs)
 HS_test = Hypersurface(Z, f, n_pairs)
 
@@ -40,8 +43,8 @@ class KahlerPotential(tf.keras.Model):
         self.biholomorphic = Biholomorphic()
         self.layer1 = Dense(25,100, activation=tf.square)
         self.layer2 = Dense(100,500, activation=tf.square)
-        self.layer3 = Dense(500,1000, activation=tf.square)
-        self.layer4 = Dense(1000, 1)
+        self.layer3 = Dense(500,100, activation=tf.square)
+        self.layer4 = Dense(100, 1)
 
     def call(self, inputs):
         x = self.biholomorphic(inputs)
@@ -49,7 +52,6 @@ class KahlerPotential(tf.keras.Model):
         x = self.layer2(x)
         x = self.layer3(x)
         x = self.layer4(x)
-        #x = tf.reduce_sum(x, 1)
         x = tf.math.log(x)
         return x
 
@@ -97,7 +99,7 @@ while epoch < max_epochs and stop is False:
         with tf.GradientTape() as tape:
         
             omega = volume_form(points, Omega_Omegabar, mass, restriction)
-            loss = weighted_MAPE(Omega_Omegabar, omega, mass)  
+            loss = loss_func(Omega_Omegabar, omega, mass)  
             grads = tape.gradient(loss, model.trainable_weights)
 
         optimizer.apply_gradients(zip(grads, model.trainable_weights))
@@ -105,16 +107,16 @@ while epoch < max_epochs and stop is False:
         #if step % 500 == 0:
         #    print("step %d: loss = %.4f" % (step, loss))
     
-    test_loss = cal_total_loss(test_set, weighted_MAPE)
+    test_loss = cal_total_loss(test_set, loss_func)
     print("train_loss:", loss.numpy())
     print("test_loss:", test_loss)
 
-    log_file.write("train_loss: %f \n" %loss)
-    log_file.write("test_loss: %f \n" %test_loss)
+    log_file.write("train_loss: {:.6g} \n".format(loss))
+    log_file.write("test_loss: {:.6g} \n".format(test_loss))
        
     # Early stopping 
     if epoch % 10 == 0:
-        train_loss = cal_total_loss(train_set, weighted_MAPE)
+        train_loss = cal_total_loss(train_set, loss_func)
         if train_loss > loss_old:
             stop = True 
         loss_old = train_loss 
@@ -126,44 +128,70 @@ train_time = time.time() - start_time
 log_file.close()
 model.save(saved_path + model_name)
 
+sigma_train = cal_total_loss(train_set, weighted_MAPE) 
+sigma_test = cal_total_loss(test_set, weighted_MAPE) 
+E_train = cal_total_loss(train_set, weighted_MSE) 
+E_test = cal_total_loss(test_set, weighted_MSE) 
+E_max_train = cal_total_loss(train_set, max_error) 
+E_max_test = cal_total_loss(test_set, max_error) 
+
 #######################################################################
 # Calculate delta_sigma
 
-train_loss = cal_total_loss(train_set, weighted_MAPE)
-
 def delta_sigma_square_train(y_true, y_pred, mass):
     weights = mass / K.sum(mass)
-    return K.sum((K.abs(y_true - y_pred) / y_true - train_loss)**2 * weights)
+    return K.sum((K.abs(y_true - y_pred) / y_true - sigma_train)**2 * weights)
 
 def delta_sigma_square_test(y_true, y_pred, mass):
     weights = mass / K.sum(mass)
-    return K.sum((K.abs(y_true - y_pred) / y_true - test_loss)**2 * weights)
+    return K.sum((K.abs(y_true - y_pred) / y_true - sigma_test)**2 * weights)
+
+def delta_E_square_train(y_true, y_pred, mass):
+    weights = mass / K.sum(mass)
+    return K.sum((K.abs(y_true - y_pred) / y_true - E_train)**2 * weights)
+
+def delta_E_square_test(y_true, y_pred, mass):
+    weights = mass / K.sum(mass)
+    return K.sum((K.abs(y_true - y_pred) / y_true - E_test)**2 * weights)
+
+
 
 delta_sigma_train = math.sqrt(cal_total_loss(train_set, delta_sigma_square_train) / HS.n_points)
 delta_sigma_test = math.sqrt(cal_total_loss(test_set, delta_sigma_square_test) / HS.n_points)
+delta_E_train = math.sqrt(cal_total_loss(train_set, delta_E_square_train) / HS.n_points)
+delta_E_test = math.sqrt(cal_total_loss(test_set, delta_E_square_test) / HS.n_points)
 
-print(delta_sigma_train)
-print(delta_sigma_test)
+#print(delta_sigma_train)
+#print(delta_sigma_test)
 
 #####################################################################
 # Write to file
 
 with open(saved_path + model_name + ".txt", "w") as f:
     f.write('[Results] \n')
-    f.write('model_name = %s \n' % model_name)
-    f.write('seed = %d \n' % seed)
-    f.write('psi = %g \n' % psi)
-    f.write('n_pairs = %d \n' % n_pairs)
-    f.write('n_points = %d \n' % HS.n_points)
-    f.write('batch_size = %d \n' % batch_size)
-    f.write('layers = %s \n' % layers) 
+    f.write('model_name = {} \n'.format(model_name))
+    f.write('seed = {} \n'.format(seed))
+    f.write('psi = {} \n'.format(psi))
+    f.write('n_pairs = {} \n'.format(n_pairs))
+    f.write('n_points = {} \n'.format(HS.n_points))
+    f.write('batch_size = {} \n'.format(batch_size))
+    f.write('layers = {} \n'.format(layers)) 
+    f.write('loss function = {} \n'.format(loss_func.__name__))
     f.write('\n')
-    f.write('n_epochs = %d \n' % epoch)
-    f.write('train_time = %f \n' % train_time)
-    f.write('sigma_train = %f \n' % train_loss)
-    f.write('sigma_test = %f \n' % test_loss)
-    f.write('delta_sigma_train = %f \n' % delta_sigma_train)
-    f.write('delta_sigma_test = %f \n' % delta_sigma_test)
+    f.write('n_epochs = {} \n'.format(epoch))
+    f.write('train_time = {:.6g} \n'.format(train_time))
+    f.write('sigma_train = {:.6g} \n'.format(sigma_train))
+    f.write('sigma_test = {:.6g} \n'.format(sigma_test))
+    f.write('delta_sigma_train = {:.6g} \n'.format(delta_sigma_train))
+    f.write('delta_sigma_test = {:.6g} \n'.format(delta_sigma_test))
+    f.write('E_train = {:.6g} \n'.format(E_train))
+    f.write('E_test = {:.6g} \n'.format(E_test))
+    f.write('delta_E_train = {:.6g} \n'.format(delta_sigma_train))
+    f.write('delta_E_test = {:.6g} \n'.format(delta_sigma_test))
+    f.write('E_max_train = {:.6g} \n'.format(E_max_train))
+    f.write('E_max_test = {:.6g} \n'.format(E_max_test))
 
 with open(saved_path + "summary.txt", "a") as f:
-    f.write('%d %g %d %f %f %f %f %f \n' % (seed, psi, n_pairs, train_time, train_loss, test_loss, delta_sigma_train, delta_sigma_test))
+    f.write('{} {} {} {} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g}\n'.format(model_name, loss_func.__name__, psi, n_pairs, train_time, sigma_train, sigma_test, E_train, E_test, E_max_train, E_max_test))
+    #f.write('%s %g %d %f %f %f %f %f %f %f\n' % (model_name, psi, n_pairs, train_time, train_loss, test_loss, E_train, E_test, E_max_train, E_max_test))
+
