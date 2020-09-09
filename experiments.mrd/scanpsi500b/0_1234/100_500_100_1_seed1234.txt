@@ -1,0 +1,22 @@
+[Results] 
+model_name = 100_500_100_1_seed1234 
+seed = 1234 
+psi = 0.0 
+n_pairs = 100000 
+n_points = 500000 
+batch_size = 10000 
+layers = 100_500_100_1 
+loss function = weighted_MAPE 
+
+n_epochs = 531 
+train_time = 10440.7 
+sigma_train = 0.00249874 
+sigma_test = 0.00251168 
+delta_sigma_train = 2.88857e-06 
+delta_sigma_test = 2.90341e-06 
+E_train = 1.04155e-05 
+E_test = 1.05231e-05 
+delta_E_train = 2.88857e-06 
+delta_E_test = 2.90341e-06 
+E_max_train = 0.00203461 
+E_max_test = 0.00207755 
