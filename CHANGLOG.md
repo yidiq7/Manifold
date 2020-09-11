@@ -1,6 +1,9 @@
 # Changelog
 
 ## [Unreleased]
+## [0.6.1] - 2020-09-10
+### Added
+- New function cal\_max\_error in biholoNN\_train.py, which gives the max error over the whole dataset
 ## [0.6.0] - 2020-09-08
 ### Added
 - Two new loss function weighted\_MSE and max\_error
