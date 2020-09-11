@@ -29,11 +29,6 @@ loss_func = function_mappings[loss_func]
 n_epochs = int(config.get('Results', 'n_epochs'))
 train_time = float(config.get('Results', 'train_time'))
 
-n_units = layers.split('_')
-for i in range(0, len(n_units)):
-    n_units[i] = int(n_units[i])
-
-
 np.random.seed(seed)
 
 z0, z1, z2, z3, z4 = sp.symbols('z0, z1, z2, z3, z4')
@@ -48,26 +43,6 @@ test_set = generate_dataset(HS_test)
 train_set = train_set.shuffle(HS.n_points).batch(batch_size)
 test_set = test_set.shuffle(HS_test.n_points).batch(batch_size)
 
-class KahlerPotential(tf.keras.Model):
-
-    def __init__(self):
-        super(KahlerPotential, self).__init__()
-        self.biholomorphic = Biholomorphic()
-        self.layer1 = Dense(25       , n_unit[0], activation=tf.square)
-        self.layer2 = Dense(n_unit[0], n_unit[1], activation=tf.square)
-        self.layer3 = Dense(n_unit[1], n_unit[2], activation=tf.square)
-        self.layer4 = Dense(n_unit[2], 1)
-
-    def call(self, inputs):
-        x = self.biholomorphic(inputs)
-        x = self.layer1(x)
-        x = self.layer2(x)
-        x = self.layer3(x)
-        x = self.layer4(x)
-        x = tf.math.log(x)
-        return x
-
-#model = KahlerPotential()
 model = tf.keras.models.load_model(saved_path + model_name, compile=False)
 
 @tf.function
