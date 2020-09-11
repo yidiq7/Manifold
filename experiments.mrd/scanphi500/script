@@ -11,7 +11,7 @@ for seed in $SEED
 do for psi in m0.5
    do for phi in 0.0 0.5 1.0 2.0 2.5 3.0 4.0 5.0
       do 
-       OUT=$DIR/${psi/./p}_${seed}/
+       OUT=$DIR/${psi/./p}_${phi/./p}_${seed}/
        mkdir -p $OUT
        if [ -r $OUT/summary.txt ]
 	then echo Already did run $OUT; skipping.

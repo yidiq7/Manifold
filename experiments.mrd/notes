@@ -1,4 +1,8 @@
 scanpsi100 - early experiment
 scanpsi500 - 100_500_100, no early stopping, but before dumping MSE
 scanpsi1000 - 100_1000_100, no early stopping, opt MSE, dump MSE
-scanpsi500 - 100_500_100, no early stopping, opt MAPE, dump MSE
+scanpsi500b - 100_500_100, no early stopping, opt MAPE, dump MSE
+scanphi500 - 100_500_100, scan f1
+all runs above use rate 0.001 so batch_size 10000 is problematic
+scanpsi500c - rate 0.01 and batch 10000
+scanphi500b - 100_500_100, scan f1, new rate
