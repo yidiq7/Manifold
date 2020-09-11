@@ -7,6 +7,7 @@ import tensorflow as tf
 import numpy as np
 import time
 import sys
+from tensorflow.keras.mixed_precision import experimental as mixed_precision
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
@@ -14,11 +15,12 @@ seed = int(sys.argv[1])
 psi = 0.5
 n_pairs = 100000
 batch_size = 1000
-layers = '100_500_100_1'
-max_epochs = 10000
-loss_func = max_error
+layers = '500_500_500_100_1'
+max_epochs = 1000
+loss_func = weighted_MAPE
+early_stopping = True
 
-saved_path = 'experiments.yidi/biholo/3layers/MSE/'
+saved_path = 'experiments.yidi/biholo/4layers/'
 model_name = layers + '_seed' + str(seed) 
 
 np.random.seed(seed)
@@ -41,10 +43,11 @@ class KahlerPotential(tf.keras.Model):
     def __init__(self):
         super(KahlerPotential, self).__init__()
         self.biholomorphic = Biholomorphic()
-        self.layer1 = Dense(25,100, activation=tf.square)
-        self.layer2 = Dense(100,500, activation=tf.square)
-        self.layer3 = Dense(500,100, activation=tf.square)
-        self.layer4 = Dense(100, 1)
+        self.layer1 = Dense(25,500, activation=tf.square)
+        self.layer2 = Dense(500,500, activation=tf.square)
+        self.layer3 = Dense(500,500, activation=tf.square)
+        self.layer4 = Dense(500,100, activation=tf.square)
+        self.layer5 = Dense(100, 1)
 
     def call(self, inputs):
         x = self.biholomorphic(inputs)
@@ -52,6 +55,7 @@ class KahlerPotential(tf.keras.Model):
         x = self.layer2(x)
         x = self.layer3(x)
         x = self.layer4(x)
+        x = self.layer5(x)
         x = tf.math.log(x)
         return x
 
@@ -68,24 +72,36 @@ def volume_form(x, Omega_Omegabar, mass, restriction):
     #factor = tf.constant(35.1774, dtype=tf.complex64)
     return volume_form / factor
 
-optimizer = tf.keras.optimizers.Adam()
-
 def cal_total_loss(dataset, loss_function):
-    
+
     total_loss = 0
     total_mass = 0
-    
-    for step, (points, Omega_Omegabar, mass, restriction) in enumerate(dataset):
-        omega = volume_form(points, Omega_Omegabar, mass, restriction)
+
+    for step, (points, omega_omegabar, mass, restriction) in enumerate(dataset):
+        omega = volume_form(points, omega_omegabar, mass, restriction)
         mass_sum = tf.reduce_sum(mass)
-        total_loss += loss_function(Omega_Omegabar, omega, mass) * mass_sum
+        total_loss += loss_function(omega_omegabar, omega, mass) * mass_sum
         total_mass += mass_sum
-   
+
     total_loss = total_loss / total_mass
-    
+
     return total_loss.numpy()
 
+def cal_max_error(dataset):
+    '''
+    find max|eta - 1| over the whole dataset: calculate the error on each batch then compare.
+    '''
+    max_error_tmp = 0
+    for step, (points, omega_omegabar, mass, restriction) in enumerate(dataset):
+        omega = volume_form(points, omega_omegabar, mass, restriction)
+        error = max_error(omega_omegabar, omega, mass).numpy()
+        if error > max_error_tmp:
+            max_error_tmp = error
+
+    return max_error_tmp
+
 # Training
+optimizer = tf.keras.optimizers.Adam()
 log_file = open(saved_path + model_name + '.log', 'w')
 
 start_time = time.time()
@@ -95,13 +111,13 @@ loss_old = 100000
 epoch = 0
 
 while epoch < max_epochs and stop is False:
+    epoch = epoch + 1
     for step, (points, Omega_Omegabar, mass, restriction) in enumerate(train_set):
         with tf.GradientTape() as tape:
         
             omega = volume_form(points, Omega_Omegabar, mass, restriction)
             loss = loss_func(Omega_Omegabar, omega, mass)  
             grads = tape.gradient(loss, model.trainable_weights)
-
         optimizer.apply_gradients(zip(grads, model.trainable_weights))
 
         #if step % 500 == 0:
@@ -113,15 +129,13 @@ while epoch < max_epochs and stop is False:
 
     log_file.write("train_loss: {:.6g} \n".format(loss))
     log_file.write("test_loss: {:.6g} \n".format(test_loss))
-       
     # Early stopping 
-    if epoch % 10 == 0:
-        train_loss = cal_total_loss(train_set, loss_func)
-        if train_loss > loss_old:
-            stop = True 
-        loss_old = train_loss 
-
-    epoch = epoch + 1
+    if early_stopping is True and epoch > 100:
+        if epoch % 10 == 0:
+            train_loss = cal_total_loss(train_set, loss_func)
+            if train_loss > loss_old:
+                stop = True 
+            loss_old = train_loss 
 
 train_time = time.time() - start_time
 
@@ -132,8 +146,8 @@ sigma_train = cal_total_loss(train_set, weighted_MAPE)
 sigma_test = cal_total_loss(test_set, weighted_MAPE) 
 E_train = cal_total_loss(train_set, weighted_MSE) 
 E_test = cal_total_loss(test_set, weighted_MSE) 
-E_max_train = cal_total_loss(train_set, max_error) 
-E_max_test = cal_total_loss(test_set, max_error) 
+E_max_train = cal_max_error(train_set) 
+E_max_test = cal_max_error(test_set) 
 
 #######################################################################
 # Calculate delta_sigma

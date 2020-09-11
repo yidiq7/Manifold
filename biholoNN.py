@@ -116,5 +116,30 @@ def weighted_MSE(y_true, y_pred, mass):
 def max_error(y_true, y_pred, mass):
     return tf.math.reduce_max(K.abs(y_true - y_pred) / y_true)
 
-def MSE_plus_max_error(y_true, y_pred, mass):
-    return weighted_MAPE(y_true, y_pred, mass) + 0.1*max_error(y_true, y_pred, mass)
+def cal_total_loss(dataset, loss_function):
+
+    total_loss = 0
+    total_mass = 0
+
+    for step, (points, omega_omegabar, mass, restriction) in enumerate(dataset):
+        omega = volume_form(points, omega_omegabar, mass, restriction)
+        mass_sum = tf.reduce_sum(mass)
+        total_loss += loss_function(omega_omegabar, omega, mass) * mass_sum
+        total_mass += mass_sum
+
+    total_loss = total_loss / total_mass
+
+    return total_loss.numpy()
+
+def cal_max_error(dataset):
+    '''
+    find max|eta - 1| over the whole dataset: calculate the error on each batch then compare.
+    '''
+    max_error_tmp = 0
+    for step, (points, omega_omegabar, mass, restriction) in enumerate(dataset):
+        omega = volume_form(points, omega_omegabar, mass, restriction)
+        error = max_error(omega_omegabar, omega, mass).numpy()
+        if error > max_error_tmp:
+            max_error_tmp = error
+
+    return max_error_tmp
