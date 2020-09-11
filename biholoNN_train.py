@@ -15,7 +15,7 @@ seed = int(sys.argv[1])
 psi = 0.5
 n_pairs = 100000
 batch_size = 1000
-layers = '500_500_500_100_1'
+layers = '500_500_500_2000_1'
 max_epochs = 1000
 loss_func = weighted_MAPE
 early_stopping = True
@@ -46,8 +46,8 @@ class KahlerPotential(tf.keras.Model):
         self.layer1 = Dense(25,500, activation=tf.square)
         self.layer2 = Dense(500,500, activation=tf.square)
         self.layer3 = Dense(500,500, activation=tf.square)
-        self.layer4 = Dense(500,100, activation=tf.square)
-        self.layer5 = Dense(100, 1)
+        self.layer4 = Dense(500,2000, activation=tf.square)
+        self.layer5 = Dense(2000, 1)
 
     def call(self, inputs):
         x = self.biholomorphic(inputs)
@@ -162,13 +162,11 @@ def delta_sigma_square_test(y_true, y_pred, mass):
 
 def delta_E_square_train(y_true, y_pred, mass):
     weights = mass / K.sum(mass)
-    return K.sum((K.abs(y_true - y_pred) / y_true - E_train)**2 * weights)
+    return K.sum(((y_pred / y_true - 1)**2 - E_train)**2 * weights)
 
 def delta_E_square_test(y_true, y_pred, mass):
     weights = mass / K.sum(mass)
-    return K.sum((K.abs(y_true - y_pred) / y_true - E_test)**2 * weights)
-
-
+    return K.sum(((y_pred / y_true - 1)**2 - E_test)**2 * weights)
 
 delta_sigma_train = math.sqrt(cal_total_loss(train_set, delta_sigma_square_train) / HS.n_points)
 delta_sigma_test = math.sqrt(cal_total_loss(test_set, delta_sigma_square_test) / HS.n_points)
