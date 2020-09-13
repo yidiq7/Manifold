@@ -1,0 +1,22 @@
+[Results] 
+model_name = 100_500_100_1_seed2345 
+seed = 2345 
+psi = 0.5 
+n_pairs = 100000 
+n_points = 500000 
+batch_size = 1000 
+layers = 100_500_100_1 
+loss function = max_error 
+
+n_epochs = 21 
+train_time = 628.998 
+sigma_train = 0.657393 
+sigma_test = 0.656562 
+delta_sigma_train = 0.000867926 
+delta_sigma_test = 0.000863403 
+E_train = 0.808712 
+E_test = 0.803805 
+delta_E_train = 0.000867926 
+delta_E_test = 0.000863403 
+E_max_train = 7.69457 
+E_max_test = 7.51072 
