@@ -116,6 +116,9 @@ def weighted_MSE(y_true, y_pred, mass):
 def max_error(y_true, y_pred, mass):
     return tf.math.reduce_max(K.abs(y_true - y_pred) / y_true)
 
+def MAPE_plus_max_error(y_true, y_pred, mass):
+    return 0.1*max_error(y_true, y_pred, mass) + weighted_MAPE(y_true, y_pred, mass)
+
 def cal_total_loss(dataset, loss_function):
 
     total_loss = 0
