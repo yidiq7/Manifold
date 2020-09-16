@@ -1,0 +1,27 @@
+#!/bin/bash
+
+set 2>&1
+
+DIR=experiments.mrd/scanalpha500a
+PROG=biholoNN_exp_500_500_100_f3long.py
+
+echo seed=$SEED gpu=$GPU
+
+for seed in $SEED
+do for psi in m0.5
+   do for alpha in 0.5 1.0 1.3 2.0 1.6 1.35
+      do 
+       OUT=$DIR/${psi/./p}_${alpha/./p}_${seed}/
+       mkdir -p $OUT
+       if [ -r $OUT/summary.txt ]
+	then echo Already did run $OUT; skipping.
+	else cp $PROG $OUT/program.py
+	     hostname >$OUT/run.txt
+	  CUDA_VISIBLE_DEVICES=$GPU time python3 $PROG $OUT $seed ${psi/m/-} ${alpha/m/-}
+       fi
+      done
+   done
+done
+
+sed -n 's/#HEADER: *//p' $PROG > $DIR/data.txt 
+cat $DIR/*/summary.txt >> $DIR/data.txt

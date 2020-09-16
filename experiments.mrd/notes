@@ -5,4 +5,6 @@ scanpsi500b - 100_500_100, no early stopping, opt MAPE, dump MSE
 scanphi500 - 100_500_100, scan f1
 all runs above use rate 0.001 so batch_size 10000 is problematic
 scanpsi500c - rate 0.01 and batch 10000
+scanpsi500d - rate 0.001 and batch 1000
 scanphi500b - 100_500_100, scan f1, new rate
+scanphi500c - 100_500_100, scan f1, new rate, MSE

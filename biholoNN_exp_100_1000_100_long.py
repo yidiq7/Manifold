@@ -15,7 +15,8 @@ n_pairs = 100000
 batch_size = 10000
 layers = '100_1000_100_1'
 max_epochs = 100000
-loss_func = weighted_MSE
+loss_func = weighted_MAPE
+loss_old_init = 10
 
 saved_path = sys.argv[1]
 model_name = layers + '_seed' + str(seed) 
@@ -90,7 +91,7 @@ log_file = open(saved_path + model_name + '.log', 'w')
 start_time = time.time()
 
 stop = False
-loss_old = 10
+loss_old = loss_old_init
 epoch = 0
 
 while epoch < max_epochs and stop is False:
