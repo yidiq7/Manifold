@@ -14,19 +14,23 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 seed = int(sys.argv[1])
 psi = 0.5
 n_pairs = 100000
-batch_size = 1000
+batch_size = 5000
 layers = sys.argv[2]
 #layers = '500_500_500_2000_1'
-max_epochs = 200
+max_epochs = 150
 loss_func = MAPE_plus_max_error
 early_stopping = False
+
+# Gradient clipping
+grad_clipping = True
+clip_threshold = 0.1
 
 n_units = layers.split('_')
 for i in range(0, len(n_units)):
     n_units[i] = int(n_units[i])
 
-saved_path = 'experiments.yidi/biholo/4layers/f2_MAPEpme/'
-model_name = 'f2_' + layers + '_seed' + str(seed) 
+saved_path = 'experiments.yidi/biholo/4layers/f2_clipping/'
+model_name = 'f2_' + layers + '_seed' + str(seed) + '_threshold' + str(clip_threshold) 
 
 np.random.seed(seed)
 tf.random.set_seed(seed)
@@ -133,6 +137,8 @@ while epoch < max_epochs and stop is False:
             omega = volume_form(points, Omega_Omegabar, mass, restriction)
             loss = loss_func(Omega_Omegabar, omega, mass)  
             grads = tape.gradient(loss, model.trainable_weights)
+            if grad_clipping is True:
+                grads = [tf.clip_by_value(grad, -clip_threshold, clip_threshold) for grad in grads]
         optimizer.apply_gradients(zip(grads, model.trainable_weights))
 
         #if step % 500 == 0:
