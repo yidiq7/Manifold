@@ -1,0 +1,22 @@
+[Results] 
+model_name = f2_2000_2000_2000_2000_1_seed1235_threshold0.1 
+seed = 1235 
+psi = 0.5 
+n_pairs = 100000 
+n_points = 500000 
+batch_size = 5000 
+layers = 2000_2000_2000_2000_1 
+loss function = MAPE_plus_max_error 
+
+n_epochs = 150 
+train_time = 29384.6 
+sigma_train = 0.0857705 
+sigma_test = 0.0888803 
+delta_sigma_train = 0.000152073 
+delta_sigma_test = 0.000163439 
+E_train = 0.0188809 
+E_test = 0.0212799 
+delta_E_train = 0.000152073 
+delta_E_test = 0.000163439 
+E_max_train = 2.01442 
+E_max_test = 2.61577 
