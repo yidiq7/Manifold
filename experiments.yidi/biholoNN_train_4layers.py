@@ -7,6 +7,7 @@ import numpy as np
 import time
 import sys
 import math
+import datetime
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
@@ -16,23 +17,30 @@ n_pairs = 100000
 batch_size = 1000
 layers = sys.argv[2]
 #layers = '500_500_500_2000_1'
-max_epochs = 1000
-loss_func = weighted_MAPE
-early_stopping = True
+max_epochs = 150
+loss_func = MAPE_plus_max_error
+early_stopping = False
+
+# Gradient clipping
+grad_clipping = True
+clip_threshold = 0.05
 
 n_units = layers.split('_')
 for i in range(0, len(n_units)):
     n_units[i] = int(n_units[i])
 
-saved_path = 'experiments.yidi/biholo/4layers/'
-model_name = layers + '_seed' + str(seed) 
+saved_path = 'experiments.yidi/biholo/4layers/f2_clipping/'
+model_name = 'f2_' + layers + '_seed' + str(seed) + '_threshold' + str(clip_threshold) 
 
 np.random.seed(seed)
 tf.random.set_seed(seed)
 
 z0, z1, z2, z3, z4 = sp.symbols('z0, z1, z2, z3, z4')
 Z = [z0,z1,z2,z3,z4]
-f = z0**5 + z1**5 + z2**5 + z3**5 + z4**5 + psi*z0*z1*z2*z3*z4
+#f = z0**5 + z1**5 + z2**5 + z3**5 + z4**5 + psi*z0*z1*z2*z3*z4
+g = z0**4 + z1**4 + z2**4 + z3**4 + 0.1*z0*z1*z2*z3
+h = z0**4 + z1**4 + z2**4 + z4**4 + 0.2*z0*z1*z2*z4
+f = z3*g + z4*h
 HS = Hypersurface(Z, f, n_pairs)
 HS_test = Hypersurface(Z, f, n_pairs)
 
@@ -106,6 +114,13 @@ def cal_max_error(dataset):
 
 # Training
 optimizer = tf.keras.optimizers.Adam()
+
+#current_time = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+train_log_dir = saved_path + 'logs/' + model_name + '/train'
+test_log_dir = saved_path + 'logs/' + model_name + '/test'
+train_summary_writer = tf.summary.create_file_writer(train_log_dir)
+test_summary_writer = tf.summary.create_file_writer(test_log_dir)
+
 log_file = open(saved_path + model_name + '.log', 'w')
 
 start_time = time.time()
@@ -122,17 +137,31 @@ while epoch < max_epochs and stop is False:
             omega = volume_form(points, Omega_Omegabar, mass, restriction)
             loss = loss_func(Omega_Omegabar, omega, mass)  
             grads = tape.gradient(loss, model.trainable_weights)
+            if grad_clipping is True:
+                grads = [tf.clip_by_value(grad, -clip_threshold, clip_threshold) for grad in grads]
         optimizer.apply_gradients(zip(grads, model.trainable_weights))
 
         #if step % 500 == 0:
         #    print("step %d: loss = %.4f" % (step, loss))
+
+    E_max_train = cal_max_error(train_set) 
+    E_max_test = cal_max_error(test_set) 
     
+    train_loss = cal_total_loss(train_set, loss_func)
     test_loss = cal_total_loss(test_set, loss_func)
+
     print("train_loss:", loss.numpy())
     print("test_loss:", test_loss)
 
     log_file.write("train_loss: {:.6g} \n".format(loss))
     log_file.write("test_loss: {:.6g} \n".format(test_loss))
+
+    with train_summary_writer.as_default():
+        tf.summary.scalar('loss', train_loss, step=epoch)
+        tf.summary.scalar('max_error', E_max_train, step=epoch)
+    with test_summary_writer.as_default():
+        tf.summary.scalar('loss', test_loss, step=epoch)
+        tf.summary.scalar('max_error', E_max_test, step=epoch)
     # Early stopping 
     if early_stopping is True and epoch > 100:
         if epoch % 10 == 0:
@@ -193,6 +222,9 @@ with open(saved_path + model_name + ".txt", "w") as f:
     f.write('batch_size = {} \n'.format(batch_size))
     f.write('layers = {} \n'.format(layers)) 
     f.write('loss function = {} \n'.format(loss_func.__name__))
+    f.write('grad_clipping = {} \n'.format(grad_clipping))
+    if grad_clipping is True:
+        f.write('clip_threshold = {} \n'.format(clip_threshold))
     f.write('\n')
     f.write('n_epochs = {} \n'.format(epoch))
     f.write('train_time = {:.6g} \n'.format(train_time))

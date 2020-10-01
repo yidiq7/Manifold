@@ -1,0 +1,24 @@
+[Results] 
+model_name = 300_300_1_seed1235 
+seed = 1235 
+psi = 0.5 
+n_pairs = 100000 
+n_points = 500000 
+batch_size = 5000 
+layers = 300_300_1 
+n_parameters = 97800 
+loss function = MAPE_plus_max_error 
+grad_clipping = False 
+
+n_epochs = 220 
+train_time = 8060.28 
+sigma_train = 0.0636299 
+sigma_test = 0.0636478 
+delta_sigma_train = 6.61027e-05 
+delta_sigma_test = 6.60437e-05 
+E_train = 0.00623381 
+E_test = 0.00623172 
+delta_E_train = 6.61027e-05 
+delta_E_test = 6.60437e-05 
+E_max_train = 0.367679 
+E_max_test = 0.353803 

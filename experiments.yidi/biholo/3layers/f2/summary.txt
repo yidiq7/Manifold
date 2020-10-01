@@ -1,1 +1,0 @@
-f2_1000_1000_1000_1_seed1357_bs2000_lfMAPE_plus_max_error_woclipping MAPE_plus_max_error 0.5 100000 15768.8 0.932201 0.934024 1.51461 1.51806 12.2327 11.9891
