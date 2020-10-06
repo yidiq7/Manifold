@@ -1,34 +1,62 @@
 import os
 os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 from hypersurface_tf import *
-from generate_h import *
 from biholoNN import *
 import tensorflow as tf
 import numpy as np
 import time
 import sys
-from tensorflow.keras.mixed_precision import experimental as mixed_precision
-
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
-
-seed = int(sys.argv[1])
-psi = 0.5
-n_pairs = 100000
-batch_size = 1000
-layers = '500_500_500_2000_1'
-max_epochs = 1000
-loss_func = weighted_MAPE
-early_stopping = True
-
-saved_path = 'experiments.yidi/biholo/4layers/'
-model_name = layers + '_seed' + str(seed) 
-
-np.random.seed(seed)
-tf.random.set_seed(seed)
+import math
+import datetime
+from models import *
+import argparse
 
 z0, z1, z2, z3, z4 = sp.symbols('z0, z1, z2, z3, z4')
 Z = [z0,z1,z2,z3,z4]
+
+parser = argparse.ArgumentParser()
+# Data generation
+parser.add_argument('--seed', type=int)
+parser.add_argument('--n_pairs', type=int)
+parser.add_argument('--batch_size', type=int)
+parser.add_argument('--function')
+parser.add_argument('--psi', type=float)
+parser.add_argument('--phi', type=float)
+parser.add_argument('--alpha', type=float)
+
+# Network
+parser.add_argument('--n_hidden', type=int)
+parser.add_argument('--layers')
+parser.add_argument('--load_model')
+parser.add_argument('--save_folder')
+parser.add_argument('--model_name')
+
+# Training
+parser.add_argument('--max_epochs', type=int)
+parser.add_argument('--loss_func')
+parser.add_argument('--clip_threshold', type=float)
+
+args = parser.parse_args()
+
+# Data generation 
+seed = args.seed
+n_pairs = args.n_pairs
+batch_size = args.batch_size
+psi = args.psi
+
 f = z0**5 + z1**5 + z2**5 + z3**5 + z4**5 + psi*z0*z1*z2*z3*z4
+if args.function == 'f1':
+    phi = args.phi
+    f = f + phi*(z3*z4**4 + z3**2*z4**3 + z3**3*z4**2 + z3**4*z4)
+elif args.function == 'f2':
+    alpha = args.alpha
+    f = f + alpha*(z2*z0**4 + z0*z4*z1**3 + z0*z2*z3*z4**2 + z3**2*z1**3 + z4*z1**2*z2**2 + z0*z1*z2*z3**2 +
+                   z2*z4*z3**3 + z0*z1**4 + z0*z4**2*z2**2 + z4**3*z1**2 + z0*z2*z3**3 + z3*z4*z0**3 + z1**3*z4**2 +
+                   z0*z2*z4*z1**2 + z1**2*z3**3 + z1*z4**4 + z1*z2*z0**3 + z2**2*z4**3 + z4*z2**4 + z1*z3**4)
+
+np.random.seed(seed)
+tf.random.set_seed(seed)
 HS = Hypersurface(Z, f, n_pairs)
 HS_test = Hypersurface(Z, f, n_pairs)
 
@@ -38,29 +66,35 @@ test_set = generate_dataset(HS_test)
 train_set = train_set.shuffle(HS.n_points).batch(batch_size)
 test_set = test_set.shuffle(HS_test.n_points).batch(batch_size)
 
-class KahlerPotential(tf.keras.Model):
+# Network 
+layers = args.layers
+n_units = layers.split('_')
+for i in range(0, len(n_units)):
+    n_units[i] = int(n_units[i])
 
-    def __init__(self):
-        super(KahlerPotential, self).__init__()
-        self.biholomorphic = Biholomorphic()
-        self.layer1 = Dense(25,500, activation=tf.square)
-        self.layer2 = Dense(500,500, activation=tf.square)
-        self.layer3 = Dense(500,500, activation=tf.square)
-        self.layer4 = Dense(500,2000, activation=tf.square)
-        self.layer5 = Dense(2000, 1)
+#model_name = layers + '_seed' + str(seed) 
+load_path = args.load_model
+if load_path is not None:
+    model = tf.keras.models.load_model(load_path, compile=False)
+elif n_hidden == 1:
+    model = onelayer(n_units)
+elif n_hidden == 2:
+    model = twolayers(n_units) 
+elif n_hidden == 3:
+    model = threelayers(n_units) 
+elif n_hidden == 4:
+    model = fourlayers(n_units) 
+elif n_hidden == 5:
+    model = fivelayers(n_units) 
 
-    def call(self, inputs):
-        x = self.biholomorphic(inputs)
-        x = self.layer1(x)
-        x = self.layer2(x)
-        x = self.layer3(x)
-        x = self.layer4(x)
-        x = self.layer5(x)
-        x = tf.math.log(x)
-        return x
-
-model = KahlerPotential()
-#model = tf.keras.models.load_model(saved_path + model_name, compile=False)
+max_epochs = args.max_epochs
+func_dict = {"weighted_MAPE": weighted_MAPE, "weighted_MSE": weighted_MSE, "max_error":max_error,
+             "MAPE_plus_max_error": MAPE_plus_max_error}
+loss_func = func_dict[args.loss_func]
+#early_stopping = False
+clip_threshold = args.clip_threshold
+#saved_path = 'experiments.yidi/biholo/4layers/f0/'
+save_folder = args.save_folder
 
 @tf.function
 def volume_form(x, Omega_Omegabar, mass, restriction):
@@ -82,7 +116,6 @@ def cal_total_loss(dataset, loss_function):
         mass_sum = tf.reduce_sum(mass)
         total_loss += loss_function(omega_omegabar, omega, mass) * mass_sum
         total_mass += mass_sum
-
     total_loss = total_loss / total_mass
 
     return total_loss.numpy()
@@ -102,7 +135,12 @@ def cal_max_error(dataset):
 
 # Training
 optimizer = tf.keras.optimizers.Adam()
-log_file = open(saved_path + model_name + '.log', 'w')
+
+#current_time = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+train_log_dir = save_folder + '/logs/' + model_name + '/train'
+test_log_dir = save_folder + '/logs/' + model_name + '/test'
+train_summary_writer = tf.summary.create_file_writer(train_log_dir)
+test_summary_writer = tf.summary.create_file_writer(test_log_dir)
 
 start_time = time.time()
 
@@ -118,21 +156,61 @@ while epoch < max_epochs and stop is False:
             omega = volume_form(points, Omega_Omegabar, mass, restriction)
             loss = loss_func(Omega_Omegabar, omega, mass)  
             grads = tape.gradient(loss, model.trainable_weights)
+            if clip_threshold is not None:
+                grads = [tf.clip_by_value(grad, -clip_threshold, clip_threshold) for grad in grads]
         optimizer.apply_gradients(zip(grads, model.trainable_weights))
 
         #if step % 500 == 0:
         #    print("step %d: loss = %.4f" % (step, loss))
+
+    E_max_train = cal_max_error(train_set) 
+    E_max_test = cal_max_error(test_set) 
+
+    E_train = cal_total_loss(train_set, weighted_MSE)
+    E_test = cal_total_loss(test_set, weighted_MSE)
     
+    train_loss = cal_total_loss(train_set, loss_func)
     test_loss = cal_total_loss(test_set, loss_func)
+
+    if loss_func.__name__ != "weighted_MAPE":
+        sigma_train = train_loss
+        sigma_test = test_loss
+    else:
+        sigma_train = cal_total_loss(train_set, weighted_MAPE)
+        sigma_test  = cal_total_loss(test_set, weighted_MAPE)
+
+    def delta_sigma_square_train(y_true, y_pred, mass):
+        weights = mass / K.sum(mass)
+        return K.sum((K.abs(y_true - y_pred) / y_true - sigma_train)**2 * weights)
+
+    def delta_sigma_square_test(y_true, y_pred, mass):
+        weights = mass / K.sum(mass)
+        return K.sum((K.abs(y_true - y_pred) / y_true - sigma_test)**2 * weights)
+
+    delta_sigma_train = math.sqrt(cal_total_loss(train_set, delta_sigma_square_train) / HS.n_points)
+    delta_sigma_test = math.sqrt(cal_total_loss(test_set, delta_sigma_square_test) / HS.n_points)
+
     print("train_loss:", loss.numpy())
     print("test_loss:", test_loss)
 
-    log_file.write("train_loss: {:.6g} \n".format(loss))
-    log_file.write("test_loss: {:.6g} \n".format(test_loss))
-    # Early stopping 
-    if early_stopping is True and epoch > 100:
-        if epoch % 10 == 0:
-            train_loss = cal_total_loss(train_set, loss_func)
+    with train_summary_writer.as_default():
+        tf.summary.scalar('loss', train_loss, step=epoch)
+        tf.summary.scalar('max_error', E_max_train, step=epoch)
+        tf.summary.scalar('delta_sigma', delta_sigma_train, step=epoch)
+        tf.summary.scalar('E', E_train, step=epoch)
+        if loss_func.__name__ != "weighted_MAPE":
+            tf.summary.scalar('MAPE', sigma_train , step=epoch)
+
+    with test_summary_writer.as_default():
+        tf.summary.scalar('loss', test_loss, step=epoch)
+        tf.summary.scalar('max_error', E_max_test, step=epoch)
+        tf.summary.scalar('delta_sigma', delta_sigma_test, step=epoch)
+        tf.summary.scalar('E', E_test, step=epoch)
+        if loss_func.__name__ != "weighted_MAPE":
+            tf.summary.scalar('MAPE', sigma_test, step=epoch)    # Early stopping 
+
+    if early_stopping is True and epoch > 800:
+        if epoch % 5 == 0:
             if train_loss > loss_old:
                 stop = True 
             loss_old = train_loss 
@@ -140,7 +218,7 @@ while epoch < max_epochs and stop is False:
 train_time = time.time() - start_time
 
 log_file.close()
-model.save(saved_path + model_name)
+model.save(save_folder + model_name)
 
 sigma_train = cal_total_loss(train_set, weighted_MAPE) 
 sigma_test = cal_total_loss(test_set, weighted_MAPE) 
@@ -179,7 +257,7 @@ delta_E_test = math.sqrt(cal_total_loss(test_set, delta_E_square_test) / HS.n_po
 #####################################################################
 # Write to file
 
-with open(saved_path + model_name + ".txt", "w") as f:
+with open(save_folder + model_name + ".txt", "w") as f:
     f.write('[Results] \n')
     f.write('model_name = {} \n'.format(model_name))
     f.write('seed = {} \n'.format(seed))
@@ -188,7 +266,11 @@ with open(saved_path + model_name + ".txt", "w") as f:
     f.write('n_points = {} \n'.format(HS.n_points))
     f.write('batch_size = {} \n'.format(batch_size))
     f.write('layers = {} \n'.format(layers)) 
+    f.write('n_parameters = {} \n'.format(model.count_params())) 
     f.write('loss function = {} \n'.format(loss_func.__name__))
+    f.write('grad_clipping = {} \n'.format(grad_clipping))
+    if grad_clipping is True:
+        f.write('clip_threshold = {} \n'.format(clip_threshold))
     f.write('\n')
     f.write('n_epochs = {} \n'.format(epoch))
     f.write('train_time = {:.6g} \n'.format(train_time))
@@ -203,7 +285,7 @@ with open(saved_path + model_name + ".txt", "w") as f:
     f.write('E_max_train = {:.6g} \n'.format(E_max_train))
     f.write('E_max_test = {:.6g} \n'.format(E_max_test))
 
-with open(saved_path + "summary.txt", "a") as f:
+with open(save_folder + "summary.txt", "a") as f:
     f.write('{} {} {} {} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g}\n'.format(model_name, loss_func.__name__, psi, n_pairs, train_time, sigma_train, sigma_test, E_train, E_test, E_max_train, E_max_test))
     #f.write('%s %g %d %f %f %f %f %f %f %f\n' % (model_name, psi, n_pairs, train_time, train_loss, test_loss, E_train, E_test, E_max_train, E_max_test))
 
