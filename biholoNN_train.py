@@ -25,7 +25,6 @@ parser.add_argument('--phi', type=float)
 parser.add_argument('--alpha', type=float)
 
 # Network
-parser.add_argument('--n_hidden', type=int)
 parser.add_argument('--layers')
 parser.add_argument('--load_model')
 parser.add_argument('--save_dir')
@@ -70,6 +69,7 @@ layers = args.layers
 n_units = layers.split('_')
 for i in range(0, len(n_units)):
     n_units[i] = int(n_units[i])
+n_hidden = len(n_units) - 1
 
 #model_name = layers + '_seed' + str(seed) 
 load_path = args.load_model
@@ -199,11 +199,11 @@ while epoch < max_epochs and stop is False:
             tf.summary.scalar('E', E_test, step=epoch)
             tf.summary.scalar('sigma', sigma_test, step=epoch)    # Early stopping 
 
-    if early_stopping is True and epoch > 800:
-        if epoch % 5 == 0:
-            if train_loss > loss_old:
-                stop = True 
-            loss_old = train_loss 
+   # if early_stopping is True and epoch > 800:
+   #     if epoch % 5 == 0:
+   #         if train_loss > loss_old:
+   #             stop = True 
+   #         loss_old = train_loss 
 
 train_time = time.time() - start_time
 
@@ -248,7 +248,7 @@ delta_E_test = math.sqrt(cal_total_loss(test_set, delta_E_square_test) / HS.n_po
 
 with open(save_dir + save_name + ".txt", "w") as f:
     f.write('[Results] \n')
-    f.write('model_name = {} \n'.format(model_name))
+    f.write('model_name = {} \n'.format(save_name))
     f.write('seed = {} \n'.format(seed))
     f.write('n_pairs = {} \n'.format(n_pairs))
     f.write('n_points = {} \n'.format(HS.n_points))
@@ -280,8 +280,8 @@ with open(save_dir + save_name + ".txt", "w") as f:
 
 with open(save_dir + "summary.txt", "a") as f:
     if args.function == 'f0':  
-        f.write('{} {} {} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g}\n'.format(model_name, args.function, psi, train_time, sigma_train, sigma_test, E_train, E_test, sigma_max_train, sigma_max_test))
+        f.write('{} {} {} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g}\n'.format(save_name, args.function, psi, train_time, sigma_train, sigma_test, E_train, E_test, sigma_max_train, sigma_max_test))
     elif args.function == 'f1':  
-        f.write('{} {} {} {} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g}\n'.format(model_name, args.function, psi, phi, train_time, sigma_train, sigma_test, E_train, E_test, sigma_max_train, sigma_max_test))
+        f.write('{} {} {} {} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g}\n'.format(save_name, args.function, psi, phi, train_time, sigma_train, sigma_test, E_train, E_test, sigma_max_train, sigma_max_test))
     elif args.function == 'f2': 
-        f.write('{} {} {} {} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g}\n'.format(model_name, args.function, psi, alpha, train_time, sigma_train, sigma_test, E_train, E_test, sigma_max_train, sigma_max_test))
+        f.write('{} {} {} {} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g}\n'.format(save_name, args.function, psi, alpha, train_time, sigma_train, sigma_test, E_train, E_test, sigma_max_train, sigma_max_test))
