@@ -30,7 +30,7 @@ parser.add_argument('--n_hidden', type=int)
 parser.add_argument('--layers')
 parser.add_argument('--load_model')
 parser.add_argument('--save_folder')
-parser.add_argument('--model_name')
+parser.add_argument('--save_name')
 
 # Training
 parser.add_argument('--max_epochs', type=int)
@@ -95,6 +95,7 @@ loss_func = func_dict[args.loss_func]
 clip_threshold = args.clip_threshold
 #saved_path = 'experiments.yidi/biholo/4layers/f0/'
 save_folder = args.save_folder
+save_name = args.save_name
 
 @tf.function
 def volume_form(x, Omega_Omegabar, mass, restriction):
@@ -137,8 +138,8 @@ def cal_max_error(dataset):
 optimizer = tf.keras.optimizers.Adam()
 
 #current_time = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-train_log_dir = save_folder + '/logs/' + model_name + '/train'
-test_log_dir = save_folder + '/logs/' + model_name + '/test'
+train_log_dir = save_folder + '/logs/' + save_name + '/train'
+test_log_dir = save_folder + '/logs/' + save_name + '/test'
 train_summary_writer = tf.summary.create_file_writer(train_log_dir)
 test_summary_writer = tf.summary.create_file_writer(test_log_dir)
 
@@ -163,8 +164,8 @@ while epoch < max_epochs and stop is False:
         #if step % 500 == 0:
         #    print("step %d: loss = %.4f" % (step, loss))
 
-    E_max_train = cal_max_error(train_set) 
-    E_max_test = cal_max_error(test_set) 
+    sigma_max_train = cal_max_error(train_set) 
+    sigma_max_test = cal_max_error(test_set) 
 
     E_train = cal_total_loss(train_set, weighted_MSE)
     E_test = cal_total_loss(test_set, weighted_MSE)
@@ -195,7 +196,7 @@ while epoch < max_epochs and stop is False:
 
     with train_summary_writer.as_default():
         tf.summary.scalar('loss', train_loss, step=epoch)
-        tf.summary.scalar('max_error', E_max_train, step=epoch)
+        tf.summary.scalar('max_error', sigma_max_train, step=epoch)
         tf.summary.scalar('delta_sigma', delta_sigma_train, step=epoch)
         tf.summary.scalar('E', E_train, step=epoch)
         if loss_func.__name__ != "weighted_MAPE":
@@ -203,7 +204,7 @@ while epoch < max_epochs and stop is False:
 
     with test_summary_writer.as_default():
         tf.summary.scalar('loss', test_loss, step=epoch)
-        tf.summary.scalar('max_error', E_max_test, step=epoch)
+        tf.summary.scalar('max_error', sigma_max_test, step=epoch)
         tf.summary.scalar('delta_sigma', delta_sigma_test, step=epoch)
         tf.summary.scalar('E', E_test, step=epoch)
         if loss_func.__name__ != "weighted_MAPE":
@@ -224,8 +225,8 @@ sigma_train = cal_total_loss(train_set, weighted_MAPE)
 sigma_test = cal_total_loss(test_set, weighted_MAPE) 
 E_train = cal_total_loss(train_set, weighted_MSE) 
 E_test = cal_total_loss(test_set, weighted_MSE) 
-E_max_train = cal_max_error(train_set) 
-E_max_test = cal_max_error(test_set) 
+sigma_max_train = cal_max_error(train_set) 
+sigma_max_test = cal_max_error(test_set) 
 
 #######################################################################
 # Calculate delta_sigma
@@ -282,10 +283,10 @@ with open(save_folder + model_name + ".txt", "w") as f:
     f.write('E_test = {:.6g} \n'.format(E_test))
     f.write('delta_E_train = {:.6g} \n'.format(delta_sigma_train))
     f.write('delta_E_test = {:.6g} \n'.format(delta_sigma_test))
-    f.write('E_max_train = {:.6g} \n'.format(E_max_train))
-    f.write('E_max_test = {:.6g} \n'.format(E_max_test))
+    f.write('sigma_max_train = {:.6g} \n'.format(sigma_max_train))
+    f.write('sigma_max_test = {:.6g} \n'.format(sigma_max_test))
 
 with open(save_folder + "summary.txt", "a") as f:
-    f.write('{} {} {} {} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g}\n'.format(model_name, loss_func.__name__, psi, n_pairs, train_time, sigma_train, sigma_test, E_train, E_test, E_max_train, E_max_test))
+    f.write('{} {} {} {} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g}\n'.format(model_name, loss_func.__name__, psi, n_pairs, train_time, sigma_train, sigma_test, E_train, E_test, sigma_max_train, sigma_max_test))
     #f.write('%s %g %d %f %f %f %f %f %f %f\n' % (model_name, psi, n_pairs, train_time, train_loss, test_loss, E_train, E_test, E_max_train, E_max_test))
 
