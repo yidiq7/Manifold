@@ -75,6 +75,8 @@ n_hidden = len(n_units) - 1
 load_path = args.load_model
 if load_path is not None:
     model = tf.keras.models.load_model(load_path, compile=False)
+elif n_hidden == 0:
+    model = zerolayer(n_units)
 elif n_hidden == 1:
     model = onelayer(n_units)
 elif n_hidden == 2:

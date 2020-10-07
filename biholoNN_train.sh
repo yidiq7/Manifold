@@ -1,6 +1,6 @@
 #!/bin/bash
 for psi in -1 0 1; do
-    for layers in "50_50_1" "70_70_70_1" ; do
+    for layers in "100_100_1" "70_70_70_1" ; do
         python biholoNN_train.py --seed 1234 \
                                  --n_pairs 1000 \
                                  --batch_size 5000 \
@@ -8,7 +8,7 @@ for psi in -1 0 1; do
                                  --psi $psi \
                                             \
                                  --layers $layers \
-                                 --load_model "experiments.yidi/biholo/f0_psi0.5/$layers" \
+																 --load_model "experiments.yidi/biholo/f0_psi0.5/$layers" \
                                  --save_dir "experiments.yidi/biholo/f0_psi$psi/" \
                                  --save_name $layers \
                                                      \

@@ -1,10 +1,23 @@
 import tensorflow as tf
 from biholoNN import *
 
+class zerolayer(tf.keras.Model):
+
+    def __init__(self, n_units):
+        super(zerolayer, self).__init__()
+        self.biholomorphic = Biholomorphic()
+        self.layer1 = Dense(n_units[0], 1)
+
+    def call(self, inputs):
+        x = self.biholomorphic(inputs)
+        x = self.layer1(x)
+        x = tf.math.log(x)
+        return x
+
 class onelayer(tf.keras.Model):
 
     def __init__(self, n_units):
-        super(fivelayers, self).__init__()
+        super(onelayer, self).__init__()
         self.biholomorphic = Biholomorphic()
         self.layer1 = Dense(25, n_units[0], activation=tf.square)
         self.layer2 = Dense(n_units[0], 1)
@@ -20,7 +33,7 @@ class onelayer(tf.keras.Model):
 class twolayers(tf.keras.Model):
 
     def __init__(self, n_units):
-        super(fivelayers, self).__init__()
+        super(twolayers, self).__init__()
         self.biholomorphic = Biholomorphic()
         self.layer1 = Dense(25, n_units[0], activation=tf.square)
         self.layer2 = Dense(n_units[0], n_units[1], activation=tf.square)
@@ -38,7 +51,7 @@ class twolayers(tf.keras.Model):
 class threelayers(tf.keras.Model):
 
     def __init__(self, n_units):
-        super(fivelayers, self).__init__()
+        super(threelayers, self).__init__()
         self.biholomorphic = Biholomorphic()
         self.layer1 = Dense(25, n_units[0], activation=tf.square)
         self.layer2 = Dense(n_units[0], n_units[1], activation=tf.square)
@@ -58,7 +71,7 @@ class threelayers(tf.keras.Model):
 class fourlayers(tf.keras.Model):
 
     def __init__(self, n_units):
-        super(fivelayers, self).__init__()
+        super(fourlayers, self).__init__()
         self.biholomorphic = Biholomorphic()
         self.layer1 = Dense(25, n_units[0], activation=tf.square)
         self.layer2 = Dense(n_units[0], n_units[1], activation=tf.square)
