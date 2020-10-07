@@ -8,7 +8,6 @@ import numpy as np
 import time
 import sys
 import math
-import datetime
 from models import *
 import argparse
 
@@ -139,7 +138,6 @@ def cal_max_error(dataset):
 # Training
 optimizer = tf.keras.optimizers.Adam()
 
-#current_time = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
 train_log_dir = save_dir + '/logs/' + save_name + '/train'
 test_log_dir = save_dir + '/logs/' + save_name + '/test'
 train_summary_writer = tf.summary.create_file_writer(train_log_dir)
