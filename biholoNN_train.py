@@ -29,7 +29,7 @@ parser.add_argument('--alpha', type=float)
 parser.add_argument('--n_hidden', type=int)
 parser.add_argument('--layers')
 parser.add_argument('--load_model')
-parser.add_argument('--save_folder')
+parser.add_argument('--save_dir')
 parser.add_argument('--save_name')
 
 # Training
@@ -38,7 +38,7 @@ parser.add_argument('--loss_func')
 parser.add_argument('--clip_threshold', type=float)
 
 args = parser.parse_args()
-
+print("Processing model: " + args.save_name)
 # Data generation 
 seed = args.seed
 n_pairs = args.n_pairs
@@ -94,7 +94,9 @@ loss_func = func_dict[args.loss_func]
 #early_stopping = False
 clip_threshold = args.clip_threshold
 #saved_path = 'experiments.yidi/biholo/4layers/f0/'
-save_folder = args.save_folder
+save_dir = args.save_dir
+if not os.path.exists(save_dir):
+    os.makedirs(save_dir)
 save_name = args.save_name
 
 @tf.function
@@ -138,8 +140,8 @@ def cal_max_error(dataset):
 optimizer = tf.keras.optimizers.Adam()
 
 #current_time = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-train_log_dir = save_folder + '/logs/' + save_name + '/train'
-test_log_dir = save_folder + '/logs/' + save_name + '/test'
+train_log_dir = save_dir + '/logs/' + save_name + '/train'
+test_log_dir = save_dir + '/logs/' + save_name + '/test'
 train_summary_writer = tf.summary.create_file_writer(train_log_dir)
 test_summary_writer = tf.summary.create_file_writer(test_log_dir)
 
@@ -163,52 +165,41 @@ while epoch < max_epochs and stop is False:
 
         #if step % 500 == 0:
         #    print("step %d: loss = %.4f" % (step, loss))
+    if epoch % 50 == 0:
+        sigma_max_train = cal_max_error(train_set) 
+        sigma_max_test = cal_max_error(test_set) 
 
-    sigma_max_train = cal_max_error(train_set) 
-    sigma_max_test = cal_max_error(test_set) 
-
-    E_train = cal_total_loss(train_set, weighted_MSE)
-    E_test = cal_total_loss(test_set, weighted_MSE)
+        E_train = cal_total_loss(train_set, weighted_MSE)
+        E_test = cal_total_loss(test_set, weighted_MSE)
     
-    train_loss = cal_total_loss(train_set, loss_func)
-    test_loss = cal_total_loss(test_set, loss_func)
-
-    if loss_func.__name__ != "weighted_MAPE":
-        sigma_train = train_loss
-        sigma_test = test_loss
-    else:
         sigma_train = cal_total_loss(train_set, weighted_MAPE)
         sigma_test  = cal_total_loss(test_set, weighted_MAPE)
 
-    def delta_sigma_square_train(y_true, y_pred, mass):
-        weights = mass / K.sum(mass)
-        return K.sum((K.abs(y_true - y_pred) / y_true - sigma_train)**2 * weights)
+        def delta_sigma_square_train(y_true, y_pred, mass):
+            weights = mass / K.sum(mass)
+            return K.sum((K.abs(y_true - y_pred) / y_true - sigma_train)**2 * weights)
 
-    def delta_sigma_square_test(y_true, y_pred, mass):
-        weights = mass / K.sum(mass)
-        return K.sum((K.abs(y_true - y_pred) / y_true - sigma_test)**2 * weights)
+        def delta_sigma_square_test(y_true, y_pred, mass):
+            weights = mass / K.sum(mass)
+            return K.sum((K.abs(y_true - y_pred) / y_true - sigma_test)**2 * weights)
 
-    delta_sigma_train = math.sqrt(cal_total_loss(train_set, delta_sigma_square_train) / HS.n_points)
-    delta_sigma_test = math.sqrt(cal_total_loss(test_set, delta_sigma_square_test) / HS.n_points)
+        delta_sigma_train = math.sqrt(cal_total_loss(train_set, delta_sigma_square_train) / HS.n_points)
+        delta_sigma_test = math.sqrt(cal_total_loss(test_set, delta_sigma_square_test) / HS.n_points)
 
-    print("train_loss:", loss.numpy())
-    print("test_loss:", test_loss)
+        print("train_loss:", loss.numpy())
+        print("test_loss:", cal_total_loss(test_set, loss_func))
 
-    with train_summary_writer.as_default():
-        tf.summary.scalar('loss', train_loss, step=epoch)
-        tf.summary.scalar('max_error', sigma_max_train, step=epoch)
-        tf.summary.scalar('delta_sigma', delta_sigma_train, step=epoch)
-        tf.summary.scalar('E', E_train, step=epoch)
-        if loss_func.__name__ != "weighted_MAPE":
-            tf.summary.scalar('MAPE', sigma_train , step=epoch)
+        with train_summary_writer.as_default():
+            tf.summary.scalar('max_error', sigma_max_train, step=epoch)
+            tf.summary.scalar('delta_sigma', delta_sigma_train, step=epoch)
+            tf.summary.scalar('E', E_train, step=epoch)
+            tf.summary.scalar('sigma', sigma_train , step=epoch)
 
-    with test_summary_writer.as_default():
-        tf.summary.scalar('loss', test_loss, step=epoch)
-        tf.summary.scalar('max_error', sigma_max_test, step=epoch)
-        tf.summary.scalar('delta_sigma', delta_sigma_test, step=epoch)
-        tf.summary.scalar('E', E_test, step=epoch)
-        if loss_func.__name__ != "weighted_MAPE":
-            tf.summary.scalar('MAPE', sigma_test, step=epoch)    # Early stopping 
+        with test_summary_writer.as_default():
+            tf.summary.scalar('max_error', sigma_max_test, step=epoch)
+            tf.summary.scalar('delta_sigma', delta_sigma_test, step=epoch)
+            tf.summary.scalar('E', E_test, step=epoch)
+            tf.summary.scalar('sigma', sigma_test, step=epoch)    # Early stopping 
 
     if early_stopping is True and epoch > 800:
         if epoch % 5 == 0:
@@ -219,7 +210,7 @@ while epoch < max_epochs and stop is False:
 train_time = time.time() - start_time
 
 log_file.close()
-model.save(save_folder + model_name)
+model.save(save_dir + save_name)
 
 sigma_train = cal_total_loss(train_set, weighted_MAPE) 
 sigma_test = cal_total_loss(test_set, weighted_MAPE) 
@@ -258,19 +249,23 @@ delta_E_test = math.sqrt(cal_total_loss(test_set, delta_E_square_test) / HS.n_po
 #####################################################################
 # Write to file
 
-with open(save_folder + model_name + ".txt", "w") as f:
+with open(save_dir + save_name + ".txt", "w") as f:
     f.write('[Results] \n')
     f.write('model_name = {} \n'.format(model_name))
     f.write('seed = {} \n'.format(seed))
-    f.write('psi = {} \n'.format(psi))
     f.write('n_pairs = {} \n'.format(n_pairs))
     f.write('n_points = {} \n'.format(HS.n_points))
     f.write('batch_size = {} \n'.format(batch_size))
-    f.write('layers = {} \n'.format(layers)) 
+    f.write('function = {} \n'.format(args.function))
+    f.write('psi = {} \n'.format(psi))
+    if args.function == 'f1':
+        f.write('phi = {} \n'.format(phi))
+    elif args.function == 'f2':
+        f.write('alpha = {} \n'.format(alpha)) 
+    f.write('k = {} \n'.format(2**n_hidden)) 
     f.write('n_parameters = {} \n'.format(model.count_params())) 
     f.write('loss function = {} \n'.format(loss_func.__name__))
-    f.write('grad_clipping = {} \n'.format(grad_clipping))
-    if grad_clipping is True:
+    if clip_threshold is not None:
         f.write('clip_threshold = {} \n'.format(clip_threshold))
     f.write('\n')
     f.write('n_epochs = {} \n'.format(epoch))
@@ -286,7 +281,10 @@ with open(save_folder + model_name + ".txt", "w") as f:
     f.write('sigma_max_train = {:.6g} \n'.format(sigma_max_train))
     f.write('sigma_max_test = {:.6g} \n'.format(sigma_max_test))
 
-with open(save_folder + "summary.txt", "a") as f:
-    f.write('{} {} {} {} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g}\n'.format(model_name, loss_func.__name__, psi, n_pairs, train_time, sigma_train, sigma_test, E_train, E_test, sigma_max_train, sigma_max_test))
-    #f.write('%s %g %d %f %f %f %f %f %f %f\n' % (model_name, psi, n_pairs, train_time, train_loss, test_loss, E_train, E_test, E_max_train, E_max_test))
-
+with open(save_dir + "summary.txt", "a") as f:
+    if args.function == 'f0':  
+        f.write('{} {} {} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g}\n'.format(model_name, args.function, psi, train_time, sigma_train, sigma_test, E_train, E_test, sigma_max_train, sigma_max_test))
+    elif args.function == 'f1':  
+        f.write('{} {} {} {} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g}\n'.format(model_name, args.function, psi, phi, train_time, sigma_train, sigma_test, E_train, E_test, sigma_max_train, sigma_max_test))
+    elif args.function == 'f2': 
+        f.write('{} {} {} {} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g} {:.6g}\n'.format(model_name, args.function, psi, alpha, train_time, sigma_train, sigma_test, E_train, E_test, sigma_max_train, sigma_max_test))
