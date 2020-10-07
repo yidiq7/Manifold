@@ -1,6 +1,19 @@
 import tensorflow as tf
 from biholoNN import *
 
+class zerolayer(tf.keras.Model):
+
+    def __init__(self, n_units):
+        super(zerolayer, self).__init__()
+        self.biholomorphic = Biholomorphic()
+        self.layer1 = Dense(n_units[0], 1)
+
+    def call(self, inputs):
+        x = self.biholomorphic(inputs)
+        x = self.layer1(x)
+        x = tf.math.log(x)
+        return x
+
 class onelayer(tf.keras.Model):
 
     def __init__(self, n_units):
