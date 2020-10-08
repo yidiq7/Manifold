@@ -6,7 +6,7 @@ class zerolayer(tf.keras.Model):
     def __init__(self, n_units):
         super(zerolayer, self).__init__()
         self.biholomorphic = Biholomorphic()
-        self.layer1 = Dense(25, 1)
+        self.layer1 = WidthOneDense()
 
     def call(self, inputs):
         x = self.biholomorphic(inputs)
