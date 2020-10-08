@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 OUT=`pwd`/experiments.final/output1
 for psi in -1 0 1; do
     for layers in "50_50_1" "70_70_70_1" ; do
@@ -33,7 +34,7 @@ for psi in -1 0 1; do
                                      --phi $phi \
 				 --layers $layers \
 				 --load_model "experiments.yidi/biholo/f0_psi0.5/$layers" \
-				 --save_dir $OUTDIR/
+				 --save_dir $OUTDIR/ \
  				--save_name $layers \
 				 --max_epochs 500 \
 				 --loss_func "weighted_MAPE" 
