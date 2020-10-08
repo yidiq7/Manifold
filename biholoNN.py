@@ -40,19 +40,29 @@ class Dense(keras.layers.Layer):
     def call(self, inputs):
         return self.activation(tf.matmul(inputs, self.w))
 
-class WidthOneDense(keras.layers.Layer):
-    def __init__(self, activation=None):
-        super(WidthOneDense, self).__init__()
-        #w_init = tf.random_normal_initializer()
-        w_init = tf.reshape(tf.concat([tf.constant([1,0,0,0,0,1,0,0,0,1,0,0,1,0,1], dtype=tf.float32), tf.zeros(10)], 0), [25, 1]) 
-        self.w = tf.Variable(
-            #initial_value=w_init(shape=(25, 1)),
-            initial_value=w_init,
-            trainable=True,
-        )
-        self.activation =  activations.get(activation)
+class OuterProduct(keras.layers.Layer):
+    # Outer product complex, then take real and img only
+    def __init__(self, k):
+        super(OuterProduct, self).__init__()
+        self.k = k 
+
     def call(self, inputs):
-        return self.activation(tf.matmul(inputs, self.w))
+        i = 1
+        zzbar_k = inputs
+        while i < k:  
+            zzbar_k = tf.einsum('ai,aj->aij', zzbar_k, inputs)
+        #zzbar = tf.linalg.band_part(zzbar, 0, -1)
+        zzbar = tf.reshape(zzbar, [-1, 25])
+        zzbar = tf.concat([tf.math.real(zzbar), tf.math.imag(zzbar)], axis=1)
+       
+        zzbar = tf.transpose(zzbar)
+        intermediate_tensor = tf.reduce_sum(tf.abs(zzbar), 1)
+        bool_mask = tf.squeeze(tf.math.logical_not(tf.math.less(intermediate_tensor, 1e-3)))
+        zzbar = tf.boolean_mask(zzbar, bool_mask)
+        zzbar = tf.transpose(zzbar)
+
+        return zzbar
+
 
 
 def gradients_zbar(func, x):
