@@ -64,7 +64,6 @@ test_set = generate_dataset(HS_test)
 train_set = train_set.shuffle(HS.n_points).batch(batch_size)
 test_set = test_set.shuffle(HS_test.n_points).batch(batch_size)
 
-<<<<<<< Updated upstream
 # Network 
 layers = args.layers
 n_units = layers.split('_')
