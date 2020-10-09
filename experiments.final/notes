@@ -1,4 +1,12 @@
 script1 - testing
 script2 - test zerolayer
+script2a - 10000 points and batch, 5 epochs
+script2b - 10000 points and batch, 50 epochs.  output in 2a
+script2c - 10000 points and batch, 200 epochs - looks good
 script3 - do a lot of zerolayer (k=1) runs
-script4 - f1 grid
+	  rewrite this one to match the runs below
+
+These runs take about an hour each.
+script4 - f1 grid psi = -3 etc.  
+script5 - f1 grid psi = 0 1 - writes to output4
+script6 - f1 grid psi = 2 3 - writes to output4

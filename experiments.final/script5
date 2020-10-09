@@ -1,0 +1,24 @@
+#!/bin/bash
+set -x
+OUT=`pwd`/experiments.final/output4
+
+for psi in 0 1 ; do
+    for phi in 0 0.4 0.8 1.2 1.6 2 2.4 2.8 3 ; do
+	OUTDIR=$OUT/f1_psi${psi}_phi${phi}
+	mkdir -p $OUTDIR
+        for layers in "50_50_1" "70_70_70_1" ; do
+				    python biholoNN_train.py --seed 1234 \
+				 --n_pairs 100000 \
+				 --batch_size 5000 \
+		          	 --function "f1" \
+				   --psi $psi \
+                                     --phi $phi \
+				 --layers $layers \
+				 --load_model "experiments.yidi/biholo/f0_psi0.5/$layers" \
+				 --save_dir $OUTDIR/ \
+ 				--save_name $layers \
+				 --max_epochs 500 \
+				 --loss_func "weighted_MAPE" 
+        done
+    done
+done
