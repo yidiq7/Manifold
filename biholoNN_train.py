@@ -275,8 +275,8 @@ with open(save_dir + save_name + ".txt", "w") as f:
     f.write('delta_sigma_test = {:.6g} \n'.format(delta_sigma_test))
     f.write('E_train = {:.6g} \n'.format(E_train))
     f.write('E_test = {:.6g} \n'.format(E_test))
-    f.write('delta_E_train = {:.6g} \n'.format(delta_sigma_train))
-    f.write('delta_E_test = {:.6g} \n'.format(delta_sigma_test))
+    f.write('delta_E_train = {:.6g} \n'.format(delta_E_train))
+    f.write('delta_E_test = {:.6g} \n'.format(delta_E_test))
     f.write('sigma_max_train = {:.6g} \n'.format(sigma_max_train))
     f.write('sigma_max_test = {:.6g} \n'.format(sigma_max_test))
 
