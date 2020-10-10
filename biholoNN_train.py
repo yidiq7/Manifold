@@ -227,7 +227,7 @@ while epoch < max_epochs and stop is False:
 
 train_time = time.time() - start_time
 
-model.save(save_dir + save_name)
+model.save(save_dir + '/' + save_name)
 
 sigma_train = cal_total_loss(train_set, weighted_MAPE) 
 sigma_test = cal_total_loss(test_set, weighted_MAPE) 
