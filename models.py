@@ -6,7 +6,7 @@ class zerolayer(tf.keras.Model):
     def __init__(self, n_units):
         super(zerolayer, self).__init__()
         self.biholomorphic = Biholomorphic()
-        self.layer1 = WidthOneDense()
+        self.layer1 = WidthOneDense(25, 1)
 
     def call(self, inputs):
         x = self.biholomorphic(inputs)
@@ -113,4 +113,40 @@ class fivelayers(tf.keras.Model):
         x = tf.math.log(x)
         return x
 
+class OuterProductNN_k2(tf.keras.Model):
+   
+    def __init__(self):
+        super(OuterProductNN_k2, self).__init__()
+        self.biholomorphic_k2 = Biholomorphic_k2()
+        self.layer1 = WidthOneDense(15**2, 1)
 
+    def call(self, inputs):
+        x = self.biholomorphic_k2(inputs)
+        x = self.layer1(x)
+        x = tf.math.log(x)
+        return x
+
+
+class OuterProductNN_k3(tf.keras.Model):
+   
+    def __init__(self):
+        super(OuterProductNN_k3, self).__init__()
+        self.biholomorphic_k3 = Biholomorphic_k3()
+        self.layer1 = WidthOneDense(35**2, 1)
+
+    def call(self, inputs):
+        x = self.biholomorphic_k3(inputs)
+        x = self.layer1(x)
+        x = tf.math.log(x)
+        return x
+
+class OuterProductNN(tf.keras.Model):
+   
+    def __init__(self, k):
+        super(OuterProductNN, self).__init__()
+        self.layer1 = OuterProduct(k)
+
+    def call(self, inputs):
+        x = self.layer1(inputs)
+        x = tf.math.log(x)
+        return x

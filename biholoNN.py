@@ -16,14 +16,55 @@ class Biholomorphic(keras.layers.Layer):
         zzbar = tf.linalg.band_part(zzbar, 0, -1)
         zzbar = tf.reshape(zzbar, [-1, 25])
         zzbar = tf.concat([tf.math.real(zzbar), tf.math.imag(zzbar)], axis=1)
-       
-        zzbar = tf.transpose(zzbar)
-        intermediate_tensor = tf.reduce_sum(tf.abs(zzbar), 1)
-        bool_mask = tf.squeeze(tf.math.logical_not(tf.math.less(intermediate_tensor, 1e-3)))
-        zzbar = tf.boolean_mask(zzbar, bool_mask)
-        zzbar = tf.transpose(zzbar)
+        return remove_zero_entries(zzbar)
+        
+class Biholomorphic_k2(keras.layers.Layer):
+    '''A layer transform zi to symmetrized zi1*zi2, then to zi1*zi2 * zi1zi2bar'''
+    def __init__(self):
+        super(Biholomorphic_k2, self).__init__()
+        
+    def call(self, inputs):
+        # zi to zi1*zi2 
+        zz = tf.einsum('ai,aj->aij', inputs, inputs)
+        zz = tf.linalg.band_part(zz, 0, -1) # zero below upper triangular
+        zz = tf.reshape(zz, [-1, 5**2])
+        zz = tf.reshape(remove_zero_entries(zz), [-1, 15])
+     
+        # zi1*zi2 to zzbar
+        zzbar = tf.einsum('ai,aj->aij', zz, tf.math.conj(zz))
+        zzbar = tf.linalg.band_part(zzbar, 0, -1)
+        zzbar = tf.reshape(zzbar, [-1, 15**2])
+        zzbar = tf.concat([tf.math.real(zzbar), tf.math.imag(zzbar)], axis=1)
+        return remove_zero_entries(zzbar)
 
-        return zzbar
+
+class Biholomorphic_k3(keras.layers.Layer):
+    '''A layer transform zi to symmetrized zi1*zi2*zi3, then to zzbar'''
+    def __init__(self):
+        super(Biholomorphic_k3, self).__init__()
+        
+    def call(self, inputs):
+        zz = tf.einsum('ai,aj,ak->aijk', inputs, inputs, inputs)
+        zz = tf.linalg.band_part(zz, 0, -1) # keep upper triangular 2/3
+        zz = tf.transpose(zz, perm=[0, 3, 1, 2])
+        zz = tf.linalg.band_part(zz, 0, -1) # keep upper triangular 1/2
+        zz = tf.transpose(zz, perm=[0, 2, 3, 1])
+        zz = tf.reshape(zz, [-1, 5**3]) 
+        zz = tf.reshape(remove_zero_entries(zz), [-1, 35])
+
+        zzbar = tf.einsum('ai,aj->aij', zz, tf.math.conj(zz))
+        zzbar = tf.linalg.band_part(zzbar, 0, -1)
+        zzbar = tf.reshape(zzbar, [-1, 35**2])
+        zzbar = tf.concat([tf.math.real(zzbar), tf.math.imag(zzbar)], axis=1)
+        return remove_zero_entries(zzbar)
+
+def remove_zero_entries(x):
+    x = tf.transpose(x)
+    intermediate_tensor = tf.reduce_sum(tf.abs(x), 1)
+    bool_mask = tf.squeeze(tf.math.logical_not(tf.math.less(intermediate_tensor, 1e-3)))
+    x = tf.boolean_mask(x, bool_mask)
+    x = tf.transpose(x)
+    return x
 
 class Dense(keras.layers.Layer):
     def __init__(self, input_dim, units, activation=None, trainable=True):
@@ -39,6 +80,33 @@ class Dense(keras.layers.Layer):
     def call(self, inputs):
         return self.activation(tf.matmul(inputs, self.w))
 
+class WidthOneDense(keras.layers.Layer):
+    '''
+    Usage: layer = WidthOneDense(n**2, 1)
+           where n is the number of sections for different ks
+           n = 5 for k = 1
+           n = 15 for k = 2
+           n = 35 for k = 3
+    This layer is used directly after Biholomorphic_k layers to sum over all 
+    the terms in the previous layer. The weights are initialized so that the h
+    matrix is a real identity matrix. The training does not work if they are randomly
+    initialized.
+    '''
+    def __init__(self, input_dim, units, activation=None, trainable=True):
+        super(WidthOneDense, self).__init__()
+        dim = int(np.sqrt(input_dim))
+        mask = tf.cast(tf.linalg.band_part(tf.ones([dim, dim]),0,-1), dtype=tf.bool)
+        upper_tri = tf.boolean_mask(tf.eye(dim), mask)
+        w_init = tf.reshape(tf.concat([upper_tri, tf.zeros(input_dim - len(upper_tri))], axis=0), [-1, 1])
+        self.w = tf.Variable(
+            initial_value=w_init,
+            trainable=trainable,
+        )
+        self.activation =  activations.get(activation)
+
+    def call(self, inputs):
+        return self.activation(tf.matmul(inputs, self.w))
+'''
 class WidthOneDense(keras.layers.Layer):
     def __init__(self, activation=None):
         super(WidthOneDense, self).__init__()
@@ -58,26 +126,52 @@ class OuterProduct(keras.layers.Layer):
     def __init__(self, k):
         super(OuterProduct, self).__init__()
         self.k = k 
+        w_init = tf.random_normal_initializer(mean=1.0, stddev=0.05)
+        if k == 1:
+            # input_dim = 15 * 2 (real and imag)
+            input_dim = 30
+        else:
+            # for k = 2, input_dim = 15*(15+1)/2 * 2
+            input_dim = 16 * 15**(k-1)
+
+        self.w = tf.Variable(
+            initial_value=w_init(shape=(input_dim, 1), dtype='float32'),
+            trainable=True,
+        )
+
+    def get_upper_triangular(self, matrix):
+        #upper_tri = tf.linalg.band_part(matrix, 0, -1)
+        ones = tf.ones_like(upper_tri)
+        mask = tf.cast(tf.linalg.band_part(ones, 0, -1), dtype=tf.bool)
+        upper_tri = tf.reshape(tf.boolean_mask(upper_tri, mask), [tf.shape(upper_tri)[0], -1])
+        return upper_tri
 
     def call(self, inputs):
+        zzbar = tf.einsum('ai,aj->aij', inputs, tf.math.conj(inputs))
+        zzbar = self.get_upper_triangular(zzbar)
         i = 1
-        zzbar_k = inputs
-        while i < k:  
-            zzbar_k = tf.einsum('ai,aj->aij', zzbar_k, inputs)
-        #zzbar = tf.linalg.band_part(zzbar, 0, -1)
-        zzbar = tf.reshape(zzbar, [-1, 25])
-        zzbar = tf.concat([tf.math.real(zzbar), tf.math.imag(zzbar)], axis=1)
-       
-        zzbar = tf.transpose(zzbar)
-        intermediate_tensor = tf.reduce_sum(tf.abs(zzbar), 1)
-        bool_mask = tf.squeeze(tf.math.logical_not(tf.math.less(intermediate_tensor, 1e-3)))
-        zzbar = tf.boolean_mask(zzbar, bool_mask)
-        zzbar = tf.transpose(zzbar)
+        zzbar_k = zzbar
 
-        return zzbar
+        while i < self.k:  
+            zzbar_k = tf.einsum('ai,aj->aij', zzbar_k, zzbar)
+            if i == 1:
+                zzbar_k = self.get_upper_triangular(zzbar_k) 
+            else:
+                zzbar_k = tf.reshape(zzbar_k, [tf.shape(inputs)[0], -1])
+            i = i + 1
 
+        zzbar_k = tf.concat([tf.math.real(zzbar_k), tf.math.imag(zzbar_k)], axis=1)
 
+        # It is possible to delete all of the zeros but then it will be harder to calculate
+        # the number of dimensions 
+        #zzbar = tf.transpose(zzbar)
+        #intermediate_tensor = tf.reduce_sum(tf.abs(zzbar), 1)
+        #bool_mask = tf.squeeze(tf.math.logical_not(tf.math.less(intermediate_tensor, 1e-3)))
+        #zzbar = tf.boolean_mask(zzbar, bool_mask)
+        #zzbar = tf.transpose(zzbar)
 
+        return tf.matmul(zzbar_k, self.w)     
+'''
 def gradients_zbar(func, x):
     dx_real = tf.gradients(tf.math.real(func), x)
     dx_imag = tf.gradients(tf.math.imag(func), x)

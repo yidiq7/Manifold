@@ -25,6 +25,7 @@ parser.add_argument('--phi', type=float)
 parser.add_argument('--alpha', type=float)
 
 # Network
+parser.add_argument('--OuterProductNN_k', type=int)
 parser.add_argument('--layers')
 parser.add_argument('--load_model')
 parser.add_argument('--save_dir')
@@ -34,6 +35,8 @@ parser.add_argument('--save_name')
 parser.add_argument('--max_epochs', type=int)
 parser.add_argument('--loss_func')
 parser.add_argument('--clip_threshold', type=float)
+parser.add_argument('--optimizer', default='Adam')
+parser.add_argument('--learning_rate', type=float, default=0.1)
 
 args = parser.parse_args()
 print("Processing model: " + args.save_name)
@@ -65,16 +68,28 @@ train_set = train_set.shuffle(HS.n_points).batch(batch_size)
 test_set = test_set.shuffle(HS_test.n_points).batch(batch_size)
 
 # Network 
-layers = args.layers
-n_units = layers.split('_')
-for i in range(0, len(n_units)):
-    n_units[i] = int(n_units[i])
-n_hidden = len(n_units) - 1
+if args.OuterProductNN_k is not None:
+    k = args.OuterProductNN_k
+else:
+    layers = args.layers
+    n_units = layers.split('_')
+    for i in range(0, len(n_units)):
+        n_units[i] = int(n_units[i])
+    n_hidden = len(n_units) - 1
+    k = 2**n_hidden
 
 #model_name = layers + '_seed' + str(seed) 
 load_path = args.load_model
 if load_path is not None:
     model = tf.keras.models.load_model(load_path, compile=False)
+elif args.OuterProductNN_k is not None:
+    if k == 2:
+        model = OuterProductNN_k2()  
+    elif k == 3:
+        model = OuterProductNN_k3()  
+    else:
+        raise Exception("Only k = 2 and k = 3 are supported now")
+    #model = OuterProductNN(k)  
 elif n_hidden == 0:
     model = zerolayer(n_units)
 elif n_hidden == 1:
@@ -138,7 +153,10 @@ def cal_max_error(dataset):
     return max_error_tmp
 
 # Training
-optimizer = tf.keras.optimizers.Adam()
+if args.optimizer == 'SGD':
+    optimizer = tf.keras.optimizers.SGD(args.learning_rate)
+else:
+    optimizer = tf.keras.optimizers.Adam()
 
 train_log_dir = save_dir + '/logs/' + save_name + '/train'
 test_log_dir = save_dir + '/logs/' + save_name + '/test'
@@ -261,7 +279,7 @@ with open(save_dir + save_name + ".txt", "w") as f:
         f.write('phi = {} \n'.format(phi))
     elif args.function == 'f2':
         f.write('alpha = {} \n'.format(alpha)) 
-    f.write('k = {} \n'.format(2**n_hidden)) 
+    f.write('k = {} \n'.format(k)) 
     f.write('n_parameters = {} \n'.format(model.count_params())) 
     f.write('loss function = {} \n'.format(loss_func.__name__))
     if clip_threshold is not None:
