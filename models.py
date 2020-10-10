@@ -139,7 +139,7 @@ class OuterProductNN_k3(tf.keras.Model):
         x = self.layer1(x)
         x = tf.math.log(x)
         return x
-
+'''
 class OuterProductNN(tf.keras.Model):
    
     def __init__(self, k):
@@ -150,3 +150,4 @@ class OuterProductNN(tf.keras.Model):
         x = self.layer1(inputs)
         x = tf.math.log(x)
         return x
+'''
