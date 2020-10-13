@@ -25,7 +25,9 @@ script18 - f2 grid psi = 2 3
 script19 - f2 grid psi = -2 -1
 
 
-data_fs1 - combine output3,10,11
-data_nn1 - combine 2c,4,5,6,17,18,19
+data_fs1 - combine output3,10,11 ; 25->1; prepend 0 for f0; columns are
+layers function psi phi train_time sigma_train sigma_test E_train E_test sigma_max_train sigma_max_test
+
+data_nn1 - combine 4,5,6,17,18,19
 
 Try polishing with max batch size ?
