@@ -17,9 +17,15 @@ script7 - f2 grid psi = 0 1 - 500 epochs is really not needed
 script8 - f2 grid psi = 2 3
 script9 - f2 grid psi = -2 -1
 
+script15 - f0 grid like script3 - 150 epochs
+script16
+
 script17 - f2 grid psi = 0 1 - 150 epochs
 script18 - f2 grid psi = 2 3
 script19 - f2 grid psi = -2 -1
 
+
+data_fs1 - combine output3,10,11
+data_nn1 - combine 2c,4,5,6,17,18,19
 
 Try polishing with max batch size ?
