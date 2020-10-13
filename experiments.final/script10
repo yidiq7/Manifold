@@ -1,0 +1,42 @@
+#!/bin/bash
+
+set -x
+
+OUT=`pwd`/experiments.final/output10
+for psi in 0 1 2 -1 -2 ; do # 5 10 20 0.5 -0.5 -1 -1.5 -2 -2.5 -3 -3.5 -4 -4.5 -4.75 ; do
+    for layers in 2 3 ; do
+	OUTDIR=$OUT/f0_psi$psi
+	mkdir -p $OUTDIR
+        time python biholoNN_train.py --seed 1234 \
+                                 --n_pairs 10000 \
+                                 --batch_size 10000 \
+                                 --function "f0" \
+                                 --psi $psi \
+                                 --OuterProductNN_k $layers \
+                                 --save_dir $OUTDIR/ \
+                                 --save_name $layers \
+                                                     \
+                                 --max_epochs 200 \
+                                 --loss_func "weighted_MAPE" 
+    done
+done
+
+for psi in 0 1 2 -2 ; do # 5 10 20 0.5 -0.5 -1 -1.5 -2 -2.5 -3 -3.5 -4 -4.5 -4.75 ; do
+    for phi in -1 1 2 -2; do
+	OUTDIR=$OUT/f1_psi${psi}_phi${phi}
+	mkdir -p $OUTDIR
+        for layers in 2 3 ; do
+	time    python biholoNN_train.py --seed 1234 \
+				 --n_pairs 10000 \
+				 --batch_size 10000 \
+		          	 --function "f1" \
+				   --psi $psi \
+                                     --phi $phi \
+                                 --OuterProductNN_k $layers \
+				 --save_dir $OUTDIR/ \
+ 				--save_name $layers \
+				 --max_epochs 200 \
+				 --loss_func "weighted_MAPE" 
+        done
+    done
+done

@@ -2,7 +2,8 @@
 set -x
 OUT=`pwd`/experiments.final/output4
 
-for psi in -3 -2 -1 0 1 2 3; do
+# for psi in -3 -2 -1 0 1 2 3; do
+for psi in -1 ; do
     for phi in 0 0.4 0.8 1.2 1.6 2 2.4 2.8 3 ; do
 	OUTDIR=$OUT/f1_psi${psi}_phi${phi}
 	mkdir -p $OUTDIR

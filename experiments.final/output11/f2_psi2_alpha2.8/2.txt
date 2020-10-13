@@ -1,0 +1,25 @@
+[Results] 
+model_name = 2 
+seed = 1234 
+n_pairs = 10000 
+n_points = 50000 
+batch_size = 10000 
+function = f2 
+psi = 2.0 
+alpha = 2.8 
+k = 2 
+n_parameters = 225 
+loss function = weighted_MAPE 
+
+n_epochs = 200 
+train_time = 194.913 
+sigma_train = 0.189685 
+sigma_test = 0.192601 
+delta_sigma_train = 0.000689354 
+delta_sigma_test = 0.000696716 
+E_train = 0.0597443 
+E_test = 0.0613623 
+delta_E_train = 0.000421278 
+delta_E_test = 0.000437238 
+sigma_max_train = 1.18352 
+sigma_max_test = 1.39576 

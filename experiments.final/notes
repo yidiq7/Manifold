@@ -5,8 +5,21 @@ script2b - 10000 points and batch, 50 epochs.  output in 2a
 script2c - 10000 points and batch, 200 epochs - looks good
 script3 - do a lot of zerolayer (k=1) runs
 	  rewrite this one to match the runs below
+script10 - like 2c with k=2,3
+script11 - like 3 with k=2,3
 
 These runs take about an hour each.
 script4 - f1 grid psi = -3 etc.  
 script5 - f1 grid psi = 0 1 - writes to output4
 script6 - f1 grid psi = 2 3 - writes to output4
+
+script7 - f2 grid psi = 0 1 - 500 epochs is really not needed
+script8 - f2 grid psi = 2 3
+script9 - f2 grid psi = -2 -1
+
+script17 - f2 grid psi = 0 1 - 150 epochs
+script18 - f2 grid psi = 2 3
+script19 - f2 grid psi = -2 -1
+
+
+Try polishing with max batch size ?
