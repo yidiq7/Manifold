@@ -31,3 +31,9 @@ layers function psi phi train_time sigma_train sigma_test E_train E_test sigma_m
 data_nn1 - combine 4,5,6,17,18,19
 
 Try polishing with max batch size ?
+script20 - like script18 with batch size 50000
+script21 - like script18 with batch size 100000
+script22 - like script18 with 150_150_150_1 - worse
+script23 - 300_300_300_1 and batch size 5000
+script24 - 300_300_300_1 and batch size 20000
+script25 - 300_300_300_1 with total number of points 1000,5000,20000
