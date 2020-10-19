@@ -1,0 +1,25 @@
+[Results] 
+model_name = 70_70_70_1 
+seed = 1234 
+n_pairs = 20000 
+n_points = 100000 
+batch_size = 100000 
+function = f2 
+psi = -1.0 
+alpha = 2.0 
+k = 8 
+n_parameters = 11620 
+loss function = weighted_MSE 
+
+n_epochs = 166 
+train_time = 144.398 
+sigma_train = 0.0213586 
+sigma_test = 0.0240928 
+delta_sigma_train = 5.47447e-05 
+delta_sigma_test = 7.06202e-05 
+E_train = 0.000755887 
+E_test = 0.00107918 
+delta_E_train = 4.58495e-06 
+delta_E_test = 1.20599e-05 
+sigma_max_train = 0.233036 
+sigma_max_test = 0.425298 

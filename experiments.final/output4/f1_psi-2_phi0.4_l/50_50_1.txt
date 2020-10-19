@@ -1,0 +1,25 @@
+[Results] 
+model_name = 50_50_1 
+seed = 1234 
+n_pairs = 20000 
+n_points = 100000 
+batch_size = 100000 
+function = f1 
+psi = -2.0 
+phi = 0.4 
+k = 4 
+n_parameters = 3800 
+loss function = weighted_MSE 
+
+n_epochs = 166 
+train_time = 101.741 
+sigma_train = 0.0264292 
+sigma_test = 0.0272767 
+delta_sigma_train = 7.23829e-05 
+delta_sigma_test = 7.49283e-05 
+E_train = 0.00122243 
+E_test = 0.00130544 
+delta_E_train = 7.64803e-06 
+delta_E_test = 8.27666e-06 
+sigma_max_train = 0.270394 
+sigma_max_test = 0.278385 
