@@ -3,6 +3,7 @@ import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 from hypersurface_tf import *
 from biholoNN import *
+from biholoNN_lbfgs import *
 import tensorflow as tf
 import numpy as np
 import time
@@ -10,6 +11,7 @@ import sys
 import math
 from models import *
 import argparse
+import tensorflow_probability as tfp
 
 z0, z1, z2, z3, z4 = sp.symbols('z0, z1, z2, z3, z4')
 Z = [z0,z1,z2,z3,z4]
@@ -63,6 +65,9 @@ HS_test = Hypersurface(Z, f, n_pairs)
 
 train_set = generate_dataset(HS)
 test_set = generate_dataset(HS_test)
+
+if batch_size is None or args.optimizer == 'lbfgs':
+    batch_size = HS.n_points
 
 train_set = train_set.shuffle(HS.n_points).batch(batch_size)
 test_set = test_set.shuffle(HS_test.n_points).batch(batch_size)
@@ -153,77 +158,87 @@ def cal_max_error(dataset):
     return max_error_tmp
 
 # Training
-if args.optimizer == 'SGD':
-    optimizer = tf.keras.optimizers.SGD(args.learning_rate)
-else:
-    optimizer = tf.keras.optimizers.Adam()
-
-train_log_dir = save_dir + '/logs/' + save_name + '/train'
-test_log_dir = save_dir + '/logs/' + save_name + '/test'
-train_summary_writer = tf.summary.create_file_writer(train_log_dir)
-test_summary_writer = tf.summary.create_file_writer(test_log_dir)
-
 start_time = time.time()
+if args.optimizer == 'lbfgs':
+    # iter+1 everytime f is evoked, which will also be invoked when calculationg the hessian, etc
+    # So the true max_epochs will be 3 times user's input
+    max_epochs = int(max_epochs/3)
+    for step, (points, omega_omegabar, mass, restriction) in enumerate(train_set):
+        train_func = function_factory(model, loss_func, points, omega_omegabar, mass, restriction)
+    init_params = tf.dynamic_stitch(train_func.idx, model.trainable_variables)
+    results = tfp.optimizer.lbfgs_minimize(value_and_gradients_function=train_func, initial_position=init_params, max_iterations=max_epochs)
+    train_func.assign_new_model_parameters(results.position)
 
-stop = False
-loss_old = 100000
-epoch = 0
+else:
+    if args.optimizer == 'SGD':
+        optimizer = tf.keras.optimizers.SGD(args.learning_rate)
+    else:
+        optimizer = tf.keras.optimizers.Adam()
 
-while epoch < max_epochs and stop is False:
-    epoch = epoch + 1
-    for step, (points, Omega_Omegabar, mass, restriction) in enumerate(train_set):
-        with tf.GradientTape() as tape:
+    train_log_dir = save_dir + '/logs/' + save_name + '/train'
+    test_log_dir = save_dir + '/logs/' + save_name + '/test'
+    train_summary_writer = tf.summary.create_file_writer(train_log_dir)
+    test_summary_writer = tf.summary.create_file_writer(test_log_dir)
+
+    stop = False
+    loss_old = 100000
+    epoch = 0
+
+    while epoch < max_epochs and stop is False:
+        epoch = epoch + 1
+        for step, (points, Omega_Omegabar, mass, restriction) in enumerate(train_set):
+            with tf.GradientTape() as tape:
+            
+                omega = volume_form(points, Omega_Omegabar, mass, restriction)
+                loss = loss_func(Omega_Omegabar, omega, mass)  
+                grads = tape.gradient(loss, model.trainable_weights)
+                if clip_threshold is not None:
+                    grads = [tf.clip_by_value(grad, -clip_threshold, clip_threshold) for grad in grads]
+            optimizer.apply_gradients(zip(grads, model.trainable_weights))
+
+            #if step % 500 == 0:
+            #    print("step %d: loss = %.4f" % (step, loss))
+        if epoch % 1 == 0:
+            sigma_max_train = cal_max_error(train_set) 
+            sigma_max_test = cal_max_error(test_set) 
+
+            E_train = cal_total_loss(train_set, weighted_MSE)
+            E_test = cal_total_loss(test_set, weighted_MSE)
         
-            omega = volume_form(points, Omega_Omegabar, mass, restriction)
-            loss = loss_func(Omega_Omegabar, omega, mass)  
-            grads = tape.gradient(loss, model.trainable_weights)
-            if clip_threshold is not None:
-                grads = [tf.clip_by_value(grad, -clip_threshold, clip_threshold) for grad in grads]
-        optimizer.apply_gradients(zip(grads, model.trainable_weights))
+            sigma_train = cal_total_loss(train_set, weighted_MAPE)
+            sigma_test  = cal_total_loss(test_set, weighted_MAPE)
 
-        #if step % 500 == 0:
-        #    print("step %d: loss = %.4f" % (step, loss))
-    if epoch % 50 == 0:
-        sigma_max_train = cal_max_error(train_set) 
-        sigma_max_test = cal_max_error(test_set) 
+            def delta_sigma_square_train(y_true, y_pred, mass):
+                weights = mass / K.sum(mass)
+                return K.sum((K.abs(y_true - y_pred) / y_true - sigma_train)**2 * weights)
 
-        E_train = cal_total_loss(train_set, weighted_MSE)
-        E_test = cal_total_loss(test_set, weighted_MSE)
-    
-        sigma_train = cal_total_loss(train_set, weighted_MAPE)
-        sigma_test  = cal_total_loss(test_set, weighted_MAPE)
+            def delta_sigma_square_test(y_true, y_pred, mass):
+                weights = mass / K.sum(mass)
+                return K.sum((K.abs(y_true - y_pred) / y_true - sigma_test)**2 * weights)
 
-        def delta_sigma_square_train(y_true, y_pred, mass):
-            weights = mass / K.sum(mass)
-            return K.sum((K.abs(y_true - y_pred) / y_true - sigma_train)**2 * weights)
+            delta_sigma_train = math.sqrt(cal_total_loss(train_set, delta_sigma_square_train) / HS.n_points)
+            delta_sigma_test = math.sqrt(cal_total_loss(test_set, delta_sigma_square_test) / HS.n_points)
 
-        def delta_sigma_square_test(y_true, y_pred, mass):
-            weights = mass / K.sum(mass)
-            return K.sum((K.abs(y_true - y_pred) / y_true - sigma_test)**2 * weights)
+            print("train_loss:", loss.numpy())
+            print("test_loss:", cal_total_loss(test_set, loss_func))
 
-        delta_sigma_train = math.sqrt(cal_total_loss(train_set, delta_sigma_square_train) / HS.n_points)
-        delta_sigma_test = math.sqrt(cal_total_loss(test_set, delta_sigma_square_test) / HS.n_points)
+            with train_summary_writer.as_default():
+                tf.summary.scalar('max_error', sigma_max_train, step=epoch)
+                tf.summary.scalar('delta_sigma', delta_sigma_train, step=epoch)
+                tf.summary.scalar('E', E_train, step=epoch)
+                tf.summary.scalar('sigma', sigma_train , step=epoch)
 
-        print("train_loss:", loss.numpy())
-        print("test_loss:", cal_total_loss(test_set, loss_func))
+            with test_summary_writer.as_default():
+                tf.summary.scalar('max_error', sigma_max_test, step=epoch)
+                tf.summary.scalar('delta_sigma', delta_sigma_test, step=epoch)
+                tf.summary.scalar('E', E_test, step=epoch)
+                tf.summary.scalar('sigma', sigma_test, step=epoch)    # Early stopping 
 
-        with train_summary_writer.as_default():
-            tf.summary.scalar('max_error', sigma_max_train, step=epoch)
-            tf.summary.scalar('delta_sigma', delta_sigma_train, step=epoch)
-            tf.summary.scalar('E', E_train, step=epoch)
-            tf.summary.scalar('sigma', sigma_train , step=epoch)
-
-        with test_summary_writer.as_default():
-            tf.summary.scalar('max_error', sigma_max_test, step=epoch)
-            tf.summary.scalar('delta_sigma', delta_sigma_test, step=epoch)
-            tf.summary.scalar('E', E_test, step=epoch)
-            tf.summary.scalar('sigma', sigma_test, step=epoch)    # Early stopping 
-
-   # if early_stopping is True and epoch > 800:
-   #     if epoch % 5 == 0:
-   #         if train_loss > loss_old:
-   #             stop = True 
-   #         loss_old = train_loss 
+       # if early_stopping is True and epoch > 800:
+       #     if epoch % 5 == 0:
+       #         if train_loss > loss_old:
+       #             stop = True 
+       #         loss_old = train_loss 
 
 train_time = time.time() - start_time
 
@@ -285,7 +300,7 @@ with open(save_dir + save_name + ".txt", "w") as f:
     if clip_threshold is not None:
         f.write('clip_threshold = {} \n'.format(clip_threshold))
     f.write('\n')
-    f.write('n_epochs = {} \n'.format(epoch))
+    f.write('n_epochs = {} \n'.format(max_epochs))
     f.write('train_time = {:.6g} \n'.format(train_time))
     f.write('sigma_train = {:.6g} \n'.format(sigma_train))
     f.write('sigma_test = {:.6g} \n'.format(sigma_test))

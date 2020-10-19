@@ -1,6 +1,10 @@
 # Changelog
 
 ## [Unreleased]
+## [0.7.0] - 2020-10-19
+### Added
+- L-BFGS algorithm biholoNN\_lbfgs.py
+
 ## [0.6.1] - 2020-09-10
 ### Added
 - New function cal\_max\_error in biholoNN\_train.py, which gives the max error over the whole dataset
