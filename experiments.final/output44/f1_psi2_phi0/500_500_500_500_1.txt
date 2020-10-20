@@ -1,0 +1,25 @@
+[Results] 
+model_name = 500_500_500_500_1 
+seed = 1234 
+n_pairs = 4000 
+n_points = 20000 
+batch_size = 20000 
+function = f1 
+psi = 2.0 
+phi = 0.0 
+k = 16 
+n_parameters = 763000 
+loss function = weighted_MSE 
+
+n_epochs = 1333 
+train_time = 1489.01 
+sigma_train = 0.000840743 
+sigma_test = 0.00164605 
+delta_sigma_train = 4.63495e-06 
+delta_sigma_test = 1.05408e-05 
+E_train = 1.1365e-06 
+E_test = 4.93166e-06 
+delta_E_train = 1.20644e-08 
+delta_E_test = 6.91108e-08 
+sigma_max_train = 0.00649009 
+sigma_max_test = 0.0122514 

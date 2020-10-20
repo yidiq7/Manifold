@@ -41,3 +41,10 @@ script25 - 300_300_300_1 with total number of points 1000,5000,20000
 
 script30 - try L_BFGS
 script104 - like 4 polishing with BFGS
+
+script40 - try L_BFGS on 300_300_300_1 with initial model 
+
+script44 - like 4 with 300_300_300_1 and 500_500_500_500_1 and 150 epochs
+45, 46
+script54 - like 17 with 300_300_300_1 and 500_500_500_500_1
+55, 56   - combine the scripts

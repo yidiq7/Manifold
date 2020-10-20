@@ -1,0 +1,53 @@
+#!/bin/bash
+set -x
+export CUDA_VISIBLE_DEVICES=3
+LAYERS="300_300_300_1 500_500_500_500_1"
+PSI="2 3"
+
+OUT=`pwd`/experiments.final/output44
+
+for psi in $PSI ; do
+    for phi in 0 0.4 0.8 1.2 1.6 2 2.4 2.8 3 ; do
+	OUTDIR=$OUT/f1_psi${psi}_phi${phi}
+	mkdir -p $OUTDIR
+        for layers in $LAYERS ; do
+				    python biholoNN_train.py --seed 1234 \
+				 --n_pairs 4000 \
+				 --batch_size 5000 \
+				 --load_model experiments.yidi/biholo/f0_psi0.5/$layers \
+				 --optimizer lbfgs \
+		          	 --function "f1" \
+				   --psi $psi \
+                                     --phi $phi \
+				 --layers $layers \
+				 --save_dir $OUTDIR/ \
+ 				--save_name $layers \
+				 --max_epochs 4000 \
+				 --loss_func "weighted_MSE" 
+        done
+    done
+done
+
+OUT=`pwd`/experiments.final/output54
+
+for psi in $PSI ; do
+    for phi in 0 0.4 0.8 1.2 1.6 2 2.4 2.8 3 ; do
+	OUTDIR=$OUT/f2_psi${psi}_alpha${phi}
+	mkdir -p $OUTDIR
+        for layers in $LAYERS ; do
+				    python biholoNN_train.py --seed 1234 \
+				 --n_pairs 4000 \
+				 --batch_size 5000 \
+				 --load_model experiments.yidi/biholo/f0_psi0.5/$layers \
+				 --optimizer lbfgs \
+		          	 --function "f2" \
+				   --psi $psi \
+                                     --alpha $phi \
+				 --layers $layers \
+				 --save_dir $OUTDIR/ \
+ 				--save_name $layers \
+				 --max_epochs 4000 \
+				 --loss_func "weighted_MSE" 
+        done
+    done
+done
