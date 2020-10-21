@@ -11,9 +11,9 @@ case $RUN in
 esac
 OPTIONS="\
 				 --optimizer adam \
-				 --n_pairs 100000 \
+				 --n_pairs 20000 \
 				 --batch_size 5000 \
-				 --max_epochs 1000 \
+				 --max_epochs 400 \
 				 --loss_func "weighted_MAPE" 
 "
 
@@ -47,7 +47,7 @@ esac
 				$OPTIONS
 		fi
 		if [ -r $OUTDIR2/$layers ]
-		then echo "Already computed model for $OUTDIR/$layers"
+		then echo "Already computed model for $OUTDIR2/$layers"
 		else	python biholoNN_train.py --seed 1234 \
 				 --n_pairs 4000 \
 				 --load_model $OUTDIR/$layers \

@@ -52,3 +52,5 @@ script54 - like 17 with 300_300_300_1 and 500_500_500_500_1
 script61 - try some more Adam first
 also add a command line option to choose GPU and subset
 script62 - take finished models from 61 and run L-BFGS.
+script63 - combined 61/62, 300 epochs, 20000 pairs.
+Tried 1000 and 100000 but was much too slow.
