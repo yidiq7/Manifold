@@ -1,0 +1,51 @@
+#!/bin/bash
+set -x
+RUN=$1
+export CUDA_VISIBLE_DEVICES=$RUN
+LAYERS="300_300_300_1 500_500_500_500_1"
+case $RUN in
+1) PSI="-2 -1" ;;
+2) PSI="0 1" ;;
+3) PSI="2 3" ;;
+*) echo "Unknown run $RUN" ; exit 1 ;;
+esac
+OPTIONS="\
+				 --optimizer adam \
+				 --n_pairs 4000 \
+				 --batch_size 5000 \
+				 --max_epochs 1000 \
+				 --loss_func "weighted_MAPE" 
+"
+
+OUT=`pwd`/experiments.final/output61
+
+for fn in f1 f2 ; do
+case $fn in
+f1) OPT=--phi ;;
+f2) OPT=--alpha ;;
+esac
+    for psi in $PSI ; do
+	for layers in $LAYERS ; do
+	    MODEL=experiments.yidi/biholo/f0_psi0.5/$layers 
+    	    for phi in 0 0.4 0.8 1.2 1.6 2 2.4 2.8 3 ; do
+	        OUTDIR=$OUT/${fn}_psi${psi}_phi${phi}
+	        mkdir -p $OUTDIR
+		date
+		if [ -r $OUTDIR/$layers ]
+		    then echo "Already computed model for $OUTDIR/$layers"
+		    else
+		        python biholoNN_train.py --seed 1234 \
+				 --load_model $MODEL \
+		          	 --function $fn \
+				   --psi $psi \
+                                     $OPT $phi \
+				 --layers $layers \
+				 --save_dir $OUTDIR/ \
+ 				--save_name $layers \
+				$OPTIONS
+	    	    fi
+                MODEL=$OUTDIR/$layers 
+            done
+	done
+    done
+done

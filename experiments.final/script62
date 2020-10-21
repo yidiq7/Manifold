@@ -1,0 +1,33 @@
+#!/bin/bash
+set -x
+export CUDA_VISIBLE_DEVICES=3
+fn=f1
+psi=2
+phi=0.4
+layers=300_300_300_1
+
+IN=`pwd`/experiments.final/output61
+
+while true ; do
+    for SUM in $IN/${fn}_psi${psi}_phi${phi}/summary.txt ; do
+	OUT=${SUM/output61/output62} 
+	if [ ! -r $OUT ]
+	then
+	    OUTDIR=${OUT/summary.txt/}
+	    mkdir -p $OUTDIR
+	    python biholoNN_train.py --seed 1234 \
+				 --n_pairs 4000 \
+				 --load_model ${SUM/summary.txt/}$layers \
+				 --optimizer lbfgs \
+		          	 --function "f1" \
+				   --psi $psi \
+                                     --phi $phi \
+				 --layers $layers \
+				 --save_dir $OUTDIR/ \
+ 				--save_name $layers \
+				 --max_epochs 2000 \
+				 --loss_func "weighted_MSE" 
+	fi
+    done
+    sleep 300
+done
