@@ -1,6 +1,10 @@
 # Changelog
 
 ## [Unreleased]
+## [0.7.1] - 2020-10-25
+### Added
+- Add learning rate option for Adam
+
 ## [0.7.0] - 2020-10-19
 ### Added
 - L-BFGS algorithm biholoNN\_lbfgs.py
