@@ -1,0 +1,2886 @@
++ RUN=3
++ export CUDA_VISIBLE_DEVICES=3
++ CUDA_VISIBLE_DEVICES=3
++ LAYERS=500_500_500_500_1
++ case $RUN in
++ REG=0.001
++ PSI=1
++ OPTIONS='				 --optimizer adam 				 --n_pairs 20000 				 --batch_size 5000 				 --max_epochs 400 				 --loss_func weighted_MAPE 
+'
+++ pwd
++ OUT=/home/mrdouglas/Manifold/experiments.final/output66
+++ pwd
++ OUT2=/home/mrdouglas/Manifold/experiments.final/output67
++ for fn in f1
++ case $fn in
++ OPT=--phi
++ for psi in $PSI
++ for layers in $LAYERS
++ MODEL=experiments.yidi/biholo/f0_psi0.5/500_500_500_500_1
++ for phi in 2.8
++ OUTDIR=/home/mrdouglas/Manifold/experiments.final/output66/f1_psi1_phi2.8_0.001
++ OUTDIR2=/home/mrdouglas/Manifold/experiments.final/output67/f1_psi1_phi2.8_0.001
++ mkdir -p /home/mrdouglas/Manifold/experiments.final/output66/f1_psi1_phi2.8_0.001 /home/mrdouglas/Manifold/experiments.final/output67/f1_psi1_phi2.8_0.001
++ date
+Sun Oct 25 13:17:43 EDT 2020
++ '[' -r /home/mrdouglas/Manifold/experiments.final/output66/f1_psi1_phi2.8_0.001/500_500_500_500_1 ']'
++ python biholoNN_train.py --seed 2345 --load_model experiments.yidi/biholo/f0_psi0.5/500_500_500_500_1 --function f1 --psi 1 --phi 2.8 --regularize 0.001 --layers 500_500_500_500_1 --save_dir /home/mrdouglas/Manifold/experiments.final/output66/f1_psi1_phi2.8_0.001/ --save_name 500_500_500_500_1 --optimizer adam --n_pairs 20000 --batch_size 5000 --max_epochs 400 --loss_func weighted_MAPE
+Processing model: 500_500_500_500_1
+WARNING:tensorflow:5 out of the last 5 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f316c03a158> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:6 out of the last 6 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f316c119b70> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:7 out of the last 7 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f316c13cae8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:8 out of the last 8 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f316c13cd90> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:9 out of the last 9 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f316c07e598> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:10 out of the last 10 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3164509bf8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f31644686a8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f31644de730> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f316c07e840> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f316c07e7b8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f31643bc9d8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f31643ec620> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f31643ec950> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3164418620> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3164418510> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3164333bf8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3164335400> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f31642d2378> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3164335d90> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f31644a6268> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f31644a42f0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f316433ed90> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f31644a6378> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3164246400> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f31642460d0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f31641e1b70> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3164172840> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f316413c620> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3164214488> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3164214950> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f3164103730> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f316408a1e0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f316408a9d8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f316408c9d8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f31641a4400> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f31640c68c8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+train_loss: 1.999187
+test_loss: 1.9910262
+train_loss: 1.986595
+test_loss: 1.991176
+train_loss: 1.9973552
+test_loss: 1.9937323
+train_loss: 1.9902953
+test_loss: 1.9916534
+train_loss: 1.9929519
+test_loss: 1.9921964
+train_loss: 1.9957423
+test_loss: 1.9911716
+train_loss: 1.971906
+test_loss: 1.9941236
+train_loss: 1.9952065
+test_loss: 1.9903274
+train_loss: 1.9879773
+test_loss: 1.9906931
+train_loss: 1.9922683
+test_loss: 1.9914436
+train_loss: 1.999526
+test_loss: 1.988166
+train_loss: 1.9957845
+test_loss: 1.9910768
+train_loss: 1.9988308
+test_loss: 1.9903855
+train_loss: 1.9966686
+test_loss: 1.9921641
+train_loss: 1.9961917
+test_loss: 1.9911783
+train_loss: 1.9992291
+test_loss: 1.9918542
+train_loss: 1.9829724
+test_loss: 1.9950414
+train_loss: 1.9932588
+test_loss: 1.9918673
+train_loss: 1.9983481
+test_loss: 1.9895662
+train_loss: 1.9713883
+test_loss: 1.9899293
+train_loss: 1.992134
+test_loss: 1.991544
+train_loss: 1.9919248
+test_loss: 1.9899378
+train_loss: 1.9902898
+test_loss: 1.9948717
+train_loss: 1.9985129
+test_loss: 1.9917712
+train_loss: 1.9707475
+test_loss: 1.9899852
+train_loss: 1.9938862
+test_loss: 1.992266
+train_loss: 1.9987273
+test_loss: 1.9921376
+train_loss: 1.9878511
+test_loss: 1.9957112
+train_loss: 1.9880786
+test_loss: 1.9933152
+train_loss: 1.9956799
+test_loss: 1.9922764
+train_loss: 1.9909372
+test_loss: 1.9906399
+train_loss: 1.9988172
+test_loss: 1.9935453
+train_loss: 1.9911422
+test_loss: 1.9883482
+train_loss: 1.9882551
+test_loss: 1.9914373
+train_loss: 1.9893003
+test_loss: 1.9911467
+train_loss: 1.9976754
+test_loss: 1.9917358
+train_loss: 1.9867336
+test_loss: 1.9905143
+train_loss: 1.99617
+test_loss: 1.9927504
+train_loss: 1.9887989
+test_loss: 1.9905139
+train_loss: 1.9959704
+test_loss: 1.989354
+train_loss: 1.998973
+test_loss: 1.9911699
+train_loss: 1.9929988
+test_loss: 1.9917948
+train_loss: 1.9970872
+test_loss: 1.9913999
+train_loss: 1.9984525
+test_loss: 1.9904394
+train_loss: 1.9872661
+test_loss: 1.9916291
+train_loss: 1.9994129
+test_loss: 1.9908208
+train_loss: 1.9929101
+test_loss: 1.991423
+train_loss: 1.9883064
+test_loss: 1.9896121
+train_loss: 1.9718282
+test_loss: 1.986372
+train_loss: 1.9981031
+test_loss: 1.9918584
+train_loss: 1.9668562
+test_loss: 1.9914345
+train_loss: 1.9803088
+test_loss: 1.9936473
+train_loss: 1.9977875
+test_loss: 1.9912435
+train_loss: 1.9973017
+test_loss: 1.9922426
+train_loss: 1.9964621
+test_loss: 1.9933246
+train_loss: 1.9803159
+test_loss: 1.9891199
+train_loss: 1.9904549
+test_loss: 1.9883075
+train_loss: 1.9957745
+test_loss: 1.9925331
+train_loss: 1.9926455
+test_loss: 1.9928818
+train_loss: 1.9938357
+test_loss: 1.9917662
+train_loss: 1.9977564
+test_loss: 1.9919975
+train_loss: 1.9968798
+test_loss: 1.993877
+train_loss: 1.9947269
+test_loss: 1.990899
+train_loss: 1.9842619
+test_loss: 1.9912378
+train_loss: 1.996554
+test_loss: 1.9871056
+train_loss: 1.9988981
+test_loss: 1.9862157
+train_loss: 1.988348
+test_loss: 1.9890748
+train_loss: 1.9962369
+test_loss: 1.9898497
+train_loss: 1.983941
+test_loss: 1.9895172
+train_loss: 1.9895165
+test_loss: 1.986544
+train_loss: 1.9770485
+test_loss: 1.9888023
+train_loss: 1.992423
+test_loss: 1.9930469
+train_loss: 1.9953774
+test_loss: 1.9887727
+train_loss: 1.9952326
+test_loss: 1.9942347
+train_loss: 1.9937239
+test_loss: 1.9922892
+train_loss: 1.9680985
+test_loss: 1.9928269
+train_loss: 1.9945557
+test_loss: 1.9900008
+train_loss: 1.9994333
+test_loss: 1.9910405
+train_loss: 1.9800258
+test_loss: 1.9932433
+train_loss: 1.9863278
+test_loss: 1.9928968
+train_loss: 1.9983113
+test_loss: 1.9901416
+train_loss: 1.9862465
+test_loss: 1.9909633
+train_loss: 1.9801338
+test_loss: 1.9917873
+train_loss: 1.9997178
+test_loss: 1.990807
+train_loss: 1.9982252
+test_loss: 1.9912434
+train_loss: 1.9911752
+test_loss: 1.9896171
+train_loss: 1.9894464
+test_loss: 1.9872321
+train_loss: 1.9998124
+test_loss: 1.9929224
+train_loss: 1.9968412
+test_loss: 1.9942542
+train_loss: 1.9915072
+test_loss: 1.9905072
+train_loss: 1.9915813
+test_loss: 1.993066
+train_loss: 1.998179
+test_loss: 1.9895008
+train_loss: 1.997268
+test_loss: 1.9907783
+train_loss: 1.9926999
+test_loss: 1.9898762
+train_loss: 1.9888165
+test_loss: 1.9920386
+train_loss: 1.9982775
+test_loss: 1.9918281
+train_loss: 1.9990896
+test_loss: 1.990623
+train_loss: 1.9955211
+test_loss: 1.9913096
+train_loss: 1.9934554
+test_loss: 1.9924843
+train_loss: 1.9959773
+test_loss: 1.9901005
+train_loss: 1.989859
+test_loss: 1.9921795
+train_loss: 1.9999169
+test_loss: 1.996172
+train_loss: 1.992249
+test_loss: 1.9947894
+train_loss: 1.9736097
+test_loss: 1.991166
+train_loss: 1.9985797
+test_loss: 1.9916185
+train_loss: 1.9995587
+test_loss: 1.992442
+train_loss: 1.9932749
+test_loss: 1.9936992
+train_loss: 1.9876571
+test_loss: 1.992902
+train_loss: 1.9934237
+test_loss: 1.9876676
+train_loss: 1.9972962
+test_loss: 1.9898518
+train_loss: 1.9918737
+test_loss: 1.9918343
+train_loss: 1.9966613
+test_loss: 1.9921584
+train_loss: 1.9922601
+test_loss: 1.9916039
+train_loss: 1.9870231
+test_loss: 1.9927264
+train_loss: 1.9782555
+test_loss: 1.9959478
+train_loss: 1.9951918
+test_loss: 1.9932493
+train_loss: 1.9966036
+test_loss: 1.9920021
+train_loss: 1.9902302
+test_loss: 1.9932946
+train_loss: 1.9971356
+test_loss: 1.9947196
+train_loss: 1.9996291
+test_loss: 1.9948963
+train_loss: 1.9977536
+test_loss: 1.9947647
+train_loss: 1.9861667
+test_loss: 1.9939116
+train_loss: 1.9985584
+test_loss: 1.9933952
+train_loss: 1.9963021
+test_loss: 1.9971858
+train_loss: 1.9992665
+test_loss: 2.0148575
+train_loss: 1.9908347
+test_loss: 1.9898242
+train_loss: 1.9838797
+test_loss: 1.9911779
+train_loss: 1.995018
+test_loss: 1.9928591
+train_loss: 1.9995967
+test_loss: 1.993558
+train_loss: 1.980113
+test_loss: 1.9908639
+train_loss: 1.9821762
+test_loss: 1.9914285
+train_loss: 1.9818181
+test_loss: 1.9914951
+train_loss: 1.9971446
+test_loss: 1.9923005
+train_loss: 1.9923596
+test_loss: 1.9900291
+train_loss: 1.9942623
+test_loss: 1.9929891
+train_loss: 1.9867641
+test_loss: 1.9915577
+train_loss: 1.992256
+test_loss: 1.9918648
+train_loss: 1.9949865
+test_loss: 1.9954128
+train_loss: 1.9996098
+test_loss: 1.9923853
+train_loss: 1.9999318
+test_loss: 1.9921901
+train_loss: 1.9917612
+test_loss: 1.9911165
+train_loss: 1.9957277
+test_loss: 1.9955535
+train_loss: 1.9948084
+test_loss: 1.993577
+train_loss: 1.987731
+test_loss: 1.9920547
+train_loss: 1.9909418
+test_loss: 1.9933981
+train_loss: 1.9908353
+test_loss: 1.9936267
+train_loss: 1.9718488
+test_loss: 1.9905703
+train_loss: 1.9980278
+test_loss: 1.9931467
+train_loss: 1.99265
+test_loss: 1.98938
+train_loss: 1.9967535
+test_loss: 1.9925195
+train_loss: 1.9906821
+test_loss: 1.9935485
+train_loss: 1.9929862
+test_loss: 1.9890697
+train_loss: 1.9980067
+test_loss: 1.9918183
+train_loss: 1.9944019
+test_loss: 1.9933213
+train_loss: 1.993206
+test_loss: 1.9914334
+train_loss: 1.9956638
+test_loss: 1.9929565
+train_loss: 1.990122
+test_loss: 1.9937377
+train_loss: 1.9909838
+test_loss: 1.994019
+train_loss: 1.994412
+test_loss: 1.995239
+train_loss: 1.986263
+test_loss: 1.9946785
+train_loss: 1.9956614
+test_loss: 1.992173
+train_loss: 1.9943407
+test_loss: 1.993171
+train_loss: 1.9988215
+test_loss: 1.9907335
+train_loss: 1.9940467
+test_loss: 1.9933876
+train_loss: 1.9991199
+test_loss: 1.995381
+train_loss: 1.9817159
+test_loss: 1.9917742
+train_loss: 1.9974885
+test_loss: 1.9956253
+train_loss: 1.9977633
+test_loss: 1.9945406
+train_loss: 1.9974327
+test_loss: 1.9949186
+train_loss: 1.9969211
+test_loss: 1.9939569
+train_loss: 1.03175
+test_loss: 0.9716688
+train_loss: 0.90868795
+test_loss: 0.92279357
+train_loss: 0.90224195
+test_loss: 0.9247998
+train_loss: 0.92739004
+test_loss: 0.9247694
+train_loss: 0.9481878
+test_loss: 0.9244723
+train_loss: 0.907084
+test_loss: 0.92417485
+train_loss: 0.9014805
+test_loss: 0.923952
+train_loss: 0.8860884
+test_loss: 0.92358756
+train_loss: 0.9218963
+test_loss: 0.92323273
+train_loss: 0.9338173
+test_loss: 0.9231009
+train_loss: 0.92163837
+test_loss: 0.9226405
+train_loss: 0.91067994
+test_loss: 0.92235905
+train_loss: 0.8961169
+test_loss: 0.9220532
+train_loss: 0.88650864
+test_loss: 0.9216648
+train_loss: 0.90801024
+test_loss: 0.92122287
+train_loss: 0.903409
+test_loss: 0.92083263
+train_loss: 0.9343792
+test_loss: 0.92053163
+train_loss: 0.9039403
+test_loss: 0.9202255
+train_loss: 0.90984154
+test_loss: 0.9197554
+train_loss: 0.9369256
+test_loss: 0.91944313
+train_loss: 0.898978
+test_loss: 0.91911876
+train_loss: 0.9394262
+test_loss: 0.9185871
+train_loss: 0.9118362
+test_loss: 0.91808677
+train_loss: 0.89586824
+test_loss: 0.9176603
+train_loss: 0.9265451
+test_loss: 0.916984
+train_loss: 0.888137
+test_loss: 0.9162572
+train_loss: 0.9239996
+test_loss: 0.9150328
+train_loss: 0.92827106
+test_loss: 0.9127674
+train_loss: 0.9087079
+test_loss: 0.90893716
+train_loss: 0.90530884
+test_loss: 0.9018923
+train_loss: 0.8868352
+test_loss: 0.8919889
+train_loss: 0.87334263
+test_loss: 0.8814866
+train_loss: 0.87978256
+test_loss: 0.8723951
+train_loss: 0.87981
+test_loss: 0.8648681
+train_loss: 0.8618531
+test_loss: 0.858207
+train_loss: 0.83475626
+test_loss: 0.8519933
+train_loss: 0.8636074
+test_loss: 0.8461263
+train_loss: 0.84925973
+test_loss: 0.84025276
+train_loss: 0.83833206
+test_loss: 0.83417076
+train_loss: 0.8269107
+test_loss: 0.82822293
+train_loss: 0.8033308
+test_loss: 0.82209325
+train_loss: 0.7913068
+test_loss: 0.81572205
+train_loss: 0.8063668
+test_loss: 0.8093388
+train_loss: 0.7975565
+test_loss: 0.8026222
+train_loss: 0.7864112
+test_loss: 0.7963019
+train_loss: 0.7740129
+test_loss: 0.7895969
+train_loss: 0.77293354
+test_loss: 0.7830382
+train_loss: 0.7683425
+test_loss: 0.77644676
+train_loss: 0.7780483
+test_loss: 0.76962394
+train_loss: 0.7435778
+test_loss: 0.7630543
+train_loss: 0.7553283
+test_loss: 0.75637
+train_loss: 0.72977006
+test_loss: 0.7499248
+train_loss: 0.7191883
+test_loss: 0.74306977
+train_loss: 0.7233888
+test_loss: 0.73629856
+train_loss: 0.7050299
+test_loss: 0.7293252
+train_loss: 0.7246574
+test_loss: 0.7220782
+train_loss: 0.6996467
+test_loss: 0.71479005
+train_loss: 0.6893029
+test_loss: 0.707262
+train_loss: 0.6562632
+test_loss: 0.6992902
+train_loss: 0.7008485
+test_loss: 0.691045
+train_loss: 0.70938575
+test_loss: 0.6823433
+train_loss: 0.658237
+test_loss: 0.6731347
+train_loss: 0.6431336
+test_loss: 0.66310066
+train_loss: 0.6529855
+test_loss: 0.6525723
+train_loss: 0.5998875
+test_loss: 0.64112633
+train_loss: 0.6241758
+test_loss: 0.6288647
+train_loss: 0.5970732
+test_loss: 0.61574286
+train_loss: 0.5756367
+test_loss: 0.60159796
+train_loss: 0.5872815
+test_loss: 0.58635306
+train_loss: 0.5508714
+test_loss: 0.5698279
+train_loss: 0.5618302
+test_loss: 0.5520871
+train_loss: 0.5025636
+test_loss: 0.53250724
+train_loss: 0.5048977
+test_loss: 0.5115689
+train_loss: 0.4658368
+test_loss: 0.4890156
+train_loss: 0.48670077
+test_loss: 0.4654569
+train_loss: 0.44696596
+test_loss: 0.44092295
+train_loss: 0.4160092
+test_loss: 0.41647124
+train_loss: 0.41347826
+test_loss: 0.39234352
+train_loss: 0.35359672
+test_loss: 0.3695505
+train_loss: 0.3216033
+test_loss: 0.34833983
+train_loss: 0.33173114
+test_loss: 0.32803488
+train_loss: 0.32027268
+test_loss: 0.3098263
+train_loss: 0.2967697
+test_loss: 0.2928858
+train_loss: 0.29616815
+test_loss: 0.27785796
+train_loss: 0.28919435
+test_loss: 0.2644029
+train_loss: 0.25261995
+test_loss: 0.2524132
+train_loss: 0.23043326
+test_loss: 0.24194059
+train_loss: 0.23982254
+test_loss: 0.23214668
+train_loss: 0.23540369
+test_loss: 0.223824
+train_loss: 0.22347276
+test_loss: 0.21613857
+train_loss: 0.21050231
+test_loss: 0.20903234
+train_loss: 0.20009243
+test_loss: 0.20262635
+train_loss: 0.19593437
+test_loss: 0.19672768
+train_loss: 0.18915597
+test_loss: 0.19121921
+train_loss: 0.17442065
+test_loss: 0.1862144
+train_loss: 0.18739545
+test_loss: 0.18173882
+train_loss: 0.16417356
+test_loss: 0.17708063
+train_loss: 0.16562928
+test_loss: 0.17337431
+train_loss: 0.16590288
+test_loss: 0.16940993
+train_loss: 0.1546863
+test_loss: 0.16606624
+train_loss: 0.18830101
+test_loss: 0.16317578
+train_loss: 0.17406684
+test_loss: 0.15978314
+train_loss: 0.16495138
+test_loss: 0.15646005
+train_loss: 0.15638205
+test_loss: 0.15373465
+train_loss: 0.14371406
+test_loss: 0.15105075
+train_loss: 0.16168517
+test_loss: 0.14816752
+train_loss: 0.13726288
+test_loss: 0.14540015
+train_loss: 0.13947266
+test_loss: 0.14310518
+train_loss: 0.14716385
+test_loss: 0.14072089
+train_loss: 0.13375796
+test_loss: 0.13806464
+train_loss: 0.1354852
+test_loss: 0.13653165
+train_loss: 0.13049151
+test_loss: 0.13372394
+train_loss: 0.13403806
+test_loss: 0.13245188
+train_loss: 0.13728377
+test_loss: 0.12944794
+train_loss: 0.13031587
+test_loss: 0.12743624
+train_loss: 0.12585446
+test_loss: 0.12603717
+train_loss: 0.117638476
+test_loss: 0.12419535
+train_loss: 0.11853772
+test_loss: 0.12175367
+train_loss: 0.11750937
+test_loss: 0.12000382
+train_loss: 0.12086273
+test_loss: 0.11864957
+train_loss: 0.114937246
+test_loss: 0.11628685
+train_loss: 0.10927172
+test_loss: 0.114648536
+train_loss: 0.11113934
+test_loss: 0.112947516
+train_loss: 0.11269569
+test_loss: 0.111403584
+train_loss: 0.106207356
+test_loss: 0.10978222
+train_loss: 0.11348753
+test_loss: 0.10858255
+train_loss: 0.1019437
+test_loss: 0.1070948
+train_loss: 0.10840635
+test_loss: 0.1056097
+train_loss: 0.11098389
+test_loss: 0.104082495
+train_loss: 0.10755505
+test_loss: 0.10337409
+train_loss: 0.104582
+test_loss: 0.10144444
+train_loss: 0.10406133
+test_loss: 0.10042992
+train_loss: 0.09992827
+test_loss: 0.09940781
+train_loss: 0.09310878
+test_loss: 0.09855163
+train_loss: 0.101218395
+test_loss: 0.09745524
+train_loss: 0.09144284
+test_loss: 0.09653561
+train_loss: 0.090923026
+test_loss: 0.09579835
+train_loss: 0.09786627
+test_loss: 0.09475446
+train_loss: 0.0940419
+test_loss: 0.09416991
+train_loss: 0.09672101
+test_loss: 0.093156606
+train_loss: 0.09422456
+test_loss: 0.092322946
+train_loss: 0.09676072
+test_loss: 0.09181453
+train_loss: 0.081662595
+test_loss: 0.090884626
+train_loss: 0.087390624
+test_loss: 0.090248615
+train_loss: 0.08971756
+test_loss: 0.08990378
+train_loss: 0.09007637
+test_loss: 0.089614436
+train_loss: 0.08594598
+test_loss: 0.090139166
+train_loss: 0.091510564
+test_loss: 0.08878099
+train_loss: 0.08338382
+test_loss: 0.08840635
+train_loss: 0.081664585
+test_loss: 0.08848783
+train_loss: 0.08598017
+test_loss: 0.0884634
+train_loss: 0.08145726
+test_loss: 0.08801319
+train_loss: 0.07968401
+test_loss: 0.087399036
+train_loss: 0.08267738
+test_loss: 0.087166935
+train_loss: 0.08360793
+test_loss: 0.086819835
+train_loss: 0.08398454
+test_loss: 0.08726907
+train_loss: 0.087945536
+test_loss: 0.087389536
+train_loss: 0.08211911
+test_loss: 0.08641147
+train_loss: 0.08772287
+test_loss: 0.085950464
+train_loss: 0.08936291
+test_loss: 0.08603266
+train_loss: 0.08504048
+test_loss: 0.085492335
+train_loss: 0.079202786
+test_loss: 0.08558071
+train_loss: 0.085127555
+test_loss: 0.08569209
+train_loss: 0.07859105
+test_loss: 0.08594773
+train_loss: 0.08172205
+test_loss: 0.08510643
+train_loss: 0.08262355
+test_loss: 0.08506311
+train_loss: 0.08606979
+test_loss: 0.08471394
+train_loss: 0.08496773
+test_loss: 0.08460657
+train_loss: 0.08667686
+test_loss: 0.08439346
+train_loss: 0.0797717
+test_loss: 0.08477423
+train_loss: 0.08039638
+test_loss: 0.08389139
+train_loss: 0.078851424
+test_loss: 0.08395564
+train_loss: 0.07879586
+test_loss: 0.08411441
+train_loss: 0.085096605
+test_loss: 0.0840153
+train_loss: 0.07943654
+test_loss: 0.08375583
+train_loss: 0.07866424
+test_loss: 0.083848655
+train_loss: 0.08583055
+test_loss: 0.08289406
+train_loss: 0.07613212
+test_loss: 0.082743384
+train_loss: 0.08039618
+test_loss: 0.08270352
+train_loss: 0.0884296
+test_loss: 0.08339471
+train_loss: 0.0834972
+test_loss: 0.08306198
+train_loss: 0.08096422
+test_loss: 0.08352611
+train_loss: 0.08261225
+test_loss: 0.082570724
+train_loss: 0.08623343
+test_loss: 0.08224496
+train_loss: 0.0811397
+test_loss: 0.082245305
+train_loss: 0.084543355
+test_loss: 0.08210385
+train_loss: 0.07868473
+test_loss: 0.08275026
+train_loss: 0.07659779
+test_loss: 0.08206381
+train_loss: 0.08698594
+test_loss: 0.08160378
+train_loss: 0.079534434
+test_loss: 0.082222104
+train_loss: 0.0816735
+test_loss: 0.08202575
+train_loss: 0.08413278
+test_loss: 0.08155151
+train_loss: 0.077760935
+test_loss: 0.08129196
+train_loss: 0.08420896
+test_loss: 0.08141327
+train_loss: 0.07958644
+test_loss: 0.080933765
+train_loss: 0.07714371
+test_loss: 0.080664426
+train_loss: 0.0821541
+test_loss: 0.082728095
+train_loss: 0.0822183
+test_loss: 0.08072309
+train_loss: 0.07596178
+test_loss: 0.08050529
+train_loss: 0.07863406
+test_loss: 0.08063893
+train_loss: 0.08021249
+test_loss: 0.080408715
+train_loss: 0.0762482
+test_loss: 0.08030433
+train_loss: 0.07566417
+test_loss: 0.08039149
+train_loss: 0.077562146
+test_loss: 0.080019265
+train_loss: 0.07819545
+test_loss: 0.0800201
+train_loss:/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/framework/indexed_slices.py:433: UserWarning: Converting sparse IndexedSlices to a dense Tensor of unknown shape. This may consume a large amount of memory.
+  "Converting sparse IndexedSlices to a dense Tensor of unknown shape. "
+WARNING:tensorflow:From /home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/training/tracking/tracking.py:111: Model.state_updates (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+WARNING:tensorflow:From /home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/training/tracking/tracking.py:111: Layer.updates (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+ 0.07663826
+test_loss: 0.08074016
+train_loss: 0.07889792
+test_loss: 0.08058486
+train_loss: 0.07898014
+test_loss: 0.080103554
+train_loss: 0.07401875
+test_loss: 0.07964101
+train_loss: 0.079683416
+test_loss: 0.07966817
+train_loss: 0.07210287
+test_loss: 0.0792289
+train_loss: 0.07995671
+test_loss: 0.079032764
+train_loss: 0.07554724
+test_loss: 0.078922845
+train_loss: 0.07401566
+test_loss: 0.07950092
+train_loss: 0.07521495
+test_loss: 0.07904062
+train_loss: 0.07066454
+test_loss: 0.07868324
+train_loss: 0.07575488
+test_loss: 0.078527726
+train_loss: 0.071882166
+test_loss: 0.078509174
+train_loss: 0.07794161
+test_loss: 0.078536674
+train_loss: 0.07781707
+test_loss: 0.078697406
+train_loss: 0.07311091
+test_loss: 0.07832349
+train_loss: 0.07588599
+test_loss: 0.07807541
+train_loss: 0.06994288
+test_loss: 0.07800155
+train_loss: 0.075981975
+test_loss: 0.07809045
+train_loss: 0.081693776
+test_loss: 0.07781168
+train_loss: 0.073887184
+test_loss: 0.077835806
+train_loss: 0.080646865
+test_loss: 0.077751115
+train_loss: 0.07705118
+test_loss: 0.07757103
+train_loss: 0.07463907
+test_loss: 0.07807399
+train_loss: 0.07495141
+test_loss: 0.07726842
++ '[' -r /home/mrdouglas/Manifold/experiments.final/output67/f1_psi1_phi2.8_0.001/500_500_500_500_1 ']'
++ python biholoNN_train.py --seed 1234 --n_pairs 4000 --load_model /home/mrdouglas/Manifold/experiments.final/output66/f1_psi1_phi2.8_0.001/500_500_500_500_1 --optimizer lbfgs --function f1 --psi 1 --phi 2.8 --regularize 0.001 --layers 500_500_500_500_1 --save_dir /home/mrdouglas/Manifold/experiments.final/output67/f1_psi1_phi2.8_0.001/ --save_name 500_500_500_500_1 --max_epochs 2000 --loss_func weighted_MSE
+Processing model: 500_500_500_500_1
+WARNING:tensorflow:5 out of the last 5 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b82bbb0d0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:6 out of the last 6 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b82bbb6a8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:7 out of the last 7 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b82d027b8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:8 out of the last 8 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b82bd9bf8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:9 out of the last 9 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b82bfd6a8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:10 out of the last 10 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b82b5dbf8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b82b17c80> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b82ad76a8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b82aef378> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b82a8d598> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b82a8d400> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b82a7a048> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b82a7a598> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b82a257b8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b82a25400> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b829e4b70> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b8299b488> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b8299c840> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b8299c400> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b8296af28> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b8296ad08> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b6a4618c8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b6a41ba60> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b6a434d08> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b6a455378> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b6a42e7b8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b6a3b8620> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b6a3c8d90> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b6a3c8840> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b44456e18> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b44425488> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b443d58c8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b443d5620> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b443d52f0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b443b92f0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:11 out of the last 11 calls to <function Hypersurface.num_FS_volume_form_tf at 0x7f6b443c2ae8> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/tutorials/customization/performance#python_or_tensor_args and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+Iter: 1 loss: 0.0101814233
+Iter: 2 loss: 0.0187765844
+Iter: 3 loss: 0.010148447
+Iter: 4 loss: 0.00980662927
+Iter: 5 loss: 0.040009696
+Iter: 6 loss: 0.00980634242
+Iter: 7 loss: 0.00971028
+Iter: 8 loss: 0.0135544371
+Iter: 9 loss: 0.00970993564
+Iter: 10 loss: 0.00961842574
+Iter: 11 loss: 0.00968460366
+Iter: 12 loss: 0.00956674758
+Iter: 13 loss: 0.00945662
+Iter: 14 loss: 0.00968580507
+Iter: 15 loss: 0.00943465
+Iter: 16 loss: 0.0093495762
+Iter: 17 loss: 0.00990641862
+Iter: 18 loss: 0.00933984108
+Iter: 19 loss: 0.00928511
+Iter: 20 loss: 0.00941715203
+Iter: 21 loss: 0.0092691686
+Iter: 22 loss: 0.00921846274
+Iter: 23 loss: 0.0092531126
+Iter: 24 loss: 0.00918687414
+Iter: 25 loss: 0.00914677605
+Iter: 26 loss: 0.00915970095
+Iter: 27 loss: 0.00911849365
+Iter: 28 loss: 0.00907817204
+Iter: 29 loss: 0.00910883304
+Iter: 30 loss: 0.00905350875
+Iter: 31 loss: 0.00901242
+Iter: 32 loss: 0.0091494862
+Iter: 33 loss: 0.00900192
+Iter: 34 loss: 0.00896887947
+Iter: 35 loss: 0.00898145325
+Iter: 36 loss: 0.00894612446
+Iter: 37 loss: 0.00891159568
+Iter: 38 loss: 0.00897759199
+Iter: 39 loss: 0.00889742933
+Iter: 40 loss: 0.00886810385
+Iter: 41 loss: 0.00911381934
+Iter: 42 loss: 0.00886694063
+Iter: 43 loss: 0.00885103829
+Iter: 44 loss: 0.0088716168
+Iter: 45 loss: 0.0088429153
+Iter: 46 loss: 0.00882474892
+Iter: 47 loss: 0.00880172476
+Iter: 48 loss: 0.00880002882
+Iter: 49 loss: 0.00876816921
+Iter: 50 loss: 0.00889604166
+Iter: 51 loss: 0.00876111165
+Iter: 52 loss: 0.00873544
+Iter: 53 loss: 0.00897214189
+Iter: 54 loss: 0.00873427186
+Iter: 55 loss: 0.00871091522
+Iter: 56 loss: 0.00887499098
+Iter: 57 loss: 0.00870866
+Iter: 58 loss: 0.008694686
+Iter: 59 loss: 0.00867261551
+Iter: 60 loss: 0.00867237709
+Iter: 61 loss: 0.00865162164
+Iter: 62 loss: 0.00890159048
+Iter: 63 loss: 0.00865135808
+Iter: 64 loss: 0.0086284373
+Iter: 65 loss: 0.00871123467
+Iter: 66 loss: 0.00862253457
+Iter: 67 loss: 0.00860589091
+Iter: 68 loss: 0.00859564822
+Iter: 69 loss: 0.00858882908
+Iter: 70 loss: 0.00856246613
+Iter: 71 loss: 0.00870688725
+Iter: 72 loss: 0.00855880883
+Iter: 73 loss: 0.00853967667
+Iter: 74 loss: 0.00861952081
+Iter: 75 loss: 0.00853565
+Iter: 76 loss: 0.00851691328
+Iter: 77 loss: 0.00855315
+Iter: 78 loss: 0.008508862
+Iter: 79 loss: 0.00848742388
+Iter: 80 loss: 0.00848914
+Iter: 81 loss: 0.00847059581
+Iter: 82 loss: 0.00844780263
+Iter: 83 loss: 0.00848791841
+Iter: 84 loss: 0.00843776576
+Iter: 85 loss: 0.00841527246
+Iter: 86 loss: 0.00844590738
+Iter: 87 loss: 0.00840401091
+Iter: 88 loss: 0.00837712549
+Iter: 89 loss: 0.00839240663
+Iter: 90 loss: 0.00835953653
+Iter: 91 loss: 0.00835303217
+Iter: 92 loss: 0.00834147353
+Iter: 93 loss: 0.00832799263
+Iter: 94 loss: 0.00830172934
+Iter: 95 loss: 0.00889876951
+Iter: 96 loss: 0.00830158312
+Iter: 97 loss: 0.00827118
+Iter: 98 loss: 0.00830883253
+Iter: 99 loss: 0.00825460441
+Iter: 100 loss: 0.0082291
+Iter: 101 loss: 0.00836332329
+Iter: 102 loss: 0.00822502747
+Iter: 103 loss: 0.00819981471
+Iter: 104 loss: 0.0083157355
+Iter: 105 loss: 0.00819525
+Iter: 106 loss: 0.0081806276
+Iter: 107 loss: 0.00817843527
+Iter: 108 loss: 0.00816808175
+Iter: 109 loss: 0.00813753251
+Iter: 110 loss: 0.00821348559
+Iter: 111 loss: 0.0081268819
+Iter: 112 loss: 0.00809919462
+Iter: 113 loss: 0.00824294612
+Iter: 114 loss: 0.00809448399
+Iter: 115 loss: 0.00806529727
+Iter: 116 loss: 0.00814979151
+Iter: 117 loss: 0.00805621
+Iter: 118 loss: 0.00802340079
+Iter: 119 loss: 0.0080839647
+Iter: 120 loss: 0.00800956879
+Iter: 121 loss: 0.0079860948
+Iter: 122 loss: 0.00822297391
+Iter: 123 loss: 0.00798528455
+Iter: 124 loss: 0.00796772446
+Iter: 125 loss: 0.00802945346
+Iter: 126 loss: 0.00796312466
+Iter: 127 loss: 0.00794508494
+Iter: 128 loss: 0.00800235663
+Iter: 129 loss: 0.00793989748
+Iter: 130 loss: 0.007917298
+Iter: 131 loss: 0.00793215632
+Iter: 132 loss: 0.00790291745
+Iter: 133 loss: 0.00788304396
+Iter: 134 loss: 0.00787925068
+Iter: 135 loss: 0.0078658713
+Iter: 136 loss: 0.00783011317
+Iter: 137 loss: 0.00790046807
+Iter: 138 loss: 0.00781389792
+Iter: 139 loss: 0.00778525975
+Iter: 140 loss: 0.00778524671
+Iter: 141 loss: 0.0077632796
+Iter: 142 loss: 0.00793498382
+Iter: 143 loss: 0.0077617215
+Iter: 144 loss: 0.00774367619
+Iter: 145 loss: 0.00773705682
+Iter: 146 loss: 0.00772600574
+Iter: 147 loss: 0.0076807458
+Iter: 148 loss: 0.0078752283
+Iter: 149 loss: 0.00767152198
+Iter: 150 loss: 0.00764035247
+Iter: 151 loss: 0.00785155501
+Iter: 152 loss: 0.00763673242
+Iter: 153 loss: 0.00761175528
+Iter: 154 loss: 0.00764637487
+Iter: 155 loss: 0.00759929605
+Iter: 156 loss: 0.00756807532
+Iter: 157 loss: 0.00767061301
+Iter: 158 loss: 0.00755895954
+Iter: 159 loss: 0.0075448947
+Iter: 160 loss: 0.007542721
+Iter: 161 loss: 0.00752649177
+Iter: 162 loss: 0.00754648214
+Iter: 163 loss: 0.00751805212
+Iter: 164 loss: 0.00749985827
+Iter: 165 loss: 0.00748600671
+Iter: 166 loss: 0.00748000201
+Iter: 167 loss: 0.00745594827
+Iter: 168 loss: 0.00781707279
+Iter: 169 loss: 0.00745589053
+Iter: 170 loss: 0.00743509503
+Iter: 171 loss: 0.00761311
+Iter: 172 loss: 0.00743405148
+Iter: 173 loss: 0.00741285086
+Iter: 174 loss: 0.00750282221
+Iter: 175 loss: 0.00740731787
+Iter: 176 loss: 0.00738137402
+Iter: 177 loss: 0.00762554351
+Iter: 178 loss: 0.00738030951
+Iter: 179 loss: 0.00735325599
+Iter: 180 loss: 0.00760274287
+Iter: 181 loss: 0.00735136773
+Iter: 182 loss: 0.00733082369
+Iter: 183 loss: 0.00735511817
+Iter: 184 loss: 0.00731991138
+Iter: 185 loss: 0.00729469396
+Iter: 186 loss: 0.00733154872
+Iter: 187 loss: 0.00728249364
+Iter: 188 loss: 0.00725508202
+Iter: 189 loss: 0.00736051053
+Iter: 190 loss: 0.00724777114
+Iter: 191 loss: 0.00722471811
+Iter: 192 loss: 0.00734914
+Iter: 193 loss: 0.00722155767
+Iter: 194 loss: 0.00720000546
+Iter: 195 loss: 0.00733384816
+Iter: 196 loss: 0.00719635608
+Iter: 197 loss: 0.00718156528
+Iter: 198 loss: 0.00730140693
+Iter: 199 loss: 0.00718057249
+Iter: 200 loss: 0.00716243824
+Iter: 201 loss: 0.00724188285
+Iter: 202 loss: 0.0071587367
+Iter: 203 loss: 0.00714085158
+Iter: 204 loss: 0.00717581855
+Iter: 205 loss: 0.00713267969
+Iter: 206 loss: 0.00711092
+Iter: 207 loss: 0.00725109084
+Iter: 208 loss: 0.00710850488
+Iter: 209 loss: 0.00709080044
+Iter: 210 loss: 0.0071003437
+Iter: 211 loss: 0.00707920641
+Iter: 212 loss: 0.00706058368
+Iter: 213 loss: 0.00719363149
+Iter: 214 loss: 0.0070582265
+Iter: 215 loss: 0.00703908224
+Iter: 216 loss: 0.00716995541
+Iter: 217 loss: 0.00703721307
+Iter: 218 loss: 0.00701897638
+Iter: 219 loss: 0.00708798226
+Iter: 220 loss: 0.00701310579
+Iter: 221 loss: 0.00699520949
+Iter: 222 loss: 0.00704097
+Iter: 223 loss: 0.00698899245
+Iter: 224 loss: 0.00697180163
+Iter: 225 loss: 0.00709195528
+Iter: 226 loss: 0.0069702277
+Iter: 227 loss: 0.00695233513
+Iter: 228 loss: 0.00696858857
+Iter: 229 loss: 0.00694194343
+Iter: 230 loss: 0.00692291372
+Iter: 231 loss: 0.00694303587
+Iter: 232 loss: 0.00691208523
+Iter: 233 loss: 0.00689736195
+Iter: 234 loss: 0.00689699408
+Iter: 235 loss: 0.00687990244
+Iter: 236 loss: 0.00687264
+Iter: 237 loss: 0.00686368486
+Iter: 238 loss: 0.00684130378
+Iter: 239 loss: 0.00702398689
+Iter: 240 loss: 0.0068397834
+Iter: 241 loss: 0.00681849755
+Iter: 242 loss: 0.00692859571
+Iter: 243 loss: 0.00681498181
+Iter: 244 loss: 0.00679840799
+Iter: 245 loss: 0.00687170029
+Iter: 246 loss: 0.00679440331
+Iter: 247 loss: 0.00677293725
+Iter: 248 loss: 0.00688739587
+Iter: 249 loss: 0.00676966598
+Iter: 250 loss: 0.00674907677
+Iter: 251 loss: 0.00704831
+Iter: 252 loss: 0.00674893335
+Iter: 253 loss: 0.00672873
+Iter: 254 loss: 0.00678059
+Iter: 255 loss: 0.0067218258
+Iter: 256 loss: 0.00670275744
+Iter: 257 loss: 0.00668763183
+Iter: 258 loss: 0.00668174401
+Iter: 259 loss: 0.00664863409
+Iter: 260 loss: 0.00669793366
+Iter: 261 loss: 0.00663263444
+Iter: 262 loss: 0.00660561
+Iter: 263 loss: 0.00678580347
+Iter: 264 loss: 0.00660255924
+Iter: 265 loss: 0.00658278214
+Iter: 266 loss: 0.00686673494
+Iter: 267 loss: 0.00658275373
+Iter: 268 loss: 0.00656284671
+Iter: 269 loss: 0.00655377144
+Iter: 270 loss: 0.00654341932
+Iter: 271 loss: 0.0065197954
+Iter: 272 loss: 0.00664693303
+Iter: 273 loss: 0.00651612133
+Iter: 274 loss: 0.00649439171
+Iter: 275 loss: 0.00651008077
+Iter: 276 loss: 0.0064805029
+Iter: 277 loss: 0.00645043701
+Iter: 278 loss: 0.00669156108
+Iter: 279 loss: 0.00644845143
+Iter: 280 loss: 0.00642738864
+Iter: 281 loss: 0.00657913042
+Iter: 282 loss: 0.00642559025
+Iter: 283 loss: 0.00640412048
+Iter: 284 loss: 0.00640960131
+Iter: 285 loss: 0.00638842396
+Iter: 286 loss: 0.00636246148
+Iter: 287 loss: 0.00639273133
+Iter: 288 loss: 0.00634855311
+Iter: 289 loss: 0.00633603474
+Iter: 290 loss: 0.0063338615
+Iter: 291 loss: 0.0063200281
+Iter: 292 loss: 0.00632393174
+Iter: 293 loss: 0.00630975282
+Iter: 294 loss: 0.00628308626
+Iter: 295 loss: 0.0063299397
+Iter: 296 loss: 0.00627128407
+Iter: 297 loss: 0.00625283131
+Iter: 298 loss: 0.00625005411
+Iter: 299 loss: 0.00623265747
+Iter: 300 loss: 0.00626477972
+Iter: 301 loss: 0.00622514915
+Iter: 302 loss: 0.00620720442
+Iter: 303 loss: 0.00619024783
+Iter: 304 loss: 0.00618609227
+Iter: 305 loss: 0.00615788437
+Iter: 306 loss: 0.00631719455
+Iter: 307 loss: 0.00615377
+Iter: 308 loss: 0.00612912793
+Iter: 309 loss: 0.00620869827
+Iter: 310 loss: 0.00612203544
+Iter: 311 loss: 0.00609766599
+Iter: 312 loss: 0.00618924387
+Iter: 313 loss: 0.00609171763
+Iter: 314 loss: 0.00607362
+Iter: 315 loss: 0.00627372926
+Iter: 316 loss: 0.00607321039
+Iter: 317 loss: 0.00605633669
+Iter: 318 loss: 0.00605122186
+Iter: 319 loss: 0.00604037289
+Iter: 320 loss: 0.00599262537
+Iter: 321 loss: 0.0062345909
+Iter: 322 loss: 0.00598465372
+Iter: 323 loss: 0.00598607771
+Iter: 324 loss: 0.00596541818
+Iter: 325 loss: 0.00595162809
+Iter: 326 loss: 0.00593225192
+Iter: 327 loss: 0.00593147613
+Iter: 328 loss: 0.00590669
+Iter: 329 loss: 0.00597408228
+Iter: 330 loss: 0.00589853711
+Iter: 331 loss: 0.00587388687
+Iter: 332 loss: 0.00626144465
+Iter: 333 loss: 0.00587387756
+Iter: 334 loss: 0.00585289113
+Iter: 335 loss: 0.00584065355
+Iter: 336 loss: 0.0058316458
+Iter: 337 loss: 0.0057993317
+Iter: 338 loss: 0.00582038239
+Iter: 339 loss: 0.00577882025
+Iter: 340 loss: 0.00574218761
+Iter: 341 loss: 0.00610708259
+Iter: 342 loss: 0.00574076269
+Iter: 343 loss: 0.00571172871
+Iter: 344 loss: 0.00585680315
+Iter: 345 loss: 0.00570662227
+Iter: 346 loss: 0.00568039343
+Iter: 347 loss: 0.00580155291
+Iter: 348 loss: 0.00567529304
+Iter: 349 loss: 0.00565314665
+Iter: 350 loss: 0.00577207189
+Iter: 351 loss: 0.00564969
+Iter: 352 loss: 0.00563115953
+Iter: 353 loss: 0.00578712113
+Iter: 354 loss: 0.00562989712
+Iter: 355 loss: 0.00561335264
+Iter: 356 loss: 0.00561716221
+Iter: 357 loss: 0.0056012203
+Iter: 358 loss: 0.00557101704
+Iter: 359 loss: 0.00565231126
+Iter: 360 loss: 0.00556048611
+Iter: 361 loss: 0.00552571425
+Iter: 362 loss: 0.00574591151
+Iter: 363 loss: 0.00552162528
+Iter: 364 loss: 0.00550427288
+Iter: 365 loss: 0.00550341047
+Iter: 366 loss: 0.0054876497
+Iter: 367 loss: 0.00552247139
+Iter: 368 loss: 0.00548157375
+Iter: 369 loss: 0.00546345767
+Iter: 370 loss: 0.00548751839
+Iter: 371 loss: 0.00545428274
+Iter: 372 loss: 0.00543656666
+Iter: 373 loss: 0.00542067
+Iter: 374 loss: 0.00541613065
+Iter: 375 loss: 0.00538887177
+Iter: 376 loss: 0.00547051802
+Iter: 377 loss: 0.00538058579
+Iter: 378 loss: 0.0053520184
+Iter: 379 loss: 0.00539235
+Iter: 380 loss: 0.00533768861
+Iter: 381 loss: 0.00531057548
+Iter: 382 loss: 0.00571936881
+Iter: 383 loss: 0.00531056942
+Iter: 384 loss: 0.00529022
+Iter: 385 loss: 0.00541043235
+Iter: 386 loss: 0.00528741814
+Iter: 387 loss: 0.00526785571
+Iter: 388 loss: 0.00532393437
+Iter: 389 loss: 0.00526172761
+Iter: 390 loss: 0.00524348347
+Iter: 391 loss: 0.0052211117
+Iter: 392 loss: 0.005219
+Iter: 393 loss: 0.0051906053
+Iter: 394 loss: 0.00531290658
+Iter: 395 loss: 0.00518474542
+Iter: 396 loss: 0.00516180461
+Iter: 397 loss: 0.0053246757
+Iter: 398 loss: 0.00515979622
+Iter: 399 loss: 0.00514526
+Iter: 400 loss: 0.00514525827
+Iter: 401 loss: 0.00513253827
+Iter: 402 loss: 0.00513906125
+Iter: 403 loss: 0.00512409257
+Iter: 404 loss: 0.00510792248
+Iter: 405 loss: 0.00512849446
+Iter: 406 loss: 0.00509963464
+Iter: 407 loss: 0.00508312974
+Iter: 408 loss: 0.00507849548
+Iter: 409 loss: 0.00506818248
+Iter: 410 loss: 0.00504224654
+Iter: 411 loss: 0.00511940289
+Iter: 412 loss: 0.0050342381
+Iter: 413 loss: 0.0050093662
+Iter: 414 loss: 0.00507332943
+Iter: 415 loss: 0.0050006425
+Iter: 416 loss: 0.00497629354
+Iter: 417 loss: 0.00509128254
+Iter: 418 loss: 0.00497148652
+Iter: 419 loss: 0.0049586352
+Iter: 420 loss: 0.00495623518
+Iter: 421 loss: 0.00494566793
+Iter: 422 loss: 0.0049239425
+Iter: 423 loss: 0.00534239924
+Iter: 424 loss: 0.00492354529
+Iter: 425 loss: 0.00489332061
+Iter: 426 loss: 0.00492555229
+Iter: 427 loss: 0.0048766043
+Iter: 428 loss: 0.00484843459
+Iter: 429 loss: 0.0048484127
+Iter: 430 loss: 0.00482573314
+Iter: 431 loss: 0.00498532224
+Iter: 432 loss: 0.00482328562
+Iter: 433 loss: 0.00480681751
+Iter: 434 loss: 0.00500349421
+Iter: 435 loss: 0.00480660051
+Iter: 436 loss: 0.00479045883
+Iter: 437 loss: 0.00480613159
+Iter: 438 loss: 0.00478123873
+Iter: 439 loss: 0.00476417691
+Iter: 440 loss: 0.00480372645
+Iter: 441 loss: 0.0047574155
+Iter: 442 loss: 0.00473599974
+Iter: 443 loss: 0.00478391536
+Iter: 444 loss: 0.00472789863
+Iter: 445 loss: 0.00470492
+Iter: 446 loss: 0.00497401785
+Iter: 447 loss: 0.00470455829
+Iter: 448 loss: 0.00468824059
+Iter: 449 loss: 0.00471132156
+Iter: 450 loss: 0.00468004402
+Iter: 451 loss: 0.00466504414
+Iter: 452 loss: 0.00476280134
+Iter: 453 loss: 0.00466342643
+Iter: 454 loss: 0.00464689266
+Iter: 455 loss: 0.00464155944
+Iter: 456 loss: 0.00463188812
+Iter: 457 loss: 0.00461166259
+Iter: 458 loss: 0.00466235075
+Iter: 459 loss: 0.00460420735
+Iter: 460 loss: 0.00458739651
+Iter: 461 loss: 0.00458605774
+Iter: 462 loss: 0.00457357708
+Iter: 463 loss: 0.00454028789
+Iter: 464 loss: 0.00467567192
+Iter: 465 loss: 0.00453209691
+Iter: 466 loss: 0.00450478401
+Iter: 467 loss: 0.00491816
+Iter: 468 loss: 0.00450474489
+Iter: 469 loss: 0.00448503438
+Iter: 470 loss: 0.00455241
+Iter: 471 loss: 0.00447981432
+Iter: 472 loss: 0.00446648523
+Iter: 473 loss: 0.00446647778
+Iter: 474 loss: 0.00445392914
+Iter: 475 loss: 0.00448765792
+Iter: 476 loss: 0.00444975216
+Iter: 477 loss: 0.0044417344
+Iter: 478 loss: 0.00443380652
+Iter: 479 loss: 0.00443215715
+Iter: 480 loss: 0.00441032834
+Iter: 481 loss: 0.0044995
+Iter: 482 loss: 0.00440500211
+Iter: 483 loss: 0.00438845158
+Iter: 484 loss: 0.00438843668
+Iter: 485 loss: 0.004375902
+Iter: 486 loss: 0.00450729253
+Iter: 487 loss: 0.00437558815
+Iter: 488 loss: 0.00436627958
+Iter: 489 loss: 0.00435564946
+Iter: 490 loss: 0.00435432559
+Iter: 491 loss: 0.00433754316
+Iter: 492 loss: 0.00438074861
+Iter: 493 loss: 0.00433178898
+Iter: 494 loss: 0.00431387033
+Iter: 495 loss: 0.00437800586
+Iter: 496 loss: 0.00430910056
+Iter: 497 loss: 0.00429302128
+Iter: 498 loss: 0.00430367235
+Iter: 499 loss: 0.00428288057
+Iter: 500 loss: 0.00426326972
+Iter: 501 loss: 0.00431095948
+Iter: 502 loss: 0.00425619865
+Iter: 503 loss: 0.00424146745
+Iter: 504 loss: 0.00445022853
+Iter: 505 loss: 0.00424144
+Iter: 506 loss: 0.00422679773
+Iter: 507 loss: 0.00428483542
+Iter: 508 loss: 0.00422345055
+Iter: 509 loss: 0.00421037897
+Iter: 510 loss: 0.0042544161
+Iter: 511 loss: 0.00420688419
+Iter: 512 loss: 0.00419637933
+Iter: 513 loss: 0.00418074802
+Iter: 514 loss: 0.00418034755
+Iter: 515 loss: 0.00415776297
+Iter: 516 loss: 0.00431452785
+Iter: 517 loss: 0.00415563583
+Iter: 518 loss: 0.00414215308
+Iter: 519 loss: 0.00414212234
+Iter: 520 loss: 0.00413126592
+Iter: 521 loss: 0.00415304489
+Iter: 522 loss: 0.00412684958
+Iter: 523 loss: 0.00411565043
+Iter: 524 loss: 0.00410577888
+Iter: 525 loss: 0.00410283264
+Iter: 526 loss: 0.00408599339
+Iter: 527 loss: 0.00419151224
+Iter: 528 loss: 0.00408404367
+Iter: 529 loss: 0.00407071505
+Iter: 530 loss: 0.0040758187
+Iter: 531 loss: 0.00406137295
+Iter: 532 loss: 0.00404358655
+Iter: 533 loss: 0.00406596623
+Iter: 534 loss: 0.00403426634
+Iter: 535 loss: 0.00401422195
+Iter: 536 loss: 0.00404875632
+Iter: 537 loss: 0.00400522351
+Iter: 538 loss: 0.00399302645
+Iter: 539 loss: 0.00399179664
+Iter: 540 loss: 0.00398144
+Iter: 541 loss: 0.00403706916
+Iter: 542 loss: 0.0039798608
+Iter: 543 loss: 0.00397179509
+Iter: 544 loss: 0.0039836904
+Iter: 545 loss: 0.00396789098
+Iter: 546 loss: 0.00395894051
+Iter: 547 loss: 0.00395700289
+Iter: 548 loss: 0.00395091809
+Iter: 549 loss: 0.00393256545
+Iter: 550 loss: 0.00395490229
+Iter: 551 loss: 0.00392291788
+Iter: 552 loss: 0.00390327978
+Iter: 553 loss: 0.00390326791
+Iter: 554 loss: 0.00389174232
+Iter: 555 loss: 0.00389146782
+Iter: 556 loss: 0.00388380163
+Iter: 557 loss: 0.00387127185
+Iter: 558 loss: 0.00387121364
+Iter: 559 loss: 0.00385734765
+Iter: 560 loss: 0.00391423889
+Iter: 561 loss: 0.00385435345
+Iter: 562 loss: 0.00384132355
+Iter: 563 loss: 0.00392527832
+Iter: 564 loss: 0.00383985601
+Iter: 565 loss: 0.00382849411
+Iter: 566 loss: 0.00382899446
+Iter: 567 loss: 0.00381953828
+Iter: 568 loss: 0.003802591
+Iter: 569 loss: 0.00385209359
+Iter: 570 loss: 0.00379733089
+Iter: 571 loss: 0.00378300366
+Iter: 572 loss: 0.00386999035
+Iter: 573 loss: 0.00378059642
+Iter: 574 loss: 0.00376327662
+Iter: 575 loss: 0.00399033446
+Iter: 576 loss: 0.00376313948
+Iter: 577 loss: 0.00374798453
+Iter: 578 loss: 0.0037568796
+Iter: 579 loss: 0.00373789296
+Iter: 580 loss: 0.00373067381
+Iter: 581 loss: 0.00372962793
+Iter: 582 loss: 0.00372097408
+Iter: 583 loss: 0.00373269897
+Iter: 584 loss: 0.00371670839
+Iter: 585 loss: 0.00370473135
+Iter: 586 loss: 0.0037229422
+Iter: 587 loss: 0.00369872246
+Iter: 588 loss: 0.00369146536
+Iter: 589 loss: 0.00369044067
+Iter: 590 loss: 0.00368278497
+Iter: 591 loss: 0.00368785299
+Iter: 592 loss: 0.00367794326
+Iter: 593 loss: 0.00366647937
+Iter: 594 loss: 0.00365892937
+Iter: 595 loss: 0.00365441223
+Iter: 596 loss: 0.00363858
+Iter: 597 loss: 0.00378198619
+Iter: 598 loss: 0.00363784237
+Iter: 599 loss: 0.00362375379
+Iter: 600 loss: 0.00370507548
+Iter: 601 loss: 0.00362187135
+Iter: 602 loss: 0.00360957952
+Iter: 603 loss: 0.00360865844
+Iter: 604 loss: 0.00359937083
+Iter: 605 loss: 0.00358325383
+Iter: 606 loss: 0.00361996051
+Iter: 607 loss: 0.00357713317
+Iter: 608 loss: 0.00356243784
+Iter: 609 loss: 0.00363612641
+Iter: 610 loss: 0.00356000941
+Iter: 611 loss: 0.00354533317
+Iter: 612 loss: 0.00364453439
+Iter: 613 loss: 0.00354381278
+Iter: 614 loss: 0.00353385787
+Iter: 615 loss: 0.0036295834
+Iter: 616 loss: 0.00353348372
+Iter: 617 loss: 0.00352575956
+Iter: 618 loss: 0.00352380797
+Iter: 619 loss: 0.00351887313
+Iter: 620 loss: 0.00351069099
+Iter: 621 loss: 0.00357915531
+Iter: 622 loss: 0.00351020927
+Iter: 623 loss: 0.00350192958
+Iter: 624 loss: 0.00351410359
+Iter: 625 loss: 0.00349791651
+Iter: 626 loss: 0.00349009014
+Iter: 627 loss: 0.00349092693
+Iter: 628 loss: 0.00348403351
+Iter: 629 loss: 0.00347422156
+Iter: 630 loss: 0.00346624898
+Iter: 631 loss: 0.0034633521
+Iter: 632 loss: 0.00344680669
+Iter: 633 loss: 0.00352817122
+Iter: 634 loss: 0.00344392704
+Iter: 635 loss: 0.00343018654
+Iter: 636 loss: 0.00354175665
+Iter: 637 loss: 0.00342928478
+Iter: 638 loss: 0.00341702765
+Iter: 639 loss: 0.00342137273
+Iter: 640 loss: 0.00340844062
+Iter: 641 loss: 0.00339324283
+Iter: 642 loss: 0.00340321613
+Iter: 643 loss: 0.00338362809
+Iter: 644 loss: 0.0033679537
+Iter: 645 loss: 0.00340062962
+Iter: 646 loss: 0.00336174225
+Iter: 647 loss: 0.00335542252
+Iter: 648 loss: 0.00335313939
+Iter: 649 loss: 0.00334403268
+Iter: 650 loss: 0.00334518868
+Iter: 651 loss: 0.00333708175
+Iter: 652 loss: 0.00332987076
+Iter: 653 loss: 0.00335780112
+Iter: 654 loss: 0.00332812266
+Iter: 655 loss: 0.00331927487
+Iter: 656 loss: 0.00333824521
+Iter: 657 loss: 0.00331579987
+Iter: 658 loss: 0.00330733974
+Iter: 659 loss: 0.00334136887
+Iter: 660 loss: 0.00330542726
+Iter: 661 loss: 0.00329725049
+Iter: 662 loss: 0.00328908907
+Iter: 663 loss: 0.00328740501
+Iter: 664 loss: 0.00326938089
+Iter: 665 loss: 0.00331041426
+Iter: 666 loss: 0.00326237874
+Iter: 667 loss: 0.00324531621
+Iter: 668 loss: 0.00330828875
+Iter: 669 loss: 0.00324114296
+Iter: 670 loss: 0.00322688557
+Iter: 671 loss: 0.00333150197
+Iter: 672 loss: 0.00322577567
+Iter: 673 loss: 0.00321270898
+Iter: 674 loss: 0.00324577861
+Iter: 675 loss: 0.00320814247
+Iter: 676 loss: 0.00319634029
+Iter: 677 loss: 0.00319337752
+Iter: 678 loss: 0.0031860061
+Iter: 679 loss: 0.0031696693
+Iter: 680 loss: 0.00324111083
+Iter: 681 loss: 0.0031663063
+Iter: 682 loss: 0.00316115562
+Iter: 683 loss: 0.00315853069
+Iter: 684 loss: 0.00315143773
+Iter: 685 loss: 0.00313824438
+Iter: 686 loss: 0.00343591231
+Iter: 687 loss: 0.00313823135
+Iter: 688 loss: 0.0031294371
+Iter: 689 loss: 0.0031289719
+Iter: 690 loss: 0.00312050851
+Iter: 691 loss: 0.00316901086
+Iter: 692 loss: 0.00311928289
+Iter: 693 loss: 0.00311077712
+Iter: 694 loss: 0.00310910819
+Iter: 695 loss: 0.00310340314
+Iter: 696 loss: 0.00309002702
+Iter: 697 loss: 0.00309067965
+Iter: 698 loss: 0.00307943532
+Iter: 699 loss: 0.00306324335
+Iter: 700 loss: 0.00309467549
+Iter: 701 loss: 0.00305653759
+Iter: 702 loss: 0.00303818122
+Iter: 703 loss: 0.00314232847
+Iter: 704 loss: 0.00303565455
+Iter: 705 loss: 0.00302266376
+Iter: 706 loss: 0.00305631431
+Iter: 707 loss: 0.00301811681
+Iter: 708 loss: 0.00300315279
+Iter: 709 loss: 0.00307997083
+Iter: 710 loss: 0.00300076907
+Iter: 711 loss: 0.00298766047
+Iter: 712 loss: 0.00302875391
+Iter: 713 loss: 0.00298377988
+Iter: 714 loss: 0.00297058048
+Iter: 715 loss: 0.00303165661
+Iter: 716 loss: 0.00296815182
+Iter: 717 loss: 0.00295918807
+Iter: 718 loss: 0.00306755956
+Iter: 719 loss: 0.00295909075
+Iter: 720 loss: 0.00295143668
+Iter: 721 loss: 0.0029745677
+Iter: 722 loss: 0.00294912932
+Iter: 723 loss: 0.00294338726
+Iter: 724 loss: 0.00293681258
+Iter: 725 loss: 0.0029360007
+Iter: 726 loss: 0.00293279882
+Iter: 727 loss: 0.00293066166
+Iter: 728 loss: 0.00292734196
+Iter: 729 loss: 0.00292707
+Iter: 730 loss: 0.00292461
+Iter: 731 loss: 0.00291847158
+Iter: 732 loss: 0.00291721127
+Iter: 733 loss: 0.00291314069
+Iter: 734 loss: 0.00290484843
+Iter: 735 loss: 0.00290024141
+Iter: 736 loss: 0.00289656292
+Iter: 737 loss: 0.002882923
+Iter: 738 loss: 0.00291526341
+Iter: 739 loss: 0.00287792692
+Iter: 740 loss: 0.00286437524
+Iter: 741 loss: 0.0029212907
+Iter: 742 loss: 0.00286149676
+Iter: 743 loss: 0.00284819701
+Iter: 744 loss: 0.00285697775
+Iter: 745 loss: 0.00283985189
+Iter: 746 loss: 0.00282295048
+Iter: 747 loss: 0.00290511944
+Iter: 748 loss: 0.00281976862
+Iter: 749 loss: 0.00280534034
+Iter: 750 loss: 0.0028681478
+Iter: 751 loss: 0.002802453
+Iter: 752 loss: 0.00279045803
+Iter: 753 loss: 0.00285055884
+Iter: 754 loss: 0.00278841378
+Iter: 755 loss: 0.00277869706
+Iter: 756 loss: 0.0028403257
+Iter: 757 loss: 0.00277758902
+Iter: 758 loss: 0.00276844273
+Iter: 759 loss: 0.00279606692
+Iter: 760 loss: 0.00276571652
+Iter: 761 loss: 0.00275828829
+Iter: 762 loss: 0.00276941899
+Iter: 763 loss: 0.00275472132
+Iter: 764 loss: 0.00274687051
+Iter: 765 loss: 0.00279636867
+Iter: 766 loss: 0.00274593523
+Iter: 767 loss: 0.00273913867
+Iter: 768 loss: 0.00276064919
+Iter: 769 loss: 0.00273713935
+Iter: 770 loss: 0.00272972
+Iter: 771 loss: 0.00277812686
+Iter: 772 loss: 0.00272893952
+Iter: 773 loss: 0.00272448268
+Iter: 774 loss: 0.00271575944
+Iter: 775 loss: 0.00288899802
+Iter: 776 loss: 0.00271568447
+Iter: 777 loss: 0.00269907946
+Iter: 778 loss: 0.0028020693
+Iter: 779 loss: 0.00269703753
+Iter: 780 loss: 0.0026850421
+Iter: 781 loss: 0.00284149242
+Iter: 782 loss: 0.00268494966
+Iter: 783 loss: 0.00267705484
+Iter: 784 loss: 0.00270981342
+Iter: 785 loss: 0.0026753773
+Iter: 786 loss: 0.00266813301
+Iter: 787 loss: 0.00268539507
+Iter: 788 loss: 0.00266549783
+Iter: 789 loss: 0.00265867636
+Iter: 790 loss: 0.00272414158
+Iter: 791 loss: 0.00265841652
+Iter: 792 loss: 0.00265271915
+Iter: 793 loss: 0.00267433212
+Iter: 794 loss: 0.00265137199
+Iter: 795 loss: 0.00264599919
+Iter: 796 loss: 0.00264302175
+Iter: 797 loss: 0.0026406548
+Iter: 798 loss: 0.00263352296
+Iter: 799 loss: 0.00269645639
+Iter: 800 loss: 0.00263313157
+Iter: 801 loss: 0.00262663257
+Iter: 802 loss: 0.00265476247
+Iter: 803 loss: 0.00262526213
+Iter: 804 loss: 0.00262063649
+Iter: 805 loss: 0.00266532879
+Iter: 806 loss: 0.00262047118
+Iter: 807 loss: 0.00261588674
+Iter: 808 loss: 0.00260972767
+Iter: 809 loss: 0.00260939635
+Iter: 810 loss: 0.0026019041
+Iter: 811 loss: 0.00260337861
+Iter: 812 loss: 0.002596315
+Iter: 813 loss: 0.0025855829
+Iter: 814 loss: 0.00261483132
+Iter: 815 loss: 0.00258205738
+Iter: 816 loss: 0.00256956927
+Iter: 817 loss: 0.00259923469
+Iter: 818 loss: 0.00256502768
+Iter: 819 loss: 0.002555507
+Iter: 820 loss: 0.00261974288
+Iter: 821 loss: 0.00255457894
+Iter: 822 loss: 0.0025458103
+Iter: 823 loss: 0.00256819068
+Iter: 824 loss: 0.00254274206
+Iter: 825 loss: 0.00253505819
+Iter: 826 loss: 0.00262070633
+Iter: 827 loss: 0.00253492268
+Iter: 828 loss: 0.00252928119
+Iter: 829 loss: 0.00254485616
+Iter: 830 loss: 0.00252744765
+Iter: 831 loss: 0.00251998962
+Iter: 832 loss: 0.0025301096
+Iter: 833 loss: 0.00251626084
+Iter: 834 loss: 0.00250846916
+Iter: 835 loss: 0.00252469024
+Iter: 836 loss: 0.00250534946
+Iter: 837 loss: 0.00249904976
+Iter: 838 loss: 0.00255326671
+Iter: 839 loss: 0.00249872403
+Iter: 840 loss: 0.00249265949
+Iter: 841 loss: 0.00250168098
+Iter: 842 loss: 0.00248972909
+Iter: 843 loss: 0.00248422124
+Iter: 844 loss: 0.0025673036
+Iter: 845 loss: 0.00248422287
+Iter: 846 loss: 0.00248063216
+Iter: 847 loss: 0.00247217808
+Iter: 848 loss: 0.00257325801
+Iter: 849 loss: 0.00247146096
+Iter: 850 loss: 0.00246314658
+Iter: 851 loss: 0.00247612339
+Iter: 852 loss: 0.00245925691
+Iter: 853 loss: 0.00244954601
+Iter: 854 loss: 0.0025182846
+Iter: 855 loss: 0.00244866358
+Iter: 856 loss: 0.00244065723
+Iter: 857 loss: 0.00245272531
+Iter: 858 loss: 0.00243685395
+Iter: 859 loss: 0.00242786924
+Iter: 860 loss: 0.00247391406
+Iter: 861 loss: 0.00242644385
+Iter: 862 loss: 0.00241827429
+Iter: 863 loss: 0.00246737339
+Iter: 864 loss: 0.00241723331
+Iter: 865 loss: 0.00240926025
+Iter: 866 loss: 0.00243684789
+Iter: 867 loss: 0.00240718946
+Iter: 868 loss: 0.00240006787
+Iter: 869 loss: 0.0024174971
+Iter: 870 loss: 0.00239753234
+Iter: 871 loss: 0.00239060912
+Iter: 872 loss: 0.00240265788
+Iter: 873 loss: 0.00238754344
+Iter: 874 loss: 0.00238316855
+Iter: 875 loss: 0.00238307193
+Iter: 876 loss: 0.00237956503
+Iter: 877 loss: 0.00238165958
+Iter: 878 loss: 0.00237728935
+Iter: 879 loss: 0.00237262482
+Iter: 880 loss: 0.00239851559
+Iter: 881 loss: 0.00237195
+Iter: 882 loss: 0.00236875284
+Iter: 883 loss: 0.00236385735
+Iter: 884 loss: 0.00236377958
+Iter: 885 loss: 0.00235595275
+Iter: 886 loss: 0.00236481428
+Iter: 887 loss: 0.00235159323
+Iter: 888 loss: 0.00234270329
+Iter: 889 loss: 0.00240058685
+Iter: 890 loss: 0.00234178617
+Iter: 891 loss: 0.0023332797
+Iter: 892 loss: 0.00234413915
+Iter: 893 loss: 0.00232896511
+Iter: 894 loss: 0.00232244888
+Iter: 895 loss: 0.0023912848
+Iter: 896 loss: 0.00232228194
+Iter: 897 loss: 0.00231692
+Iter: 898 loss: 0.00235039182
+Iter: 899 loss: 0.00231630728
+Iter: 900 loss: 0.00231198152
+Iter: 901 loss: 0.0023223348
+Iter: 902 loss: 0.00231041317
+Iter: 903 loss: 0.00230553793
+Iter: 904 loss: 0.00231010769
+Iter: 905 loss: 0.00230272627
+Iter: 906 loss: 0.00229770388
+Iter: 907 loss: 0.0023022613
+Iter: 908 loss: 0.00229478674
+Iter: 909 loss: 0.00229316927
+Iter: 910 loss: 0.00229191338
+Iter: 911 loss: 0.00228939275
+Iter: 912 loss: 0.00228664372
+Iter: 913 loss: 0.00228624046
+Iter: 914 loss: 0.00228116568
+Iter: 915 loss: 0.00231799344
+Iter: 916 loss: 0.00228070701
+Iter: 917 loss: 0.00227726973
+Iter: 918 loss: 0.00227735448
+Iter: 919 loss: 0.00227445643
+Iter: 920 loss: 0.00226697978
+Iter: 921 loss: 0.00225935271
+Iter: 922 loss: 0.00225789216
+Iter: 923 loss: 0.00224676915
+Iter: 924 loss: 0.0023442558
+Iter: 925 loss: 0.00224611163
+Iter: 926 loss: 0.00223866198
+Iter: 927 loss: 0.00229529757
+Iter: 928 loss: 0.00223810924
+Iter: 929 loss: 0.00223241374
+Iter: 930 loss: 0.00226221909
+Iter: 931 loss: 0.00223155785
+Iter: 932 loss: 0.00222531613
+Iter: 933 loss: 0.00224524667
+Iter: 934 loss: 0.00222352473
+Iter: 935 loss: 0.00221820502
+Iter: 936 loss: 0.0022311327
+Iter: 937 loss: 0.00221628603
+Iter: 938 loss: 0.00221118564
+Iter: 939 loss: 0.00222013844
+Iter: 940 loss: 0.00220894301
+Iter: 941 loss: 0.00220431015
+Iter: 942 loss: 0.00223232154
+Iter: 943 loss: 0.00220370595
+Iter: 944 loss: 0.00219753641
+Iter: 945 loss: 0.00221623713
+Iter: 946 loss: 0.0021956889
+Iter: 947 loss: 0.00219184859
+Iter: 948 loss: 0.00220493414
+Iter: 949 loss: 0.00219079852
+Iter: 950 loss: 0.00218697684
+Iter: 951 loss: 0.00218844274
+Iter: 952 loss: 0.00218431978
+Iter: 953 loss: 0.0021793812
+Iter: 954 loss: 0.00217454275
+Iter: 955 loss: 0.00217349734
+Iter: 956 loss: 0.00216508238
+Iter: 957 loss: 0.00218319846
+Iter: 958 loss: 0.00216182461
+Iter: 959 loss: 0.00215211278
+Iter: 960 loss: 0.00217145472
+Iter: 961 loss: 0.00214814954
+Iter: 962 loss: 0.00213952479
+Iter: 963 loss: 0.00218986417
+Iter: 964 loss: 0.00213839952
+Iter: 965 loss: 0.00213206257
+Iter: 966 loss: 0.00213126559
+Iter: 967 loss: 0.00212672679
+Iter: 968 loss: 0.00212293724
+Iter: 969 loss: 0.00212209765
+Iter: 970 loss: 0.00211788504
+Iter: 971 loss: 0.00211988273
+Iter: 972 loss: 0.00211503287
+Iter: 973 loss: 0.00211116066
+Iter: 974 loss: 0.00211105682
+Iter: 975 loss: 0.00210779393
+Iter: 976 loss: 0.00210938044
+Iter: 977 loss: 0.00210561836
+Iter: 978 loss: 0.00210072566
+Iter: 979 loss: 0.00211914117
+Iter: 980 loss: 0.00209954521
+Iter: 981 loss: 0.00209580129
+Iter: 982 loss: 0.00209553563
+Iter: 983 loss: 0.00209272
+Iter: 984 loss: 0.00208643451
+Iter: 985 loss: 0.00209172955
+Iter: 986 loss: 0.00208270829
+Iter: 987 loss: 0.00207738765
+Iter: 988 loss: 0.00207990361
+Iter: 989 loss: 0.00207381393
+Iter: 990 loss: 0.00206715311
+Iter: 991 loss: 0.00209299708
+Iter: 992 loss: 0.00206555403
+Iter: 993 loss: 0.00205863174
+Iter: 994 loss: 0.00207463349
+Iter: 995 loss: 0.00205604639
+Iter: 996 loss: 0.00204851385
+Iter: 997 loss: 0.00207433663
+Iter: 998 loss: 0.00204653176
+Iter: 999 loss: 0.00204062182
+Iter: 1000 loss: 0.00208532065
+Iter: 1001 loss: 0.00204015058
+Iter: 1002 loss: 0.00203608535
+Iter: 1003 loss: 0.00208665431
+Iter: 1004 loss: 0.00203604205
+Iter: 1005 loss: 0.00203311536
+Iter: 1006 loss: 0.00203031534
+Iter: 1007 loss: 0.00202964759
+Iter: 1008 loss: 0.00202620146
+Iter: 1009 loss: 0.00202586362
+Iter: 1010 loss: 0.00202366291
+Iter: 1011 loss: 0.00202276814
+Iter: 1012 loss: 0.00202160515
+Iter: 1013 loss: 0.00201750454
+Iter: 1014 loss: 0.00203322968
+Iter: 1015 loss: 0.0020165341
+Iter: 1016 loss: 0.00201305328
+Iter: 1017 loss: 0.00201285863
+Iter: 1018 loss: 0.0020102025
+Iter: 1019 loss: 0.00200507534
+Iter: 1020 loss: 0.00200261455
+Iter: 1021 loss: 0.00200014515
+Iter: 1022 loss: 0.00199355651
+Iter: 1023 loss: 0.00200042664
+Iter: 1024 loss: 0.00198990246
+Iter: 1025 loss: 0.00198167702
+Iter: 1026 loss: 0.00200907444
+Iter: 1027 loss: 0.00197944674
+Iter: 1028 loss: 0.00197232654
+Iter: 1029 loss: 0.00201159366
+Iter: 1030 loss: 0.00197130302
+Iter: 1031 loss: 0.00196584035
+Iter: 1032 loss: 0.00198585703
+Iter: 1033 loss: 0.00196446199
+Iter: 1034 loss: 0.00195951853
+Iter: 1035 loss: 0.00199111202
+Iter: 1036 loss: 0.00195898348
+Iter: 1037 loss: 0.0019549015
+Iter: 1038 loss: 0.00198200531
+Iter: 1039 loss: 0.0019544838
+Iter: 1040 loss: 0.00195219065
+Iter: 1041 loss: 0.00196346408
+Iter: 1042 loss: 0.0019517804
+Iter: 1043 loss: 0.00194837467
+Iter: 1044 loss: 0.00194580457
+Iter: 1045 loss: 0.00194469083
+Iter: 1046 loss: 0.00194182293
+Iter: 1047 loss: 0.00198529451
+Iter: 1048 loss: 0.00194181746
+Iter: 1049 loss: 0.00193940056
+Iter: 1050 loss: 0.00193917146
+Iter: 1051 loss: 0.00193739648
+Iter: 1052 loss: 0.00193366816
+Iter: 1053 loss: 0.00193118141
+Iter: 1054 loss: 0.00192977535
+Iter: 1055 loss: 0.00192410219
+Iter: 1056 loss: 0.00193819334
+Iter: 1057 loss: 0.00192208297
+Iter: 1058 loss: 0.00191662216
+Iter: 1059 loss: 0.00192744634
+Iter: 1060 loss: 0.00191438012
+Iter: 1061 loss: 0.00190855714
+Iter: 1062 loss: 0.00192329602
+Iter: 1063 loss: 0.0019065364
+Iter: 1064 loss: 0.00190046465
+Iter: 1065 loss: 0.00191244413
+Iter: 1066 loss: 0.00189795962
+Iter: 1067 loss: 0.00189306075
+Iter: 1068 loss: 0.00195145165
+Iter: 1069 loss: 0.00189298601
+Iter: 1070 loss: 0.00188947842
+Iter: 1071 loss: 0.001901777
+Iter: 1072 loss: 0.00188858213
+Iter: 1073 loss: 0.00188493053
+Iter: 1074 loss: 0.00189541536
+Iter: 1075 loss: 0.00188378431
+Iter: 1076 loss: 0.00188184343
+Iter: 1077 loss: 0.00188167603
+Iter: 1078 loss: 0.0018799135
+Iter: 1079 loss: 0.00187578332
+Iter: 1080 loss: 0.0019253823
+Iter: 1081 loss: 0.00187544955
+Iter: 1082 loss: 0.00187086524
+Iter: 1083 loss: 0.00187634432
+Iter: 1084 loss: 0.00186844636
+Iter: 1085 loss: 0.00186949759
+Iter: 1086 loss: 0.00186655228
+Iter: 1087 loss: 0.00186488195
+Iter: 1088 loss: 0.00186044793
+Iter: 1089 loss: 0.00189159461
+Iter: 1090 loss: 0.00185946678
+Iter: 1091 loss: 0.00185300992
+Iter: 1092 loss: 0.00187340123
+Iter: 1093 loss: 0.00185103645
+Iter: 1094 loss: 0.00184641429
+Iter: 1095 loss: 0.00187730812
+Iter: 1096 loss: 0.0018459463
+Iter: 1097 loss: 0.00184174371
+Iter: 1098 loss: 0.00184731814
+Iter: 1099 loss: 0.00183960854
+Iter: 1100 loss: 0.00183582061
+Iter: 1101 loss: 0.00183476112
+Iter: 1102 loss: 0.0018324391
+Iter: 1103 loss: 0.00182719203
+Iter: 1104 loss: 0.00184209482
+Iter: 1105 loss: 0.00182552799
+Iter: 1106 loss: 0.0018222651
+Iter: 1107 loss: 0.00182207266
+Iter: 1108 loss: 0.00181941502
+Iter: 1109 loss: 0.00181596691
+Iter: 1110 loss: 0.00181571301
+Iter: 1111 loss: 0.00181290181
+Iter: 1112 loss: 0.00181263906
+Iter: 1113 loss: 0.00180971809
+Iter: 1114 loss: 0.00181636272
+Iter: 1115 loss: 0.00180861936
+Iter: 1116 loss: 0.00180522737
+Iter: 1117 loss: 0.00183427788
+Iter: 1118 loss: 0.00180503528
+Iter: 1119 loss: 0.00180088298
+Iter: 1120 loss: 0.00180805847
+Iter: 1121 loss: 0.00179906446
+Iter: 1122 loss: 0.00179607759
+Iter: 1123 loss: 0.00179451925
+Iter: 1124 loss: 0.00179315964
+Iter: 1125 loss: 0.00178962969
+Iter: 1126 loss: 0.00179250212
+Iter: 1127 loss: 0.00178748392
+Iter: 1128 loss: 0.00178422511
+Iter: 1129 loss: 0.00179051317
+Iter: 1130 loss: 0.00178286596
+Iter: 1131 loss: 0.00177971949
+Iter: 1132 loss: 0.00178472977
+Iter: 1133 loss: 0.00177825475
+Iter: 1134 loss: 0.00177458883
+Iter: 1135 loss: 0.00179168617
+Iter: 1136 loss: 0.00177390594
+Iter: 1137 loss: 0.00176991581
+Iter: 1138 loss: 0.0017694619
+Iter: 1139 loss: 0.00176657294
+Iter: 1140 loss: 0.00176320947
+Iter: 1141 loss: 0.00176303834
+Iter: 1142 loss: 0.00176067394
+Iter: 1143 loss: 0.00176729646
+Iter: 1144 loss: 0.00175992539
+Iter: 1145 loss: 0.00175740779
+Iter: 1146 loss: 0.00176661182
+Iter: 1147 loss: 0.00175678893
+Iter: 1148 loss: 0.00175449532
+Iter: 1149 loss: 0.00175596052
+Iter: 1150 loss: 0.00175303826
+Iter: 1151 loss: 0.00175023987
+Iter: 1152 loss: 0.00176714337
+Iter: 1153 loss: 0.00174990133
+Iter: 1154 loss: 0.00174785568
+Iter: 1155 loss: 0.00174633064
+Iter: 1156 loss: 0.0017456502
+Iter: 1157 loss: 0.00174186239
+Iter: 1158 loss: 0.00174398674
+Iter: 1159 loss: 0.00173942861
+Iter: 1160 loss: 0.00173512311
+Iter: 1161 loss: 0.00175443362
+Iter: 1162 loss: 0.00173428096
+Iter: 1163 loss: 0.00173137686
+Iter: 1164 loss: 0.00172954029
+Iter: 1165 loss: 0.00172840769
+Iter: 1166 loss: 0.001724064
+Iter: 1167 loss: 0.00173396908
+Iter: 1168 loss: 0.0017224378
+Iter: 1169 loss: 0.00171815208
+Iter: 1170 loss: 0.00173408585
+Iter: 1171 loss: 0.0017171033
+Iter: 1172 loss: 0.00171318569
+Iter: 1173 loss: 0.00172612537
+Iter: 1174 loss: 0.00171210046
+Iter: 1175 loss: 0.00170921709
+Iter: 1176 loss: 0.0017295992
+Iter: 1177 loss: 0.00170895422
+Iter: 1178 loss: 0.0017066655
+Iter: 1179 loss: 0.00172281452
+Iter: 1180 loss: 0.00170645583
+Iter: 1181 loss: 0.00170402019
+Iter: 1182 loss: 0.00171692972
+Iter: 1183 loss: 0.00170363672
+Iter: 1184 loss: 0.00170200423
+Iter: 1185 loss: 0.00170612743
+Iter: 1186 loss: 0.00170143531
+Iter: 1187 loss: 0.00169981096
+Iter: 1188 loss: 0.00170017011
+Iter: 1189 loss: 0.00169861014
+Iter: 1190 loss: 0.00169650442
+Iter: 1191 loss: 0.00170671614
+Iter: 1192 loss: 0.00169613794
+Iter: 1193 loss: 0.00169400393
+Iter: 1194 loss: 0.00169456925
+Iter: 1195 loss: 0.00169245957
+Iter: 1196 loss: 0.00168982137
+Iter: 1197 loss: 0.00169148226
+Iter: 1198 loss: 0.00168813369
+Iter: 1199 loss: 0.00168440246
+Iter: 1200 loss: 0.00168539863
+Iter: 1201 loss: 0.0016816922
+Iter: 1202 loss: 0.00167682697
+Iter: 1203 loss: 0.00169988279
+Iter: 1204 loss: 0.00167593546
+Iter: 1205 loss: 0.00167182065
+Iter: 1206 loss: 0.00168197835
+Iter: 1207 loss: 0.00167037197
+Iter: 1208 loss: 0.00166614074
+Iter: 1209 loss: 0.00168127415
+Iter: 1210 loss: 0.00166505668
+Iter: 1211 loss: 0.00166153163
+Iter: 1212 loss: 0.00166432769
+Iter: 1213 loss: 0.00165939564
+Iter: 1214 loss: 0.00165535696
+Iter: 1215 loss: 0.00168604287
+Iter: 1216 loss: 0.00165504811
+Iter: 1217 loss: 0.00165178708
+Iter: 1218 loss: 0.00167263497
+Iter: 1219 loss: 0.00165142422
+Iter: 1220 loss: 0.00164792151
+Iter: 1221 loss: 0.0016557842
+Iter: 1222 loss: 0.00164659927
+Iter: 1223 loss: 0.00164347619
+Iter: 1224 loss: 0.00165255554
+Iter: 1225 loss: 0.00164251169
+Iter: 1226 loss: 0.00164053589
+Iter: 1227 loss: 0.0016405161
+Iter: 1228 loss: 0.00163916778
+Iter: 1229 loss: 0.00164222112
+Iter: 1230 loss: 0.00163867
+Iter: 1231 loss: 0.00163690257
+Iter: 1232 loss: 0.00163447496
+Iter: 1233 loss: 0.0016343646
+Iter: 1234 loss: 0.00163172116
+Iter: 1235 loss: 0.0016334384
+Iter: 1236 loss: 0.00163004315
+Iter: 1237 loss: 0.0016270068
+Iter: 1238 loss: 0.00163032452
+Iter: 1239 loss: 0.00162534474
+Iter: 1240 loss: 0.00162181107
+Iter: 1241 loss: 0.00162839575
+Iter: 1242 loss: 0.00162029138
+Iter: 1243 loss: 0.00161689834
+Iter: 1244 loss: 0.00162918156
+Iter: 1245 loss: 0.00161604665
+Iter: 1246 loss: 0.00161246071
+Iter: 1247 loss: 0.00162229291
+Iter: 1248 loss: 0.00161129213
+Iter: 1249 loss: 0.00160817849
+Iter: 1250 loss: 0.00162033865
+Iter: 1251 loss: 0.00160745485
+Iter: 1252 loss: 0.00160493702
+Iter: 1253 loss: 0.00162278314
+Iter: 1254 loss: 0.0016047192
+Iter: 1255 loss: 0.00160295726
+Iter: 1256 loss: 0.00162571366
+Iter: 1257 loss: 0.00160294469
+Iter: 1258 loss: 0.00160165783
+Iter: 1259 loss: 0.00159983546
+Iter: 1260 loss: 0.00159976888
+Iter: 1261 loss: 0.00159734115
+Iter: 1262 loss: 0.00163187366
+Iter: 1263 loss: 0.00159733417
+Iter: 1264 loss: 0.00159556489
+Iter: 1265 loss: 0.00159892673
+Iter: 1266 loss: 0.00159482006
+Iter: 1267 loss: 0.00159289106
+Iter: 1268 loss: 0.0015928332
+Iter: 1269 loss: 0.00159132737
+Iter: 1270 loss: 0.00158929289
+Iter: 1271 loss: 0.00158610207
+Iter: 1272 loss: 0.00158606726
+Iter: 1273 loss: 0.00158209819
+Iter: 1274 loss: 0.00160433119
+Iter: 1275 loss: 0.00158152892
+Iter: 1276 loss: 0.00157829351
+Iter: 1277 loss: 0.00158449286
+Iter: 1278 loss: 0.00157694216
+Iter: 1279 loss: 0.00157349929
+Iter: 1280 loss: 0.00157978944
+Iter: 1281 loss: 0.00157201523
+Iter: 1282 loss: 0.00156895572
+Iter: 1283 loss: 0.00158625212
+Iter: 1284 loss: 0.00156853045
+Iter: 1285 loss: 0.0015655579
+Iter: 1286 loss: 0.00156933104
+Iter: 1287 loss: 0.00156403193
+Iter: 1288 loss: 0.00156116392
+Iter: 1289 loss: 0.00159235555
+Iter: 1290 loss: 0.00156110199
+Iter: 1291 loss: 0.00155852025
+Iter: 1292 loss: 0.0015707023
+Iter: 1293 loss: 0.0015580568
+Iter: 1294 loss: 0.00155653362
+Iter: 1295 loss: 0.00156094832
+Iter: 1296 loss: 0.00155605469
+Iter: 1297 loss: 0.00155422406
+Iter: 1298 loss: 0.00156448293
+Iter: 1299 loss: 0.00155396014
+Iter: 1300 loss: 0.00155257247
+Iter: 1301 loss: 0.00155404187
+Iter: 1302 loss: 0.00155179831
+Iter: 1303 loss: 0.0015499267
+Iter: 1304 loss: 0.00154782785
+Iter: 1305 loss: 0.00154754845
+Iter: 1306 loss: 0.00154514774
+Iter: 1307 loss: 0.00154747
+Iter: 1308 loss: 0.00154378649
+Iter: 1309 loss: 0.00154090347
+Iter: 1310 loss: 0.00155210495
+Iter: 1311 loss: 0.00154023117
+Iter: 1312 loss: 0.00153804675
+Iter: 1313 loss: 0.00154172094
+Iter: 1314 loss: 0.00153706619
+Iter: 1315 loss: 0.00153412553
+Iter: 1316 loss: 0.00153737632
+Iter: 1317 loss: 0.00153253251
+Iter: 1318 loss: 0.00152935635
+Iter: 1319 loss: 0.00154293864
+Iter: 1320 loss: 0.00152870663
+Iter: 1321 loss: 0.00152627565
+Iter: 1322 loss: 0.00154891168
+Iter: 1323 loss: 0.00152617751
+Iter: 1324 loss: 0.00152477541
+Iter: 1325 loss: 0.00154496124
+Iter: 1326 loss: 0.00152477424
+Iter: 1327 loss: 0.00152361719
+Iter: 1328 loss: 0.00152188749
+Iter: 1329 loss: 0.00152185024
+Iter: 1330 loss: 0.00152163638
+Iter: 1331 loss: 0.00152087351
+Iter: 1332 loss: 0.00152016617
+Iter: 1333 loss: 0.00152016606
+Iter: 1334 loss: 0.00151960575
+Iter: 1335 loss: 0.00151841156
+Iter: 1336 loss: 0.00152013544
+Iter: 1337 loss: 0.00151783356
+Iter: 1338 loss: 0.00151620235
+Iter: 1339 loss: 0.00151432084
+Iter: 1340 loss: 0.00151409337
+Iter: 1341 loss: 0.00151169952
+Iter: 1342 loss: 0.0015203394
+Iter: 1343 loss: 0.0015110923
+Iter: 1344 loss: 0.00150880741
+Iter: 1345 loss: 0.00151385239
+Iter: 1346 loss: 0.00150792603
+Iter: 1347 loss: 0.00150561973
+Iter: 1348 loss: 0.00151065423
+Iter: 1349 loss: 0.00150473858
+Iter: 1350 loss: 0.00150189211
+Iter: 1351 loss: 0.00151032396
+Iter: 1352 loss: 0.00150102493
+Iter: 1353 loss: 0.00149853609
+Iter: 1354 loss: 0.00150459283
+Iter: 1355 loss: 0.0014976582
+Iter: 1356 loss: 0.00149545423
+Iter: 1357 loss: 0.00152094266
+Iter: 1358 loss: 0.00149542035
+Iter: 1359 loss: 0.00149354618
+Iter: 1360 loss: 0.00150244078
+Iter: 1361 loss: 0.00149320601
+Iter: 1362 loss: 0.0014917443
+Iter: 1363 loss: 0.00149426213
+Iter: 1364 loss: 0.00149109552
+Iter: 1365 loss: 0.00148921681
+Iter: 1366 loss: 0.00150385662
+Iter: 1367 loss: 0.00148908468
+Iter: 1368 loss: 0.00148809073
+Iter: 1369 loss: 0.00148722634
+Iter: 1370 loss: 0.00148696185
+Iter: 1371 loss: 0.00148500176
+Iter: 1372 loss: 0.00148778351
+Iter: 1373 loss: 0.00148404017
+Iter: 1374 loss: 0.00148209848
+Iter: 1375 loss: 0.00148121105
+Iter: 1376 loss: 0.00148024049
+Iter: 1377 loss: 0.00147750857
+Iter: 1378 loss: 0.0014826
+Iter: 1379 loss: 0.00147633918
+Iter: 1380 loss: 0.00147294509
+Iter: 1381 loss: 0.00147547864
+Iter: 1382 loss: 0.00147086778
+Iter: 1383 loss: 0.001466783
+Iter: 1384 loss: 0.00149312569
+Iter: 1385 loss: 0.00146632711
+Iter: 1386 loss: 0.00146355992
+Iter: 1387 loss: 0.00147299527
+Iter: 1388 loss: 0.00146282371
+Iter: 1389 loss: 0.00146028283
+Iter: 1390 loss: 0.00147287734
+Iter: 1391 loss: 0.00145984045
+Iter: 1392 loss: 0.0014577799
+Iter: 1393 loss: 0.0014790881
+Iter: 1394 loss: 0.00145772065
+Iter: 1395 loss: 0.00145627628
+Iter: 1396 loss: 0.0014577827
+Iter: 1397 loss: 0.00145547558
+Iter: 1398 loss: 0.00145424355
+Iter: 1399 loss: 0.00145423599
+Iter: 1400 loss: 0.0014532858
+Iter: 1401 loss: 0.00145117391
+Iter: 1402 loss: 0.00148220453
+Iter: 1403 loss: 0.00145108206
+Iter: 1404 loss: 0.00144892326
+Iter: 1405 loss: 0.00147051
+Iter: 1406 loss: 0.00144885096
+Iter: 1407 loss: 0.00144723093
+Iter: 1408 loss: 0.00144606188
+Iter: 1409 loss: 0.00144549715
+Iter: 1410 loss: 0.0014430756
+Iter: 1411 loss: 0.00144461915
+Iter: 1412 loss: 0.00144153473
+Iter: 1413 loss: 0.00143877044
+Iter: 1414 loss: 0.00144884305
+Iter: 1415 loss: 0.00143808115
+Iter: 1416 loss: 0.00143516413
+Iter: 1417 loss: 0.00143801537
+Iter: 1418 loss: 0.00143350079
+Iter: 1419 loss: 0.00142972381
+Iter: 1420 loss: 0.00144129177
+Iter: 1421 loss: 0.00142860785
+Iter: 1422 loss: 0.00142594019
+Iter: 1423 loss: 0.00145658955
+Iter: 1424 loss: 0.00142589293
+Iter: 1425 loss: 0.00142423948
+Iter: 1426 loss: 0.00143764657
+Iter: 1427 loss: 0.00142412703
+Iter: 1428 loss: 0.00142252096
+Iter: 1429 loss: 0.00142130558
+Iter: 1430 loss: 0.00142078334
+Iter: 1431 loss: 0.00141923886
+Iter: 1432 loss: 0.00141915865
+Iter: 1433 loss: 0.00141771021
+Iter: 1434 loss: 0.00141714211
+Iter: 1435 loss: 0.0014163747
+Iter: 1436 loss: 0.00141494209
+Iter: 1437 loss: 0.00141956517
+Iter: 1438 loss: 0.00141454069
+Iter: 1439 loss: 0.00141297013
+Iter: 1440 loss: 0.00141474092
+Iter: 1441 loss: 0.001412121
+Iter: 1442 loss: 0.00141031109
+Iter: 1443 loss: 0.00140887848
+Iter: 1444 loss: 0.00140832353
+Iter: 1445 loss: 0.00140552211
+Iter: 1446 loss: 0.00141312752
+Iter: 1447 loss: 0.0014046001
+Iter: 1448 loss: 0.00140195538
+Iter: 1449 loss: 0.00140924577
+Iter: 1450 loss: 0.00140109763
+Iter: 1451 loss: 0.00139871042
+Iter: 1452 loss: 0.0014067716
+Iter: 1453 loss: 0.00139807118
+Iter: 1454 loss: 0.00139561924
+Iter: 1455 loss: 0.00140539557
+Iter: 1456 loss: 0.00139506301
+Iter: 1457 loss: 0.0013933325
+Iter: 1458 loss: 0.00142089801
+Iter: 1459 loss: 0.00139333506
+Iter: 1460 loss: 0.00139193889
+Iter: 1461 loss: 0.00139211514
+Iter: 1462 loss: 0.00139087986
+Iter: 1463 loss: 0.00138954201
+Iter: 1464 loss: 0.00140303362
+Iter: 1465 loss: 0.00138949964
+Iter: 1466 loss: 0.00138812326
+Iter: 1467 loss: 0.00139136473
+Iter: 1468 loss: 0.00138762465
+Iter: 1469 loss: 0.00138671626
+Iter: 1470 loss: 0.00138644048
+Iter: 1471 loss: 0.00138590776
+Iter: 1472 loss: 0.00138444384
+Iter: 1473 loss: 0.0013887682
+Iter: 1474 loss: 0.00138400286
+Iter: 1475 loss: 0.00138255465
+Iter: 1476 loss: 0.00138200494
+Iter: 1477 loss: 0.0013812033
+Iter: 1478 loss: 0.00137956452
+Iter: 1479 loss: 0.00138292252
+Iter: 1480 loss: 0.00137890386
+Iter: 1481 loss: 0.00137701316
+Iter: 1482 loss: 0.00137842027
+Iter: 1483 loss: 0.00137585
+Iter: 1484 loss: 0.00137341477
+Iter: 1485 loss: 0.00137743168
+Iter: 1486 loss: 0.0013723002
+Iter: 1487 loss: 0.00136972824
+Iter: 1488 loss: 0.00139159686
+Iter: 1489 loss: 0.0013695783
+Iter: 1490 loss: 0.00136814709
+Iter: 1491 loss: 0.00139010348
+Iter: 1492 loss: 0.00136815163
+Iter: 1493 loss: 0.00136678852
+Iter: 1494 loss: 0.00136642461
+Iter: 1495 loss: 0.00136558281
+Iter: 1496 loss: 0.00136379362
+Iter: 1497 loss: 0.00137003069
+Iter: 1498 loss: 0.00136332272
+Iter: 1499 loss: 0.00136178208
+Iter: 1500 loss: 0.00136178616
+Iter: 1501 loss: 0.00136108324
+Iter: 1502 loss: 0.00135979755
+Iter: 1503 loss: 0.00138940592
+Iter: 1504 loss: 0.00135979056
+Iter: 1505 loss: 0.00135824119
+Iter: 1506 loss: 0.00136720121
+Iter: 1507 loss: 0.00135803269
+Iter: 1508 loss: 0.00135668041
+Iter: 1509 loss: 0.00135636202
+Iter: 1510 loss: 0.00135549926
+Iter: 1511 loss: 0.00135373825
+Iter: 1512 loss: 0.00135426957
+Iter: 1513 loss: 0.00135247689
+Iter: 1514 loss: 0.00135032507
+Iter: 1515 loss: 0.00135814666
+Iter: 1516 loss: 0.00134978304
+Iter: 1517 loss: 0.00134790363
+Iter: 1518 loss: 0.00135059259
+Iter: 1519 loss: 0.00134699687
+Iter: 1520 loss: 0.0013446419
+Iter: 1521 loss: 0.00135085604
+Iter: 1522 loss: 0.00134384655
+Iter: 1523 loss: 0.00134197215
+Iter: 1524 loss: 0.00134197623
+Iter: 1525 loss: 0.00134025863
+Iter: 1526 loss: 0.00134511362
+Iter: 1527 loss: 0.00133972312
+Iter: 1528 loss: 0.00133829541
+Iter: 1529 loss: 0.00133855315
+Iter: 1530 loss: 0.00133722357
+Iter: 1531 loss: 0.00133652333
+Iter: 1532 loss: 0.00133620342
+Iter: 1533 loss: 0.00133552542
+Iter: 1534 loss: 0.00133398105
+Iter: 1535 loss: 0.00135373266
+Iter: 1536 loss: 0.00133388513
+Iter: 1537 loss: 0.00133220386
+Iter: 1538 loss: 0.00134208938
+Iter: 1539 loss: 0.001331985
+Iter: 1540 loss: 0.00133030803
+Iter: 1541 loss: 0.00133071514
+Iter: 1542 loss: 0.00132907741
+Iter: 1543 loss: 0.00132692931
+Iter: 1544 loss: 0.00132664281
+Iter: 1545 loss: 0.0013251279
+Iter: 1546 loss: 0.00132255116
+Iter: 1547 loss: 0.00133354834
+Iter: 1548 loss: 0.00132201309
+Iter: 1549 loss: 0.00131953764
+Iter: 1550 loss: 0.00132111786
+Iter: 1551 loss: 0.00131797139
+Iter: 1552 loss: 0.00131492177
+Iter: 1553 loss: 0.00133227254
+Iter: 1554 loss: 0.00131450384
+Iter: 1555 loss: 0.00131252385
+Iter: 1556 loss: 0.00132256956
+Iter: 1557 loss: 0.00131220266
+Iter: 1558 loss: 0.00131040486
+Iter: 1559 loss: 0.00133265695
+Iter: 1560 loss: 0.00131038786
+Iter: 1561 loss: 0.00130913523
+Iter: 1562 loss: 0.00130872102
+Iter: 1563 loss: 0.00130798749
+Iter: 1564 loss: 0.00130721694
+Iter: 1565 loss: 0.00130709598
+Iter: 1566 loss: 0.0013061983
+Iter: 1567 loss: 0.00130475615
+Iter: 1568 loss: 0.00130474498
+Iter: 1569 loss: 0.00130325812
+Iter: 1570 loss: 0.0013077911
+Iter: 1571 loss: 0.00130281947
+Iter: 1572 loss: 0.001301251
+Iter: 1573 loss: 0.00130566
+Iter: 1574 loss: 0.00130075461
+Iter: 1575 loss: 0.00129939686
+Iter: 1576 loss: 0.00129909
+Iter: 1577 loss: 0.0012982171
+Iter: 1578 loss: 0.00129635399
+Iter: 1579 loss: 0.00129660079
+Iter: 1580 loss: 0.00129493931
+Iter: 1581 loss: 0.0012924748
+Iter: 1582 loss: 0.00130478595
+Iter: 1583 loss: 0.00129205652
+Iter: 1584 loss: 0.00129010202
+Iter: 1585 loss: 0.00129770185
+Iter: 1586 loss: 0.00128964474
+Iter: 1587 loss: 0.00128789409
+Iter: 1588 loss: 0.00129144127
+Iter: 1589 loss: 0.00128718419
+Iter: 1590 loss: 0.00128610223
+Iter: 1591 loss: 0.00128599443
+Iter: 1592 loss: 0.00128494
+Iter: 1593 loss: 0.00128468196
+Iter: 1594 loss: 0.00128400733
+Iter: 1595 loss: 0.00128294062
+Iter: 1596 loss: 0.00129546155
+Iter: 1597 loss: 0.00128292455
+Iter: 1598 loss: 0.00128178054
+Iter: 1599 loss: 0.00128309487
+Iter: 1600 loss: 0.00128117029
+Iter: 1601 loss: 0.00128023513
+Iter: 1602 loss: 0.00128008728
+Iter: 1603 loss: 0.00127944374
+Iter: 1604 loss: 0.00127821835
+Iter: 1605 loss: 0.00128692086
+Iter: 1606 loss: 0.00127810566
+Iter: 1607 loss: 0.00127720856
+Iter: 1608 loss: 0.0012764734
+Iter: 1609 loss: 0.0012762181
+Iter: 1610 loss: 0.00127468328
+Iter: 1611 loss: 0.00127585512
+Iter: 1612 loss: 0.00127375312
+Iter: 1613 loss: 0.00127204822
+Iter: 1614 loss: 0.00127595593
+Iter: 1615 loss: 0.00127141783
+Iter: 1616 loss: 0.00126964133
+Iter: 1617 loss: 0.00127638585
+Iter: 1618 loss: 0.00126921246
+Iter: 1619 loss: 0.00126744504
+Iter: 1620 loss: 0.00127145613
+Iter: 1621 loss: 0.00126677961
+Iter: 1622 loss: 0.00126552104
+Iter: 1623 loss: 0.0012655115
+Iter: 1624 loss: 0.00126426853
+Iter: 1625 loss: 0.00126651034
+Iter: 1626 loss: 0.00126372429
+Iter: 1627 loss: 0.00126268086
+Iter: 1628 loss: 0.00126729487
+Iter: 1629 loss: 0.00126246666
+Iter: 1630 loss: 0.00126131764
+Iter: 1631 loss: 0.00126850687
+Iter: 1632 loss: 0.00126118213
+Iter: 1633 loss: 0.00126049027
+Iter: 1634 loss: 0.00125946617
+Iter: 1635 loss: 0.001259443
+Iter: 1636 loss: 0.00125813088
+Iter: 1637 loss: 0.00126644725
+Iter: 1638 loss: 0.00125798304
+Iter: 1639 loss: 0.00125680678
+Iter: 1640 loss: 0.00125611899
+Iter: 1641 loss: 0.00125562446
+Iter: 1642 loss: 0.00125399255
+Iter: 1643 loss: 0.00125773461
+Iter: 1644 loss: 0.00125338649
+Iter: 1645 loss: 0.00125177158
+Iter: 1646 loss: 0.00125167216
+Iter: 1647 loss: 0.00125044561
+Iter: 1648 loss: 0.00124826538
+Iter: 1649 loss: 0.00125953567
+Iter: 1650 loss: 0.00124791986
+Iter: 1651 loss: 0.00124603393
+Iter: 1652 loss: 0.00125311967
+Iter: 1653 loss: 0.00124557805
+Iter: 1654 loss: 0.00124420086
+Iter: 1655 loss: 0.00125793135
+Iter: 1656 loss: 0.00124415895
+Iter: 1657 loss: 0.00124288874
+Iter: 1658 loss: 0.00124980556
+Iter: 1659 loss: 0.00124270422
+Iter: 1660 loss: 0.00124177244
+Iter: 1661 loss: 0.00124243973
+Iter: 1662 loss: 0.00124119758
+Iter: 1663 loss: 0.00124017219
+Iter: 1664 loss: 0.00124016963
+Iter: 1665 loss: 0.00123954657
+Iter: 1666 loss: 0.00123844389
+Iter: 1667 loss: 0.00123843981
+Iter: 1668 loss: 0.00123717869
+Iter: 1669 loss: 0.00124502275
+Iter: 1670 loss: 0.00123703224
+Iter: 1671 loss: 0.00123596843
+Iter: 1672 loss: 0.00123799487
+Iter: 1673 loss: 0.00123551895
+Iter: 1674 loss: 0.00123456703
+Iter: 1675 loss: 0.00123480451
+Iter: 1676 loss: 0.00123386737
+Iter: 1677 loss: 0.00123219378
+Iter: 1678 loss: 0.00123174931
+Iter: 1679 loss: 0.00123070669
+Iter: 1680 loss: 0.00122896861
+Iter: 1681 loss: 0.0012421154
+Iter: 1682 loss: 0.00122882985
+Iter: 1683 loss: 0.00122740562
+Iter: 1684 loss: 0.0012303174
+Iter: 1685 loss: 0.00122683193
+Iter: 1686 loss: 0.00122530619
+Iter: 1687 loss: 0.00123384991
+Iter: 1688 loss: 0.0012250921
+Iter: 1689 loss: 0.00122399663
+Iter: 1690 loss: 0.00124063902
+Iter: 1691 loss: 0.00122399605
+Iter: 1692 loss: 0.00122320163
+Iter: 1693 loss: 0.00122228637
+Iter: 1694 loss: 0.00122218032
+Iter: 1695 loss: 0.00122142688
+Iter: 1696 loss: 0.0012213313
+Iter: 1697 loss: 0.00122068834
+Iter: 1698 loss: 0.00121974899
+Iter: 1699 loss: 0.00121972593
+Iter: 1700 loss: 0.0012186002
+Iter: 1701 loss: 0.00122239732
+Iter: 1702 loss: 0.00121830101
+Iter: 1703 loss: 0.001217401
+Iter: 1704 loss: 0.00122225937
+Iter: 1705 loss: 0.00121726166
+Iter: 1706 loss: 0.0012165152
+Iter: 1707 loss: 0.00121529726
+Iter: 1708 loss: 0.00121528737
+Iter: 1709 loss: 0.00121348817
+Iter: 1710 loss: 0.00121960568
+Iter: 1711 loss: 0.00121300272
+Iter: 1712 loss: 0.00121152773
+Iter: 1713 loss: 0.00121225941
+Iter: 1714 loss: 0.00121055089
+Iter: 1715 loss: 0.00120861037
+Iter: 1716 loss: 0.00121590728
+Iter: 1717 loss: 0.00120814866
+Iter: 1718 loss: 0.00120686146
+Iter: 1719 loss: 0.0012183066
+Iter: 1720 loss: 0.0012067986
+Iter: 1721 loss: 0.00120583025
+Iter: 1722 loss: 0.00121711974
+Iter: 1723 loss: 0.00120581873
+Iter: 1724 loss: 0.0012049051
+Iter: 1725 loss: 0.00120468286
+Iter: 1726 loss: 0.00120410835
+Iter: 1727 loss: 0.00120341522
+Iter: 1728 loss: 0.0012034009
+Iter: 1729 loss: 0.00120270904
+Iter: 1730 loss: 0.00120152486
+Iter: 1731 loss: 0.00120152941
+Iter: 1732 loss: 0.00120001961
+Iter: 1733 loss: 0.00120530115
+Iter: 1734 loss: 0.00119962124
+Iter: 1735 loss: 0.00119859725
+Iter: 1736 loss: 0.0012025577
+Iter: 1737 loss: 0.00119836023
+Iter: 1738 loss: 0.00119725382
+Iter: 1739 loss: 0.00119718793
+Iter: 1740 loss: 0.00119635079
+Iter: 1741 loss: 0.00119492714
+Iter: 1742 loss: 0.00119880051
+Iter: 1743 loss: 0.00119445776
+Iter: 1744 loss: 0.00119300629
+Iter: 1745 loss: 0.00119492738
+Iter: 1746 loss: 0.00119228242
+Iter: 1747 loss: 0.00119070627
+Iter: 1748 loss: 0.00119426195
+Iter: 1749 loss: 0.00119010545
+Iter: 1750 loss: 0.001188569
+Iter: 1751 loss: 0.00119340303
+Iter: 1752 loss: 0.00118811452
+Iter: 1753 loss: 0.00118683395
+Iter: 1754 loss: 0.00120664691
+Iter: 1755 loss: 0.00118683162
+Iter: 1756 loss: 0.00118566467
+Iter: 1757 loss: 0.00118759857
+Iter: 1758 loss: 0.00118513696
+Iter: 1759 loss: 0.00118434126
+Iter: 1760 loss: 0.00119034899
+Iter: 1761 loss: 0.00118427793
+Iter: 1762 loss: 0.00118335849
+Iter: 1763 loss: 0.00118366058
+Iter: 1764 loss: 0.00118270365
+Iter: 1765 loss: 0.0011818636
+Iter: 1766 loss: 0.00118334685
+Iter: 1767 loss: 0.00118149095
+Iter: 1768 loss: 0.00118060899
+Iter: 1769 loss: 0.00118174776
+Iter: 1770 loss: 0.00118015741
+Iter: 1771 loss: 0.00117899291
+Iter: 1772 loss: 0.00118097209
+Iter: 1773 loss: 0.00117846322
+Iter: 1774 loss: 0.00117730536
+Iter: 1775 loss: 0.00117807381
+Iter: 1776 loss: 0.00117656379
+Iter: 1777 loss: 0.00117524876
+Iter: 1778 loss: 0.00118027721
+Iter: 1779 loss: 0.00117493537
+Iter: 1780 loss: 0.00117373234
+Iter: 1781 loss: 0.0011747689
+Iter: 1782 loss: 0.00117302034
+Iter: 1783 loss: 0.00117151719
+Iter: 1784 loss: 0.00117924367
+Iter: 1785 loss: 0.00117127085
+Iter: 1786 loss: 0.00117031136
+Iter: 1787 loss: 0.00118204753
+Iter: 1788 loss: 0.0011702975
+Iter: 1789 loss: 0.00116937514
+Iter: 1790 loss: 0.00117162301
+Iter: 1791 loss: 0.0011690458
+Iter: 1792 loss: 0.00116829423
+Iter: 1793 loss: 0.0011702301
+Iter: 1794 loss: 0.00116803485
+Iter: 1795 loss: 0.00116700213
+Iter: 1796 loss: 0.00117025722
+Iter: 1797 loss: 0.00116669759
+Iter: 1798 loss: 0.00116603414
+Iter: 1799 loss: 0.00116546359
+Iter: 1800 loss: 0.00116528198
+Iter: 1801 loss: 0.00116404216
+Iter: 1802 loss: 0.00116689701
+Iter: 1803 loss: 0.0011635765
+Iter: 1804 loss: 0.00116241095
+Iter: 1805 loss: 0.00116533216
+Iter: 1806 loss: 0.00116199511
+Iter: 1807 loss: 0.00116086192
+Iter: 1808 loss: 0.00116131292
+Iter: 1809 loss: 0.00116008148
+Iter: 1810 loss: 0.00115882454
+Iter: 1811 loss: 0.00116331666
+Iter: 1812 loss: 0.00115850754
+Iter: 1813 loss: 0.00115725701
+Iter: 1814 loss: 0.0011578839
+Iter: 1815 loss: 0.0011564123
+Iter: 1816 loss: 0.00115490356
+Iter: 1817 loss: 0.00116675044
+Iter: 1818 loss: 0.00115479936
+Iter: 1819 loss: 0.00115388958
+Iter: 1820 loss: 0.00116165134
+Iter: 1821 loss: 0.00115383789
+Iter: 1822 loss: 0.0011529281
+Iter: 1823 loss: 0.00115595385
+Iter: 1824 loss: 0.00115267304
+Iter: 1825 loss: 0.00115190074
+Iter: 1826 loss: 0.00115321111
+Iter: 1827 loss: 0.00115155079
+Iter: 1828 loss: 0.00115059537
+Iter: 1829 loss: 0.00115802581
+Iter: 1830 loss: 0.0011505275
+Iter: 1831 loss: 0.00115003146
+Iter: 1832 loss: 0.00114916568
+Iter: 1833 loss: 0.00114916195
+Iter: 1834 loss: 0.00114806136
+Iter: 1835 loss: 0.00115429773
+Iter: 1836 loss: 0.00114790408
+Iter: 1837 loss: 0.00114696054
+Iter: 1838 loss: 0.00114709476
+Iter: 1839 loss: 0.00114624074
+Iter: 1840 loss: 0.00114479102
+Iter: 1841 loss: 0.00114566262
+Iter: 1842 loss: 0.00114386389
+Iter: 1843 loss: 0.00114238565
+Iter: 1844 loss: 0.00114826416
+Iter: 1845 loss: 0.00114204723
+Iter: 1846 loss: 0.00114064338
+Iter: 1847 loss: 0.00114285632
+Iter: 1848 loss: 0.00113998738
+Iter: 1849 loss: 0.00113856513
+Iter: 1850 loss: 0.00114557939
+Iter: 1851 loss: 0.00113831821
+Iter: 1852 loss: 0.00113716768
+Iter: 1853 loss: 0.00114522781
+Iter: 1854 loss: 0.00113706244
+Iter: 1855 loss: 0.00113601983
+Iter: 1856 loss: 0.00114272418
+Iter: 1857 loss: 0.00113590085
+Iter: 1858 loss: 0.00113511365
+Iter: 1859 loss: 0.00113610364
+Iter: 1860 loss: 0.00113470212
+Iter: 1861 loss: 0.00113386079
+Iter: 1862 loss: 0.00114353723
+Iter: 1863 loss: 0.00113384961
+Iter: 1864 loss: 0.00113334402
+Iter: 1865 loss: 0.00113225402
+Iter: 1866 loss: 0.00114924402
+Iter: 1867 loss: 0.00113221561
+Iter: 1868 loss: 0.00113100256
+Iter: 1869 loss: 0.00113958656
+Iter: 1870 loss: 0.00113088731
+Iter: 1871 loss: 0.00112985028
+Iter: 1872 loss: 0.00113001605
+Iter: 1873 loss: 0.00112906
+Iter: 1874 loss: 0.00112761604
+Iter: 1875 loss: 0.00113036926
+Iter: 1876 loss: 0.00112700334
+Iter: 1877 loss: 0.00112588576
+Iter: 1878 loss: 0.00112940418
+Iter: 1879 loss: 0.00112556224
+Iter: 1880 loss: 0.00112437096
+Iter: 1881 loss: 0.00112641463
+Iter: 1882 loss: 0.00112383789
+Iter: 1883 loss: 0.00112263788
+Iter: 1884 loss: 0.00112724141
+Iter: 1885 loss: 0.00112234906
+Iter: 1886 loss: 0.00112135126
+Iter: 1887 loss: 0.00113017403
+Iter: 1888 loss: 0.00112130144
+Iter: 1889 loss: 0.00112056406
+Iter: 1890 loss: 0.00112705748
+Iter: 1891 loss: 0.00112052285
+Iter: 1892 loss: 0.00111995463
+Iter: 1893 loss: 0.00112029503
+Iter: 1894 loss: 0.00111958012
+Iter: 1895 loss: 0.00111893308
+Iter: 1896 loss: 0.00112668891
+Iter: 1897 loss: 0.00111892587
+Iter: 1898 loss: 0.0011184609
+Iter: 1899 loss: 0.00111758662
+Iter: 1900 loss: 0.00113722158
+Iter: 1901 loss: 0.00111758441
+Iter: 1902 loss: 0.0011167035
+Iter: 1903 loss: 0.00112227385
+Iter: 1904 loss: 0.00111660128
+Iter: 1905 loss: 0.00111575215
+Iter: 1906 loss: 0.00111602736
+Iter: 1907 loss: 0.00111513911
+Iter: 1908 loss: 0.00111400289
+Iter: 1909 loss: 0.00111527857
+Iter: 1910 loss: 0.00111339171
+Iter: 1911 loss: 0.00111232116
+Iter: 1912 loss: 0.00111367356
+Iter: 1913 loss: 0.00111176376
+Iter: 1914 loss: 0.00111040752
+Iter: 1915 loss: 0.00111600349
+Iter: 1916 loss: 0.00111011229
+Iter: 1917 loss: 0.00110902474
+Iter: 1918 loss: 0.00111230463
+Iter: 1919 loss: 0.00110869552
+Iter: 1920 loss: 0.00110775256
+Iter: 1921 loss: 0.00111645786
+Iter: 1922 loss: 0.00110771274
+Iter: 1923 loss: 0.00110699236
+Iter: 1924 loss: 0.00111181638
+Iter: 1925 loss: 0.00110692112
+Iter: 1926 loss: 0.00110623101
+Iter: 1927 loss: 0.00110640645
+Iter: 1928 loss: 0.00110572809
+Iter: 1929 loss: 0.00110491947
+Iter: 1930 loss: 0.00111495284
+Iter: 1931 loss: 0.00110491063
+Iter: 1932 loss: 0.00110430387
+Iter: 1933 loss: 0.00110348512
+Iter: 1934 loss: 0.00110344205
+Iter: 1935 loss: 0.00110256
+Iter: 1936 loss: 0.00110575231
+Iter: 1937 loss: 0.00110233563
+Iter: 1938 loss: 0.00110129605
+Iter: 1939 loss: 0.00110211805
+Iter: 1940 loss: 0.00110066682
+Iter: 1941 loss: 0.0010994582
+Iter: 1942 loss: 0.00110113446
+Iter: 1943 loss: 0.00109887356
+Iter: 1944 loss: 0.00109778228
+Iter: 1945 loss: 0.00109886099
+Iter: 1946 loss: 0.00109717413
+Iter: 1947 loss: 0.00109592732
+Iter: 1948 loss: 0.00110228045
+Iter: 1949 loss: 0.00109572429
+Iter: 1950 loss: 0.00109465036
+Iter: 1951 loss: 0.0010960846
+Iter: 1952 loss: 0.00109411008
+Iter: 1953 loss: 0.00109292637
+Iter: 1954 loss: 0.00110329827
+Iter: 1955 loss: 0.00109286769
+Iter: 1956 loss: 0.00109197444
+Iter: 1957 loss: 0.00109900557
+Iter: 1958 loss: 0.00109190843
+Iter: 1959 loss: 0.00109112845
+Iter: 1960 loss: 0.00109184952
+Iter: 1961 loss: 0.0010906785
+Iter: 1962 loss: 0.00108999072
+Iter: 1963 loss: 0.00110029872
+Iter: 1964 loss: 0.00108999398
+/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/framework/indexed_slices.py:433: UserWarning: Converting sparse IndexedSlices to a dense Tensor of unknown shape. This may consume a large amount of memory.
+  "Converting sparse IndexedSlices to a dense Tensor of unknown shape. "
+WARNING:tensorflow:From /home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/training/tracking/tracking.py:111: Model.state_updates (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+WARNING:tensorflow:From /home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/training/tracking/tracking.py:111: Layer.updates (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+++ basename experiments.final/script68
++ '[' -r STOP.script68 ']'
++ MODEL=/home/mrdouglas/Manifold/experiments.final/output66/f1_psi1_phi2.8_0.001/500_500_500_500_1

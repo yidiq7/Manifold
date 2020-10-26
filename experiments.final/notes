@@ -56,3 +56,12 @@ script63 - combined 61/62, 300 epochs, 20000 pairs.
 Tried 1000 and 100000 but was much too slow.
 data_nn3 - Adam results
 data_nn4 - L-BFGS results
+
+script66 - redo the script61's which obviously did not converge with a different seed
+_test version is with new script
+script68 - try regularizations - no interesting result
+script69 - redo L-BFGS from 63 with different numbers of points
+
+
+
+
