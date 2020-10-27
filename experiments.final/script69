@@ -25,7 +25,7 @@ esac
 	        OUTDIR=$OUT/${fn}_psi${psi}_phi${phi}
 		date
 		if [ -r $OUTDIR/$layers ]
-		then for npairs in 16000 1000 ; do
+		then for npairs in 8000 ; do
 	        	OUTDIR2=$OUT2/${fn}_psi${psi}_phi${phi}_${npairs}
 		        mkdir -p $OUTDIR2
 			if [ -r $OUTDIR2/$layers ]
