@@ -92,8 +92,10 @@ elif args.OuterProductNN_k is not None:
         model = OuterProductNN_k2()  
     elif k == 3:
         model = OuterProductNN_k3()  
+    elif k == 4:
+        model = OuterProductNN_k4()  
     else:
-        raise Exception("Only k = 2 and k = 3 are supported now")
+        raise Exception("Only k = 2,3,4 are supported now")
     #model = OuterProductNN(k)  
 elif n_hidden == 0:
     model = zerolayer(n_units)

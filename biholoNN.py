@@ -58,6 +58,32 @@ class Biholomorphic_k3(keras.layers.Layer):
         zzbar = tf.concat([tf.math.real(zzbar), tf.math.imag(zzbar)], axis=1)
         return remove_zero_entries(zzbar)
 
+class Biholomorphic_k4(keras.layers.Layer):
+    '''A layer transform zi to symmetrized zi1*zi2*zi3*zi4, then to zzbar'''
+    def __init__(self):
+        super(Biholomorphic_k4, self).__init__()
+        
+    def call(self, inputs):
+        zz = tf.einsum('ai,aj,ak,al->aijkl', inputs, inputs, inputs, inputs)
+        zz = tf.linalg.band_part(zz, 0, -1) 
+        zz = tf.transpose(zz, perm=[0, 4, 1, 2, 3])
+        zz = tf.linalg.band_part(zz, 0, -1) 
+        zz = tf.transpose(zz, perm=[0, 4, 1, 2, 3]) # 3412
+        zz = tf.linalg.band_part(zz, 0, -1) 
+        zz = tf.transpose(zz, perm=[0, 4, 2, 3, 1]) # 2413
+        zz = tf.linalg.band_part(zz, 0, -1) 
+        zz = tf.transpose(zz, perm=[0, 3, 4, 1, 2]) # 1324
+        zz = tf.linalg.band_part(zz, 0, -1) 
+        #zz = tf.transpose(zz, perm=[0, 1, 3, 2, 4]) # Transfrom it back 
+        zz = tf.reshape(zz, [-1, 5**4]) 
+        zz = tf.reshape(remove_zero_entries(zz), [-1, 70])
+
+        zzbar = tf.einsum('ai,aj->aij', zz, tf.math.conj(zz))
+        zzbar = tf.linalg.band_part(zzbar, 0, -1)
+        zzbar = tf.reshape(zzbar, [-1, 70**2])
+        zzbar = tf.concat([tf.math.real(zzbar), tf.math.imag(zzbar)], axis=1)
+        return remove_zero_entries(zzbar)
+
 def remove_zero_entries(x):
     x = tf.transpose(x)
     intermediate_tensor = tf.reduce_sum(tf.abs(x), 1)
