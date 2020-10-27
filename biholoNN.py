@@ -70,11 +70,6 @@ class Biholomorphic_k4(keras.layers.Layer):
         zz = tf.linalg.band_part(zz, 0, -1) 
         zz = tf.transpose(zz, perm=[0, 4, 1, 2, 3]) # 3412
         zz = tf.linalg.band_part(zz, 0, -1) 
-        zz = tf.transpose(zz, perm=[0, 4, 2, 3, 1]) # 2413
-        zz = tf.linalg.band_part(zz, 0, -1) 
-        zz = tf.transpose(zz, perm=[0, 3, 4, 1, 2]) # 1324
-        zz = tf.linalg.band_part(zz, 0, -1) 
-        #zz = tf.transpose(zz, perm=[0, 1, 3, 2, 4]) # Transfrom it back 
         zz = tf.reshape(zz, [-1, 5**4]) 
         zz = tf.reshape(remove_zero_entries(zz), [-1, 70])
 
