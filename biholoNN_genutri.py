@@ -102,17 +102,21 @@ class Biholomorphic_k8(keras.layers.Layer):
         return remove_zero_entries(zzbar)
 
 def generalized_upper_triangular(x, n):
-    for i in range(n-4):
+    perm1 = [0, n-1]
+    perm1.extend(range(1,n-1))
+    perm2 = [0, n-2, n-1]
+    perm2.extend(range(1,n-2))
+    for i in range(n-3):
         x = tf.linalg.band_part(x, 0, -1) 
-        x = tf.transpose(x, perm=[0, n-1].extend(range(1,n-2)))
+        x = tf.transpose(x, perm=perm1)
     x = tf.linalg.band_part(x, 0, -1) 
-    x = tf.transpose(x, perm=[0, n-2, n-1].extend(range(1,n-3)))
+    x = tf.transpose(x, perm=perm2)
     return x
 
 def remove_zero_entries(x,n=-1):
     x = tf.transpose(x)
     intermediate_tensor = tf.reduce_sum(tf.abs(x), 1)
-    bool_mask = tf.squeeze(tf.math.logical_not(tf.math.less(intermediate_tensor, 1e-3)))
+    bool_mask = tf.squeeze(tf.math.logical_not(tf.math.less(intermediate_tensor, 1e-4)))
     x = tf.boolean_mask(x, bool_mask)
     x = tf.transpose(x)
     if n>=0:

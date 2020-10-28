@@ -148,9 +148,11 @@ class OuterProductNN_k4(tf.keras.Model):
         self.layer1 = WidthOneDense(70**2, 1)
 
     def call(self, inputs):
-        x = self.biholomorphic_k4(inputs)
-        x = self.layer1(x)
-        x = tf.math.log(x)
+        with tf.device('/cpu:0'):
+            x = self.biholomorphic_k4(inputs)
+        with tf.device('/gpu:0'):
+            x = self.layer1(x)
+            x = tf.math.log(x)
         return x
 '''
 class OuterProductNN(tf.keras.Model):

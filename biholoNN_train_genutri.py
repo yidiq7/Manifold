@@ -2,14 +2,14 @@ import os
 #os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 from hypersurface_tf import *
-from biholoNN import *
+from biholoNN_genutri import *
 from biholoNN_lbfgs import *
 import tensorflow as tf
 import numpy as np
 import time
 import sys
 import math
-from models import *
+from models_genutri import *
 import argparse
 import tensorflow_probability as tfp
 
