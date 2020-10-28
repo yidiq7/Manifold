@@ -1,0 +1,25 @@
+[Results] 
+model_name = k3 
+seed = 1234 
+n_pairs = 2000 
+n_points = 10000 
+batch_size = 10000 
+function = f2 
+psi = 0.0 
+alpha = 3.0 
+k = 3 
+n_parameters = 1225 
+loss function = weighted_MSE 
+
+n_epochs = 666 
+train_time = 45.8343 
+sigma_train = 0.0804911 
+sigma_test = 0.100536 
+delta_sigma_train = 0.000646087 
+delta_sigma_test = 0.000906897 
+E_train = 0.0106531 
+E_test = 0.0183322 
+delta_E_train = 0.000169485 
+delta_E_test = 0.00037354 
+sigma_max_train = 0.454741 
+sigma_max_test = 0.795524 
