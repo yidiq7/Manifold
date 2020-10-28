@@ -1,0 +1,47 @@
+#!/bin/bash
+set -x
+RUN=$1
+export CUDA_VISIBLE_DEVICES=$RUN
+LAYERS="k4 k3 k2"
+case $RUN in
+1) PSI="-2 -1" ;;
+2) PSI="0 1" ;;
+3) PSI="2 3" ;;
+*) echo "Unknown run $RUN" ; exit 1 ;;
+esac
+
+OUT=`pwd`/experiments.final/output70
+
+for fn in f1 f2 ; do
+case $fn in
+f1) OPT=--phi ;;
+f2) OPT=--alpha ;;
+esac
+    for psi in $PSI ; do
+	for layers in $LAYERS ; do
+	    MODEL=experiments.final/output11a/f0_psi0/$layers 
+    	    for phi in 0 0.4 0.8 1.2 1.6 2 2.4 2.8 3 ; do
+	        OUTDIR=$OUT/${fn}_psi${psi}_phi${phi}
+		date
+		        mkdir -p $OUTDIR
+			if [ -r $OUTDIR/$layers ]
+			then echo "Already computed model for $OUTDIR/$layers"
+			else	python biholoNN_train.py --seed 1234 \
+				 --n_pairs 2000 \
+				 --load_model $MODEL \
+                                 --OuterProductNN_k ${layers/k}\
+				 --optimizer lbfgs \
+		          	 --function $fn \
+				   --psi $psi \
+                                     $OPT $phi \
+				 --save_dir $OUTDIR/ \
+ 				--save_name $layers \
+				 --max_epochs 2000 \
+				 --loss_func "weighted_MSE" 
+		    	fi
+		[ -r STOP.`basename $0` ] && exit 1
+                MODEL=$OUTDIR/$layers 
+            done
+	done
+    done
+done

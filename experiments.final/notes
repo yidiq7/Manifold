@@ -62,6 +62,6 @@ _test version is with new script
 script68 - try regularizations - no interesting result
 script69 - redo L-BFGS from 63 with different numbers of points
 
-
+script70 - do FS k=4 using L-BFGS.
 
 

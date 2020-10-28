@@ -1,0 +1,25 @@
+[Results] 
+model_name = k4 
+seed = 1234 
+n_pairs = 2000 
+n_points = 10000 
+batch_size = 10000 
+function = f1 
+psi = 1.0 
+phi = 0.4 
+k = 4 
+n_parameters = 4900 
+loss function = weighted_MSE 
+
+n_epochs = 666 
+train_time = 354.108 
+sigma_train = 0.00537208 
+sigma_test = 0.0120781 
+delta_sigma_train = 4.75923e-05 
+delta_sigma_test = 0.000101048 
+E_train = 5.15095e-05 
+E_test = 0.000247988 
+delta_E_train = 1.4904e-06 
+delta_E_test = 4.68663e-06 
+sigma_max_train = 0.108027 
+sigma_max_test = 0.147368 

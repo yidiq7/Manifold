@@ -1,0 +1,25 @@
+[Results] 
+model_name = k2 
+seed = 1234 
+n_pairs = 2000 
+n_points = 10000 
+batch_size = 10000 
+function = f1 
+psi = -1.0 
+phi = 2.4 
+k = 2 
+n_parameters = 225 
+loss function = weighted_MSE 
+
+n_epochs = 666 
+train_time = 47.4331 
+sigma_train = 0.0868817 
+sigma_test = 0.106212 
+delta_sigma_train = 0.000691144 
+delta_sigma_test = 0.000855253 
+E_train = 0.0123252 
+E_test = 0.0185955 
+delta_E_train = 0.000192874 
+delta_E_test = 0.000361423 
+sigma_max_train = 0.446969 
+sigma_max_test = 0.60188 
