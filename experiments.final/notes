@@ -61,7 +61,12 @@ script66 - redo the script61's which obviously did not converge with a different
 _test version is with new script
 script68 - try regularizations - no interesting result
 script69 - redo L-BFGS from 63 with different numbers of points
+data_nn5 - 8000 point results
+data_nn6 - 16000 point results
+data_nn7 - 1000 point results
 
 script70 - do FS k=4 using L-BFGS.
+
+script71 - try k=8 genutri version.
 
 
