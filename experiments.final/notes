@@ -69,4 +69,4 @@ script70 - do FS k=4 using L-BFGS.
 
 script71 - try k=8 genutri version.
 
-
+script72 - like 63 with new Adam hyperparameters

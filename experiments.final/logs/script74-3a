@@ -1,0 +1,27 @@
++ RUN=3
++ export CUDA_VISIBLE_DEVICES=3
++ CUDA_VISIBLE_DEVICES=3
++ LAYERS=300_300_300_1
++ case $RUN in
++ PSI=2
++ OPTIONS='			 --optimizer adam 				 --n_pairs 50000 				 --batch_size 5000 				 --max_epochs 30 				 --learning_rate 0.001 				 --decay_rate 0.8 				 --loss_func weighted_MAPE 
+'
+++ pwd
++ OUT=/home/mrdouglas/Manifold/experiments.final/output74
+++ pwd
++ OUT2=/home/mrdouglas/Manifold/experiments.final/output75
++ for fn in f1
++ case $fn in
++ OPT=--phi
++ for psi in $PSI
++ for layers in $LAYERS
++ MODEL=
++ for phi in 0 0.4 0.8 1.2 1.6 2 2.4 2.8 3
++ OUTDIR=/home/mrdouglas/Manifold/experiments.final/output74/f1_psi2_phi0
++ OUTDIR2=/home/mrdouglas/Manifold/experiments.final/output75/f1_psi2_phi0
++ mkdir -p /home/mrdouglas/Manifold/experiments.final/output74/f1_psi2_phi0 /home/mrdouglas/Manifold/experiments.final/output75/f1_psi2_phi0
++ date
+Sat Oct 31 16:26:04 EDT 2020
++ '[' -r /home/mrdouglas/Manifold/experiments.final/output74/f1_psi2_phi0/300_300_300_1 ']'
++ python biholoNN_train.py --seed 1234 --function f1 --psi 2 --phi 0 --layers 300_300_300_1 --save_dir /home/mrdouglas/Manifold/experiments.final/output74/f1_psi2_phi0/ --save_name 300_300_300_1 --optimizer adam --n_pairs 50000 --batch_size 5000 --max_epochs 30 --learning_rate 0.001 --decay_rate 0.8 --loss_func weighted_MAPE
+Processing model: 300_300_300_1
