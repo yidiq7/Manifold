@@ -39,6 +39,7 @@ parser.add_argument('--loss_func')
 parser.add_argument('--clip_threshold', type=float)
 parser.add_argument('--optimizer', default='Adam')
 parser.add_argument('--learning_rate', type=float, default=0.001)
+parser.add_argument('--decay_rate', type=float, default=1.0)
 
 args = parser.parse_args()
 print("Processing model: " + args.save_name)
@@ -175,7 +176,12 @@ else:
     if args.optimizer == 'SGD':
         optimizer = tf.keras.optimizers.SGD(args.learning_rate)
     else:
-        optimizer = tf.keras.optimizers.Adam(learning_rate=args.learning_rate)
+        lr_schedule = tf.keras.optimizers.schedules.ExponentialDecay(
+            initial_learning_rate=args.learning_rate,
+            decay_steps = HS.n_points/batch_size,
+            decay_rate = args.decay_rate)
+        optimizer = tf.keras.optimizers.Adam(learning_rate=lr_schedule)
+        #optimizer = tf.keras.optimizers.Adam(learning_rate=args.learning_rate)
 
     train_log_dir = save_dir + '/logs/' + save_name + '/train'
     test_log_dir = save_dir + '/logs/' + save_name + '/test'
@@ -200,7 +206,7 @@ else:
 
             #if step % 500 == 0:
             #    print("step %d: loss = %.4f" % (step, loss))
-        if epoch % 10 == 0:
+        if epoch % 5 == 0:
             sigma_max_train = cal_max_error(train_set) 
             sigma_max_test = cal_max_error(test_set) 
 
