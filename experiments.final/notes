@@ -69,4 +69,6 @@ script70 - do FS k=4 using L-BFGS.
 
 script71 - try k=8 genutri version.
 
-script72 - like 63 with new Adam hyperparameters
+script72 - like 63 with new Adam hyperparameters 30 epochs
+script74 - similar using pretrained models
+script78 - similar using pretrained models and 200 epochs

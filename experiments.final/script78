@@ -1,0 +1,69 @@
+#!/bin/bash
+set -x
+RUN=$1
+export CUDA_VISIBLE_DEVICES=$RUN
+LAYERS="300_300_300_1" # 500_500_500_500_1"
+case $RUN in
+1) PSI="-2 -1 1 3" ;;
+2) PSI="2" ;;
+3) PSI="0" ;;
+*) echo "Unknown run $RUN" ; exit 1 ;;
+esac
+OPTIONS="			 --optimizer adam \
+				 --n_pairs 50000 \
+				 --batch_size 5000 \
+				 --max_epochs 200 \
+				 --learning_rate 0.001 \
+				 --decay_rate 0.98 \
+				 --loss_func "weighted_MAPE" 
+"
+
+OUT=`pwd`/experiments.final/output78
+OUT2=`pwd`/experiments.final/output79
+
+for fn in f1 ; do
+case $fn in
+f1) OPT=--phi ;;
+f2) OPT=--alpha ;;
+esac
+    for psi in $PSI ; do
+	for layers in $LAYERS ; do
+	    MODEL="--load_model experiments.yidi/biholo/f0_psi0.5/$layers"
+    	    for phi in 0 0.4 0.8 1.2 1.6 2 2.4 2.8 3 ; do
+	        OUTDIR=$OUT/${fn}_psi${psi}_phi${phi}
+	        OUTDIR2=$OUT2/${fn}_psi${psi}_phi${phi}
+	        mkdir -p $OUTDIR $OUTDIR2
+		date
+		if [ -r $OUTDIR/$layers ]
+		then echo "Already computed model for $OUTDIR/$layers"
+		else
+		        python biholoNN_train.py --seed 1234 $MODEL \
+		          	 --function $fn \
+				   --psi $psi \
+                                     $OPT $phi \
+				 --layers $layers \
+				 --save_dir $OUTDIR/ \
+ 				--save_name $layers \
+				$OPTIONS
+		fi
+		if [ -r $OUTDIR2/$layers ]
+		then echo "Already computed model for $OUTDIR2/$layers"
+		else	python biholoNN_train.py --seed 1234 \
+				 --n_pairs 16000 \
+				 --load_model $OUTDIR/$layers \
+				 --optimizer lbfgs \
+		          	 --function $fn \
+				   --psi $psi \
+                                     $OPT $phi \
+				 --layers $layers \
+				 --save_dir $OUTDIR2/ \
+ 				--save_name $layers \
+				 --max_epochs 2000 \
+				 --loss_func "weighted_MSE" 
+	    	fi
+		[ -r STOP.`basename $0` ] && exit 1
+#                MODEL="--load_model $OUTDIR/$layers "
+            done
+	done
+    done
+done

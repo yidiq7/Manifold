@@ -4144,3 +4144,30 @@ Iter: 1946 loss: 0.00185430539
 Iter: 1947 loss: 0.00185425126
 Iter: 1948 loss: 0.00185412122
 Iter: 1949 loss: 0.00185554475
+Iter: 1950 loss: 0.0018541069
+Iter: 1951 loss: 0.00185389456
+Iter: 1952 loss: 0.00185549981
+Iter: 1953 loss: 0.00185387686
+Iter: 1954 loss: 0.00185370329
+Iter: 1955 loss: 0.00185365009
+Iter: 1956 loss: 0.00185354543
+Iter: 1957 loss: 0.00185336685
+Iter: 1958 loss: 0.00185325008
+Iter: 1959 loss: 0.00185318023
+Iter: 1960 loss: 0.00185291166
+Iter: 1961 loss: 0.00185354846
+Iter: 1962 loss: 0.0018528162
+Iter: 1963 loss: 0.0018526786
+Iter: 1964 loss: 0.00185311912
+Iter: 1965 loss: 0.00185263949
+/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/framework/indexed_slices.py:433: UserWarning: Converting sparse IndexedSlices to a dense Tensor of unknown shape. This may consume a large amount of memory.
+  "Converting sparse IndexedSlices to a dense Tensor of unknown shape. "
+WARNING:tensorflow:From /home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/training/tracking/tracking.py:111: Model.state_updates (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+WARNING:tensorflow:From /home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/training/tracking/tracking.py:111: Layer.updates (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+++ basename experiments.final/script74
++ '[' -r STOP.script74 ']'
++ exit 1
