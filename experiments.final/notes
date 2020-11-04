@@ -57,6 +57,8 @@ Tried 1000 and 100000 but was much too slow.
 data_nn3 - Adam results
 data_nn4 - L-BFGS results
 
+script67 - completion of 63
+
 script66 - redo the script61's which obviously did not converge with a different seed
 _test version is with new script
 script68 - try regularizations - no interesting result
