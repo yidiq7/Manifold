@@ -1,0 +1,22 @@
+#!/bin/bash
+layers="300_300_300_1"
+for psi in 0 2; do
+    for phi in 0 0.4 0.8 1.2 1.6 2 2.8; do
+        python biholoNN_train.py --seed 3456 \
+                                 --n_pairs 10000 \
+                                 --batch_size 5000 \
+                                 --function "f1" \
+                                 --psi $psi \
+                                 --phi $phi \
+                                            \
+                                 --layers $layers \
+                                 --load_model "experiments.final/output81/f1_psi${psi}_phi${phi}/$layers/" \
+                                 --save_dir "experiments.final/output82/f1_psi${psi}_phi${phi}/" \
+                                 --save_name $layers \
+                                 --optimizer 'Adam'\
+                                 --learning_rate 0.001 \
+                                 --max_epochs 0\
+                                 --loss_func "weighted_MSE" 
+    done
+done
+

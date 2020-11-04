@@ -75,4 +75,4 @@ script72 - like 63 with new Adam hyperparameters 30 epochs
 script74 - similar using pretrained models
 script78 - similar using pretrained models and 200 epochs
 script80 - like 78 with MSE in Adam
-
+script82 - Validation of the lbfgs in output81
