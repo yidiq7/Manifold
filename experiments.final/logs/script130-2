@@ -1,0 +1,272 @@
++ RUN=2
++ export CUDA_VISIBLE_DEVICES=2
++ CUDA_VISIBLE_DEVICES=2
++ LAYERS=300_300_300_1
++ case $RUN in
++ PSI='0 1'
++ OPTIONS='				 --optimizer adam 				 --n_pairs 20000 				 --batch_size 5000 				 --max_epochs 400 				 --loss_func weighted_MAPE 
+'
+++ pwd
++ OUT=/home/mrdouglas/Manifold/experiments.final/output130
+++ pwd
++ OUT2=/home/mrdouglas/Manifold/experiments.final/output131
++ for fn in f1 f2
++ case $fn in
++ OPT=--phi
++ for layers in $LAYERS
++ for psi in $PSI
++ MODEL=
++ for phi in 0 0.4 0.8 1.2 1.6 2 2.4 2.8 3
++ OUTDIR=/home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi0
++ OUTDIR2=/home/mrdouglas/Manifold/experiments.final/output131/f1_psi0_phi0
++ mkdir -p /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi0 /home/mrdouglas/Manifold/experiments.final/output131/f1_psi0_phi0
++ date
+Sat Nov  7 16:15:19 EST 2020
++ '[' -r /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi0/300_300_300_1 ']'
++ python biholoNN_train64.py --seed 1234 --function f1 --psi 0 --phi 0 --layers 300_300_300_1 --save_dir /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi0/ --save_name 300_300_300_1 --optimizer adam --n_pairs 20000 --batch_size 5000 --max_epochs 400 --loss_func weighted_MAPE
+Processing model: 300_300_300_1
+Traceback (most recent call last):
+  File "biholoNN_train64.py", line 67, in <module>
+    train_set = generate_dataset(HS)
+  File "/home/mrdouglas/Manifold/biholoNN.py", line 216, in generate_dataset
+    new_dataset = dataset_on_patch(subpatch)
+  File "/home/mrdouglas/Manifold/biholoNN.py", line 240, in dataset_on_patch
+    restriction = tf.matmul(patch.r_tf, trans_tensor) 
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/util/dispatch.py", line 201, in wrapper
+    return target(*args, **kwargs)
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/ops/math_ops.py", line 3216, in matmul
+    a, b, adj_x=adjoint_a, adj_y=adjoint_b, name=name)
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/ops/gen_math_ops.py", line 1546, in batch_mat_mul_v2
+    _ops.raise_from_not_ok_status(e, name)
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 6843, in raise_from_not_ok_status
+    six.raise_from(core._status_to_exception(e.code, message), None)
+  File "<string>", line 3, in raise_from
+tensorflow.python.framework.errors_impl.InvalidArgumentError: cannot compute BatchMatMulV2 as input #1(zero-based) was expected to be a complex128 tensor but is a complex64 tensor [Op:BatchMatMulV2]
++ '[' -r /home/mrdouglas/Manifold/experiments.final/output131/f1_psi0_phi0/300_300_300_1 ']'
++ python biholoNN_train64.py --seed 1234 --n_pairs 8000 --load_model /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi0/300_300_300_1 --optimizer lbfgs --function f1 --psi 0 --phi 0 --layers 300_300_300_1 --save_dir /home/mrdouglas/Manifold/experiments.final/output131/f1_psi0_phi0/ --save_name 300_300_300_1 --max_epochs 2000 --loss_func weighted_MSE
+Processing model: 300_300_300_1
+Traceback (most recent call last):
+  File "biholoNN_train64.py", line 67, in <module>
+    train_set = generate_dataset(HS)
+  File "/home/mrdouglas/Manifold/biholoNN.py", line 216, in generate_dataset
+    new_dataset = dataset_on_patch(subpatch)
+  File "/home/mrdouglas/Manifold/biholoNN.py", line 240, in dataset_on_patch
+    restriction = tf.matmul(patch.r_tf, trans_tensor) 
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/util/dispatch.py", line 201, in wrapper
+    return target(*args, **kwargs)
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/ops/math_ops.py", line 3216, in matmul
+    a, b, adj_x=adjoint_a, adj_y=adjoint_b, name=name)
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/ops/gen_math_ops.py", line 1546, in batch_mat_mul_v2
+    _ops.raise_from_not_ok_status(e, name)
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 6843, in raise_from_not_ok_status
+    six.raise_from(core._status_to_exception(e.code, message), None)
+  File "<string>", line 3, in raise_from
+tensorflow.python.framework.errors_impl.InvalidArgumentError: cannot compute BatchMatMulV2 as input #1(zero-based) was expected to be a complex128 tensor but is a complex64 tensor [Op:BatchMatMulV2]
+++ basename experiments.final/script130
++ '[' -r STOP.script130 ']'
++ MODEL='--load_model /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi0/300_300_300_1'
++ for phi in 0 0.4 0.8 1.2 1.6 2 2.4 2.8 3
++ OUTDIR=/home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi0.4
++ OUTDIR2=/home/mrdouglas/Manifold/experiments.final/output131/f1_psi0_phi0.4
++ mkdir -p /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi0.4 /home/mrdouglas/Manifold/experiments.final/output131/f1_psi0_phi0.4
++ date
+Sat Nov  7 16:16:04 EST 2020
++ '[' -r /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi0.4/300_300_300_1 ']'
++ python biholoNN_train64.py --seed 1234 --load_model /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi0/300_300_300_1 --function f1 --psi 0 --phi 0.4 --layers 300_300_300_1 --save_dir /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi0.4/ --save_name 300_300_300_1 --optimizer adam --n_pairs 20000 --batch_size 5000 --max_epochs 400 --loss_func weighted_MAPE
+Processing model: 300_300_300_1
+Traceback (most recent call last):
+  File "biholoNN_train64.py", line 67, in <module>
+    train_set = generate_dataset(HS)
+  File "/home/mrdouglas/Manifold/biholoNN.py", line 216, in generate_dataset
+    new_dataset = dataset_on_patch(subpatch)
+  File "/home/mrdouglas/Manifold/biholoNN.py", line 240, in dataset_on_patch
+    restriction = tf.matmul(patch.r_tf, trans_tensor) 
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/util/dispatch.py", line 201, in wrapper
+    return target(*args, **kwargs)
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/ops/math_ops.py", line 3216, in matmul
+    a, b, adj_x=adjoint_a, adj_y=adjoint_b, name=name)
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/ops/gen_math_ops.py", line 1546, in batch_mat_mul_v2
+    _ops.raise_from_not_ok_status(e, name)
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 6843, in raise_from_not_ok_status
+    six.raise_from(core._status_to_exception(e.code, message), None)
+  File "<string>", line 3, in raise_from
+tensorflow.python.framework.errors_impl.InvalidArgumentError: cannot compute BatchMatMulV2 as input #1(zero-based) was expected to be a complex128 tensor but is a complex64 tensor [Op:BatchMatMulV2]
++ '[' -r /home/mrdouglas/Manifold/experiments.final/output131/f1_psi0_phi0.4/300_300_300_1 ']'
++ python biholoNN_train64.py --seed 1234 --n_pairs 8000 --load_model /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi0.4/300_300_300_1 --optimizer lbfgs --function f1 --psi 0 --phi 0.4 --layers 300_300_300_1 --save_dir /home/mrdouglas/Manifold/experiments.final/output131/f1_psi0_phi0.4/ --save_name 300_300_300_1 --max_epochs 2000 --loss_func weighted_MSE
+Processing model: 300_300_300_1
+Traceback (most recent call last):
+  File "biholoNN_train64.py", line 67, in <module>
+    train_set = generate_dataset(HS)
+  File "/home/mrdouglas/Manifold/biholoNN.py", line 216, in generate_dataset
+    new_dataset = dataset_on_patch(subpatch)
+  File "/home/mrdouglas/Manifold/biholoNN.py", line 240, in dataset_on_patch
+    restriction = tf.matmul(patch.r_tf, trans_tensor) 
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/util/dispatch.py", line 201, in wrapper
+    return target(*args, **kwargs)
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/ops/math_ops.py", line 3216, in matmul
+    a, b, adj_x=adjoint_a, adj_y=adjoint_b, name=name)
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/ops/gen_math_ops.py", line 1546, in batch_mat_mul_v2
+    _ops.raise_from_not_ok_status(e, name)
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 6843, in raise_from_not_ok_status
+    six.raise_from(core._status_to_exception(e.code, message), None)
+  File "<string>", line 3, in raise_from
+tensorflow.python.framework.errors_impl.InvalidArgumentError: cannot compute BatchMatMulV2 as input #1(zero-based) was expected to be a complex128 tensor but is a complex64 tensor [Op:BatchMatMulV2]
+++ basename experiments.final/script130
++ '[' -r STOP.script130 ']'
++ MODEL='--load_model /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi0.4/300_300_300_1'
++ for phi in 0 0.4 0.8 1.2 1.6 2 2.4 2.8 3
++ OUTDIR=/home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi0.8
++ OUTDIR2=/home/mrdouglas/Manifold/experiments.final/output131/f1_psi0_phi0.8
++ mkdir -p /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi0.8 /home/mrdouglas/Manifold/experiments.final/output131/f1_psi0_phi0.8
++ date
+Sat Nov  7 16:16:48 EST 2020
++ '[' -r /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi0.8/300_300_300_1 ']'
++ python biholoNN_train64.py --seed 1234 --load_model /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi0.4/300_300_300_1 --function f1 --psi 0 --phi 0.8 --layers 300_300_300_1 --save_dir /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi0.8/ --save_name 300_300_300_1 --optimizer adam --n_pairs 20000 --batch_size 5000 --max_epochs 400 --loss_func weighted_MAPE
+Processing model: 300_300_300_1
+Traceback (most recent call last):
+  File "biholoNN_train64.py", line 67, in <module>
+    train_set = generate_dataset(HS)
+  File "/home/mrdouglas/Manifold/biholoNN.py", line 216, in generate_dataset
+    new_dataset = dataset_on_patch(subpatch)
+  File "/home/mrdouglas/Manifold/biholoNN.py", line 240, in dataset_on_patch
+    restriction = tf.matmul(patch.r_tf, trans_tensor) 
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/util/dispatch.py", line 201, in wrapper
+    return target(*args, **kwargs)
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/ops/math_ops.py", line 3216, in matmul
+    a, b, adj_x=adjoint_a, adj_y=adjoint_b, name=name)
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/ops/gen_math_ops.py", line 1546, in batch_mat_mul_v2
+    _ops.raise_from_not_ok_status(e, name)
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 6843, in raise_from_not_ok_status
+    six.raise_from(core._status_to_exception(e.code, message), None)
+  File "<string>", line 3, in raise_from
+tensorflow.python.framework.errors_impl.InvalidArgumentError: cannot compute BatchMatMulV2 as input #1(zero-based) was expected to be a complex128 tensor but is a complex64 tensor [Op:BatchMatMulV2]
++ '[' -r /home/mrdouglas/Manifold/experiments.final/output131/f1_psi0_phi0.8/300_300_300_1 ']'
++ python biholoNN_train64.py --seed 1234 --n_pairs 8000 --load_model /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi0.8/300_300_300_1 --optimizer lbfgs --function f1 --psi 0 --phi 0.8 --layers 300_300_300_1 --save_dir /home/mrdouglas/Manifold/experiments.final/output131/f1_psi0_phi0.8/ --save_name 300_300_300_1 --max_epochs 2000 --loss_func weighted_MSE
+Processing model: 300_300_300_1
+Traceback (most recent call last):
+  File "biholoNN_train64.py", line 67, in <module>
+    train_set = generate_dataset(HS)
+  File "/home/mrdouglas/Manifold/biholoNN.py", line 216, in generate_dataset
+    new_dataset = dataset_on_patch(subpatch)
+  File "/home/mrdouglas/Manifold/biholoNN.py", line 240, in dataset_on_patch
+    restriction = tf.matmul(patch.r_tf, trans_tensor) 
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/util/dispatch.py", line 201, in wrapper
+    return target(*args, **kwargs)
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/ops/math_ops.py", line 3216, in matmul
+    a, b, adj_x=adjoint_a, adj_y=adjoint_b, name=name)
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/ops/gen_math_ops.py", line 1546, in batch_mat_mul_v2
+    _ops.raise_from_not_ok_status(e, name)
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 6843, in raise_from_not_ok_status
+    six.raise_from(core._status_to_exception(e.code, message), None)
+  File "<string>", line 3, in raise_from
+tensorflow.python.framework.errors_impl.InvalidArgumentError: cannot compute BatchMatMulV2 as input #1(zero-based) was expected to be a complex128 tensor but is a complex64 tensor [Op:BatchMatMulV2]
+++ basename experiments.final/script130
++ '[' -r STOP.script130 ']'
++ MODEL='--load_model /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi0.8/300_300_300_1'
++ for phi in 0 0.4 0.8 1.2 1.6 2 2.4 2.8 3
++ OUTDIR=/home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi1.2
++ OUTDIR2=/home/mrdouglas/Manifold/experiments.final/output131/f1_psi0_phi1.2
++ mkdir -p /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi1.2 /home/mrdouglas/Manifold/experiments.final/output131/f1_psi0_phi1.2
++ date
+Sat Nov  7 16:17:33 EST 2020
++ '[' -r /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi1.2/300_300_300_1 ']'
++ python biholoNN_train64.py --seed 1234 --load_model /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi0.8/300_300_300_1 --function f1 --psi 0 --phi 1.2 --layers 300_300_300_1 --save_dir /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi1.2/ --save_name 300_300_300_1 --optimizer adam --n_pairs 20000 --batch_size 5000 --max_epochs 400 --loss_func weighted_MAPE
+Processing model: 300_300_300_1
+Traceback (most recent call last):
+  File "biholoNN_train64.py", line 67, in <module>
+    train_set = generate_dataset(HS)
+  File "/home/mrdouglas/Manifold/biholoNN.py", line 216, in generate_dataset
+    new_dataset = dataset_on_patch(subpatch)
+  File "/home/mrdouglas/Manifold/biholoNN.py", line 240, in dataset_on_patch
+    restriction = tf.matmul(patch.r_tf, trans_tensor) 
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/util/dispatch.py", line 201, in wrapper
+    return target(*args, **kwargs)
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/ops/math_ops.py", line 3216, in matmul
+    a, b, adj_x=adjoint_a, adj_y=adjoint_b, name=name)
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/ops/gen_math_ops.py", line 1546, in batch_mat_mul_v2
+    _ops.raise_from_not_ok_status(e, name)
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 6843, in raise_from_not_ok_status
+    six.raise_from(core._status_to_exception(e.code, message), None)
+  File "<string>", line 3, in raise_from
+tensorflow.python.framework.errors_impl.InvalidArgumentError: cannot compute BatchMatMulV2 as input #1(zero-based) was expected to be a complex128 tensor but is a complex64 tensor [Op:BatchMatMulV2]
++ '[' -r /home/mrdouglas/Manifold/experiments.final/output131/f1_psi0_phi1.2/300_300_300_1 ']'
++ python biholoNN_train64.py --seed 1234 --n_pairs 8000 --load_model /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi1.2/300_300_300_1 --optimizer lbfgs --function f1 --psi 0 --phi 1.2 --layers 300_300_300_1 --save_dir /home/mrdouglas/Manifold/experiments.final/output131/f1_psi0_phi1.2/ --save_name 300_300_300_1 --max_epochs 2000 --loss_func weighted_MSE
+Processing model: 300_300_300_1
+Traceback (most recent call last):
+  File "biholoNN_train64.py", line 67, in <module>
+    train_set = generate_dataset(HS)
+  File "/home/mrdouglas/Manifold/biholoNN.py", line 216, in generate_dataset
+    new_dataset = dataset_on_patch(subpatch)
+  File "/home/mrdouglas/Manifold/biholoNN.py", line 240, in dataset_on_patch
+    restriction = tf.matmul(patch.r_tf, trans_tensor) 
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/util/dispatch.py", line 201, in wrapper
+    return target(*args, **kwargs)
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/ops/math_ops.py", line 3216, in matmul
+    a, b, adj_x=adjoint_a, adj_y=adjoint_b, name=name)
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/ops/gen_math_ops.py", line 1546, in batch_mat_mul_v2
+    _ops.raise_from_not_ok_status(e, name)
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 6843, in raise_from_not_ok_status
+    six.raise_from(core._status_to_exception(e.code, message), None)
+  File "<string>", line 3, in raise_from
+tensorflow.python.framework.errors_impl.InvalidArgumentError: cannot compute BatchMatMulV2 as input #1(zero-based) was expected to be a complex128 tensor but is a complex64 tensor [Op:BatchMatMulV2]
+++ basename experiments.final/script130
++ '[' -r STOP.script130 ']'
++ MODEL='--load_model /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi1.2/300_300_300_1'
++ for phi in 0 0.4 0.8 1.2 1.6 2 2.4 2.8 3
++ OUTDIR=/home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi1.6
++ OUTDIR2=/home/mrdouglas/Manifold/experiments.final/output131/f1_psi0_phi1.6
++ mkdir -p /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi1.6 /home/mrdouglas/Manifold/experiments.final/output131/f1_psi0_phi1.6
++ date
+Sat Nov  7 16:18:16 EST 2020
++ '[' -r /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi1.6/300_300_300_1 ']'
++ python biholoNN_train64.py --seed 1234 --load_model /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi1.2/300_300_300_1 --function f1 --psi 0 --phi 1.6 --layers 300_300_300_1 --save_dir /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi1.6/ --save_name 300_300_300_1 --optimizer adam --n_pairs 20000 --batch_size 5000 --max_epochs 400 --loss_func weighted_MAPE
+Processing model: 300_300_300_1
+Traceback (most recent call last):
+  File "biholoNN_train64.py", line 67, in <module>
+    train_set = generate_dataset(HS)
+  File "/home/mrdouglas/Manifold/biholoNN.py", line 216, in generate_dataset
+    new_dataset = dataset_on_patch(subpatch)
+  File "/home/mrdouglas/Manifold/biholoNN.py", line 240, in dataset_on_patch
+    restriction = tf.matmul(patch.r_tf, trans_tensor) 
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/util/dispatch.py", line 201, in wrapper
+    return target(*args, **kwargs)
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/ops/math_ops.py", line 3216, in matmul
+    a, b, adj_x=adjoint_a, adj_y=adjoint_b, name=name)
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/ops/gen_math_ops.py", line 1546, in batch_mat_mul_v2
+    _ops.raise_from_not_ok_status(e, name)
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 6843, in raise_from_not_ok_status
+    six.raise_from(core._status_to_exception(e.code, message), None)
+  File "<string>", line 3, in raise_from
+tensorflow.python.framework.errors_impl.InvalidArgumentError: cannot compute BatchMatMulV2 as input #1(zero-based) was expected to be a complex128 tensor but is a complex64 tensor [Op:BatchMatMulV2]
++ '[' -r /home/mrdouglas/Manifold/experiments.final/output131/f1_psi0_phi1.6/300_300_300_1 ']'
++ python biholoNN_train64.py --seed 1234 --n_pairs 8000 --load_model /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi1.6/300_300_300_1 --optimizer lbfgs --function f1 --psi 0 --phi 1.6 --layers 300_300_300_1 --save_dir /home/mrdouglas/Manifold/experiments.final/output131/f1_psi0_phi1.6/ --save_name 300_300_300_1 --max_epochs 2000 --loss_func weighted_MSE
+Processing model: 300_300_300_1
+Traceback (most recent call last):
+  File "biholoNN_train64.py", line 67, in <module>
+    train_set = generate_dataset(HS)
+  File "/home/mrdouglas/Manifold/biholoNN.py", line 216, in generate_dataset
+    new_dataset = dataset_on_patch(subpatch)
+  File "/home/mrdouglas/Manifold/biholoNN.py", line 240, in dataset_on_patch
+    restriction = tf.matmul(patch.r_tf, trans_tensor) 
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/util/dispatch.py", line 201, in wrapper
+    return target(*args, **kwargs)
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/ops/math_ops.py", line 3216, in matmul
+    a, b, adj_x=adjoint_a, adj_y=adjoint_b, name=name)
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/ops/gen_math_ops.py", line 1546, in batch_mat_mul_v2
+    _ops.raise_from_not_ok_status(e, name)
+  File "/home/mrdouglas/Manifold/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 6843, in raise_from_not_ok_status
+    six.raise_from(core._status_to_exception(e.code, message), None)
+  File "<string>", line 3, in raise_from
+tensorflow.python.framework.errors_impl.InvalidArgumentError: cannot compute BatchMatMulV2 as input #1(zero-based) was expected to be a complex128 tensor but is a complex64 tensor [Op:BatchMatMulV2]
+++ basename experiments.final/script130
++ '[' -r STOP.script130 ']'
++ MODEL='--load_model /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi1.6/300_300_300_1'
++ for phi in 0 0.4 0.8 1.2 1.6 2 2.4 2.8 3
++ OUTDIR=/home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi2
++ OUTDIR2=/home/mrdouglas/Manifold/experiments.final/output131/f1_psi0_phi2
++ mkdir -p /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi2 /home/mrdouglas/Manifold/experiments.final/output131/f1_psi0_phi2
++ date
+Sat Nov  7 16:19:00 EST 2020
++ '[' -r /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi2/300_300_300_1 ']'
++ python biholoNN_train64.py --seed 1234 --load_model /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi1.6/300_300_300_1 --function f1 --psi 0 --phi 2 --layers 300_300_300_1 --save_dir /home/mrdouglas/Manifold/experiments.final/output130/f1_psi0_phi2/ --save_name 300_300_300_1 --optimizer adam --n_pairs 20000 --batch_size 5000 --max_epochs 400 --loss_func weighted_MAPE
+Processing model: 300_300_300_1
