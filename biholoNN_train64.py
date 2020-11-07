@@ -9,9 +9,11 @@ import numpy as np
 import time
 import sys
 import math
-from models import *
+from models64 import *
 import argparse
 import tensorflow_probability as tfp
+
+tf.keras.backend.set_floatx('float64')
 
 z0, z1, z2, z3, z4 = sp.symbols('z0, z1, z2, z3, z4')
 Z = [z0,z1,z2,z3,z4]
