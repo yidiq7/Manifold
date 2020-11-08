@@ -78,6 +78,7 @@ script78 - similar using pretrained models and 200 epochs
 script80 - like 78 with MSE in Adam
 script82 - Validation of the lbfgs in output81
 
-script120 - like 63 with a 100_100_100_100_1 network
+script120 - like 63 with a 300_100_100_100_1 network
+script122 - continue 120 with 800 epochs
 
 script130 - like 63 with 64 bits
