@@ -1,0 +1,25 @@
+[Results] 
+model_name = 300_300_300_1 
+seed = 4242 
+n_pairs = 2000 
+n_points = 10000 
+batch_size = 10000 
+function = f1 
+psi = -1.0 
+phi = 3.0 
+k = 8 
+n_parameters = 187800 
+loss function = weighted_MAPE 
+
+n_epochs = 0 
+train_time = 0.000850439 
+sigma_train = 0.00308539 
+sigma_test = 0.0029986 
+delta_sigma_train = 3.70902e-05 
+delta_sigma_test = 3.22575e-05 
+E_train = 2.32765e-05 
+E_test = 1.9397e-05 
+delta_E_train = 8.12566e-07 
+delta_E_test = 4.87346e-07 
+sigma_max_train = 0.0344344 
+sigma_max_test = 0.0232064 
