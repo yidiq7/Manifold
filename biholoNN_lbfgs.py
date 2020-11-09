@@ -66,6 +66,7 @@ def function_factory(model, loss, points, Omega_Omegabar, mass, restriction):
         params = tf.dynamic_partition(params_1d, part, n_tensors)
         for i, (shape, param) in enumerate(zip(shapes, params)):
             model.trainable_variables[i].assign(tf.reshape(param, shape))
+            tf.print(model.trainable_variables[i])
 
     @tf.function
     def volume_form(x, Omega_Omegabar, mass, restriction):

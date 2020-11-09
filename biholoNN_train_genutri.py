@@ -166,6 +166,7 @@ start_time = time.time()
 if args.optimizer == 'lbfgs':
     # iter+1 everytime f is evoked, which will also be invoked when calculationg the hessian, etc
     # So the true max_epochs will be 3 times user's input
+    print('lbfgs')
     max_epochs = int(max_epochs/3)
     for step, (points, omega_omegabar, mass, restriction) in enumerate(train_set):
         train_func = function_factory(model, loss_func, points, omega_omegabar, mass, restriction)

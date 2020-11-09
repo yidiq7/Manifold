@@ -1,5 +1,5 @@
 import tensorflow as tf
-from biholoNN import *
+from biholoNN_genutri import *
 
 class zerolayer(tf.keras.Model):
 
@@ -161,6 +161,7 @@ class OuterProductNN_k8(tf.keras.Model):
         self.layer1 = WidthOneDense(495**2, 1)
 
     def call(self, inputs):
+        #with tf.device('/cpu:0'):
         x = self.biholomorphic_k8(inputs)
         x = self.layer1(x)
         x = tf.math.log(x)
