@@ -203,10 +203,10 @@ else:
                 if clip_threshold is not None:
                     grads = [tf.clip_by_value(grad, -clip_threshold, clip_threshold) for grad in grads]
             optimizer.apply_gradients(zip(grads, model.trainable_weights))
-
+            #tf.print(model.tranable_weights) 
             #if step % 500 == 0:
             #    print("step %d: loss = %.4f" % (step, loss))
-        if epoch % 5 == 0:
+        if epoch % 50 == 0:
             sigma_max_train = cal_max_error(train_set) 
             sigma_max_test = cal_max_error(test_set) 
 

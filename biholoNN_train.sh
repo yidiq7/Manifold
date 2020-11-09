@@ -1,59 +1,24 @@
 #!/bin/bash
-for psi in -1 0 1; do
-    for layers in "100_100_1" "70_70_70_1" ; do
-        python biholoNN_train.py --seed 1234 \
-                                 --n_pairs 1000 \
-                                 --batch_size 5000 \
-                                 --function "f0" \
-                                 --psi $psi \
-                                            \
-                                 --layers $layers \
-																 --load_model "experiments.yidi/biholo/f0_psi0.5/$layers" \
-                                 --save_dir "experiments.yidi/biholo/f0_psi$psi/" \
-                                 --save_name $layers \
-                                                     \
-                                 --max_epochs 2 \
-                                 --loss_func "weighted_MAPE" 
+for psi in  -2 -1 0 1 2 3 ; do
+    for phi in 0 0.4 0.8 1.2 1.6 2 2.4 2.8 3 ; do
+        for layers in "" "300_300_300_1"; do
+            for np in 4000; do
+                python biholoNN_train.py --seed 4242 \
+                                         --n_pairs 2000 \
+                                         --batch_size 10000 \
+                                         --function "f1" \
+                                         --psi $psi \
+                                         --phi $phi \
+                                         --layers $layers \
+                                         --load_model "experiments.final/output62/f1_psi${psi}_phi${phi}/$layers/" \
+                                         --save_dir "experiments.final/output69v/f1_psi${psi}_phi${phi}_${np}/" \
+                                         --save_name $layers \
+                                         --optimizer 'Adam'\
+                                         --learning_rate 0.001 \
+                                         --max_epochs 0\
+                                         --loss_func "weighted_MAPE" 
+            done
+        done
     done
 done
 
-for psi in -1 0 1; do
-    for phi in -1 1; do
-        for layers in "50_50_1" "70_70_70_1" ; do
-				    python biholoNN_train.py --seed 1234 \
-					    											 --n_pairs 100000 \
-						            						 --batch_size 5000 \
-												          	 --function "f1" \
-																	   --psi $psi \
-                                     --phi $phi \
-                                                \
-																		 --layers $layers \
-																		 --load_model "experiments.yidi/biholo/f0_psi0.5/$layers" \
-																		 --save_dir "experiments.yidi/biholo/f1_psi${psi}_phi${phi}/" \
-																		 --save_name $layers \
-																		                     \
-																		 --max_epochs 500 \
-																		 --loss_func "weighted_MAPE" 
-        done
-    done
-done
-for psi in -1 0 1; do
-    for alpha in -1 1; do
-        for layers in "50_50_1" "70_70_70_1" ; do
-				    python biholoNN_train.py --seed 1234 \
-					    											 --n_pairs 100000 \
-						            						 --batch_size 5000 \
-												          	 --function "f2" \
-																	   --psi $psi \
-                                     --alpha $alpha \
-                                                    \
-																		 --layers $layers \
-																		 --load_model "experiments.yidi/biholo/f0_psi0.5/$layers" \
-																		 --save_dir "experiments.yidi/biholo/f2_psi${psi}_alpha${alpha}/" \
-																		 --save_name $layers \
-																		                     \
-																		 --max_epochs 500 \
-																		 --loss_func "weighted_MAPE" 
-        done
-    done
-done

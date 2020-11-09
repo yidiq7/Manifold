@@ -1,23 +1,50 @@
 import numpy as np
 import sympy as sp
-from manifold import *
 from mpmath import *
 from multiprocessing import Pool
 import time
 import tensorflow as tf
-#from loky import get_reusable_executor
 
-class Hypersurface(Manifold):
+class Hypersurface():
+    """ 
+    Numerically defined as a collection of points on a hypersurface. The points
+    are sperated into patches, which are also collectons of points. Therefore,
+    recursivelythe patches can also be represented by instances of Hypersurface. 
 
+                           Hypersurface
+                           /     |     \
+                       patch   patch    ...  (Also Hypersurface class)
+                      /  |  \  / | \   / | \
+               subpatch ..  ..  .. ..   .. .. 
+
+    Attribute:
+
+        coordinates: 
+          The homogeneous coordinates as a list of sympy symbols, e.g. 
+          z0, z1, z2, z3, z4= sp.symbols('z0, z1, z2, z3, z4')    
+          Z = [z0, z2, z3, z3, z4]
+        function: 
+          A function of the homogeneous coordiantes, e.g.
+          f = z0**5 + z1**5 + z2**5 + z3**5 + z4**5 + 0.5*z0*z1*z2*z3*z4 
+          The hypersurface is defined by f = 0
+        dimensions:
+  #### Need to change this to degree
+          The number of homogeneous coordiantes, not the dimensions of the
+          hypersurface.
+        norm_coordinate:
+          Applicable if the instance is a patch. An integer reprents the
+          index of the coordiante set to 1 on the affine patch. The 
+          corresponding coordiante is self.coordiante[self.norm_coordiante]
+          
+        
+    """
     def __init__(self, coordinates, function,
                  n_pairs=0, points=None, norm_coordinate=None,
                  max_grad_coordinate=None):
-        #super().__init__(dimensions) # Add one more variable for dimension
-        self.function = function
         self.coordinates = np.array(coordinates)
+        self.function = function
         self.dimensions = len(self.coordinates)
         self.norm_coordinate = norm_coordinate
-        # The symbolic coordiante is self.coordiante[self.norm_coordiante]
         self.max_grad_coordinate = max_grad_coordinate
         # Range 0 to n-2, this works only on subpatches where max grad is calculated
         # Symbolically self.affin_coordinate[self.max_grad_coordinate]
@@ -72,10 +99,6 @@ class Hypersurface(Manifold):
             point_normalized.append(coordinate_normalized)
         return point_normalized
 
-    def print_all_points(self):
-        print("All points on this hypersurface:")
-        print(self.points)
-
     def eval(self, expr, point):
         f = sp.lambdify(self.coordinates, expr)
         expr_evaluated = f(*point)
@@ -129,13 +152,6 @@ class Hypersurface(Manifold):
         else:
             for patch in self.patches:
                 summation += patch.sum_on_patch(f,numerical, tensor)
-
-            # if numerical is True:
-            #    for patch in self.patches:
-            #        summation += patch.sum_on_patch(f, numerical)
-            # else: 
-            #     with get_reusable_executor() as executor:
-            #     summation = sum(list(executor.map(lambda x: x.sum_on_patch(f, numerical), self.patches)))
 
         return summation
 
