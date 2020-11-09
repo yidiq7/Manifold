@@ -68,6 +68,8 @@ data_nn5 - 8000 point results
 data_nn6 - 16000 point results
 data_nn7 - 1000 point results
 
+script75 - redo 69 with different seed
+
 script70 - do FS k=4 using L-BFGS.
 
 script71 - try k=8 genutri version.
