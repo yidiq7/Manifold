@@ -68,7 +68,7 @@ HS_test = Hypersurface(Z, f, n_pairs)
 train_set = generate_dataset(HS)
 test_set = generate_dataset(HS_test)
 
-if batch_size is None or args.optimizer == 'lbfgs':
+if batch_size is None or args.optimizer.lower() == 'lbfgs':
     batch_size = HS.n_points
 
 train_set = train_set.shuffle(HS.n_points).batch(batch_size)
@@ -162,7 +162,7 @@ def cal_max_error(dataset):
 
 # Training
 start_time = time.time()
-if args.optimizer == 'lbfgs':
+if args.optimizer.lower() == 'lbfgs':
     # iter+1 everytime f is evoked, which will also be invoked when calculationg the hessian, etc
     # So the true max_epochs will be 3 times user's input
     max_epochs = int(max_epochs/3)
@@ -173,7 +173,7 @@ if args.optimizer == 'lbfgs':
     train_func.assign_new_model_parameters(results.position)
 
 else:
-    if args.optimizer == 'SGD':
+    if args.optimizer.lower() == 'sgd':
         optimizer = tf.keras.optimizers.SGD(args.learning_rate)
     else:
         lr_schedule = tf.keras.optimizers.schedules.ExponentialDecay(
