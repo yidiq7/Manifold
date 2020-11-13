@@ -158,7 +158,7 @@ class OuterProductNN_k4(tf.keras.Model):
 class k2_twolayers(tf.keras.Model):
 
     def __init__(self, n_units):
-        super(twolayers, self).__init__()
+        super(k2_twolayers, self).__init__()
         self.biholomorphic_k2 = Biholomorphic_k2()
         self.layer1 = Dense(15**2, n_units[0], activation=tf.square)
         self.layer2 = Dense(n_units[0], n_units[1], activation=tf.square)
@@ -176,7 +176,7 @@ class k2_twolayers(tf.keras.Model):
 class k2_threelayers(tf.keras.Model):
 
     def __init__(self, n_units):
-        super(threelayers, self).__init__()
+        super(k2_threelayers, self).__init__()
         self.biholomorphic_k2 = Biholomorphic_k2()
         self.layer1 = Dense(15**2, n_units[0], activation=tf.square)
         self.layer2 = Dense(n_units[0], n_units[1], activation=tf.square)
