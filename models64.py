@@ -154,15 +154,40 @@ class OuterProductNN_k4(tf.keras.Model):
             x = self.layer1(x)
             x = tf.math.log(x)
         return x
-'''
-class OuterProductNN(tf.keras.Model):
-   
-    def __init__(self, k):
-        super(OuterProductNN, self).__init__()
-        self.layer1 = OuterProduct(k)
+
+class k2_twolayers(tf.keras.Model):
+
+    def __init__(self, n_units):
+        super(twolayers, self).__init__()
+        self.biholomorphic_k2 = Biholomorphic_k2()
+        self.layer1 = Dense(15**2, n_units[0], activation=tf.square)
+        self.layer2 = Dense(n_units[0], n_units[1], activation=tf.square)
+        self.layer3 = Dense(n_units[1], 1)
 
     def call(self, inputs):
-        x = self.layer1(inputs)
+        x = self.biholomorphic_k2(inputs)
+        x = self.layer1(x)
+        x = self.layer2(x)
+        x = self.layer3(x)
         x = tf.math.log(x)
         return x
-'''
+
+
+class k2_threelayers(tf.keras.Model):
+
+    def __init__(self, n_units):
+        super(threelayers, self).__init__()
+        self.biholomorphic_k2 = Biholomorphic_k2()
+        self.layer1 = Dense(15**2, n_units[0], activation=tf.square)
+        self.layer2 = Dense(n_units[0], n_units[1], activation=tf.square)
+        self.layer3 = Dense(n_units[1], n_units[2], activation=tf.square)
+        self.layer4 = Dense(n_units[2], 1)
+
+    def call(self, inputs):
+        x = self.biholomorphic_k2(inputs)
+        x = self.layer1(x)
+        x = self.layer2(x)
+        x = self.layer3(x)
+        x = self.layer4(x)
+        x = tf.math.log(x)
+        return x

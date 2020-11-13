@@ -29,6 +29,7 @@ parser.add_argument('--alpha', type=float)
 # Network
 parser.add_argument('--OuterProductNN_k', type=int)
 parser.add_argument('--layers')
+parser.add_argument('--k2_as_first_layer', action='store_true')
 parser.add_argument('--load_model')
 parser.add_argument('--save_dir')
 parser.add_argument('--save_name')
@@ -82,34 +83,34 @@ else:
     for i in range(0, len(n_units)):
         n_units[i] = int(n_units[i])
     n_hidden = len(n_units) - 1
-    k = 2**n_hidden
+    if args.k2_as_first_layer is True: 
+        k = 2**(n_hidden+1)
+    else:
+        k = 2**n_hidden
 
-#model_name = layers + '_seed' + str(seed) 
+model_list_OuterProductNN = [OuterProductNN_k2, OuterProductNN_k3, OuterProductNN_k4]
+model_list_k2_as_first_layer = [k2_twolayers, k2_threelayers]
+model_list = [zerolayer, onelayer, twolayers, threelayers, fourlayers, fivelayers]
+
 load_path = args.load_model
 if load_path is not None:
     model = tf.keras.models.load_model(load_path, compile=False)
 elif args.OuterProductNN_k is not None:
-    if k == 2:
-        model = OuterProductNN_k2()  
-    elif k == 3:
-        model = OuterProductNN_k3()  
-    elif k == 4:
-        model = OuterProductNN_k4()  
-    else:
-        raise Exception("Only k = 2,3,4 are supported now")
-    #model = OuterProductNN(k)  
-elif n_hidden == 0:
-    model = zerolayer(n_units)
-elif n_hidden == 1:
-    model = onelayer(n_units)
-elif n_hidden == 2:
-    model = twolayers(n_units) 
-elif n_hidden == 3:
-    model = threelayers(n_units) 
-elif n_hidden == 4:
-    model = fourlayers(n_units) 
-elif n_hidden == 5:
-    model = fivelayers(n_units) 
+    try:
+        model = model_list_OuterProductNN[k-2]()
+    except IndexError: 
+        print("Error: Only k = 2,3,4 are supported now")
+elif args.k2_as_first_layer:
+    try:
+        model = model_list_k2_as_first_layer[n_hidden-2](n_units)
+    except IndexError:
+        print("Error: Only two and three layers are supported")
+else:
+    try:
+        model = model_list[n_hidden](n_units) 
+    except IndexError:
+        print("Error: Only k <= 32 is supported")
+
 
 max_epochs = args.max_epochs
 func_dict = {"weighted_MAPE": weighted_MAPE, "weighted_MSE": weighted_MSE, "max_error":max_error,
@@ -125,7 +126,6 @@ save_name = args.save_name
 
 @tf.function
 def volume_form(x, Omega_Omegabar, mass, restriction):
-
     kahler_metric = complex_hessian(tf.math.real(model(x)), x)
     volume_form = tf.math.real(tf.linalg.det(tf.matmul(restriction, tf.matmul(kahler_metric, restriction, adjoint_b=True))))
     weights = mass / tf.reduce_sum(mass)
@@ -206,7 +206,7 @@ else:
             #tf.print(model.tranable_weights) 
             #if step % 500 == 0:
             #    print("step %d: loss = %.4f" % (step, loss))
-        if epoch % 50 == 0:
+        if epoch % 10 == 0:
             sigma_max_train = cal_max_error(train_set) 
             sigma_max_test = cal_max_error(test_set) 
 

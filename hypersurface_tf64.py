@@ -472,7 +472,7 @@ class Hypersurface(Manifold):
         #    print('alpha: ', tf.reduce_min(alpha))
         return G
 
-    @tf.function
+    #@tf.function
     def num_FS_volume_form_tf(self, h_matrix, k=-1):
         kahler_metric = self.num_kahler_metric_tf(h_matrix, k)
         r_tf = self.r_tf
@@ -481,7 +481,7 @@ class Hypersurface(Manifold):
         FS_volume_form = tf.math.real(FS_volume_form)
         return FS_volume_form
 
-    @tf.function
+    #@tf.function
     def num_eta_tf(self, h_matrix):
         FS_volume_form = self.num_FS_volume_form_tf(h_matrix)
         Omega_Omegabar = self.Omega_Omegabar_tf

@@ -453,7 +453,7 @@ class Hypersurface():
         #r_tf = tf.convert_to_tensor(r)  
         return r_tf
 
-    @tf.function
+    #@tf.function
     def num_kahler_metric_tf(self, h_matrix, k=-1):
         if isinstance(h_matrix, str):
             if h_matrix == 'identity':
@@ -488,7 +488,7 @@ class Hypersurface():
         #    print('alpha: ', tf.reduce_min(alpha))
         return G
 
-    @tf.function
+    #@tf.function
     def num_FS_volume_form_tf(self, h_matrix, k=-1):
         kahler_metric = self.num_kahler_metric_tf(h_matrix, k)
         r_tf = self.r_tf
@@ -497,7 +497,7 @@ class Hypersurface():
         FS_volume_form = tf.math.real(FS_volume_form)
         return FS_volume_form
 
-    @tf.function
+    #@tf.function
     def num_eta_tf(self, h_matrix):
         FS_volume_form = self.num_FS_volume_form_tf(h_matrix)
         Omega_Omegabar = self.Omega_Omegabar_tf
