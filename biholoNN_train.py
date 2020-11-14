@@ -90,7 +90,8 @@ else:
         k = 2**n_hidden
 
 model_list_OuterProductNN = [OuterProductNN_k2, OuterProductNN_k3, OuterProductNN_k4]
-model_list_k2_as_first_layer = [k2_twolayers, k2_threelayers, k4_twolayers]
+model_list_k2_as_first_layer = [k2_twolayers, k2_threelayers]
+model_list_k4_as_first_layer = [k4_twolayers]
 model_list = [zerolayer, onelayer, twolayers, threelayers, fourlayers, fivelayers]
 
 load_path = args.load_model
@@ -106,6 +107,11 @@ elif args.k2_as_first_layer:
         model = model_list_k2_as_first_layer[n_hidden-2](n_units)
     except IndexError:
         print("Error: Only two and three layers are supported")
+elif args.k4_as_first_layer:
+    try:
+        model = model_list_k4_as_first_layer[n_hidden-2](n_units)
+    except IndexError:
+        print("Error: Only two layers is supported")
 else:
     try:
         model = model_list[n_hidden](n_units) 
