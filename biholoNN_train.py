@@ -30,6 +30,7 @@ parser.add_argument('--alpha', type=float)
 parser.add_argument('--OuterProductNN_k', type=int)
 parser.add_argument('--layers')
 parser.add_argument('--k2_as_first_layer', action='store_true')
+parser.add_argument('--k4_as_first_layer', action='store_true')
 parser.add_argument('--load_model')
 parser.add_argument('--save_dir')
 parser.add_argument('--save_name')
@@ -89,7 +90,7 @@ else:
         k = 2**n_hidden
 
 model_list_OuterProductNN = [OuterProductNN_k2, OuterProductNN_k3, OuterProductNN_k4]
-model_list_k2_as_first_layer = [k2_twolayers, k2_threelayers]
+model_list_k2_as_first_layer = [k2_twolayers, k2_threelayers, k4_twolayers]
 model_list = [zerolayer, onelayer, twolayers, threelayers, fourlayers, fivelayers]
 
 load_path = args.load_model

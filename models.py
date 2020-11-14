@@ -191,3 +191,21 @@ class k2_threelayers(tf.keras.Model):
         x = self.layer4(x)
         x = tf.math.log(x)
         return x
+
+class k4_twolayers(tf.keras.Model):
+
+    def __init__(self, n_units):
+        super(k4_twolayers, self).__init__()
+        self.biholomorphic_k4 = Biholomorphic_k4()
+        self.layer1 = Dense(70**2, n_units[0], activation=tf.square)
+        self.layer2 = Dense(n_units[0], n_units[1], activation=tf.square)
+        self.layer3 = Dense(n_units[1], 1)
+
+    def call(self, inputs):
+        x = self.biholomorphic_k4(inputs)
+        x = self.layer1(x)
+        x = self.layer2(x)
+        x = self.layer3(x)
+        x = tf.math.log(x)
+        return x
+
